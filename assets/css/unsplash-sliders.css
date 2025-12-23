@@ -1,0 +1,291 @@
+/* Unsplash sliders (TABATATIMER.RU) */
+
+/* Slider block */
+.unsplash-slider-block {
+  margin: 1.2rem 0 1.6rem;
+  padding: 0;
+}
+
+.unsplash-slider-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 10px 10px;
+}
+
+.unsplash-slider-title {
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.unsplash-slider-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.unsplash-slider-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.95);
+  height: 36px;
+  width: 44px;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.unsplash-slider-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.unsplash-slider {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.unsplash-slider-viewport {
+  position: relative;
+  width: 100%;
+  /* matches wide hero proportions */
+  aspect-ratio: 3 / 1;
+  background: rgba(0, 0, 0, 0.25);
+  touch-action: pan-y;
+  overflow: hidden; /* Hide images during swipe */
+}
+
+.unsplash-slider-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transform: translate3d(-33.333%, 0, 0);
+  will-change: transform;
+}
+
+.unsplash-slider-slide {
+  flex: 0 0 33.333%;
+  height: 100%;
+}
+
+.unsplash-slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: translateZ(0);
+  transition: opacity 180ms ease-in-out, transform 0.3s ease-out;
+  transform-origin: center center;
+  will-change: transform; /* Optimize for smooth animations */
+}
+
+.unsplash-slider-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.unsplash-slider-attrib {
+  flex: 1;
+  text-align: right;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Lightbox */
+.unsplash-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+}
+
+.unsplash-lightbox.is-open {
+  display: block;
+}
+
+html.unsplash-lightbox-open,
+body.unsplash-lightbox-open {
+  overflow: hidden;
+}
+
+/* Prevent "click through" to underlying article (.close sets location.hash='') */
+body.unsplash-lightbox-open #wrapper,
+body.unsplash-lightbox-open #main,
+body.unsplash-lightbox-open #header,
+body.unsplash-lightbox-open #footer {
+  pointer-events: none;
+}
+
+body.unsplash-lightbox-open .unsplash-lightbox {
+  pointer-events: auto;
+}
+
+.unsplash-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.unsplash-lightbox-frame {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.unsplash-lightbox-viewport {
+  width: min(1100px, 96vw);
+  height: min(760px, 82vh);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  touch-action: pan-y;
+  position: relative;
+}
+
+.unsplash-lightbox-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transform: translate3d(-33.333%, 0, 0);
+  will-change: transform;
+}
+
+.unsplash-lightbox-slide {
+  flex: 0 0 33.333%;
+  height: 100%;
+}
+
+.unsplash-lightbox-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transform: translate(0px, 0px) scale(1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.unsplash-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px; /* Ensure minimum touch target size on mobile */
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: transparent; /* hide "Close" text, keep for a11y/consistency */
+  cursor: pointer;
+  text-indent: 9999px;
+  overflow: hidden;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: none;
+  z-index: 10001; /* Ensure button is above other elements */
+  pointer-events: auto; /* Ensure button is clickable */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1); /* Mobile tap feedback */
+  touch-action: manipulation; /* Disable double-tap zoom on mobile */
+}
+
+.unsplash-lightbox-close:before {
+  transition: opacity 0.2s ease-in-out;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+.unsplash-lightbox-close:hover:before,
+.unsplash-lightbox-close:focus:before {
+  opacity: 1;
+}
+
+.unsplash-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  box-shadow: none;
+}
+
+.unsplash-lightbox-nav:hover,
+.unsplash-lightbox-nav:focus {
+  opacity: 0.85;
+  transform: translateY(-50%) scale(1.02);
+}
+
+.unsplash-lightbox-prev {
+  left: 12px;
+}
+
+.unsplash-lightbox-next {
+  right: 12px;
+}
+
+/* На мобильных стрелки прячем (листать нужно свайпом) */
+@media (hover: none), (pointer: coarse) {
+  .unsplash-lightbox-nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .unsplash-slider-viewport {
+    aspect-ratio: 16 / 9;
+  }
+  .unsplash-slider-title {
+    letter-spacing: 0.18em;
+  }
+}
+
+

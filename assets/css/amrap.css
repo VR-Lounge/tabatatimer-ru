@@ -1,0 +1,1794 @@
+/* AMRAP таймер – компактный интерфейс под смартфоны */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#amrap-timer-container {
+    display: none;
+    width: 100%;
+    max-width: 420px;
+    margin: 25px auto 0;
+    padding: 0px;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+}
+
+body.amrap-active #amrap-timer-container {
+    display: block;
+}
+
+body.amrap-active #tt_timer_wrap,
+body.amrap-active #tt_main_end_wrap,
+body.amrap-active #controls > li,
+body.amrap-active #controls > center,
+body.amrap-active #playlistField,
+body.amrap-active #resetbutton,
+body.amrap-active #pausebutton,
+body.amrap-active #startbutton {
+    display: none !important;
+}
+
+/* Радио внутри карточки AMRAP не требует отдельных margin */
+body.amrap-active .amrap-card-container #radio {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Отступы между селекторами режимов в AMRAP такие же, как в других режимах */
+/* Убрано правило margin-bottom: 0, чтобы использовать стандартные отступы */
+
+/* Обертка для таймера и счётчика раундов в один ряд */
+#amrap-timer-row-wrapper {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+/* Описание выбранной тренировки под блоками */
+#amrap-workout-description {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+}
+
+/* Стили для amrap-countdown-card в tt_controls_wrap */
+#amrap-countdown-card-wrapper {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#amrap-rounds-widget-top {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Стили .amrap-panel удалены, элементы теперь напрямую в #amrap-timer-container */
+
+.amrap-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.amrap-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 4px;
+    text-align: center;
+    line-height: 1;
+}
+
+.amrap-title {
+    font-size: 26px;
+    margin: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.amrap-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 16px 0 20px;
+}
+
+.amrap-link-btn {
+    color: rgba(122, 245, 255, 0.6);
+    background: transparent;
+    border-radius: 14px;
+    padding: 0 18px;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.amrap-link-btn:hover,
+.amrap-link-btn:active {
+    color: #7af5ff;
+    background: rgba(122, 245, 255, 0.15);
+}
+
+.amrap-countdown-card {
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(150deg, rgba(123, 245, 255, 0.12), rgba(27, 25, 43, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.amrap-timer-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.amrap-phase-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: none;
+}
+
+.amrap-status-pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 12px;
+}
+
+.amrap-phase-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.amrap-countdown {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 120px;
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.1;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amrap-workout-description {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    position: relative;
+}
+
+.amrap-workout-description strong {
+    color: #7af5ff;
+    font-weight: 600;
+}
+
+/* Крестик для закрытия описания тренировки AMRAP */
+.amrap-workout-description-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amrap-workout-description:hover .amrap-workout-description-close {
+    opacity: 1;
+}
+
+.amrap-workout-description-close:hover {
+    color: rgba(122, 245, 255, 1);
+}
+
+.amrap-workout-description-close:active {
+    color: rgba(122, 245, 255, 0.8);
+}
+
+/* Карточка для AMRAP (радио + селекторы + кнопки) */
+.amrap-card-container {
+    margin-top: 15px;
+    padding: 20px 20px 15px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.amrap-card-container #radio {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.amrap-selects-wrapper {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.amrap-select-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.amrap-buttons-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0 0 0;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Десктоп: селекторы над кнопками (как в мобильной версии) */
+@media (min-width: 1024px) {
+    .amrap-selects-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        margin: 24px 0 !important;
+    }
+    
+    .amrap-select-row {
+        margin: 0 !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        order: 1 !important;
+    }
+    
+    .amrap-buttons-row {
+        margin: 0 !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        order: 2 !important;
+    }
+    
+    /* Убираем разделитель через псевдоэлемент, так как теперь селекторы над кнопками */
+    .amrap-select-row::after {
+        display: none !important;
+    }
+}
+
+.amrap-select label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.amrap-select {
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.amrap-select select {
+    width: 100%;
+    min-width: 80px;
+    max-width: 120px;
+    padding: 0;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+    text-align-last: center;
+    line-height: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    direction: ltr;
+    vertical-align: middle;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.amrap-select-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+}
+
+.amrap-buttons-row .amrap-select-divider {
+    font-size: 18px;
+    height: auto;
+    padding: 0 10px;
+    flex: 0 0 auto;
+}
+
+
+.amrap-select select option {
+    text-align: center;
+    text-align-last: center;
+    padding: 8px;
+    direction: ltr;
+}
+
+.amrap-select select:disabled {
+    opacity: 0.35;
+}
+
+/* Стили для селекторов минут и секунд AMRAP */
+#amrap-minutes-select,
+#amrap-seconds-select {
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+}
+
+.amrap-rounds-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+}
+
+.amrap-rounds-widget:not(.disabled):hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.amrap-rounds-widget:not(.disabled):active {
+    transform: scale(0.98);
+}
+
+.amrap-rounds-widget.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.amrap-rounds-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.amrap-round-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.amrap-round-button-text {
+    width: 100%;
+    padding: 20px 16px;
+    min-height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(120deg, #7af5ff, #00a8d6);
+    color: #0b111b;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 168, 214, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.amrap-rounds-widget:not(.disabled):hover .amrap-round-button-text {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 168, 214, 0.35);
+}
+
+.amrap-rounds-widget.disabled .amrap-round-button-text {
+    opacity: 0.4;
+    box-shadow: none;
+}
+
+/* Стили для .amrap-rounds-widget div перенесены в .amrap-rounds-info */
+
+.amrap-rounds-count {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+}
+
+.amrap-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 22px 0 18px;
+    width: 100%;
+}
+
+.amrap-controls .amrap-button {
+    border-radius: 14px;
+    padding: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    border: none;
+    box-shadow: none !important; /* Убираем белую окантовку */
+    cursor: pointer;
+    font-size: 12px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px; /* Добавляем минимальную высоту */
+}
+
+.amrap-button.primary {
+    background: linear-gradient(90deg, #2a2a29, #ff416c);
+    color: #1d0f18;
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    /* Эффект переливания (shine) */
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    mask-size: 200%;
+    animation: amrap-shine 2s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.amrap-button.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.amrap-button.dark {
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.amrap-button.success {
+    background: linear-gradient(90deg, #7ef29d, #29d97b);
+    color: #0c2817;
+}
+
+.amrap-controls .amrap-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.amrap-controls .amrap-button:not(:disabled):hover {
+    transform: translateY(-1px);
+}
+
+.amrap-results-card {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.amrap-results-card.is-visible {
+    display: flex;
+}
+
+.amrap-results-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.amrap-summary-item {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.amrap-summary-item strong {
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 4px;
+}
+
+.amrap-rounds-history {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.amrap-round-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 14px;
+}
+
+.amrap-round-item:last-child {
+    border-bottom: none;
+}
+
+.amrap-round-best {
+    color: #7ef29d;
+}
+
+.amrap-round-worst {
+    color: #ff8f70;
+}
+
+/* Модальное окно пресетов */
+#amrap-workouts-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#amrap-workouts-modal.is-open {
+    display: block;
+}
+
+.amrap-workouts-dialog {
+    position: relative;
+    background-color: rgba(27, 31, 34, 0.85);
+    margin: 30px auto;
+    padding: 20px;
+    border: none;
+    width: 93%;
+    max-width: 1200px;
+    max-height: calc(100vh - 60px);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.0);
+    animation: slideIn 0.3s ease-out;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.amrap-workouts-head {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amrap-workouts-head h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-right: 50px;
+    flex: 1;
+    min-width: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.amrap-workouts-head .amrap-label {
+    display: none; /* Скрываем label, так как заголовок уже содержит всю информацию */
+}
+
+.amrap-workouts-subtitle {
+    padding: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+.amrap-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-weight: normal;
+    z-index: 10;
+}
+
+.amrap-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.amrap-workouts-grid {
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+    min-height: 0;
+}
+
+.amrap-workouts-grid button {
+    padding: 12px 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.amrap-workouts-grid button:hover {
+    background: rgba(122, 245, 255, 0.1);
+    border-color: rgba(122, 245, 255, 0.6);
+}
+
+.amrap-workouts-grid button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+body.amrap-modal-open {
+    overflow: hidden;
+}
+
+/* Модальное окно выбора тренировок */
+#amrap-workouts-select-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#amrap-workouts-select-modal.is-open {
+    display: block;
+}
+
+.amrap-workouts-select-dialog {
+    position: relative;
+    background-color: rgba(27, 31, 34, 0.85);
+    margin: 30px auto;
+    padding: 20px;
+    border: none;
+    width: 93%;
+    max-width: 1200px;
+    max-height: calc(100vh - 60px);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.0);
+    animation: slideIn 0.3s ease-out;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.amrap-workouts-select-head {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amrap-workouts-select-head h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-right: 50px;
+    flex: 1;
+    min-width: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.amrap-workouts-select-head .amrap-label {
+    display: none; /* Скрываем label, так как заголовок уже содержит всю информацию */
+}
+
+.amrap-workouts-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    min-height: 0;
+}
+
+.amrap-workout-card {
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.amrap-workout-card:hover {
+    background: rgba(122, 245, 255, 0.1);
+    border-color: rgba(122, 245, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.amrap-workout-card.active {
+    background: rgba(122, 245, 255, 0.15);
+    border-color: rgba(122, 245, 255, 0.6);
+}
+
+.amrap-workout-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #7af5ff;
+}
+
+.amrap-workout-card-time {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+}
+
+.amrap-workout-card-exercises {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+/* Адаптивные стили для модального окна тренировок */
+@media screen and (max-width: 768px) {
+    .amrap-workouts-select-dialog,
+    .amrap-workouts-dialog {
+        width: 93%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+    
+    .amrap-workouts-select-head h4,
+    .amrap-workouts-head h4 {
+        font-size: 1.2em;
+    }
+    
+    .amrap-workouts-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .amrap-workout-card {
+        padding: 16px;
+    }
+    
+}
+
+/* Десктоп (большие экраны) */
+@media (min-width: 1024px) {
+    #amrap-timer-container {
+        max-width: 600px;
+        margin: 40px auto 0;
+        padding: 0px;
+    }
+    
+    #amrap-timer-row-wrapper {
+        max-width: 600px;
+        gap: 20px;
+    }
+    
+    .amrap-card-container {
+        max-width: 600px;
+        padding: 20px 24px 15px 24px;
+    }
+    
+    #amrap-workout-description {
+        max-width: 600px;
+    }
+    
+    #amrap-countdown-card-wrapper {
+        flex: 1;
+    }
+    
+    #amrap-rounds-widget-top {
+        flex: 1;
+    }
+    
+    .amrap-title {
+        font-size: 32px;
+    }
+    
+    .amrap-countdown {
+        font-size: 110px;
+    }
+    
+    .amrap-workout-description {
+        margin-top: 16px;
+        padding: 14px;
+        font-size: 13px;
+    }
+    
+    .amrap-selects-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 16px !important;
+    }
+    
+    .amrap-select-row {
+        gap: 12px !important;
+        flex-wrap: wrap !important;
+        margin: 0 !important;
+        justify-content: center !important;
+        order: 1 !important;
+    }
+    
+    .amrap-buttons-row {
+        gap: 0 !important;
+        margin: 0 !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        order: 2 !important;
+    }
+    
+    /* Убираем разделитель через псевдоэлемент, так как теперь селекторы над кнопками */
+    .amrap-select-row::after {
+        display: none !important;
+    }
+    
+    .amrap-select select {
+        min-width: 70px;
+        max-width: 100px;
+        font-size: 26px;
+        height: 52px;
+        line-height: 52px;
+        padding: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+        vertical-align: middle;
+    }
+    
+    .amrap-link-btn {
+        height: 52px;
+        line-height: 52px;
+        padding: 0 18px;
+        box-sizing: border-box;
+    }
+    
+    .amrap-round-button-text {
+        font-size: 26px;
+        padding: 22px 18px;
+        min-height: 64px;
+    }
+    
+    .amrap-rounds-count {
+        font-size: 56px;
+    }
+    
+    .amrap-controls .amrap-button {
+        font-size: 13px;
+        padding: 20px 16px; /* Увеличиваем вертикальный padding */
+        min-height: 70px; /* Увеличиваем минимальную высоту для десктопа */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .amrap-button.primary {
+        font-size: 22px;
+        letter-spacing: 0.5em;
+        font-weight: 700;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .amrap-button.secondary,
+    .amrap-button.dark {
+        font-size: 22px;
+        letter-spacing: 0.5em;
+        font-weight: 700;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .amrap-results-summary {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+    }
+    
+    .amrap-summary-item {
+        font-size: 12px;
+    }
+    
+    .amrap-summary-item strong {
+        font-size: 18px;
+    }
+}
+
+/* Планшеты (средние экраны) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #amrap-timer-container {
+        max-width: 520px;
+        margin: 30px auto 0;
+        padding: 0px;
+    }
+    
+    #amrap-workout-description {
+        max-width: 520px;
+    }
+    
+    .amrap-card-container {
+        max-width: 520px;
+        padding: 20px 20px 15px 20px;
+        border-radius: 18px;
+    }
+    
+    .amrap-title {
+        font-size: 28px;
+    }
+    
+    .amrap-countdown {
+        font-size: 80px;
+    }
+    
+    .amrap-workout-description {
+        margin-top: 14px;
+        padding: 12px;
+        font-size: 12px;
+    }
+    
+    .amrap-select select {
+        font-size: 22px;
+        height: 50px;
+    }
+    
+    .amrap-round-button-text {
+        font-size: 25px;
+        padding: 20px 16px;
+        min-height: 60px;
+    }
+    
+    .amrap-rounds-count {
+        font-size: 50px;
+    }
+    
+    .amrap-results-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+/* Мобильные устройства (малые экраны) */
+@media (max-width: 767px) {
+    #amrap-timer-container {
+        max-width: 100%;
+        margin: 15px auto 0;
+        padding: 0px;
+    }
+    
+    .amrap-card-container {
+        max-width: 100%;
+        border-radius: 16px;
+        gap: 12px;
+        padding: 20px 16px 15px 16px;
+    }
+    
+    .amrap-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .amrap-title {
+        font-size: 22px;
+    }
+    
+    .amrap-description {
+        font-size: 13px;
+        margin: 12px 0 16px;
+    }
+    
+    .amrap-countdown-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .amrap-countdown {
+        font-size: 80px;
+    }
+    
+    #amrap-timer-row-wrapper {
+        max-width: 100%;
+        gap: 12px;
+    }
+    
+    #amrap-workout-description {
+        max-width: 100%;
+    }
+    
+    #amrap-countdown-card-wrapper {
+        flex: 1;
+    }
+    
+    #amrap-rounds-widget-top {
+        flex: 1;
+    }
+    
+    .amrap-selects-wrapper {
+        margin: 0.5rem 0;
+    }
+    
+    .amrap-select-row {
+        gap: 10px;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .amrap-buttons-row {
+        gap: 8px;
+        margin: 14px 0 0 0;
+    }
+    
+    .amrap-buttons-row .amrap-select-divider {
+        font-size: 16px;
+        padding: 0 8px;
+    }
+    
+    .amrap-select select {
+        min-width: 65px;
+        max-width: 90px;
+        font-size: 20px;
+        height: 44px;
+        line-height: 44px;
+        padding: 0;
+        padding-left: 12px;
+        padding-right: 12px;
+        vertical-align: middle;
+    }
+    
+    .amrap-link-btn {
+        height: 44px;
+        line-height: 44px;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+    
+    .amrap-select label {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+    
+    .amrap-rounds-widget {
+        padding: 14px;
+        gap: 12px;
+    }
+    
+    #amrap-rounds-widget-top {
+        margin-bottom: 24px;
+    }
+    
+    .amrap-round-button-text {
+        font-size: 22px;
+        padding: 18px 14px;
+        min-height: 56px;
+    }
+    
+    .amrap-rounds-count {
+        font-size: 42px;
+    }
+    
+    .amrap-controls {
+        gap: 10px;
+        margin: 18px 0 16px;
+    }
+    
+    .amrap-controls .amrap-button {
+        font-size: 11px;
+        padding: 12px;
+        border-radius: 14px;
+    }
+    
+    .amrap-controls .amrap-button.primary,
+    .amrap-button.primary {
+        font-size: 20px;
+        letter-spacing: 0.45em;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .amrap-button.secondary,
+    .amrap-button.dark {
+        font-size: 18px;
+        letter-spacing: 0.45em;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .amrap-results-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .amrap-results-summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .amrap-summary-item {
+        font-size: 10px;
+    }
+    
+    .amrap-summary-item strong {
+        font-size: 14px;
+    }
+    
+    .amrap-rounds-history {
+        max-height: 180px;
+    }
+    
+    .amrap-round-item {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+    
+    .amrap-workouts-dialog {
+        padding: 15px;
+    }
+    
+    .amrap-workouts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 8px;
+        max-height: 50vh;
+    }
+    
+    .amrap-workouts-grid button {
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    #amrap-timer-container {
+        padding: 0px;
+        margin: 10px auto 0;
+    }
+    
+    .amrap-title {
+        font-size: 20px;
+    }
+    
+    .amrap-description {
+        font-size: 12px;
+    }
+    
+    .amrap-countdown {
+        font-size: 60px;
+    }
+    
+    .amrap-workout-description {
+        margin-top: 12px;
+        padding: 10px;
+    }
+    
+    #amrap-timer-row-wrapper {
+        max-width: 100%;
+        gap: 10px;
+    }
+    
+    #amrap-workout-description {
+        max-width: 100%;
+    }
+    
+    #amrap-countdown-card-wrapper {
+        flex: 1;
+    }
+    
+    #amrap-rounds-widget-top {
+        flex: 1;
+    }
+    
+    .amrap-selects-wrapper {
+        margin: 0.5rem 0;
+    }
+    
+    .amrap-select-row {
+        gap: 8px;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .amrap-buttons-row {
+        gap: 6px;
+        margin: 12px 0 0 0;
+    }
+    
+    .amrap-buttons-row .amrap-select-divider {
+        font-size: 14px;
+        padding: 0 6px;
+    }
+    
+    .amrap-select select {
+        min-width: 60px;
+        max-width: 80px;
+    }
+    
+    .amrap-select-divider {
+        font-size: 20px;
+        line-height: 44px;
+        padding: 0 6px;
+    }
+    
+    .amrap-link-btn {
+        height: 42px;
+        line-height: 42px;
+        padding: 0 14px;
+        box-sizing: border-box;
+    }
+    
+    .amrap-select select {
+        min-width: 60px;
+        max-width: 80px;
+        font-size: 18px;
+        height: 42px;
+        line-height: 42px;
+        padding: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        vertical-align: middle;
+    }
+    
+    .amrap-rounds-widget {
+        padding: 12px;
+    }
+    
+    #amrap-rounds-widget-top {
+        max-width: 100%;
+        margin-bottom: 0px;
+    }
+    
+    .amrap-round-button-text {
+        font-size: 20px;
+        padding: 16px 12px;
+        min-height: 52px;
+    }
+    
+    .amrap-rounds-count {
+        font-size: 38px;
+    }
+    
+    .amrap-controls .amrap-button {
+        font-size: 10px;
+        padding: 10px;
+    }
+    
+    .amrap-button.primary {
+        font-size: 16px;
+        letter-spacing: 0.4em;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .amrap-button.secondary,
+    .amrap-button.dark {
+        font-size: 16px;
+        letter-spacing: 0.4em;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .amrap-workouts-dialog {
+        padding: 16px;
+    }
+    
+    .amrap-workouts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        gap: 6px;
+    }
+}
+
+/* Стили для результатов AMRAP в экране с цитатами */
+#amrap-results-in-quotes {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#amrap-results-summary-in-quotes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#amrap-results-in-quotes > div:first-child {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#amrap-results-in-quotes > div > div {
+    text-align: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+#amrap-results-in-quotes > div > div > div:first-child {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 6px;
+}
+
+#amrap-total-rounds-in-quotes {
+    font-size: 28px;
+    font-weight: 700;
+    color: #7af5ff;
+}
+
+#amrap-best-round-in-quotes,
+#amrap-worst-round-in-quotes,
+#amrap-total-time-in-quotes {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#amrap-rounds-history-in-quotes {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#amrap-rounds-history-in-quotes .amrap-round-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin-bottom: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* Адаптивные стили для результатов AMRAP в экране с цитатами */
+@media (min-width: 1024px) {
+    #amrap-results-summary-in-quotes {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+    
+    #amrap-results-in-quotes {
+        padding: 20px;
+    }
+    
+    #amrap-results-in-quotes > div > div > div:first-child {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    #amrap-total-rounds-in-quotes {
+        font-size: 32px;
+    }
+    
+    #amrap-best-round-in-quotes,
+    #amrap-worst-round-in-quotes,
+    #amrap-total-time-in-quotes {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #amrap-results-summary-in-quotes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #amrap-results-summary-in-quotes {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    #amrap-results-in-quotes {
+        padding: 14px;
+        margin-top: 16px;
+    }
+    
+    #amrap-results-in-quotes > div > div > div:first-child {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    #amrap-total-rounds-in-quotes {
+        font-size: 24px;
+    }
+    
+    #amrap-best-round-in-quotes,
+    #amrap-worst-round-in-quotes,
+    #amrap-total-time-in-quotes {
+        font-size: 16px;
+    }
+    
+    #amrap-rounds-history-in-quotes {
+        max-height: 150px;
+    }
+}
+
+/* Стили для прогресс-бара в режиме AMRAP */
+body.amrap-active #progress-bar-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto 15px;
+}
+
+@media (min-width: 1024px) {
+    body.amrap-active #progress-bar-container {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    body.amrap-active #progress-bar-container {
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 767px) {
+    body.amrap-active #progress-bar-container {
+        max-width: 100%;
+    }
+}
+
+/* Стили для отметок раундов на прогресс-баре */
+.progress-bar-container {
+    position: relative;
+}
+
+.amrap-round-marker-container {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.amrap-round-marker-line {
+    width: 2px;
+    height: 8px;
+    background-color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.amrap-round-marker-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.8); /* Серый фон */
+    color: #ffffff; /* Белый текст */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.amrap-round-marker-container:hover .amrap-round-marker-circle {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    background-color: rgba(128, 128, 128, 1); /* Более яркий серый при наведении */
+}
+
+/* Адаптивность для отметок на мобильных устройствах */
+@media (max-width: 767px) {
+    .amrap-round-marker-circle {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+    
+    .amrap-round-marker-line {
+        height: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .amrap-round-marker-circle {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+    
+    .amrap-round-marker-line {
+        height: 5px;
+        width: 1.5px;
+    }
+}
+
+/* Стили для списка информации о раундах под прогресс-баром */
+.amrap-rounds-info-list {
+    width: 100%;
+    max-width: 420px;
+    margin: 10px auto 20px;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.amrap-round-info-item {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 4px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    line-height: 1.4;
+    display: inline-block;
+}
+
+@media (min-width: 1024px) {
+    .amrap-rounds-info-list {
+        max-width: 600px;
+    }
+    
+    .amrap-round-info-item {
+        font-size: 13px;
+        padding: 5px 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .amrap-rounds-info-list {
+        max-width: 520px;
+    }
+    
+    .amrap-round-info-item {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .amrap-rounds-info-list {
+        max-width: 100%;
+        padding: 0 10px;
+        gap: 5px;
+    }
+    
+    .amrap-round-info-item {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .amrap-rounds-info-list {
+        gap: 4px;
+    }
+    
+    .amrap-round-info-item {
+        font-size: 10px;
+        padding: 3px 7px;
+        border-radius: 10px;
+    }
+}
+
+/* Анимация переливания для кнопки AMRAP */
+@keyframes amrap-shine {
+    from { 
+        -webkit-mask-position: 150%;
+        mask-position: 150%; 
+    }
+    to { 
+        -webkit-mask-position: -50%;
+        mask-position: -50%; 
+    }
+}
+

@@ -1,0 +1,35 @@
+# GitHub Pages Configuration для tabatatimer.ru
+# Этот файл настраивает базовые параметры для GitHub Pages
+
+# Базовый URL сайта
+baseurl: ""
+url: "https://tabatatimer.ru"
+
+# Настройки плагинов (если будут использоваться Jekyll плагины)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Настройки для SEO
+title: "ТАБАТА ТАЙМЕР с музыкой"
+description: "Стильный и удобный ОНЛАЙН СЕКУНДОМЕР с музыкой для интервальных тренировок TABATA, HIIT, AMRAP и EMOM"
+author: "TABATATIMER.RU"
+
+# Настройки исключений (файлы, которые Jekyll не должен обрабатывать)
+exclude:
+  - README.md
+  - .gitignore
+  - node_modules
+  - package.json
+  - package-lock.json
+
+# Включить обработку всех файлов (включая HTML без front matter)
+include:
+  - .htaccess
+
+# Настройки для статических файлов
+keep_files:
+  - assets
+  - images
+  - ai-training-module
+

@@ -1,0 +1,65 @@
+<!-- HTML структура для интеграции модуля AI-тренинга -->
+<!-- Скопируйте этот код в тело вашей HTML страницы -->
+
+<!-- Карточка AI-тренинга -->
+<div class="mediapipe-ui-card">
+    <div class="mediapipe-ui-meta">
+        <div class="mediapipe-ui-title">Включи AI-тренинг</div>
+        <div class="mediapipe-ui-tags">
+            <span class="mediapipe-chip" data-exercise="squat" style="cursor: pointer;">Приседания</span>
+            <span class="mediapipe-chip" data-exercise="pushup" style="cursor: pointer;">Отжимания</span>
+            <span class="mediapipe-chip" data-exercise="plank" style="cursor: pointer;">Планка</span>
+            <span class="mediapipe-chip" data-exercise="wallsit" style="cursor: pointer;">Стульчик</span>
+        </div>
+    </div>
+    <p class="mediapipe-ui-description">AI-тренер анализирует твою технику в реальном времени и считает правильные повторения. Выбери упражнение и начни тренировку!</p>
+    
+    <div class="mediapipe-ui-actions">
+        <button id="mediapipe-toggle-btn" class="mediapipe-toggle-btn">Включи AI-тренинг</button>
+        
+        <div class="select-wrapper">
+            <select name="mediapipe-exercise" id="mediapipe-exercise-select">
+                <option value="squat" selected>Приседания</option>
+                <option value="pushup">Отжимания</option>
+                <option value="plank">Планка</option>
+                <option value="wallsit">Стульчик</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Контейнер для видео и canvas -->
+    <div id="mediapipe-container" class="mediapipe-container">
+        <video id="mediapipe-video" class="mediapipe-video" autoplay playsinline></video>
+        <canvas id="mediapipe-canvas" class="mediapipe-canvas"></canvas>
+        
+        <div class="mediapipe-stats">
+            <div class="mediapipe-current-score" id="mediapipe-current-score">0</div>
+            <div class="mediapipe-score-label" id="mediapipe-score-label">Приседание</div>
+            
+            <div class="mediapipe-reps">
+                <span class="mediapipe-reps-label">Повторов:</span>
+                <span class="mediapipe-reps-value" id="mediapipe-reps-value">0</span>
+            </div>
+            
+            <div class="mediapipe-average">
+                <span class="mediapipe-average-label">Средний балл:</span>
+                <span class="mediapipe-average-value" id="mediapipe-average-value">0</span>
+            </div>
+        </div>
+        
+        <div id="mediapipe-rep-notification" class="mediapipe-rep-notification"></div>
+        
+        <!-- Подсказки по позиционированию перед камерой -->
+        <div id="mediapipe-position-hint" class="mediapipe-position-hint">
+            <div class="position-hint-icon"></div>
+            <div class="position-hint-message"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+ПРИМЕЧАНИЕ: 
+Модальные окна (summary, technique, privacy) создаются динамически через JavaScript,
+поэтому их не нужно добавлять в HTML вручную.
+-->
+

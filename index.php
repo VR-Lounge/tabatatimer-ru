@@ -1,0 +1,3686 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<?php
+$zaschita = md5(md5(time())."tabata");
+$vremya = md5(time());
+ ?>
+
+<html lang="ru">
+	<head>
+		<title>ТАБАТА ТАЙМЕР с музыкой</title>
+	
+        <meta name="description" content="Стильный и удобный ОНЛАЙН СЕКУНДОМЕР с музыкой для интервальных тренировок TABATA, HIIT, AMRAP и EMOM . Более 200 упражнений и тренировок для женщин и мужчин.  Отлично работает. Прост в использовании.">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- SEO Meta Tags -->
+		<meta name="keywords" content="табата таймер, табата, hiit, amrap, emom, интервальные тренировки, онлайн секундомер, тренировки дома, фитнес, упражнения, табата с музыкой, табата онлайн, табата тренировка">
+		<meta name="author" content="TABATATIMER.RU">
+		<meta name="robots" content="index, follow">
+		<meta name="language" content="Russian">
+		<meta name="revisit-after" content="7 days">
+		<link rel="canonical" href="https://tabatatimer.ru/">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://tabatatimer.ru/">
+		<meta property="og:title" content="ТАБАТА ТАЙМЕР с музыкой - Онлайн секундомер для интервальных тренировок">
+		<meta property="og:description" content="Стильный и удобный ОНЛАЙН СЕКУНДОМЕР с музыкой для интервальных тренировок TABATA, HIIT, AMRAP и EMOM. Более 200 упражнений и тренировок для женщин и мужчин. Отлично работает. Прост в использовании.">
+		<meta property="og:image" content="https://tabatatimer.ru/images/og-image.jpg">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:locale" content="ru_RU">
+		<meta property="og:site_name" content="TABATATIMER.RU">
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:url" content="https://tabatatimer.ru/">
+		<meta name="twitter:title" content="ТАБАТА ТАЙМЕР с музыкой - Онлайн секундомер для интервальных тренировок">
+		<meta name="twitter:description" content="Стильный и удобный ОНЛАЙН СЕКУНДОМЕР с музыкой для интервальных тренировок TABATA, HIIT, AMRAP и EMOM. Более 200 упражнений и тренировок.">
+		<meta name="twitter:image" content="https://tabatatimer.ru/images/og-image.jpg">
+		
+		<!-- Schema.org JSON-LD -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "ТАБАТА ТАЙМЕР с музыкой",
+			"description": "Стильный и удобный ОНЛАЙН СЕКУНДОМЕР с музыкой для интервальных тренировок TABATA, HIIT, AMRAP и EMOM. Более 200 упражнений и тренировок для женщин и мужчин.",
+			"url": "https://tabatatimer.ru/",
+			"applicationCategory": "HealthApplication",
+			"operatingSystem": "Web Browser",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "RUB"
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.8",
+				"ratingCount": "1250"
+			},
+			"featureList": [
+				"Таймер для тренировок TABATA",
+				"Таймер для тренировок HIIT",
+				"Таймер для тренировок AMRAP",
+				"Таймер для тренировок EMOM",
+				"Более 200 упражнений",
+				"Фоновая музыка для тренировок",
+				"Радиостанции для тренировок",
+				"Готовые программы тренировок"
+			],
+			"browserRequirements": "Requires JavaScript. Requires HTML5.",
+			"softwareVersion": "1.8",
+			"releaseNotes": "Онлайн секундомер для интервальных тренировок с музыкой",
+			"screenshot": "https://tabatatimer.ru/images/og-image.jpg",
+			"author": {
+				"@type": "Organization",
+				"name": "TABATATIMER.RU",
+				"url": "https://tabatatimer.ru/"
+			}
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "TABATATIMER.RU",
+			"url": "https://tabatatimer.ru/",
+			"logo": "https://tabatatimer.ru/images/logo.png",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"email": "admin@tabatatimer.ru",
+				"contactType": "customer service"
+			},
+			"sameAs": []
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Главная",
+					"item": "https://tabatatimer.ru/"
+				}
+			]
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "ТАБАТА ТАЙМЕР с музыкой",
+			"description": "Онлайн секундомер для интервальных тренировок TABATA, HIIT, AMRAP и EMOM с музыкой",
+			"url": "https://tabatatimer.ru/",
+			"inLanguage": "ru-RU",
+			"isPartOf": {
+				"@type": "WebSite",
+				"name": "TABATATIMER.RU",
+				"url": "https://tabatatimer.ru/"
+			}
+		}
+		</script>
+		
+		<!-- Дополнительные мета-теги для мобильных устройств -->
+		<meta name="theme-color" content="#1b1f22">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="ТАБАТА ТАЙМЕР">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		
+		<!-- Preconnect для внешних ресурсов -->
+		<link rel="preconnect" href="https://mc.yandex.ru">
+		<link rel="dns-prefetch" href="https://mc.yandex.ru">
+		
+		<!-- Предзагрузка критических ресурсов -->
+		<link rel="preload" href="assets/js/tabata.js?ver=1.8" as="script">
+		<!-- jQuery загружается в конце body, preload не нужен -->
+		<!-- CSS загружается асинхронно, preload не нужен -->
+		
+		<!-- Шрифты (используем системные шрифты для мгновенной загрузки) -->
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<!-- Google Fonts удален - используем системные шрифты для мгновенной загрузки -->
+		
+		<!-- Система условного логирования (отключена в продакшене для производительности) -->
+		<script>
+		// Определяем debug режим (включен только на localhost или с параметром ?debug=1)
+		window.DEBUG_MODE = (window.location.search.indexOf('debug=1') !== -1 || 
+		                      window.location.hostname === 'localhost' || 
+		                      window.location.hostname === '127.0.0.1' ||
+		                      window.location.hostname === '');
+		
+		// Обертка для console.log - логирует только в debug режиме
+		if (!window.DEBUG_MODE) {
+			var originalLog = console.log;
+			var originalInfo = console.info;
+			var originalWarn = console.warn;
+			
+			// Переопределяем console.log/info/warn только если не в debug режиме
+			console.log = function() {
+				// В продакшене не логируем
+			};
+			console.info = function() {
+				// В продакшене не логируем
+			};
+			console.warn = function() {
+				// В продакшене не логируем (можно оставить для важных предупреждений)
+				// originalWarn.apply(console, arguments);
+			};
+			
+			// console.error оставляем для критичных ошибок
+		}
+		</script>
+
+		<!-- Unsplash (клиент): используем ТОЛЬКО Access Key (Client-ID). Secret key на фронтенде НЕЛЬЗЯ. -->
+		<script>
+		window.UNSPLASH_ACCESS_KEY = 'aW8NCUO7D83PRRk1Iz1slBSz0qROYq-v-lGeL1axU5A';
+		window.UNSPLASH_UTM_SOURCE = 'tabatatimer_ru';
+		</script>
+		
+		<!-- Критический CSS для первого экрана (встроен для быстрого рендеринга) -->
+		<style>
+		/* Reset и базовые стили */
+		*,*:before,*:after{box-sizing:border-box}
+		html{font-size:16pt}
+		body{background:#1b1f22;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;font-weight:300;font-size:1rem;line-height:1.65;margin:0;padding:0}
+		
+		/* Основной контейнер таймера */
+		#timer{display:block}
+		#tabata-timer-row-wrapper{display:flex;gap:16px;width:100%;max-width:420px;margin:0 auto 20px;box-sizing:border-box;align-items:stretch}
+		
+		/* Карточка таймера */
+		.tabata-countdown-card{border-radius:20px;padding:20px;text-align:center;background:linear-gradient(150deg,rgba(123,245,255,.12),rgba(27,25,43,.9));border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:100%;box-sizing:border-box;gap:0}
+		#tabata-countdown-card-wrapper{flex:1;margin:0;box-sizing:border-box;display:flex;flex-direction:column}
+		
+		/* Виджет раундов */
+		.tabata-rounds-widget{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);width:100%;height:100%;min-height:100%;box-sizing:border-box}
+		#tabata-rounds-widget-top{flex:1;min-width:0;margin:0;box-sizing:border-box;display:flex;flex-direction:column}
+		
+		/* Таймер */
+		#currenttime{padding-top:0;margin-top:10px}
+		#currenttime span{font-size:1.2em;color:#fff}
+		#tt_clock_label{margin-bottom:8px;margin-top:0;color:rgba(255,255,255,.7)}
+		.tabata-label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin:0 0 4px}
+		.tabata-rounds-total-count{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:75px;font-weight:200;letter-spacing:-.03em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.1);line-height:1.2;margin:0;padding:0}
+		#tabata-rounds-total-info-tabata{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;margin:0;padding:0}
+		
+		/* Кнопки */
+		.tt_big_button{border-radius:14px!important;padding:14px;text-transform:uppercase;letter-spacing:.18em;border:none;cursor:pointer;font-size:12px;transition:transform .2s ease,opacity .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;box-sizing:border-box;min-height:60px;font-weight:700;text-decoration:none}
+		#startbutton{background:linear-gradient(120deg,rgba(86,129,86,1) 0%,rgba(76,175,80,1) 100%)!important;color:#fff!important;font-size:20px;letter-spacing:.5em;line-height:1;box-shadow:none!important;border-radius:14px!important}
+		#startbutton:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 20px rgba(76,175,80,.4)}
+		
+		/* Заголовки */
+		h2.major{color:#fff;font-weight:600;line-height:1.5;margin:0 0 1rem 0;text-transform:uppercase;letter-spacing:.2rem;border-bottom:solid 1px #fff;width:max-content;padding-bottom:.5rem}
+		
+		/* Медиа-запросы для мобильных */
+		@media screen and (max-width:736px){html{font-size:11pt}}
+		@media screen and (max-width:480px){.tabata-countdown-card{padding:16px;border-radius:20px;min-height:100%;height:100%;flex:1}.tabata-rounds-widget{padding:16px;gap:12px;height:100%;min-height:100%;flex:1}}
+		</style>
+		
+		<!-- Остальной CSS загружается асинхронно (не блокирует рендеринг) -->
+		<link rel="preload" href="assets/css/main.css?ver=2.4" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="assets/css/main.css?ver=2.4"></noscript>
+		<link rel="preload" href="assets/css/tabata.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="assets/css/tabata.css"></noscript>
+		<link rel="preload" href="assets/css/unsplash-sliders.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="assets/css/unsplash-sliders.css"></noscript>
+		<link rel="preload" href="assets/css/amrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="assets/css/amrap.css"></noscript>
+		<link rel="preload" href="assets/css/emom.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="assets/css/emom.css"></noscript>
+		
+		<!-- Скрипт для поддержки асинхронной загрузки CSS в старых браузерах -->
+		<script>
+		(function() {
+			var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+			for (var i = 0; i < links.length; i++) {
+				if (!links[i].onload) {
+					links[i].rel = 'stylesheet';
+				}
+			}
+		})();
+		</script>
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		
+		
+   
+    
+	<!-- Yandex.Metrika counter - асинхронная загрузка --> 
+	<script type="text/javascript" async> 
+		(function (d, w, c) { 
+			(w[c] = w[c] || []).push(function() { 
+				try { 
+					w.yaCounter42580049 = new Ya.Metrika({ 
+						id:42580049, 
+						clickmap:true, 
+						trackLinks:true, 
+						accurateTrackBounce:true, 
+						trackHash:true 
+					}); 
+				} catch(e) { } 
+			}); 
+			var n = d.getElementsByTagName("script")[0], 
+				s = d.createElement("script"), 
+				f = function () { n.parentNode.insertBefore(s, n); }; 
+			s.type = "text/javascript"; 
+			s.async = true; 
+			s.src = "https://mc.yandex.ru/metrika/watch.js"; 
+			if (w.opera == "[object Opera]") { 
+				d.addEventListener("DOMContentLoaded", f, false); 
+			} else { 
+				f(); 
+			} 
+		})(document, window, "yandex_metrika_callbacks"); 
+	</script> 
+	<noscript><div><img src="https://mc.yandex.ru/watch/42580049" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
+	<!-- /Yandex.Metrika counter -->
+	
+	<meta name="yandex-verification" content="4945384d6c27920a" />
+		
+		
+	<script src="assets/js/amrap.js" type="text/javascript" defer></script>
+	<script src="assets/js/emom.js" type="text/javascript" defer></script>
+	<script src="assets/js/tabata.js?ver=1.8" type="text/javascript" defer></script>
+	<script src="assets/js/unsplash-sliders.js" type="text/javascript" defer></script>
+	<!-- exercise-selector.js загружается динамически в tabata.js, чтобы избежать дублирования -->
+	<script type="text/javascript">
+	labels = {
+		workout : "Тренировка",
+		prepare : "Готовимся",
+		work : "Работаем",
+		rest : "Отдыхаем",
+		cycleRest : "Отдых между циклами",
+		cycles : "Раунды",
+		tabatas : "Циклы",
+		cyclesl : "Раунды",
+		tabatasl : "Циклы",
+		start : "СТАРТ!",
+		stop : "Стоп",
+		pause : "Пауза",
+		resume : "Возобновить"
+	};
+	/*Пути к трекам для настраиваемой версии*/
+	window.sounds = {
+		/*pausingsession : "assets/audio/puke.wav",*/
+		sessioncomplete : "assets/audio/boxing_bell_multiple.wav", /* Конец занятия */
+		/*startingsession : "assets/audio/StartingSession.wav",*/
+		/*stoppingsession : "assets/audio/StoppingSession.mp3",*/
+		/*working : "assets/audio/Working.mp3",*/
+		work : "assets/audio/Work.mp3",
+		start : "assets/audio/Work.mp3", /* Звук старта (использует тот же файл что и work) */
+		warning : "assets/audio/Rest.mp3",
+		countdown : "assets/audio/3-2-1-go.mp3", /* Звук отсчёта 3-2-1 */
+		countdown54 : "assets/audio/5-4-3-2-1.mp3", /* Звук отсчёта 5-4-3-2-1 перед окончанием работы */
+		finish : "assets/audio/finish.mp3", /* Звук окончания тренировки */
+		bell : "assets/audio/bell.mp3", /* Звук сигнала о завершении цикла */
+		select : "assets/audio/select.mp3", /* Звук выбора режима */
+		whistler : "assets/audio/Whistler.mp3", /* Звук при нажатии на кнопку СТАРТ */
+		clickEffect : "assets/audio/click-effect.mp3" /* Звук клика для элементов интерфейса */
+	};
+	// Для обратной совместимости
+	var sounds = window.sounds;
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		// Инициализация таймера только после полной загрузки DOM
+		window.newtimer = new STTabataTimerViewController();
+	});
+
+	// Функции для работы с модальным окном информации о режимах
+	// Функция для инициализации аккордеона
+	function initAccordion() {
+		var accordionHeaders = document.querySelectorAll('.mode-info-accordion-header');
+		accordionHeaders.forEach(function(header) {
+			header.addEventListener('click', function(event) {
+				// Предотвращаем распространение события и переход на главную страницу
+				event.preventDefault();
+				event.stopPropagation();
+				
+				var item = this.parentElement;
+				var isActive = item.classList.contains('active');
+				
+				// Закрываем все другие элементы аккордеона
+				var allItems = document.querySelectorAll('.mode-info-accordion-item');
+				allItems.forEach(function(accordionItem) {
+					accordionItem.classList.remove('active');
+				});
+				
+				// Открываем текущий элемент, если он был закрыт
+				if (!isActive) {
+					item.classList.add('active');
+				}
+			});
+		});
+	}
+	
+	function showModeInfo(mode) {
+		var modal = document.getElementById('modeInfoModal');
+		// Открываем модальное окно сразу, чтобы предотвратить показ уведомлений при вызове setMode
+		if (modal) {
+			modal.style.display = 'block';
+		}
+		
+		var title = document.getElementById('modeInfoTitle');
+		var content = document.getElementById('modeInfoContent');
+		
+		if (mode === 'emom') {
+			title.textContent = 'EMOM (Every Minute on the Minute)';
+			content.innerHTML = 
+				'<p><strong>EMOM</strong> — тип интервальной тренировки, в которой временные интервалы — минуты. Цель — выполнять определённое количество повторений одного или нескольких упражнений в начале каждой минуты, а оставшееся до конца минуты время использовать для отдыха.</p>' +
+				
+				'<div class="mode-info-accordion">' +
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Длительность тренировки</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Единого предписанного времени тренировки не существует — можно спланировать занятие так, чтобы оно длилось от 5 до 30 минут.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Принцип работы</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li>Запустить таймер на 1 минуту.</li>' +
+				'<li>Выполнить заданное количество повторений как можно быстрее.</li>' +
+				'<li>Оставшиеся секунды — отдых.</li>' +
+				'<li>По истечении одной минуты сразу же запустить таймер заново и приступить к следующему упражнению.</li>' +
+				'</ul>' +
+				'<p><strong>Важно:</strong> Чем быстрее выполняются повторения, тем больше времени остаётся для отдыха перед началом следующей минуты.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Примеры тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p><strong>Тренировка 1 — для всего тела для начинающих (продолжительность — 10 минут):</strong></p>' +
+				'<ul>' +
+				'<li>1-я минута — 10 приседаний.</li>' +
+				'<li>2-я минута — 10 отжиманий (при необходимости можно дополнить отжиманиями на коленях).</li>' +
+				'<li>Повторять этот цикл на протяжении всей тренировки.</li>' +
+				'</ul>' +
+				'<p><strong>Тренировка 2 — для ускоренного увеличения мышечной массы (продолжительность — 12 минут):</strong></p>' +
+				'<ul>' +
+				'<li>1-я минута — 6 взвешенных выпадов.</li>' +
+				'<li>2-я минута — 12 тяжёлых взмахов гирями.</li>' +
+				'<li>Повторять этот цикл на протяжении всей тренировки.</li>' +
+				'</ul>' +
+				'<p><strong>Тренировка 3 — с акцентом на бёдра (продолжительность — 25 минут):</strong></p>' +
+				'<ul>' +
+				'<li>Прыжки с поворотом — 14 раз (тройной прыжок и поворот считается за один раз).</li>' +
+				'<li>Чередование ног в упоре лёжа — 30 раз.</li>' +
+				'<li>Связка приседаний и выпадов накрест — 30 раз.</li>' +
+				'<li>Бёрпи — 10 раз.</li>' +
+				'<li>Касание ног в «крабе» — 20 раз (одно касание — один раз).</li>' +
+				'<li>Всего нужно выполнить пять кругов. Между кругами времени на отдых нет — только то, что останется от последней минуты.</li>' +
+				'</ul>' +
+				'<p><strong>Тренировка 4 — базовая (продолжительность — 12 минут):</strong></p>' +
+				'<ul>' +
+				'<li>1 минута — 10 отжиманий;</li>' +
+				'<li>2 минута — 10 приседаний;</li>' +
+				'<li>3 минута — 15 скручиваний на пресс;</li>' +
+				'<li>4 минута — 12 прыжков джампинг-джек.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Вариации EMOM</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li><strong>Ориентированная на силу.</strong> Обычно включает меньше повторений с более тяжёлыми весами. Например, 5 тяжёлых приседаний каждую минуту в течение 10 минут.</li>' +
+				'<li><strong>Кардиоинтенсивная.</strong> Использует такие упражнения, как берпи или высокие колени, чтобы увеличить частоту сердечных сокращений и сосредоточиться на выносливости.</li>' +
+				'<li><strong>С несколькими упражнениями.</strong> Каждую минуту чередует разные движения. Например, на нечётные минуты — махи гири, на чётные — отжимания.</li>' +
+				'<li><strong>Ориентированная на навыки.</strong> Часто используется в CrossFit, эта вариация помогает освоить сложные движения, такие как cleans, muscle-ups или snatches.</li>' +
+				'<li><strong>Интервальная.</strong> Например, 40 секунд работы, 20 секунд отдыха.</li>' +
+				'<li><strong>Прогрессивная.</strong> Количество повторений увеличивается со временем.</li>' +
+				'</ul>' +
+				'<p>Также существуют вариации EMOM с другими временными интервалами: E2MOM (каждые две минуты) или E3MOM (каждые три минуты).</p>' +
+				'<p>Если тренировки кажутся лёгкими, их можно усложнять: увеличивать количество повторений, увеличивать время с 12 до 16 минут, использовать дополнительный вес.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Влияние на организм</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Интервальная тренировка EMOM может положительно влиять на организм:</p>' +
+				'<ul>' +
+				'<li><strong>Улучшает выносливость сердечно-сосудистой системы.</strong> Частота сердечных сокращений остаётся повышенной на протяжении всей тренировки, даже во время перерывов на отдых. Это помогает повысить эффективность работы сердца и общую аэробную способность.</li>' +
+				'<li><strong>Развивает мышечную силу и выносливость.</strong> Интервалы между упражнениями EMOM позволяют частично восстановить мышцы во время отдыха, что повышает мышечную выносливость.</li>' +
+				'<li><strong>Улучшает скорость метаболизма.</strong> Одновременно прорабатываются несколько групп мышц, что увеличивает расход энергии.</li>' +
+				'<li><strong>Помогает отслеживать прогресс в тренировках.</strong> Поскольку цель тренировок EMOM — закончить повторения как можно быстрее, чтобы максимально увеличить время отдыха, несложно оценить и отметить улучшение физической формы от недели к неделе.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Частота тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Интервальные тренировки EMOM не предназначены для ежедневного выполнения. Рекомендуется проводить их не более нескольких раз в неделю.</p>' +
+				'<p>При этом интенсивность и продолжительность тренировок можно регулировать в зависимости от уровня физической подготовки и целей. Перед началом занятий стоит проконсультироваться с тренером.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Противопоказания</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p style="color: rgba(255, 200, 200, 0.9);"><strong>Тренировки EMOM не стоит применять новичкам</strong>, а также людям с проблемами с суставами и сердцем. Также важно следить за самочувствием: если закружилась голова или появилась резкая боль в теле, тренировку следует прекратить.</p>' +
+				'<p>Важно помнить, что высокоинтенсивные тренировки требуют определённой подготовки и могут иметь противопоказания, поэтому перед началом занятий рекомендуется проконсультироваться с врачом или тренером.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Как использовать таймер</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li>Установите время работы (например, 30 или 50 секунд)</li>' +
+				'<li>Установите общее количество минут тренировки (от 5 до 30 минут)</li>' +
+				'<li>В начале каждой минуты звучит сигнал, и вы начинаете работать</li>' +
+				'<li>После завершения работы вы отдыхаете до конца минуты</li>' +
+				'<li>В начале следующей минуты цикл повторяется</li>' +
+				'</ul>' +
+				'<p><strong>Пример:</strong> Работа 30 сек, отдых 30 сек, повторяется каждую минуту в течение 10 минут.</p>' +
+				'</div></div>' +
+				'</div>';
+		} else if (mode === 'amrap') {
+			title.textContent = 'AMRAP (As Many Repetitions (Rounds) As Possible)';
+			content.innerHTML = 
+				'<p><strong>AMRAP</strong> — формат тренировок в функциональном фитнесе и кроссфите, где за определённое время необходимо выполнить как можно больше раундов (или повторений) заранее составленного комплекса упражнений.</p>' +
+				
+				'<div class="mode-info-accordion">' +
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Суть тренировки</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Цель — максимально использовать время, увеличивая интенсивность тренировки. Упражнения выполняются непрерывно, без отдыха (или с очень ограниченным отдыхом).</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Временные интервалы</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Временные интервалы могут быть разными в зависимости от уровня подготовки и доступных ресурсов. Чаще всего — 10, 15, 20 или 30 минут. Однако длинные AMRAP-комплексы лучше разбивать на несколько циклов с отдыхом между ними.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Особенности</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li>Упражнения должны быть разнообразными и прорабатывать разные группы мышц. Желательно чередовать упражнения на силу, кардио и координацию.</li>' +
+				'<li>Важно удерживать темп и технику даже на последних минутах, когда силы почти на исходе.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Упражнения</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>В AMRAP могут использоваться, например:</p>' +
+				'<ul>' +
+				'<li><strong>Упражнения с собственным весом:</strong> отжимания, воздушные приседания, подтягивания, выпады, подъёмы туловища из положения лёжа.</li>' +
+				'<li><strong>Упражнения с весами:</strong> махи гирей, становая тяга, упражнения для ягодиц.</li>' +
+				'<li><strong>Кардиотренировки:</strong> прыжки на скакалке, бёрпи, прыжки на коробку.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Примеры тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p><strong>Тренировка 1:</strong> За 15 минут — как можно больше раундов из 20 прыжков, 20 приседаний, 10 отжиманий и 15 махов.</p>' +
+				'<p><strong>Тренировка 2:</strong> За 10 минут — 10 приседаний без веса, 10 отжиманий с колен, 20 шагов вперёд — задача — сделать как можно больше полных раундов за 10 минут.</p>' +
+				'<p><strong>Тренировка 3 — «Burpee Mania AMRAP Workout»:</strong> За 12 минут нужно выполнить как можно больше раундов из следующих упражнений: 10 бёрпи, 20 воздушных приседаний, 10 бёрпи, 10 отжиманий на скамье, 10 бёрпи, 10 подъёмов.</p>' +
+				'<p><strong>Тренировка 4 — «Fight Ready 12 Minute AMRAP Workout»:</strong> За 12 минут нужно выполнить как можно больше раундов из следующих упражнений: 10 круговых ударов ногой, 5 опусканий трицепса, 40 прямых ударов, 10 прыжков в приседе, 10 подъёмов колена.</p>' +
+				'<p><strong>Тренировка 5 — «Gasping For Air AMRAP Challenge Workout»:</strong> За 12 минут нужно выполнить как можно больше раундов из следующих упражнений: 100 высоких колен, 10 отжиманий на алмазной скамье, 50 прыжков в сторону, 10 боковых выпадов, 10 бёрпи, 10 приседаний.</p>' +
+				'<p><strong>Тренировка 6 — «Minimal Equipment Indoor AMRAP Workout»:</strong> За 12 минут нужно выполнить как можно больше раундов из следующих упражнений: 30 воздушных приседаний, 10 подтягиваний, 30 боковых выпадов, 10 отжиманий на скамье, 10 подъёмов колена, 30 вращений с медицинским мячом.</p>' +
+				'<p><strong>Тренировка 7 — «Total Body Conditioning AMRAP Workout»:</strong> За 12 минут нужно выполнить как можно больше раундов из следующих упражнений: 30 двойных подтягиваний (при необходимости можно заменить на 60 одиночных), 10 подтягиваний.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Правила</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li><strong>Техника прежде всего</strong> — даже в условиях высокой интенсивности техника должна оставаться приоритетом. Ошибки в технике снижают эффективность и повышают риск травмы.</li>' +
+				'<li><strong>Контроль времени и ритма</strong> — не стоит начинать слишком быстро, рациональное распределение усилий позволяет сохранить высокую интенсивность до конца сессии.</li>' +
+				'<li><strong>Регулярность и прогрессия</strong> — комплексы можно повторять каждые 2–4 недели, чтобы отслеживать прирост показателей. Постепенное увеличение времени, веса или сложности — залог прогресса.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Противопоказания</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p style="color: rgba(255, 200, 200, 0.9);"><strong>AMRAP не подходит для новичков</strong> — упражнения могут оказаться технически сложны для людей без подготовки и часто выполняются неправильно. В сочетании с высоким темпом тренировки это может привести к травмам, перегрузке суставов, перенапряжению.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Как использовать таймер</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li>Установите время работы и отдыха</li>' +
+				'<li>Установите общее время тренировки (например, 15 или 20 минут)</li>' +
+				'<li>Таймер отсчитывает общее время вниз</li>' +
+				'<li>Выполняйте последовательность "работа-отдых" столько раз, сколько сможете</li>' +
+				'<li>Цель — выполнить максимальное количество раундов за отведенное время</li>' +
+				'</ul>' +
+				'<p><strong>Пример:</strong> Работа 40 сек, отдых 20 сек, повторяйте в течение 15 минут. Сколько раундов вы успеете?</p>' +
+				'</div></div>' +
+				'</div>';
+		} else if (mode === 'hiit') {
+			title.textContent = 'HIIT (High-Intensity Interval Training)';
+			content.innerHTML = 
+				'<p><strong>HIIT</strong> — это высокоинтенсивные тренировки, основанные на чередовании коротких, но интенсивных нагрузок и периодов отдыха.</p>' +
+				
+				'<div class="mode-info-accordion">' +
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Тренировки</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p><strong>Базовая HIIT тренировка:</strong></p>' +
+				'<p>30 секунд максимального усилия (бег, прыжки, приседания) сменяются 10–15 секундами отдыха. Этот цикл повторяется несколько раз.</p>' +
+				
+				'<p><strong>HIIT-тренировка на 10 минут:</strong></p>' +
+				'<p><strong>1. Первый круг (повторить три раза):</strong></p>' +
+				'<ul>' +
+				'<li>Боковые выпады — 30 секунд</li>' +
+				'<li>Быстрые скаты — 15 секунд</li>' +
+				'<li>Отдых — 15 секунд</li>' +
+				'</ul>' +
+				'<p><strong>2. Второй круг (повторить три раза):</strong></p>' +
+				'<ul>' +
+				'<li>Приседания сумо — 30 секунд</li>' +
+				'<li>Прыжки при приседаниях — 15 секунд</li>' +
+				'<li>Отдых — 15 секунд</li>' +
+				'</ul>' +
+				'<p><strong>3. Третий круг (повторить три раза):</strong></p>' +
+				'<ul>' +
+				'<li>Выпады вперёд с поднятием рук — 30 секунд</li>' +
+				'</ul>' +
+				'<p>Упражнения можно адаптировать в зависимости от уровня физической подготовки.</p>' +
+				
+				'<p><strong>HIIT-тренировка на 12 минут без использования оборудования:</strong></p>' +
+				'<p>Выполнить три круга из четырёх упражнений:</p>' +
+				'<ul>' +
+				'<li><strong>Приседания с выпрыгиванием.</strong> Встать, развести ноги на ширину плеч, согнуть руки и опустить тело в полный присед. Опустившись до дна, резко выпрыгнуть вверх и потянуться к потолку. После приземления вернуться в исходное положение и повторить.</li>' +
+				'<li><strong>Отжимания.</strong> Начать в положении планки, поставить ноги и руки на пол, тело должно быть прямым. Опуститься вниз, пока грудь не коснётся пола, и подняться обратно, напрягая пресс. Если упражнение сложно выполнять, можно опуститься на колени.</li>' +
+				'<li><strong>Планка.</strong> Встать лицом к полу, опереться на руки и пальцы ног, держать руки прямыми, а пресс напряжённым, создавая прямую линию от пальцев ног до плеч. Если упражнение сложно выполнять, можно опуститься на локти и предплечья.</li>' +
+				'<li><strong>Бёрпи.</strong> Встать, быстро упасть на пол, закинув ноги за спину и коснувшись грудью земли. Как можно быстрее вернуть ноги обратно и завершить движение, подпрыгнув вверх и хлопнув руками над головой.</li>' +
+				'</ul>' +
+				'<p>Каждое упражнение нужно выполнять в течение 30 секунд, затем отдыхать 30 секунд перед переходом к следующему движению.</p>' +
+				
+				'<p><strong>HIIT-тренировка на 15 минут:</strong></p>' +
+				'<p><strong>1. Разминка (2 минуты).</strong> Лёгкая кардио-разминка, например, бег на месте или прыжки через скакалку.</p>' +
+				'<p><strong>2. Тренировка:</strong></p>' +
+				'<ul>' +
+				'<li>Приседания с прыжком (30 секунд), отдых (15 секунд)</li>' +
+				'<li>Отжимания (30 секунд), отдых (15 секунд)</li>' +
+				'<li>Планка (30 секунд), отдых (15 секунд)</li>' +
+				'<li>Скручивания для пресса (30 секунд), отдых (15 секунд)</li>' +
+				'<li>Бёрпи (30 секунд), отдых (15 секунд)</li>' +
+				'</ul>' +
+				'<p>Повторить круг дважды. Если есть силы, можно добавить ещё один круг.</p>' +
+				'<p><strong>3. Заминка (2 минуты).</strong> Растяжка для расслабления мышц (ноги, спина, плечи).</p>' +
+				
+				'<p><strong>HIIT-тренировка на 20 минут:</strong></p>' +
+				'<ul>' +
+				'<li>Берпи — 30 секунд активной работы, 30 секунд активного отдыха</li>' +
+				'<li>Прыжки «Джампинг Джек» — 30 секунд активной работы, 30 секунд активного отдыха</li>' +
+				'<li>Спринт на месте с высоким подниманием коленей — 30 секунд активной работы, 30 секунд активного отдыха</li>' +
+				'<li>Приседания с мощным выпрыгиванием вверх — 30 секунд активной работы, 30 секунд активного отдыха</li>' +
+				'</ul>' +
+				'<p>Для максимального эффекта нужно повторить комплекс упражнений 4 полных круга (цикла).</p>' +
+				'<p style="color: rgba(255, 200, 200, 0.9);"><strong>Важно:</strong> В идеале программа HIIT составляется индивидуально в зависимости от пола, возраста, состояния здоровья и уровня подготовленности. Перед началом тренировок рекомендуется проконсультироваться с тренером и лечащим врачом, так как HIIT подходит не всем.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Преимущества HIIT-тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li><strong>Экономия времени</strong> — занятие занимает 30–45 минут</li>' +
+				'<li><strong>Максимальный эффект</strong> — сжигание жира продолжается даже после тренировки</li>' +
+				'<li><strong>Развитие выносливости</strong> — улучшает работу сердечно-сосудистой системы</li>' +
+				'<li><strong>Универсальность</strong> — можно тренироваться в зале, на улице или дома</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Основные упражнения HIIT-тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li><strong>Кардио:</strong> бег на месте, прыжки, берпи</li>' +
+				'<li><strong>Силовые:</strong> приседания, выпады, отжимания, планка</li>' +
+				'<li><strong>Функциональные:</strong> работа с гантелями, упражнения с собственным весом</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Чем HIIT отличается от других видов тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>HIIT отличается от других видов тренировок, например кардиотренировок, несколькими особенностями:</p>' +
+				'<ul>' +
+				'<li><strong>Чередование нагрузок.</strong> HIIT состоит из высокоинтенсивных интервалов, которые могут длиться от 20 до 60 секунд, за которыми следуют короткие периоды отдыха или активного восстановления. Это чередование позволяет поддерживать сердечный ритм на высоком уровне, что влияет на эффективность тренировки.</li>' +
+				'<li><strong>Фокус на максимальном усилии.</strong> Во время высокоинтенсивных периодов тренировки важно выкладываться на полную катушку — работать на 80–90% своих максимумов.</li>' +
+				'<li><strong>Разнообразие упражнений.</strong> HIIT может включать разнообразные виды активности, такие как бег, велосипед, прыжки, силовые упражнения или даже танцы.</li>' +
+				'<li><strong>Краткая продолжительность.</strong> HIIT-тренировки могут занимать от 15 до 30 минут, что делает их отличным вариантом для людей, у которых нет много времени на занятия спортом.</li>' +
+				'<li><strong>Гибкость.</strong> HIIT можно адаптировать под любой уровень физической подготовки. Можно изменять длительность, интенсивность и тип упражнений в зависимости от возможностей и целей.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Преимущества HIIT для здоровья</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li><strong>Эффективное сжигание калорий.</strong> HIIT помогает сжигать калории не только во время тренировки, но и после её завершения.</li>' +
+				'<li><strong>Улучшение сердечно-сосудистой системы.</strong> HIIT способствует улучшению сердечно-сосудистой функции и выносливости.</li>' +
+				'<li><strong>Сохранение мышечной массы.</strong> HIIT позволяет не только сжигать жир, но и сохранять мышечную массу, особенно если в программу включены силовые тренировки.</li>' +
+				'<li><strong>Улучшение обмена веществ.</strong> HIIT может повысить метаболизм и ускорить процесс сжигания жира даже в состоянии покоя.</li>' +
+				'<li><strong>Снижение риска хронических заболеваний.</strong> HIIT помогает снизить риск развития диабета 2 типа, сердечно-сосудистых заболеваний и некоторых видов рака.</li>' +
+				'<li><strong>Улучшение настроения.</strong> HIIT поднимает настроение благодаря выделению эндорфинов в организме, что снижает стресс и улучшает общее самочувствие.</li>' +
+				'<li><strong>Улучшение состояния кожи.</strong> Это происходит благодаря увеличению кровотока и улучшению циркуляции крови в организме.</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Частота тренировок</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Нормальная частота HIIT-тренировок — <strong>2–3 раза в неделю</strong>. Организму после занятия нужно минимум 24 часа на восстановление.</p>' +
+				'<p>HIIT — мощная нагрузка, и если делать её слишком часто без восстановления, это может привести к перетренированности и выгоранию.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Противопоказания</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p style="color: rgba(255, 200, 200, 0.9);"><strong>Не рекомендуется заниматься HIIT людям с проблемами сердца, суставов или при низком уровне физической подготовки.</strong> В таких случаях занятия должны проходить только с разрешения врача и под наблюдением тренера.</p>' +
+				'<p>Важно помнить, что HIIT не подходит всем: есть серьёзные противопоказания, особенно по сердечно-сосудистой системе. Перед началом тренировок рекомендуется проконсультироваться с врачом.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Как использовать таймер</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li>Установите время работы (например, 30 секунд)</li>' +
+				'<li>Установите время отдыха (например, 10–15 секунд)</li>' +
+				'<li>Установите количество раундов и циклов</li>' +
+				'<li>Таймер будет чередовать периоды работы и отдыха</li>' +
+				'<li>Выполняйте упражнения с максимальной интенсивностью во время работы</li>' +
+				'</ul>' +
+				'<p><strong>Пример:</strong> Работа 30 сек, отдых 15 сек, 8 раундов, 1 цикл.</p>' +
+				'</div></div>' +
+				'</div>';
+		} else if (mode === 'hiit-sync') {
+			title.textContent = 'Связать упражнения с раундами';
+			content.innerHTML = 
+				'<p><strong>Функция "Связать упражнения с раундами"</strong> автоматически синхронизирует отображение упражнений с текущим раундом тренировки HIIT.</p>' +
+				
+				'<div class="mode-info-accordion">' +
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Как это работает</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Когда функция включена, таймер автоматически переключает упражнения в соответствии с текущим раундом:</p>' +
+				'<ul>' +
+				'<li><strong>Фаза "Готовимся"</strong> — показывается упражнение для текущего раунда</li>' +
+				'<li><strong>Фаза "Работаем"</strong> — показывается упражнение для текущего раунда с анимацией</li>' +
+				'<li><strong>Фаза "Отдыхаем"</strong> — показывается <strong>следующее</strong> упражнение, чтобы вы могли подготовиться к следующему раунду</li>' +
+				'</ul>' +
+				'<p>Это позволяет вам заранее знать, какое упражнение будет следующим, и лучше подготовиться к выполнению.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Пример работы</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p><strong>Пример тренировки с 5 упражнениями:</strong></p>' +
+				'<ol>' +
+				'<li><strong>Раунд 1:</strong> Фаза "Работаем" — показывается "Упражнение 1"</li>' +
+				'<li><strong>Раунд 1:</strong> Фаза "Отдыхаем" — показывается "Упражнение 2" (следующее)</li>' +
+				'<li><strong>Раунд 2:</strong> Фаза "Работаем" — показывается "Упражнение 2"</li>' +
+				'<li><strong>Раунд 2:</strong> Фаза "Отдыхаем" — показывается "Упражнение 3" (следующее)</li>' +
+				'<li><strong>Раунд 3:</strong> Фаза "Работаем" — показывается "Упражнение 3"</li>' +
+				'<li>И так далее по кругу...</li>' +
+				'</ol>' +
+				'<p>После последнего упражнения последовательность повторяется с начала.</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Преимущества</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ul>' +
+				'<li><strong>Лучшая подготовка</strong> — вы заранее видите следующее упражнение во время отдыха</li>' +
+				'<li><strong>Более плавный переход</strong> — не нужно вручную переключать упражнения</li>' +
+				'<li><strong>Сосредоточенность</strong> — вы можете сконцентрироваться на выполнении, а не на переключении</li>' +
+				'<li><strong>Синхронизация</strong> — упражнения автоматически соответствуют текущему раунду</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Когда использовать</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Функция особенно полезна, когда:</p>' +
+				'<ul>' +
+				'<li>Вы составили последовательность из нескольких разных упражнений (до 10)</li>' +
+				'<li>Хотите, чтобы каждое упражнение соответствовало конкретному раунду</li>' +
+				'<li>Предпочитаете автоматическое переключение вместо ручного управления</li>' +
+				'<li>Нужно заранее подготовиться к следующему упражнению</li>' +
+				'</ul>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Как включить</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<ol>' +
+				'<li>Выберите режим <strong>HIIT</strong></li>' +
+				'<li>Создайте последовательность упражнений (нажмите "УПРАЖНЕНИЯ" и добавьте до 10 упражнений)</li>' +
+				'<li>Установите флажок <strong>"СВЯЗАТЬ УПРАЖНЕНИЯ С РАУНДАМИ"</strong></li>' +
+				'<li>Запустите тренировку — упражнения будут автоматически переключаться</li>' +
+				'</ol>' +
+				'<p><strong>Важно:</strong> Для работы функции необходимо, чтобы у вас была создана последовательность упражнений (хотя бы одно упражнение).</p>' +
+				'</div></div>' +
+				
+				'<div class="mode-info-accordion-item">' +
+				'<div class="mode-info-accordion-header">Без синхронизации</div>' +
+				'<div class="mode-info-accordion-content">' +
+				'<p>Если функция выключена:</p>' +
+				'<ul>' +
+				'<li>Упражнения не переключаются автоматически</li>' +
+				'<li>Вы можете вручную переключаться между упражнениями с помощью карточек или стрелок</li>' +
+				'<li>Текущее упражнение остается выбранным независимо от раунда</li>' +
+				'</ul>' +
+				'<p>Это удобно, если вы хотите сами контролировать, какое упражнение выполнять.</p>' +
+				'</div></div>' +
+				
+				'</div>';
+		}
+		
+		// Модальное окно уже открыто в начале функции, просто инициализируем аккордеон
+		// Инициализируем аккордеон после установки контента
+		setTimeout(function() {
+			initAccordion();
+		}, 100);
+	}
+
+	function closeModeInfo(event) {
+		if (event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		// Воспроизводим звук клика
+		if (typeof playClickEffectSound === 'function') {
+			playClickEffectSound();
+		}
+		document.getElementById('modeInfoModal').style.display = 'none';
+		// Убеждаемся, что остаемся на странице таймера
+		if (window.location.hash !== '#timer') {
+			window.location.hash = '#timer';
+		}
+	}
+
+	// Закрытие модального окна при клике вне его
+	window.onclick = function(event) {
+		var modal = document.getElementById('modeInfoModal');
+		var amrapModal = document.getElementById('amrap-workouts-modal');
+		
+		// Проверяем, что клик был именно на фоне модального окна, а не на его содержимом
+		if (event.target == modal) {
+			closeModeInfo(event);
+		}
+		
+		// Предотвращаем переход на главную страницу при клике внутри модального окна modeInfoModal
+		if (modal && modal.style.display === 'block') {
+			var modalContent = modal.querySelector('.mode-info-modal-content');
+			if (modalContent && modalContent.contains(event.target)) {
+				// Если клик внутри модального окна, не делаем ничего (не переходим на главную)
+				return;
+			}
+		}
+		
+		// Предотвращаем переход на главную страницу при клике внутри модального окна AMRAP WORKOUTS
+		if (amrapModal && amrapModal.classList.contains('is-open')) {
+			var amrapModalContent = amrapModal.querySelector('.amrap-workouts-dialog');
+			if (amrapModalContent && amrapModalContent.contains(event.target)) {
+				// Если клик внутри модального окна AMRAP, не делаем ничего (не переходим на главную)
+				return;
+			}
+		}
+		
+		// Предотвращаем переход на главную страницу при клике внутри модального окна выбора тренировок
+		var workoutsSelectModal = document.getElementById('amrap-workouts-select-modal');
+		if (workoutsSelectModal && workoutsSelectModal.classList.contains('is-open')) {
+			var workoutsSelectModalContent = workoutsSelectModal.querySelector('.amrap-workouts-select-dialog');
+			if (workoutsSelectModalContent && workoutsSelectModalContent.contains(event.target)) {
+				// Если клик внутри модального окна выбора тренировок, не делаем ничего (не переходим на главную)
+				return;
+			}
+		}
+	}
+	</script>
+
+<meta name="yandex-verification" content="4945384d6c27920a" />
+
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="#timer" class="aLogo shine"><div class="logo">
+                            ТАЙМЕР
+							<!-- Отображение изображения логотипа брилиант<span class="icon fa-diamond"></span> -->
+						</div></a>
+						<div class="content">
+							<div class="inner">
+								<h1>ТАБАТА</h1>
+								<p><!--[-->Самый эффективный способ интервальной тренировки<!--]--><br />
+                                    <p>
+								<!--[-->Тренируйтесь всего 4 минуты в день <!--]--></p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#tabata">Tabata</a></li>
+								<li><a href="#girls">Woman</a></li>
+								<li><a href="#timer">Timer</a></li>
+								<li><a href="#men">Man</a></li>
+								<!--<li><a href="#coopertest">COOPER TEST</a></li>-->
+								<li><a href="#trxtabata">TRX TABATA</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- О Табата -->
+							<article id="tabata">
+								<center><h2 class="major">ПРОТОКОЛ ТАБАТА</h2></center>
+								<span class="image main"><img src="images/pic01.jpg" alt="" loading="lazy" /></span>
+                                <h3><center>Научно доказанная эффективность</center></h3>
+                                     
+                                
+<p>Японский профессор <b>Идзуми Табата</b> в соавторстве с научной группой из Национального института фитнеса и спорта Ritsumeikan в Токио ещё в 1996 году провёл исследование, в ходе которого  доказал, что <b>всего 4 минуты тренировки по протоколу Табата</b> гораздо эфективнее, чем обычная часовая тренировка на выносливость. <br>
+ <blockquote> Основная цель научной работы - определить виды и периоды физических нагрузок, при которых в кратчайшие сроки возможно максимально развить аэробную и анаэробной мощность, достичь долгосрочного сжигания всех видов резервных жиров без нанесения вреда здоровью.</blockquote>   
+Удивительно, но занимаясь по протоколу Табата у испытуемуемых спортсменов, документально зафикисировано увеличение анаэробной мощности на 28% и рост МПК (VO2max) на 14%. <br> <b>Сжигание жира</b> после такого тренинга продолжается в течение суток с интенсивностью, превышающей обыкновенную аэробную тренировку <b>в 9 раз!</b></p>
+                                
+
+<h4>Тренинг Табата</h4>
+<ul>
+<li>Развивает выносливость и физическую силу</li>
+<li>Формирует мышцы</li>
+<li>Сжигает подкожный жир</li>
+<li>Омолаживает организм</li>
+<li>Усиливает метаболизм</li>
+</ul>                                
+                                                              
+<h3><center>Принцип тренировки Табата</center></h3>
+<ul class="alt">
+<center><li><b>20 секунд интенсивной работы</b></li>
+<li><b>10 секунд отдыха</b></li>
+<li><b>8 раундов</b></li></center>
+<li>За 4 минуты нужно выполнить 8 20-секундных периодов нагрузок, между которыми следует 10-секундный отдых. Упраженения нужно делать с максимальной скоростью и мощностью, чтобы поднять VO2 max до высоких уровней. </li>
+</ul>
+                        <blockquote><b>VO2 max</b>– показатель вашей физической формы и уровня беговой подготовки. Показатель VO2 max характеризует вашу способность поглощать и усваивать кислород воздуха. В спортивной медицине именно этот показатель стал основополагающим для определения способностей спортсмена и перспектив его прогресса.</blockquote>
+                                
+                                
+ <h4>Занимайтесь где угодно</h4>
+
+Система упражнений Табата не обязывает посещать спортивный зал или использовать тренажеры.<br>
+Для занятий отлично подойдут: 
+<ul><li>Квартира</li>
+<li>Двор</li>
+<li>Парк</li>
+<li>Спортивная площадка</li>
+</ul>
+                        
+<h4>Табата для женщин</h4>
+Не длительные, но крайне эффективные тренировки с жиросжигающим эффектом отменно подходят женщинам.<br>
+Оптимальные упражнения Табата для женщин:
+<ul>
+<li>Приседания</li>
+<li>Пресс</li>
+<li>Отжимания</li>
+<li>Подтягивания</li>
+<li>Бег</li>
+<li>Велосипед</li>
+</ul> 
+
+ <h4>Кому не подходит</h4>
+<ul>
+<li>Людям, с заболеваниями сердечно-сосудистой системы</li>
+<li>Пожилым людям</li>
+</ul>   
+  
+    <h5><center><u>Перед началом тренировки тщательно разогревайтесь.<br>Начинайте с простых движений и минимальных весов. </u></center></h5>
+     
+
+			</article>				
+
+						<!-- Таймер -->
+							<article id="timer">
+							<center>	<h2 class="major" id="timerTitle">Табата Таймер</h2></center>
+							<center><p id="tabata-subtitle" style="display: none; margin-top: 10px; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7);">делай максимум за 20 секунд</p></center>
+							<center><p id="hiit-subtitle" style="display: none; margin-top: 10px; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7);">делай серию на максимум за время</p></center>
+							<center><p id="emom-subtitle" style="display: none; margin-top: 10px; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7);">делай максимум в начале минуты</p></center>
+							<center><p id="amrap-subtitle" style="display: none; margin-top: 10px; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7);">сделай максимум раундов за время</p></center>
+							
+							<div class="progressBar"></div>							
+							
+				<form>
+				<div id="tt_main_wrap">
+				<audio id="sound" src="" preload="none">				 
+				</audio>
+				
+				<div id="tt_timer_wrap">
+					<!-- Tabata Timer Row -->
+					<div class="tabata-timer-row" id="tabata-timer-row-wrapper">
+						<div class="tabata-countdown-card" id="tabata-countdown-card-wrapper">
+						<span class="tt_timer_label" id="tt_clock_label"><span>Тренировка</span></span>
+							<span class="tt_number_label apple-timer" id="currenttime"><span>04:10</span></span>
+					</div>
+						<div class="tabata-rounds-widget" id="tabata-rounds-widget-top">
+							<!-- Структура для режима Tabata (режим 1) -->
+							<div class="tabata-rounds-done" id="tabata-rounds-done-tabata">
+								<p class="tabata-label">Сделано</p>
+								<p class="tabata-rounds-count" id="tabata-rounds-done-count">0</p>
+							</div>
+							<div class="tabata-rounds-total-info" id="tabata-rounds-total-info-tabata">
+								<p class="tabata-label">Всего раундов</p>
+								<p class="tabata-rounds-total-count" id="tabata-rounds-total-count">8</p>
+							</div>
+							<!-- Структура для режима HIIT (режим 2) -->
+							<div class="tabata-rounds-done" id="tabata-rounds-done-hiit" style="display: none;">
+								<p class="tabata-label" id="tabata-rounds-label-hiit">Раундов</p>
+								<p class="tabata-rounds-count" id="tabata-rounds-done-count-hiit">
+									<span id="tabata-rounds-total-hiit-start" class="tabata-rounds-total-display">8</span>
+									<span id="tabata-rounds-current-hiit" style="display: none;">0</span> <span class="tabata-secondary-text" id="tabata-rounds-from-text" style="display: none;">из</span> <span id="tabata-rounds-total-hiit" class="tabata-secondary-count" style="display: none;">8</span>
+								</p>
+							</div>
+							<div class="tabata-cycles-info" id="tabata-cycles-info-hiit" style="display: none;">
+								<p class="tabata-label" id="tabata-cycles-label-hiit">Циклов</p>
+								<p class="tabata-cycles-count" id="tabata-cycles-count-hiit">
+									<span id="tabata-cycles-total-hiit-start" class="tabata-cycles-total-display">2</span>
+									<span id="tabata-cycles-current-hiit" style="display: none;">1</span> <span class="tabata-secondary-text" id="tabata-cycles-from-text" style="display: none;">из</span> <span id="tabata-cycles-total-hiit" class="tabata-secondary-count" style="display: none;">3</span>
+								</p>
+							</div>
+							<!-- Старые элементы для совместимости (скрыты) -->
+							<div class="tabata-rounds-info" style="display: none;">
+								<p class="tabata-label" id="tabata-rounds-label">Раунды</p>
+								<div class="tabata-rounds-total-display" id="tabata-rounds-total-display">8</div>
+								<div id="tt_number_ui" style="display: none;">
+									<div class="tabata-rounds-count" id="currentcycle_i">01</div>
+									<div class="tabata-rounds-total">/ <span id="allcycles">8</span></div>
+								</div>
+							</div>
+							<div class="tabata-cycles-info" id="tabata-cycles-info" style="display: none;">
+								<p class="tabata-label" id="tabata-cycles-label">Циклы</p>
+								<div id="tt_number_ui2">
+									<span class="tabata-cycles-count" id="currenttabata_i">01</span>
+									<div class="tabata-cycles-total">/ <span id="alltabatas">1</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Старые элементы для совместимости (скрыты) -->
+					<div id="tt_clock_wrap" class="tt_clock_default" style="display: none;">
+						<span class="tt_timer_label" id="tt_clock_label_old"><span>Тренировка</span></span>
+						<span class="tt_number_label apple-timer" id="currenttime_old"><span>04:10</span></span>
+					</div>
+					<div class="row" style="display: none;">
+					<div id="tt_cycles_wrap" class="field half first tt_cycles_hide">
+						<span class="tt_small_timer_label" id="tt_cycles_label"></span>					
+						<span class="tt_small_number_label" id="currentcycle"></span>
+						
+						<div id="tt_number_ui_old">
+							<div class="tt_small_number_label" id="currentcycle_i_old">01</div>
+							<div class="tt_small_number_all">/ <span id="allcycles_old">8</span></div>
+						</div>
+
+					</div>
+					<div id="tt_tabatas_wrap" class="field half" style="display:none">
+						<span class="tt_small_timer_label" id="tt_tabatas_label"></span>					
+						<span class="tt_small_number_label" id="currenttabata"></span>
+						
+						<div id="tt_number_ui2_old">
+							<span class="tt_small_number_label" id="currenttabata_i_old">01</span>
+							<div class="tt_small_number_all">/ <span id="alltabatas_old">1</span></div>
+						</div>
+
+					</div>
+					</div>
+				</div>
+				<!-- Описание тренировки HIIT (показывается только в режиме HIIT) -->
+				<div class="hiit-workout-description-wrapper" id="hiit-workout-description" style="display: none;"></div>
+				<div id="tt_controls_wrap">
+				<div class="amrap-timer-row" id="amrap-timer-row-wrapper" style="display: none;">
+					<div class="amrap-countdown-card" id="amrap-countdown-card-wrapper">
+						<div class="amrap-timer-label" id="amrap-timer-label">Тренировка</div>
+						<div class="amrap-phase-label" id="amrap-phase-label" style="display: none;">Готовимся</div>
+						<div class="amrap-countdown" id="amrap-countdown">10:00</div>
+					</div>
+					<div class="amrap-rounds-widget" id="amrap-rounds-widget-top">
+						<div class="amrap-rounds-info">
+							<p class="amrap-label">Сделано</p>
+							<p class="amrap-rounds-count" id="amrap-rounds-count">0</p>
+						</div>
+						<div class="amrap-round-button-wrapper">
+							<span class="amrap-round-button-text">+ Раунд</span>
+						</div>
+					</div>
+				</div>
+				<div class="amrap-workout-description" id="amrap-workout-description" style="display: none;"></div>
+				<!-- EMOM Timer Row -->
+				<div class="emom-timer-row" id="emom-timer-row-wrapper" style="display: none;">
+					<div class="emom-countdown-card" id="emom-countdown-card-wrapper">
+						<div class="emom-timer-label" id="emom-timer-label">Тренировка</div>
+						<div class="emom-phase-label" id="emom-phase-label" style="display: none;">Готовимся</div>
+						<div class="emom-countdown" id="emom-countdown">60</div>
+					</div>
+					<div class="emom-minute-widget" id="emom-minute-widget-top">
+						<div class="emom-minute-info">
+							<p class="emom-label">Сделано</p>
+							<p class="emom-minute-count" id="emom-minute-count">0</p>
+						</div>
+						<div class="emom-total-minutes">
+							<p class="emom-label">Всего раундов</p>
+							<p class="emom-total-count" id="emom-total-count">10</p>
+						</div>
+					</div>
+				</div>
+				<!-- Описание тренировки EMOM (показывается только в режиме EMOM, под прогресс-баром) -->
+				<div class="emom-workout-description-wrapper" id="emom-workout-description" style="display: none;"></div>
+				<ul id="controls">
+					<!-- Старые элементы для режима Tabata (скрыты в режиме HIIT) -->
+					<li id="tt_setpreparetime" class="field half first">
+						<input type="text" class="setfield" id="setpreparetime" readonly="readonly" onfocus="newtimer.setField('prepare');" ondblclick="newtimer.zero();"> 
+						<span onclick="newtimer.setField('prepare');" ondblclick="newtimer.zero();" class="setfield_label" id="setpreparetime_label">Готовимся</span>
+					</li>
+					<li id="tt_setworktime" class="field half">
+						<input type="text" class="setfield" id="setworktime" readonly="readonly" onfocus="newtimer.setField('work');" ondblclick="newtimer.zero();"> 
+						<span onclick="newtimer.setField('work');" ondblclick="newtimer.zero();" class="setfield_label" id="setworktime_label">Работаем</span>
+					</li>
+					<li id="tt_setresttime" class="field half first">
+						<input type="text" class="setfield" id="setresttime" readonly="readonly" onfocus="newtimer.setField('rest');" ondblclick="newtimer.zero();"> 
+						<span onclick="newtimer.setField('rest');" ondblclick="newtimer.zero();" class="setfield_label" id="setresttime_label">Отдыхаем</span>
+					</li>
+					<li id="tt_setcycles" class="field half">
+						<input type="text" class="setfield" id="setcycles" readonly="readonly" onfocus="newtimer.setField('cycles');" ondblclick="newtimer.zero();"> 
+						<span onclick="newtimer.setField('cycles');" ondblclick="newtimer.zero();" class="setfield_label" id="setcycles_label">Раунды</span>
+					</li>
+					<li id="tt_settabatas" class="field half first">
+						<input type="text" class="setfield" id="settabatas" readonly="readonly" onfocus="newtimer.setField('tabatas');" ondblclick="newtimer.zero();"> 
+						<span onclick="newtimer.setField('tabatas');" ondblclick="newtimer.zero(); " class="setfield_label" id="settabatas_label">Циклы</span>
+					</li>
+					<li id="tt_setcycleresttime" class="field half">
+						<input type="text" class="setfield" id="setcycleresttime" readonly="readonly" onfocus="newtimer.setField('cyclerest');" ondblclick="newtimer.zero();"> 
+						<span onclick="newtimer.setField('cyclerest');" ondblclick="newtimer.zero();" class="setfield_label" id="setcycleresttime_label">Отдых между циклами</span>
+					</li>
+					<li id="tt_plusminus" class="field half">
+						<div class="tt_plusminus_container">
+							<a class="tt_plusminus_button tt_plusminus_decrease" id="tt_setting_decrease" 
+							onmousedown="newtimer.minus();" 
+							onmouseup="newtimer.invalidate();" 
+							onmouseout="newtimer.invalidate();"
+							ontouchstart="newtimer.minus(); event.preventDefault();" 
+							ontouchend="newtimer.invalidate();" 
+							ontouchcancel="newtimer.invalidate();">-</a>
+							<div class="tt_plusminus_divider"></div>
+							<a class="tt_plusminus_button tt_plusminus_increase" id="tt_setting_increase" 
+							onmousedown="newtimer.plus();" 
+							onmouseup="newtimer.invalidate();" 
+							onmouseout="newtimer.invalidate();"
+							ontouchstart="newtimer.plus(); event.preventDefault();" 
+							ontouchend="newtimer.invalidate();" 
+							ontouchcancel="newtimer.invalidate();">+</a>
+						</div>
+					</li>
+					
+					<!-- HIIT селекторы (карусель) - показываются только в режиме HIIT -->
+					<li id="hiit-selects-wrapper" class="field full" style="display: none;">
+						<div class="hiit-selects-container">
+							<!-- Первый столбец -->
+							<div class="hiit-column hiit-column-left">
+								<!-- Готовимся -->
+								<div class="hiit-select-row">
+									<div class="hiit-select">
+										<select id="hiit-prepare-select" class="hiit-preset-select"></select>
+										<label for="hiit-prepare-select">Готовимся</label>
+									</div>
+								</div>
+								<!-- Отдыхаем -->
+								<div class="hiit-select-row">
+									<div class="hiit-select">
+										<select id="hiit-rest-select" class="hiit-preset-select"></select>
+										<label for="hiit-rest-select">Отдыхаем</label>
+									</div>
+								</div>
+								<!-- Отдых между циклами -->
+								<div class="hiit-select-row">
+									<div class="hiit-select">
+										<select id="hiit-cyclerest-select" class="hiit-preset-select"></select>
+										<label for="hiit-cyclerest-select">Отдых между циклами</label>
+									</div>
+								</div>
+							</div>
+							<!-- Второй столбец -->
+							<div class="hiit-column hiit-column-right">
+								<!-- Работаем -->
+								<div class="hiit-select-row">
+									<div class="hiit-select">
+										<select id="hiit-work-select" class="hiit-preset-select"></select>
+										<label for="hiit-work-select">Работаем</label>
+									</div>
+								</div>
+								<!-- Раунды -->
+								<div class="hiit-select-row">
+									<div class="hiit-select">
+										<select id="hiit-cycles-select" class="hiit-number-select"></select>
+										<label for="hiit-cycles-select">Раунды</label>
+									</div>
+								</div>
+								<!-- Циклы -->
+								<div class="hiit-select-row">
+									<div class="hiit-select">
+										<select id="hiit-tabatas-select" class="hiit-number-select"></select>
+										<label for="hiit-tabatas-select">Циклы</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!-- Карточка для радио и кнопок управления (общая для всех режимов) -->
+					<li id="controls-card-wrapper" class="field full">
+						<div class="controls-card-container">
+	<div id="radio" onclick="yaCounter42580049.reachGoal('useradioblock'); return true;">
+						<a name=radio></a>
+						<div class="radio-select-wrapper">
+							<select name="radio-stations" id="radio-stations" class="radio-stations-select">
+								<option value="" selected disabled>Выбери радиостанцию</option>
+								<option value="https://radiorecord.hostingradio.ru/2step96.aacp">2-step – 2-шаговый</option>
+<option value="https://radiorecord.hostingradio.ru/club96.aacp">EDM</option>
+<option value="https://radiorecord.hostingradio.ru/goa96.aacp">GOA/PSY</option>
+<option value="https://radiorecord.hostingradio.ru/vip96.aacp">VIP – дом</option>
+
+<option value="https://radiorecord.hostingradio.ru/armin96.aacp">Армин ван Бюрен</option>
+<option value="https://radiorecord.hostingradio.ru/jackin96.aacp">Басовый Дом</option>
+<option value="https://radiorecord.hostingradio.ru/bighits96.aacp">Большие Хиты</option>
+<option value="https://radiorecord.hostingradio.ru/fbass96.aacp">Будущий Бас</option>
+<option value="https://radiorecord.hostingradio.ru/fut96.aacp">Будущий Дом</option>
+<option value="https://radiorecord.hostingradio.ru/futurerave96.aacp">Будущий Рейв</option>
+<option value="https://radiorecord.hostingradio.ru/party96.aacp">Вечеринка 24/7</option>
+<option value="https://radiorecord.hostingradio.ru/deti96.aacp">Веснушка FM</option>
+<option value="https://radiorecord.hostingradio.ru/ukgarage96.aacp">Гараж в Великобритании</option>
+<option value="https://radiorecord.hostingradio.ru/gast96.aacp">Гастарбайтер FM</option>
+<option value="https://radiorecord.hostingradio.ru/hypno96.aacp">Гипнотический</option>
+<option value="https://radiorecord.hostingradio.ru/deep96.aacp">Глубокий</option>
+<option value="https://radiorecord.hostingradio.ru/gop96.aacp">Гоп FM</option>
+<option value="https://radiorecord.hostingradio.ru/groovetribal96.aacp">Грув/Трайбл</option>
+<option value="https://radiorecord.hostingradio.ru/dub96.aacp">Дабстеп</option>
+<option value="https://radiorecord.hostingradio.ru/jungle96.aacp">Джунгли</option>
+<option value="https://radiorecord.hostingradio.ru/discofunk96.aacp">Диско/Фанк</option>
+<option value="https://radiorecord.hostingradio.ru/houseclss96.aacp">Домашняя Классика</option>
+<option value="https://radiorecord.hostingradio.ru/guetta96.aacp">Дэвид Гетта</option>
+<option value="https://radiorecord.hostingradio.ru/eurodance96.aacp">Евродэнс</option>
+<option value="https://radiorecord.hostingradio.ru/hbass96.aacp">Жесткий Бас</option>
+<option value="https://radiorecord.hostingradio.ru/teo96.aacp">Жесткий Стиль</option>
+<option value="https://radiorecord.hostingradio.ru/liquidfunk96.aacp">Жидкий Фанк</option>
+<option value="https://radiorecord.hostingradio.ru/livedjsets96.aacp">Живые диджейские сеты</option>
+<option value="https://radiorecord.hostingradio.ru/drumhits96.aacp">Классика D'n'B</option>
+<option value="https://radiorecord.hostingradio.ru/edmhits96.aacp">Классика EDM</option>
+<option value="https://radiorecord.hostingradio.ru/trancehits96.aacp">Классика Транса</option>
+<option value="https://radiorecord.hostingradio.ru/rapclassics96.aacp">Классика рэпа</option>
+<option value="https://radiorecord.hostingradio.ru/latina96.aacp">Латиноамериканский Танец</option>
+<option value="https://radiorecord.hostingradio.ru/summerparty96.aacp">Летний Танец</option>
+<option value="https://radiorecord.hostingradio.ru/summerlounge64.aacp">Летняя Гостиная</option>
+<option value="https://radiorecord.hostingradio.ru/trap96.aacp">Ловушка</option>
+<option value="https://radiorecord.hostingradio.ru/lofi96.aacp">Лоу-Фай</option>
+<option value="https://radiorecord.hostingradio.ru/mf96.aacp">Маятник Фуко</option>
+<option value="https://radiorecord.hostingradio.ru/mix96.aacp">Мегамикс</option>
+<option value="https://radiorecord.hostingradio.ru/mini96.aacp">Минималистичный / Технический</option>
+<option value="https://radiorecord.hostingradio.ru/mmbt96.aacp">Мумбахтон</option>
+<option value="https://radiorecord.hostingradio.ru/mdl96.aacp">Медляк FM</option>
+<option value="https://radiorecord.hostingradio.ru/hype96.aacp">На Хайпе</option>
+<option value="https://radiorecord.hostingradio.ru/naft96.aacp">Нафталин FM</option>
+<option value="https://radiorecord.hostingradio.ru/ibiza96.aacp">Невинность</option>
+<option value="https://radiorecord.hostingradio.ru/neurofunk96.aacp">Нейрофанк</option>
+<option value="https://radiorecord.hostingradio.ru/ambient96.aacp">Окружающая среда</option>
+<option value="https://radiorecord.hostingradio.ru/organic96.aacp">Органический</option>
+<option value="https://radiorecord.hostingradio.ru/tm96.aacp">Переход в транс</option>
+<option value="https://radiorecord.hostingradio.ru/ps96.aacp">Пиратская станция</option>
+<option value="https://radiorecord.hostingradio.ru/dreampop96.aacp">Поп-музыка Мечты</option>
+<option value="https://radiorecord.hostingradio.ru/uplift96.aacp">Поднимающий Настроение</option>
+<option value="https://radiorecord.hostingradio.ru/progr96.aacp">Прогрессивный</option>
+<option value="https://radiorecord.hostingradio.ru/brks96.aacp">Разрывы</option>
+<option value="https://radiorecord.hostingradio.ru/rave96.aacp">Рейв FM</option>
+<option value="https://radiorecord.hostingradio.ru/200096.aacp">Рекорд 00-х</option>
+<option value="https://radiorecord.hostingradio.ru/198096.aacp">Рекорд 80-х</option>
+<option value="https://radiorecord.hostingradio.ru/gold96.aacp">Рекордное Золото</option>
+<option value="https://radiorecord.hostingradio.ru/rmx96.aacp">Ремикс</option>
+<option value="https://radiorecord.hostingradio.ru/reggae96.aacp">Регги</option>
+<option value="https://radiorecord.hostingradio.ru/christmaschill96.aacp">Рождественский Холод</option>
+<option value="https://radiorecord.hostingradio.ru/christmas96.aacp">Рождество</option>
+<option value="https://radiorecord.hostingradio.ru/ruszima96.aacp">Русская Зима</option>
+<option value="https://radiorecord.hostingradio.ru/russianhits64.aacp">Русские Хиты</option>
+<option value="https://radiorecord.hostingradio.ru/rus96.aacp">Русский Микс</option>
+<option value="https://radiorecord.hostingradio.ru/russiangold96.aacp">Русское Золото</option>
+<option value="https://radiorecord.hostingradio.ru/rv96.aacp">Руки Вверх!</option>
+<option value="https://radiorecord.hostingradio.ru/rap96.aacp">Рэп - хиты</option>
+<option value="https://radiorecord.hostingradio.ru/symph96.aacp">Симфония FM</option>
+<option value="https://radiorecord.hostingradio.ru/Synth96.aacp">Синтетическая волна</option>
+<option value="https://radiorecord.hostingradio.ru/complextro96.aacp">Сложный процесс</option>
+<option value="https://radiorecord.hostingradio.ru/pump96.aacp">Старая Школа</option>
+<option value="https://radiorecord.hostingradio.ru/mt96.aacp">Среднетемповый</option>
+<option value="https://radiorecord.hostingradio.ru/sd9096.aacp">Супердискотека 90-х</option>
+<option value="https://radiorecord.hostingradio.ru/201096.aacp">Танец 10-х</option>
+<option value="https://radiorecord.hostingradio.ru/cadillac96.aacp">Танец 60-х</option>
+<option value="https://radiorecord.hostingradio.ru/197096.aacp">Танец 70-х</option>
+<option value="https://radiorecord.hostingradio.ru/dream96.aacp">Танец Мечты</option>
+<option value="https://radiorecord.hostingradio.ru/dc96.aacp">Танцевальный центр</option>
+<option value="https://radiorecord.hostingradio.ru/tecktonik96.aacp">Тектоник</option>
+<option value="https://radiorecord.hostingradio.ru/darkside96.aacp">Темная Сторона</option>
+<option value="https://radiorecord.hostingradio.ru/techouse96.aacp">Технический дом</option>
+<option value="https://radiorecord.hostingradio.ru/techno96.aacp">Техно</option>
+<option value="https://radiorecord.hostingradio.ru/technopop96.aacp">Технопоп</option>
+<option value="https://radiorecord.hostingradio.ru/tiesto96.aacp">Тиесто</option>
+<option value="https://radiorecord.hostingradio.ru/top100edm96.aacp">ТОП - 100 EDM</option>
+<option value="https://radiorecord.hostingradio.ru/trancehouse96.aacp">Трансхаус</option>
+<option value="https://radiorecord.hostingradio.ru/workout96.aacp">Тренировка</option>
+<option value="https://radiorecord.hostingradio.ru/trop96.aacp">Тропический</option>
+<option value="https://radiorecord.hostingradio.ru/phonk96.aacp">Фонк</option>
+<option value="https://radiorecord.hostingradio.ru/househits96.aacp">Хаус - хиты</option>
+<option value="https://radiorecord.hostingradio.ru/chillhouse96.aacp">Холодильный дом</option>
+<option value="https://radiorecord.hostingradio.ru/yo96.aacp">Черный Рэп</option>
+<option value="https://radiorecord.hostingradio.ru/chil96.aacp">Чилл-Аут</option>
+<option value="https://radiorecord.hostingradio.ru/tm96.aacp">Шаг в транс</option>
+<option value="https://radiorecord.hostingradio.ru/elect96.aacp">Электро</option>
+<option value="https://radiorecord.hostingradio.ru/197096.aacp">1970 – Танец 70-х</option>
+<option value="https://radiorecord.hostingradio.ru/198096.aacp">1980 – Рекорд 80-х</option>
+<option value="https://radiorecord.hostingradio.ru/200096.aacp">2000 – Рекорд 00-х</option>
+<option value="https://radiorecord.hostingradio.ru/201096.aacp">2010 – Танец 10-х</option>
+							</select>
+							<div class="radio-player" id="mini-radio-player">
+								<div class="radio-player-play" id="radio-play-button" onclick="event.stopPropagation(); toggleRadioPlay();"></div>
+								<div class="radio-player-name" id="radio-station-name">Выбери радио</div>
+							</div>
+						</div>
+						<!-- Ползунок громкости для настроек (показывается только в режиме HIIT) -->
+						<div class="radio-volume-container" id="radio-volume-container-settings" style="display: none;">
+							<div class="radio-volume-wrapper">
+								<span class="radio-volume-icon">🔊</span>
+								<input type="range" id="radio-volume-slider-settings" class="radio-volume-slider" min="0" max="100" value="100" step="1">
+								<span class="radio-volume-value" id="radio-volume-value-settings">100%</span>
+							</div>
+						</div>
+						<audio id="radio-audio" style="display:none" crossOrigin="anonymous"></audio>
+						<script>
+							// Система условного логирования (отключена в продакшене для производительности)
+							// Включить логирование можно добавив ?debug=1 к URL
+							window.DEBUG_MODE = (window.location.search.indexOf('debug=1') !== -1 || 
+							                      window.location.hostname === 'localhost' || 
+							                      window.location.hostname === '127.0.0.1');
+							
+							// Система логирования для режима HIIT, радио и громкости
+							window.radioLogs = [];
+							window.logRadio = function(message, data) {
+								// Логирование только в debug режиме
+								if (!window.DEBUG_MODE) return;
+								
+								const timestamp = new Date().toISOString();
+								const logEntry = {
+									timestamp: timestamp,
+									message: message,
+									data: data || {},
+									timerMode: window.timerMode || 'не определен',
+									radioCurrentStation: radioCurrentStation || 'не выбрана',
+									radioIsPlaying: radioIsPlaying || false
+								};
+								window.radioLogs.push(logEntry);
+								console.log('[RADIO LOG]', timestamp, message, logEntry);
+								
+								// Ограничиваем размер массива логов (последние 1000 записей)
+								if (window.radioLogs.length > 1000) {
+									window.radioLogs.shift();
+								}
+							};
+							
+							// Функции для работы с логами
+							window.getRadioLogs = function() {
+								return window.radioLogs;
+							};
+							
+							window.exportRadioLogs = function() {
+								const logsJson = JSON.stringify(window.radioLogs, null, 2);
+								const blob = new Blob([logsJson], { type: 'application/json' });
+								const url = URL.createObjectURL(blob);
+								const a = document.createElement('a');
+								a.href = url;
+								a.download = 'radio-logs-' + new Date().toISOString().replace(/:/g, '-') + '.json';
+								document.body.appendChild(a);
+								a.click();
+								document.body.removeChild(a);
+								URL.revokeObjectURL(url);
+							};
+							
+							window.clearRadioLogs = function() {
+								window.radioLogs = [];
+								if (window.DEBUG_MODE) {
+									console.log('Логи радио очищены');
+								}
+							};
+							
+							// Глобальные переменные для доступа из любых функций
+							let radioCurrentStation = '';
+							let radioIsPlaying = false;
+							
+							// Web Audio API для управления громкостью на мобильных устройствах
+							let audioContext = null;
+							let gainNode = null;
+							let sourceNode = null;
+							let isWebAudioInitialized = false;
+							let corsBlocked = false; // Флаг для отслеживания CORS проблем
+							
+							// Логируем начальную инициализацию
+							window.logRadio('Инициализация системы радио', {
+								userAgent: navigator.userAgent,
+								windowTimerMode: window.timerMode
+							});
+							
+							// Инициализация Web Audio API для управления громкостью
+							function initWebAudio() {
+								window.logRadio('initWebAudio вызвана', {
+									isWebAudioInitialized: isWebAudioInitialized,
+									hasAudioContext: !!audioContext,
+									hasGainNode: !!gainNode,
+									audioContextState: audioContext ? audioContext.state : 'не создан'
+								});
+								
+								if (isWebAudioInitialized && audioContext && gainNode) {
+									// Если AudioContext в состоянии suspended, пытаемся его возобновить
+									if (audioContext.state === 'suspended') {
+										audioContext.resume().then(() => {
+											window.logRadio('AudioContext возобновлен', { state: audioContext.state });
+											console.log('AudioContext возобновлен');
+										}).catch(e => {
+											window.logRadio('Ошибка при возобновлении AudioContext', { error: e.message });
+											console.error('Ошибка при возобновлении AudioContext:', e);
+										});
+									}
+									return;
+								}
+								
+								try {
+									const audioElement = document.getElementById('radio-audio');
+									if (!audioElement) {
+										window.logRadio('Audio элемент не найден для инициализации Web Audio', {});
+										console.log('Audio элемент не найден для инициализации Web Audio');
+										return;
+									}
+									
+									window.logRadio('Начало создания AudioContext', {
+										audioElementSrc: audioElement.src,
+										audioElementReadyState: audioElement.readyState
+									});
+									
+									// Создаем AudioContext (с проверкой на старые браузеры)
+									const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+									if (!AudioContextClass) {
+										window.logRadio('Web Audio API не поддерживается', {});
+										console.log('Web Audio API не поддерживается');
+										return;
+									}
+									
+									audioContext = new AudioContextClass();
+									window.logRadio('AudioContext создан', { state: audioContext.state });
+									
+									// Обрабатываем состояние suspended (часто на iOS)
+									if (audioContext.state === 'suspended') {
+										window.logRadio('AudioContext в состоянии suspended, добавляем обработчики для возобновления', {});
+										// Пытаемся возобновить при первом пользовательском взаимодействии
+										const resumeAudioContext = function() {
+											audioContext.resume().then(() => {
+												window.logRadio('AudioContext возобновлен после пользовательского взаимодействия', { state: audioContext.state });
+												console.log('AudioContext возобновлен после пользовательского взаимодействия');
+											}).catch(e => {
+												window.logRadio('Ошибка при возобновлении AudioContext', { error: e.message });
+												console.error('Ошибка при возобновлении AudioContext:', e);
+											});
+											document.removeEventListener('touchstart', resumeAudioContext);
+											document.removeEventListener('click', resumeAudioContext);
+										};
+										document.addEventListener('touchstart', resumeAudioContext, { once: true });
+										document.addEventListener('click', resumeAudioContext, { once: true });
+									}
+									
+									// Создаем GainNode для управления громкостью
+									gainNode = audioContext.createGain();
+									gainNode.connect(audioContext.destination);
+									window.logRadio('GainNode создан и подключен', { gainValue: gainNode.gain.value });
+									
+									// Создаем источник из audio элемента
+									// Важно: это можно сделать только один раз для каждого audio элемента
+									// Проверяем, не был ли уже создан sourceNode
+									if (!sourceNode) {
+										try {
+											sourceNode = audioContext.createMediaElementSource(audioElement);
+											// Отключаем прямое подключение audio элемента к destination
+											// (теперь звук идет через gainNode)
+											sourceNode.connect(gainNode);
+											window.logRadio('MediaElementSource создан успешно', {});
+											console.log('MediaElementSource создан успешно');
+											
+											// Проверяем на CORS проблемы через анализ аудио потока
+											// Если CORS блокирует доступ, мы не сможем использовать Web Audio API
+											// В этом случае будем использовать fallback на audioElement.volume
+											setTimeout(function() {
+												// Проверяем, есть ли предупреждение о CORS в консоли
+												// Если звук не идет через Web Audio API, используем fallback
+												if (audioElement.readyState >= 2 && audioElement.paused === false) {
+													// Проверяем, работает ли Web Audio API
+													// Если gainNode не влияет на громкость, значит CORS блокирует
+													const testGain = gainNode.gain.value;
+													gainNode.gain.value = 0.01; // Устанавливаем очень низкую громкость
+													setTimeout(function() {
+														// Если звук все еще слышен, значит Web Audio API не работает из-за CORS
+														// В этом случае используем fallback
+														corsBlocked = true;
+														isWebAudioInitialized = false;
+														gainNode.gain.value = testGain; // Восстанавливаем громкость
+														window.logRadio('Обнаружена CORS блокировка, переключаемся на fallback', {
+															audioElementSrc: audioElement.src
+														});
+														console.warn('CORS блокировка обнаружена, используем fallback на audioElement.volume');
+													}, 100);
+												}
+											}, 500);
+										} catch (e) {
+											// Если источник уже создан или ошибка CORS
+											window.logRadio('MediaElementSource уже создан или ошибка', { error: e.message });
+											console.log('MediaElementSource уже создан или ошибка:', e);
+											// Если ошибка связана с CORS, используем fallback
+											if (e.message && (e.message.indexOf('CORS') !== -1 || e.message.indexOf('cross-origin') !== -1)) {
+												corsBlocked = true;
+												isWebAudioInitialized = false;
+												window.logRadio('CORS ошибка при создании MediaElementSource, используем fallback', { error: e.message });
+											}
+										}
+									} else {
+										window.logRadio('MediaElementSource уже существует, используем существующий', {});
+										console.log('MediaElementSource уже существует, используем существующий');
+									}
+									
+									// Устанавливаем начальную громкость из localStorage
+									const savedVolume = localStorage.getItem('radioVolume');
+									if (savedVolume !== null) {
+										const volume = parseInt(savedVolume) / 100;
+										gainNode.gain.value = volume;
+										window.logRadio('Начальная громкость установлена из localStorage', { volume: volume, savedVolume: savedVolume });
+									} else {
+										gainNode.gain.value = 1.0; // 100% по умолчанию
+										window.logRadio('Начальная громкость установлена по умолчанию', { volume: 1.0 });
+									}
+									
+									isWebAudioInitialized = true;
+									window.logRadio('Web Audio API инициализирован успешно', { 
+										state: audioContext.state,
+										hasGainNode: !!gainNode,
+										hasSourceNode: !!sourceNode
+									});
+									console.log('Web Audio API инициализирован успешно', { state: audioContext.state });
+								} catch (e) {
+									window.logRadio('Ошибка при инициализации Web Audio API', { error: e.message, stack: e.stack });
+									console.error('Ошибка при инициализации Web Audio API:', e);
+									isWebAudioInitialized = false;
+								}
+							}
+							
+							// Функция для управления громкостью радио
+							function updateRadioVolume(value, skipSliderUpdate) {
+								const audioElement = document.getElementById('radio-audio');
+								
+								window.logRadio('updateRadioVolume вызвана', { 
+									value: value, 
+									skipSliderUpdate: skipSliderUpdate || false,
+									audioElement: audioElement ? 'найден' : 'не найден',
+									isWebAudioInitialized: isWebAudioInitialized,
+									hasGainNode: !!gainNode,
+									audioElementVolume: audioElement ? audioElement.volume : 'не доступен',
+									gainNodeValue: gainNode ? gainNode.gain.value : 'не доступен'
+								});
+								
+								// Логирование для отладки
+								console.log('updateRadioVolume вызвана:', { 
+									value: value, 
+									audioElement: audioElement ? 'найден' : 'не найден',
+									isWebAudioInitialized: isWebAudioInitialized
+								});
+								
+								if (!audioElement) {
+									window.logRadio('updateRadioVolume: audio элемент не найден', {});
+									return;
+								}
+								
+								// Преобразуем значение от 0-100 в 0.0-1.0
+								const volume = value / 100;
+								
+								try {
+									// Определяем, является ли устройство мобильным
+									const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+									
+									// Пытаемся использовать Web Audio API (предпочтительный метод для мобильных устройств)
+									// НО: если CORS блокирует доступ или это десктоп, используем fallback на audioElement.volume
+									// На десктопе радиостанции часто имеют CORS ограничения, поэтому используем fallback
+									if (isMobile && isWebAudioInitialized && gainNode && !corsBlocked) {
+										gainNode.gain.value = volume;
+										window.logRadio('Громкость установлена через Web Audio API', { 
+											volume: volume, 
+											gainValue: gainNode.gain.value,
+											actualGainValue: gainNode.gain.value,
+											isMobile: isMobile
+										});
+										console.log('Громкость установлена через Web Audio API:', { volume: volume, gainValue: gainNode.gain.value });
+									} else {
+										// Fallback: используем стандартный способ (для десктопов и если Web Audio не инициализирован или CORS блокирует)
+										audioElement.volume = volume;
+										
+										const reason = !isMobile ? 'десктоп (используем fallback для избежания CORS)' : 
+														(corsBlocked ? 'CORS блокирует Web Audio API' : 
+														(isWebAudioInitialized ? 'gainNode отсутствует' : 'Web Audio не инициализирован'));
+										
+										window.logRadio('Громкость установлена через audioElement.volume (fallback)', { 
+											volume: volume, 
+											audioElementVolume: audioElement.volume,
+											reason: reason,
+											isMobile: isMobile,
+											corsBlocked: corsBlocked
+										});
+										
+										// Для iOS: дополнительные попытки установки громкости
+										setTimeout(function() {
+											audioElement.volume = volume;
+											window.logRadio('Повторная установка громкости через audioElement.volume (5ms)', { volume: volume, actualVolume: audioElement.volume });
+										}, 5);
+										setTimeout(function() {
+											audioElement.volume = volume;
+											window.logRadio('Повторная установка громкости через audioElement.volume (20ms)', { volume: volume, actualVolume: audioElement.volume });
+										}, 20);
+										
+										console.log('Громкость установлена через audioElement.volume:', { volume: volume, audioElementVolume: audioElement.volume });
+									}
+								} catch (e) {
+									window.logRadio('Ошибка при установке громкости', { error: e.message, stack: e.stack });
+									console.error('Ошибка при установке громкости:', e);
+								}
+								
+								// Обновляем значение в настройках
+								const volumeValueSettings = document.getElementById('radio-volume-value-settings');
+								if (volumeValueSettings) {
+									volumeValueSettings.textContent = value + '%';
+								}
+								
+								// Обновляем значение во время тренировки
+								const volumeValueTimer = document.getElementById('radio-volume-value-timer');
+								if (volumeValueTimer) {
+									volumeValueTimer.textContent = value + '%';
+								}
+								
+								// Обновляем ползунки только если не указано пропустить обновление
+								// (чтобы избежать бесконечного цикла при синхронизации)
+								if (!skipSliderUpdate) {
+									const volumeSliderSettings = document.getElementById('radio-volume-slider-settings');
+									if (volumeSliderSettings && parseInt(volumeSliderSettings.value) !== value) {
+										volumeSliderSettings.value = value;
+									}
+									const volumeSliderTimer = document.getElementById('radio-volume-slider-timer');
+									if (volumeSliderTimer && parseInt(volumeSliderTimer.value) !== value) {
+										volumeSliderTimer.value = value;
+									}
+								}
+								
+								// Обновляем иконки в зависимости от уровня громкости
+								const volumeIcons = document.querySelectorAll('.radio-volume-icon');
+								volumeIcons.forEach(function(icon) {
+									if (value == 0) {
+										icon.textContent = '🔇';
+									} else if (value < 30) {
+										icon.textContent = '🔈';
+									} else if (value < 70) {
+										icon.textContent = '🔉';
+									} else {
+										icon.textContent = '🔊';
+									}
+								});
+								
+								// Сохраняем значение громкости в localStorage
+								localStorage.setItem('radioVolume', value);
+							}
+							
+							// Функция для определения, нужно ли показывать ползунок громкости
+							// На iPhone/iPod не показываем, так как громкость управляется системными кнопками
+							// На ПК, MacBook и Android показываем, так как используется audioElement.volume
+							function shouldShowVolumeSlider() {
+								const userAgent = navigator.userAgent;
+								const isIPhone = /iPhone|iPod/i.test(userAgent);
+								const isIPad = /iPad/i.test(userAgent);
+								// MacBook может иметь "Macintosh" в userAgent, но не должен определяться как iPhone
+								const isMacBook = /Macintosh/i.test(userAgent) && !/iPhone|iPod|iPad/i.test(userAgent);
+								
+								window.logRadio('shouldShowVolumeSlider проверка', {
+									userAgent: userAgent,
+									isIPhone: isIPhone,
+									isIPad: isIPad,
+									isMacBook: isMacBook,
+									shouldShow: !isIPhone && !isIPad
+								});
+								
+								// Показываем на всех устройствах кроме iPhone и iPad
+								return !isIPhone && !isIPad;
+							}
+							
+							// Функция для показа/скрытия ползунка громкости в настройках
+							function toggleVolumeSlider(show) {
+								const volumeContainer = document.getElementById('radio-volume-container-settings');
+								if (volumeContainer) {
+									// Проверяем, нужно ли показывать ползунок на этом устройстве
+									if (show && !shouldShowVolumeSlider()) {
+										window.logRadio('Ползунок громкости скрыт (iPhone устройство)', {
+											userAgent: navigator.userAgent
+										});
+										volumeContainer.style.display = 'none';
+										return;
+									}
+									
+									if (show) {
+										volumeContainer.style.display = 'block';
+										window.logRadio('Ползунок громкости показан (настройки)', {
+											userAgent: navigator.userAgent,
+											isIPhone: /iPhone|iPod/i.test(navigator.userAgent)
+										});
+									} else {
+										volumeContainer.style.display = 'none';
+									}
+								}
+							}
+							
+							// Функция для показа/скрытия ползунка громкости во время тренировки
+							function toggleVolumeSliderTimer(show) {
+								const volumeContainer = document.getElementById('radio-volume-container-timer');
+								if (volumeContainer) {
+									// Проверяем, нужно ли показывать ползунок на этом устройстве
+									if (show && !shouldShowVolumeSlider()) {
+										window.logRadio('Ползунок громкости скрыт (iPhone устройство, тренировка)', {
+											userAgent: navigator.userAgent
+										});
+										volumeContainer.style.display = 'none';
+										return;
+									}
+									
+									if (show) {
+										volumeContainer.style.display = 'block';
+										window.logRadio('Ползунок громкости показан (тренировка)', {
+											userAgent: navigator.userAgent,
+											isIPhone: /iPhone|iPod/i.test(navigator.userAgent)
+										});
+									} else {
+										volumeContainer.style.display = 'none';
+									}
+								}
+							}
+							
+							// Функция для воспроизведения/паузы
+							function toggleRadioPlay() {
+							// Воспроизводим звук клика
+							if (typeof playClickEffectSound === 'function') {
+								playClickEffectSound();
+							}
+							
+								const audioElement = document.getElementById('radio-audio');
+								const playButton = document.getElementById('radio-play-button');
+							
+							window.logRadio('toggleRadioPlay вызвана', {
+									radioCurrentStation: radioCurrentStation,
+									radioIsPlaying: radioIsPlaying,
+									audioElement: audioElement ? 'найден' : 'не найден',
+									playButton: playButton ? 'найден' : 'не найден',
+									timerMode: window.timerMode
+								});
+								
+								if (!radioCurrentStation) {
+									window.logRadio('toggleRadioPlay: радиостанция не выбрана', {});
+									alert('Сначала выберите радиостанцию');
+									return;
+								}
+								
+								if (radioIsPlaying) {
+									// Ставим на паузу
+									audioElement.pause();
+									playButton.classList.remove('playing');
+									radioIsPlaying = false;
+									
+									window.logRadio('Радио приостановлено', {
+										audioElementPaused: audioElement.paused,
+										audioElementCurrentTime: audioElement.currentTime
+									});
+									
+									console.log('Радио приостановлено');
+									// Скрываем ползунок громкости во время тренировки при паузе
+									if (typeof toggleVolumeSliderTimer === 'function') {
+										toggleVolumeSliderTimer(false);
+									}
+								} else {
+									// Инициализируем Web Audio API перед воспроизведением (для мобильных устройств)
+									initWebAudio();
+									
+									// Воспроизводим
+									const playPromise = audioElement.play();
+									
+									window.logRadio('Попытка воспроизведения радио', {
+										playPromise: playPromise ? 'Promise создан' : 'undefined',
+										audioElementSrc: audioElement.src,
+										audioElementPaused: audioElement.paused,
+										audioElementReadyState: audioElement.readyState
+									});
+									
+									if (playPromise !== undefined) {
+										playPromise.then(() => {
+											// Воспроизведение началось успешно
+											// Убеждаемся, что AudioContext активен
+											if (audioContext && audioContext.state === 'suspended') {
+												audioContext.resume();
+												window.logRadio('AudioContext возобновлен при воспроизведении', { state: audioContext.state });
+											}
+											
+											playButton.classList.add('playing');
+											radioIsPlaying = true;
+											
+											window.logRadio('Радио воспроизводится успешно', {
+												audioElementPaused: audioElement.paused,
+												audioElementSrc: audioElement.src,
+												audioElementCurrentTime: audioElement.currentTime,
+												audioElementReadyState: audioElement.readyState,
+												audioContextState: audioContext ? audioContext.state : 'не создан'
+											});
+											
+											console.log('Радио воспроизводится');
+											// Показываем ползунок громкости в настройках когда радио играет (только в режиме HIIT)
+											if (window.timerMode == 2) {
+												toggleVolumeSlider(true);
+												window.logRadio('Ползунок громкости в настройках показан', {});
+											}
+											// Показываем ползунок громкости во время тренировки если таймер запущен (только в режиме HIIT)
+											if (window.timerMode == 2 && typeof toggleVolumeSliderTimer === 'function') {
+												toggleVolumeSliderTimer(true);
+												window.logRadio('Ползунок громкости во время тренировки показан', {});
+											}
+										}).catch(error => {
+											// Произошла ошибка воспроизведения
+											window.logRadio('Ошибка воспроизведения радио', {
+												error: error.message,
+												errorName: error.name,
+												audioElementSrc: audioElement.src,
+												audioElementPaused: audioElement.paused,
+												audioElementReadyState: audioElement.readyState
+											});
+											
+											console.error('Не удалось начать воспроизведение:', error);
+											alert('Не удалось воспроизвести радио. Пожалуйста, выберите другую станцию или повторите попытку позже.');
+											radioIsPlaying = false;
+											playButton.classList.remove('playing');
+										});
+									} else {
+										window.logRadio('playPromise undefined при воспроизведении', {
+											audioElementSrc: audioElement.src,
+											audioElementPaused: audioElement.paused
+										});
+									}
+								}
+							}
+							
+							document.addEventListener('DOMContentLoaded', function() {
+								window.logRadio('DOMContentLoaded: инициализация элементов радио', {
+									timerMode: window.timerMode
+								});
+								
+								const playButton = document.getElementById('radio-play-button');
+								const stationName = document.getElementById('radio-station-name');
+								const radioStations = document.getElementById('radio-stations');
+								const audioElement = document.getElementById('radio-audio');
+								
+								window.logRadio('DOMContentLoaded: элементы найдены', {
+									playButton: playButton ? 'найден' : 'не найден',
+									stationName: stationName ? 'найден' : 'не найден',
+									radioStations: radioStations ? 'найден' : 'не найден',
+									audioElement: audioElement ? 'найден' : 'не найден',
+									radioStationsOptionsCount: radioStations && radioStations.options ? radioStations.options.length : 0
+								});
+								
+								// Добавляем обработчики для ползунка громкости в настройках
+								const volumeSliderSettings = document.getElementById('radio-volume-slider-settings');
+								if (volumeSliderSettings) {
+									window.logRadio('Ползунок громкости найден при инициализации', {
+										element: volumeSliderSettings ? 'найден' : 'не найден',
+										disabled: volumeSliderSettings.disabled,
+										readOnly: volumeSliderSettings.readOnly,
+										style: {
+											display: volumeSliderSettings.style.display,
+											visibility: volumeSliderSettings.style.visibility,
+											pointerEvents: volumeSliderSettings.style.pointerEvents
+										},
+										computedStyle: window.getComputedStyle ? {
+											display: window.getComputedStyle(volumeSliderSettings).display,
+											visibility: window.getComputedStyle(volumeSliderSettings).visibility,
+											pointerEvents: window.getComputedStyle(volumeSliderSettings).pointerEvents,
+											zIndex: window.getComputedStyle(volumeSliderSettings).zIndex
+										} : 'не доступен'
+									});
+									// Используем стандартные события input и change, которые работают на всех устройствах
+									// Также добавляем обработчики touch для лучшей поддержки на мобильных устройствах
+									
+									// Обработчик input (срабатывает при изменении значения) - работает на всех устройствах
+									volumeSliderSettings.addEventListener('input', function(e) {
+										e.preventDefault();
+										e.stopPropagation();
+										
+										// Инициализируем Web Audio API при первом взаимодействии
+										initWebAudio();
+										
+										const value = parseInt(this.value);
+										
+										window.logRadio('Ползунок громкости: input событие', {
+											value: value,
+											audioElement: audioElement ? 'найден' : 'не найден'
+										});
+										
+										// Для всех устройств: устанавливаем громкость напрямую синхронно
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									});
+									
+									// Обработчик change (срабатывает при окончании изменения) - работает на всех устройствах
+									volumeSliderSettings.addEventListener('change', function(e) {
+										e.preventDefault();
+										e.stopPropagation();
+										
+										// Инициализируем Web Audio API при первом взаимодействии
+										initWebAudio();
+										
+										const value = parseInt(this.value);
+										
+										window.logRadio('Ползунок громкости: change событие', {
+											value: value,
+											audioElement: audioElement ? 'найден' : 'не найден'
+										});
+										
+										// Для всех устройств: устанавливаем громкость напрямую синхронно
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									});
+									
+									// Обработчики событий мыши для десктопов (mousedown, mousemove, mouseup)
+									let isMouseDragging = false;
+									
+									volumeSliderSettings.addEventListener('mousedown', function(e) {
+										e.preventDefault();
+										e.stopPropagation();
+										
+										isMouseDragging = true;
+										initWebAudio();
+										
+										const rect = this.getBoundingClientRect();
+										const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+										const value = Math.round(percent * 100);
+										this.value = value;
+										
+										window.logRadio('Ползунок громкости: mousedown событие', {
+											value: value,
+											clientX: e.clientX,
+											rectLeft: rect.left,
+											rectWidth: rect.width
+										});
+										
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									});
+									
+									document.addEventListener('mousemove', function(e) {
+										if (!isMouseDragging || !volumeSliderSettings) return;
+										
+										const rect = volumeSliderSettings.getBoundingClientRect();
+										const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+										const value = Math.round(percent * 100);
+										volumeSliderSettings.value = value;
+										
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									});
+									
+									document.addEventListener('mouseup', function(e) {
+										if (!isMouseDragging) return;
+										
+										isMouseDragging = false;
+										
+										if (volumeSliderSettings) {
+											const value = parseInt(volumeSliderSettings.value);
+											window.logRadio('Ползунок громкости: mouseup событие', {
+												value: value
+											});
+											
+											if (audioElement) {
+												const volume = value / 100;
+												audioElement.volume = volume;
+											}
+											updateRadioVolume(value);
+										}
+									});
+									
+									// Дополнительные обработчики touch для мобильных устройств (как резервный вариант)
+									// На iOS важно устанавливать громкость синхронно во время touch события
+									let isDragging = false;
+									
+									volumeSliderSettings.addEventListener('touchstart', function(e) {
+										// Инициализируем Web Audio API при первом touch взаимодействии
+										initWebAudio();
+										
+										isDragging = true;
+										const touch = e.touches[0];
+										const rect = this.getBoundingClientRect();
+										const percent = Math.max(0, Math.min(1, (touch.clientX - rect.left) / rect.width));
+										const value = Math.round(percent * 100);
+										this.value = value;
+										
+										// Для iOS: устанавливаем громкость напрямую синхронно во время touch
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									}, { passive: true });
+									
+									volumeSliderSettings.addEventListener('touchmove', function(e) {
+										if (!isDragging) return;
+										const touch = e.touches[0];
+										const rect = this.getBoundingClientRect();
+										const percent = Math.max(0, Math.min(1, (touch.clientX - rect.left) / rect.width));
+										const value = Math.round(percent * 100);
+										this.value = value;
+										
+										// Для iOS: устанавливаем громкость напрямую синхронно во время touch
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									}, { passive: true });
+									
+									volumeSliderSettings.addEventListener('touchend', function() {
+										isDragging = false;
+										const value = parseInt(this.value);
+										// Для iOS: устанавливаем громкость напрямую синхронно
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									});
+									
+									volumeSliderSettings.addEventListener('touchcancel', function() {
+										isDragging = false;
+										const value = parseInt(this.value);
+										// Для iOS: устанавливаем громкость напрямую синхронно
+										if (audioElement) {
+											const volume = value / 100;
+											audioElement.volume = volume;
+										}
+										updateRadioVolume(value);
+									});
+								}
+								
+								// Загружаем сохраненное значение громкости
+								const savedVolume = localStorage.getItem('radioVolume');
+								if (savedVolume !== null) {
+									if (volumeSliderSettings) {
+										volumeSliderSettings.value = savedVolume;
+									}
+									const volumeSliderTimer = document.getElementById('radio-volume-slider-timer');
+									if (volumeSliderTimer) {
+										volumeSliderTimer.value = savedVolume;
+									}
+									updateRadioVolume(savedVolume);
+								}
+								
+								// Выбор радиостанции
+								if (!radioStations) {
+									window.logRadio('ОШИБКА: элемент radio-stations не найден', {});
+									console.error('Элемент radio-stations не найден!');
+								} else {
+									window.logRadio('Обработчик события change добавляется к radio-stations', {
+										optionsCount: radioStations.options ? radioStations.options.length : 0,
+										currentValue: radioStations.value
+									});
+								}
+								
+								radioStations && radioStations.addEventListener('change', function() {
+									const selectedOption = this.options[this.selectedIndex];
+									const newStation = this.value;
+									
+									window.logRadio('Выбор радиостанции', {
+										previousStation: radioCurrentStation,
+										newStation: newStation,
+										stationName: selectedOption ? selectedOption.text : 'не определено',
+										timerMode: window.timerMode,
+										radioStationsElement: this ? 'найден' : 'не найден',
+										selectedIndex: this.selectedIndex,
+										optionsCount: this.options ? this.options.length : 0
+									});
+									
+									radioCurrentStation = newStation;
+									
+									// Остановка текущего воспроизведения
+									audioElement.pause();
+									radioIsPlaying = false;
+									playButton.classList.remove('playing');
+									
+									window.logRadio('Текущее воспроизведение остановлено', {
+										audioElementPaused: audioElement.paused,
+										audioElementSrc: audioElement.src
+									});
+									
+									// Установка нового источника
+									audioElement.src = radioCurrentStation;
+									stationName.textContent = selectedOption.text;
+									
+									// Сбрасываем флаг CORS при смене радиостанции
+									corsBlocked = false;
+									
+									window.logRadio('Новый источник установлен', {
+										newSrc: audioElement.src,
+										stationNameText: stationName.textContent,
+										corsBlockedReset: true
+									});
+									
+									// Инициализируем Web Audio API перед загрузкой нового источника
+									initWebAudio();
+									
+									// Показываем ползунок громкости когда выбрана радиостанция (только в режиме HIIT)
+									if (window.timerMode == 2) {
+										toggleVolumeSlider(true);
+										window.logRadio('Ползунок громкости показан (режим HIIT)', {});
+									} else {
+										window.logRadio('Ползунок громкости не показан (не режим HIIT)', { timerMode: window.timerMode });
+									}
+									
+									// Автовоспроизведение
+									audioElement.load();
+									window.logRadio('Audio элемент загружен', {
+										readyState: audioElement.readyState,
+										src: audioElement.src
+									});
+									
+									const playPromise = audioElement.play();
+									window.logRadio('Попытка автовоспроизведения', {
+										playPromise: playPromise ? 'Promise создан' : 'undefined',
+										audioElementPaused: audioElement.paused
+									});
+									
+									if (playPromise !== undefined) {
+										playPromise.then(() => {
+											// Воспроизведение началось успешно
+											playButton.classList.add('playing');
+											radioIsPlaying = true;
+											
+											window.logRadio('Автовоспроизведение радио успешно', {
+												audioElementPaused: audioElement.paused,
+												audioElementSrc: audioElement.src,
+												audioElementCurrentTime: audioElement.currentTime,
+												audioElementReadyState: audioElement.readyState
+											});
+											
+											console.log('Автовоспроизведение радио успешно');
+											// Показываем ползунок громкости во время тренировки если таймер запущен (только в режиме HIIT)
+											if (window.timerMode == 2 && typeof toggleVolumeSliderTimer === 'function') {
+												toggleVolumeSliderTimer(true);
+												window.logRadio('Ползунок громкости во время тренировки показан', {});
+											}
+										}).catch(error => {
+											// Произошла ошибка воспроизведения
+											window.logRadio('Ошибка автовоспроизведения радио', {
+												error: error.message,
+												errorName: error.name,
+												audioElementSrc: audioElement.src,
+												audioElementPaused: audioElement.paused,
+												audioElementReadyState: audioElement.readyState
+											});
+											
+											console.error('Не удалось начать воспроизведение:', error);
+											alert('Не удалось воспроизвести радио. Пожалуйста, выберите другую станцию или повторите попытку позже.');
+											radioIsPlaying = false;
+											playButton.classList.remove('playing');
+										});
+									} else {
+										window.logRadio('playPromise undefined при автовоспроизведении', {
+											audioElementSrc: audioElement.src,
+											audioElementPaused: audioElement.paused
+										});
+									}
+								});
+								
+								// Обработка ошибок воспроизведения
+								audioElement.addEventListener('error', function(e) {
+									window.logRadio('Ошибка audio элемента', {
+										error: e.message || 'Неизвестная ошибка',
+										audioElementSrc: audioElement.src,
+										audioElementError: audioElement.error ? {
+											code: audioElement.error.code,
+											message: audioElement.error.message
+										} : 'нет информации об ошибке',
+										audioElementReadyState: audioElement.readyState
+									});
+									
+									alert('Временно радиостанция недоступна');
+									radioIsPlaying = false;
+									playButton.classList.remove('playing');
+								});
+								
+								// Логирование событий audio элемента
+								audioElement.addEventListener('loadstart', function() {
+									window.logRadio('Audio элемент: loadstart', { src: audioElement.src });
+								});
+								
+								audioElement.addEventListener('loadeddata', function() {
+									window.logRadio('Audio элемент: loadeddata', { 
+										readyState: audioElement.readyState,
+										src: audioElement.src
+									});
+								});
+								
+								audioElement.addEventListener('canplay', function() {
+									window.logRadio('Audio элемент: canplay', { 
+										readyState: audioElement.readyState,
+										src: audioElement.src
+									});
+								});
+								
+								audioElement.addEventListener('playing', function() {
+									window.logRadio('Audio элемент: playing', { 
+										readyState: audioElement.readyState,
+										src: audioElement.src,
+										currentTime: audioElement.currentTime
+									});
+								});
+								
+								audioElement.addEventListener('pause', function() {
+									window.logRadio('Audio элемент: pause', { 
+										src: audioElement.src,
+										currentTime: audioElement.currentTime
+									});
+								});
+							});
+						</script>
+</div>
+						<!-- Контейнер для кнопок выбора упражнений и тренировок (добавляются через JS) -->
+						<div id="controls-buttons-container"></div>
+						</div>
+					</li>
+					
+				</ul>
+
+				<div class="field" id="playlistField">
+					<div class="tabata-playlist-card-container">
+				<label for="demo-category">Выбери табата трек</label>
+					<div class="select-wrapper">
+						<select name="playlist" id="playlist" onchange="newtimer.setMusic();">
+					<?php
+						$musicFiles = glob('assets/music/*.mp3');
+						$defaultTrack = 'Tabata - Rocky.mp3';
+						$defaultPath = 'assets/music/' . $defaultTrack;
+
+						if (!empty($musicFiles)) {
+							sort($musicFiles, SORT_NATURAL | SORT_FLAG_CASE);
+
+							$defaultIndex = array_search($defaultPath, $musicFiles, true);
+							if ($defaultIndex !== false) {
+								$defaultFile = $musicFiles[$defaultIndex];
+								unset($musicFiles[$defaultIndex]);
+								array_unshift($musicFiles, $defaultFile);
+							}
+
+							foreach ($musicFiles as $filePath) {
+								$basename = basename($filePath);
+								$label = preg_replace('/\.mp3$/i', '', $basename);
+								$isDefault = ($basename === $defaultTrack);
+								echo '<option value="' . htmlspecialchars($basename, ENT_QUOTES, 'UTF-8') . '"' . ($isDefault ? ' selected' : '') . '>' . htmlspecialchars($label, ENT_QUOTES, 'UTF-8') . '</option>' . "\n";
+							}
+						}
+					?>
+						</select>
+					</div>
+						<!-- Контейнер для кнопки выбора упражнений (добавляется через JS) -->
+						<div id="tabata-buttons-container"></div>
+				</div>
+				</div>
+				<div id="workout-buttons-container" style="clear:both">
+					<a class="tt_big_button button field" id="resetbutton" style="display: none;">Стоп</a>
+					<a class="tt_big_button button field" id="pausebutton" style="display: none;">Пауза</a>
+					<a class="tt_big_button shine button field" id="startbutton" style="display: block;">СТАРT!</a>
+				</div>
+				</div>
+				
+				<!--<div id="indicator">
+					<div id="arrow" style="top: 162px; display: block;"></div>
+				</div>-->
+
+			</div>
+			
+			<div id="emom-timer-container">
+				<div class="emom-selects-wrapper">
+					<select id="emom-minute-select"></select>
+				</div>
+				
+				<div class="emom-controls">
+					<button id="emom-start-btn" class="emom-button primary" type="button">СТАРТ</button>
+					<button id="emom-pause-btn" class="emom-button secondary" type="button" style="display: none;">ПАУЗА</button>
+				</div>
+			</div>
+			
+			<div id="amrap-timer-container">
+				<div class="amrap-card-container">
+				<div class="amrap-selects-wrapper">
+					<div class="amrap-select-row">
+						<div class="amrap-select">
+							<label for="amrap-minutes-select">Минуты</label>
+							<select id="amrap-minutes-select"></select>
+						</div>
+						<div class="amrap-select">
+							<label for="amrap-seconds-select">Секунды</label>
+							<select id="amrap-seconds-select"></select>
+						</div>
+					</div>
+					<div class="amrap-buttons-row">
+						<button type="button" class="amrap-link-btn" id="amrap-presets-open">ПРЕСЕТЫ</button>
+						<div class="amrap-select-divider">|</div>
+						<button type="button" class="amrap-link-btn" id="amrap-workouts-open">ТРЕНИРОВКИ</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="amrap-rounds-widget" style="display: none;">
+					<button id="amrap-round-button-old" type="button" disabled>+ Раунд</button>
+					<div>
+						<p class="amrap-label">Сделано</p>
+						<p class="amrap-rounds-count" id="amrap-rounds-count-old">0</p>
+					</div>
+				</div>
+				
+				<div class="amrap-controls">
+					<button id="amrap-start-btn" class="amrap-button primary" type="button">Старт</button>
+					<button id="amrap-pause-btn" class="amrap-button secondary" type="button" style="display: none;">Пауза</button>
+				</div>
+				
+				<div class="amrap-results-card" id="amrap-results">
+					<div class="amrap-results-summary">
+						<div class="amrap-summary-item">Результат<strong id="amrap-total-rounds">0</strong> раундов</div>
+						<div class="amrap-summary-item">Лучший<strong id="amrap-best-round">—</strong></div>
+						<div class="amrap-summary-item">Худший<strong id="amrap-worst-round">—</strong></div>
+						<div class="amrap-summary-item" id="amrap-total-time-item" style="display: none;">Затрачено времени<strong id="amrap-total-time">—</strong></div>
+					</div>
+					<div class="amrap-rounds-history" id="amrap-rounds-history"></div>
+				</div>
+			</div>
+			
+			<div id="modeSelector">
+			<div class="field half first">
+				<input type="radio" id="tabataMode" name="timerMode" checked onclick="newtimer.setMode(1);newtimer.radioTabataClick();" >
+				<label for="tabataMode">Табата</label>
+			</div>
+			<div class="field half">
+				<input type="radio" id="extendedMode" name="timerMode" onclick="newtimer.setMode(2);newtimer.radioSettingsClick();">
+				<label for="extendedMode">HIIT <span class="info-icon" onclick="event.stopPropagation(); showModeInfo('hiit');" title="Информация о режиме HIIT">ℹ</span></label>
+			</div>
+			<div class="field half first">
+				<input type="radio" id="emomMode" name="timerMode" onclick="newtimer.setMode(3);newtimer.radioSettingsClick();">
+				<label for="emomMode">EMOM <span class="info-icon" onclick="event.stopPropagation(); showModeInfo('emom');" title="Информация о режиме EMOM">ℹ</span></label>
+			</div>
+			<div class="field half">
+				<input type="radio" id="amrapMode" name="timerMode" onclick="newtimer.setMode(4);newtimer.radioSettingsClick();">
+				<label for="amrapMode">AMRAP <span class="info-icon" onclick="event.stopPropagation(); showModeInfo('amrap');" title="Информация о режиме AMRAP">ℹ</span></label>
+			</div>
+			</div>
+				</form>
+				
+				<!-- ОКНО ПОД КОНЕЦ ТРЕНИРОВКИ -->
+			<!--<div id="backtotimer" class="backtotimer" onclick="newtimer.backButtonPushed();return false;"><button>Назад</button></div>-->
+			<div id="tt_main_end_wrap" style="display:none">
+				<center><h3 style="margin-bottom: 20px">Ты на шаг ближе к своей цели!</h3></center>
+				<!--<p style="text-align:center">Теперь ты на шаг ближе к своей цели</p>
+				<a class="tt_big_button button field tt_big_button_back" onclick="newtimer.backButtonPushed();">Назад</a>-->
+				<div id="quoteContainer" style="position: relative; text-align: left;">
+    <!-- Изображение автора цитаты -->
+    <img src="" alt="Цитата и автор" id="quoteImage" style="width: 100%; border-radius: 5px;" />
+
+    <!-- Текст цитаты (выровнен по левому краю внутри изображения) -->
+    <div id="quoteText" class="quote-container" style="position: absolute; top: 10px; left: 20px; color: white; font-weight: bold; max-width: 60%;">
+        <!-- Текст цитаты будет здесь -->
+    </div>
+
+    <!-- Имя автора (под изображением, выровнено по правому краю) -->
+    <div id="quoteAuthor" style="text-align: right; margin-top: 5px; margin-bottom: 20px; font-size: 16px; color: white;">
+        <!-- Имя автора будет здесь -->
+    </div>
+</div>
+				<!--<center><h4>Сделай тренировки еще эффективнее с петлями TRX!</h4></center>
+				<p style="text-align:center">TRX - это целый спортзал. Лёгкий и по-настоящему эффективный тренажёр.</p>-->
+				<button id="moreTRXfromTimer" class="shine" style="width:100%">Подробнее</button>
+				<button id="backtotimer" class="button" style="width:100%; margin-top: 1.5rem; opacity: .9;">Назад к таймеру</button>
+				<!-- Контейнер для результатов AMRAP (показывается только в режиме AMRAP) -->
+				<div id="amrap-results-in-quotes" style="display: none; margin-top: 20px; padding: 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+					<div style="margin-bottom: 12px; font-size: 16px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Результаты тренировки</div>
+					<div id="amrap-results-summary-in-quotes" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;">
+						<div style="text-align: center; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px;">
+							<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">Раундов</div>
+							<div id="amrap-total-rounds-in-quotes" style="font-size: 28px; font-weight: 700; color: #7af5ff;">0</div>
+						</div>
+						<div style="text-align: center; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px;">
+							<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">Лучший</div>
+							<div id="amrap-best-round-in-quotes" style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">—</div>
+						</div>
+						<div style="text-align: center; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px;">
+							<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">Худший</div>
+							<div id="amrap-worst-round-in-quotes" style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">—</div>
+						</div>
+						<div style="text-align: center; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px;">
+							<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">Затрачено времени</div>
+							<div id="amrap-total-time-in-quotes" style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">—</div>
+						</div>
+					</div>
+					<div id="amrap-rounds-history-in-quotes" style="max-height: 200px; overflow-y: auto;"></div>
+				</div>
+				<div class="margin25"></div>
+			</div>
+		</article>
+
+		<!-- Модальное окно AMRAP WORKOUTS -->
+		<div id="amrap-workouts-modal">
+			<div class="amrap-workouts-dialog">
+				<div class="amrap-workouts-head">
+					<div>
+						<p class="amrap-label">Быстрый выбор</p>
+						<h4>AMRAP Workouts</h4>
+					</div>
+					<span class="amrap-close" id="amrap-presets-close" aria-label="Закрыть пресеты">×</span>
+				</div>
+				<p class="amrap-workouts-subtitle">Популярные интервалы от 01:00 до 09:50. Выбери шаблон, чтобы заполнить таймер без прокрутки.</p>
+				<div class="amrap-workouts-grid" id="amrap-presets-grid"></div>
+			</div>
+		</div>
+
+		<!-- Модальное окно с выбором тренировок AMRAP -->
+		<div id="amrap-workouts-select-modal">
+			<div class="amrap-workouts-select-dialog">
+				<div class="amrap-workouts-select-head">
+					<div>
+						<p class="amrap-label">Выбор тренировки</p>
+						<h4>AMRAP Тренировки</h4>
+					</div>
+					<span class="amrap-close" id="amrap-workouts-select-close" aria-label="Закрыть">×</span>
+				</div>
+				<p class="amrap-workouts-subtitle">Выбери готовую тренировку или создай свою</p>
+				<div class="amrap-workouts-cards" id="amrap-workouts-cards"></div>
+			</div>
+		</div>
+
+		<!-- Модальное окно выбора тренировок HIIT -->
+		<div id="hiit-workouts-select-modal">
+			<div class="hiit-workouts-select-dialog">
+				<div class="hiit-workouts-select-head">
+					<div>
+						<h4>HIIT ТРЕНИРОВКИ</h4>
+					</div>
+					<span class="hiit-workouts-close" id="hiit-workouts-select-close" aria-label="Закрыть">×</span>
+				</div>
+				<p class="hiit-workouts-subtitle">Выбери готовую тренировку или создай свою</p>
+				<div class="hiit-workouts-cards" id="hiit-workouts-cards"></div>
+			</div>
+		</div>
+
+		<!-- Модальное окно выбора тренировок EMOM -->
+		<div id="emom-workouts-select-modal">
+			<div class="emom-workouts-select-dialog">
+				<div class="emom-workouts-select-head">
+					<div>
+						<h4>EMOM ТРЕНИРОВКИ</h4>
+					</div>
+					<span class="emom-workouts-close" id="emom-workouts-select-close" aria-label="Закрыть">×</span>
+				</div>
+				<p class="emom-workouts-subtitle">Выбери готовую тренировку или создай свою</p>
+				<div class="emom-workouts-cards" id="emom-workouts-cards"></div>
+			</div>
+		</div>
+
+		<!-- Модальное окно с описанием режимов EMOM и AMRAP -->
+		<div id="modeInfoModal" class="mode-info-modal" style="display: none;">
+			<div class="mode-info-modal-content">
+				<div class="mode-info-modal-header">
+					<h3 id="modeInfoTitle">Информация о режиме</h3>
+					<span class="mode-info-close" onclick="closeModeInfo(event)">&times;</span>
+				</div>
+				<div class="mode-info-modal-body">
+					<div id="modeInfoContent">
+						<!-- Содержимое будет заполнено динамически -->
+					</div>
+				</div>
+				<div class="mode-info-modal-footer">
+					<button class="button" onclick="closeModeInfo(event)">Понятно</button>
+				</div>
+			</div>
+		</div>
+
+						<!-- Для ЖЕНЩИН -->
+							<article id="girls">
+								<center><h2 class="major">ТАБАТА для ЖЕНЩИН</h2></center>
+								<span class="image main"><img src="images/pic03.jpg" alt="" loading="lazy" /></span>
+
+								<div class="unsplash-slider-block" id="girls-inspiration">
+									<div class="unsplash-slider-head">
+										<div class="unsplash-slider-title">ВДОХНОВЕНИЕ</div>
+										<div class="unsplash-slider-actions">
+											<button class="unsplash-slider-btn" type="button" data-action="prev" aria-label="Предыдущее фото">‹</button>
+											<button class="unsplash-slider-btn" type="button" data-action="next" aria-label="Следующее фото">›</button>
+										</div>
+									</div>
+									<div class="unsplash-slider" data-local-dir="images/Fitness | Woman" data-local-manifest="manifest.json" data-unsplash-query="fitness woman, fitness girl" data-unsplash-orientation="landscape" data-unsplash-per-page="200">
+										<div class="unsplash-slider-viewport">
+											<img class="unsplash-slider-image" src="images/pic03.jpg" alt="ВДОХНОВЕНИЕ: фитнес" loading="lazy" />
+										</div>
+										<div class="unsplash-slider-foot">
+											<div class="unsplash-slider-counter" aria-live="polite"></div>
+											<div class="unsplash-slider-attrib"></div>
+										</div>
+									</div>
+								</div>
+                                
+                                
+		<p><center><h3>Тренировка # 1</h3></center>
+			<div class="youtubeContainer">
+				<iframe id="youtubeJenTren1" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+			</div>				   
+		</p>
+
+		<p><center><h3>Тренировка # 2</h3></center>
+			<div class="youtubeContainer">
+				<iframe id="youtubeJenTren2" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+			</div>				   
+		</p>
+                            
+
+               
+
+<center><h3>Упражнения для женщин</h3></center>
+<h4>Приседания</h4>
+<p>Поставьте ноги на ширину плеч, носки слегка разверните в стороны от себя. Оттягивая таз назад, и слегка наклоняя корпус вперед, сделайте присед до параллельности таза с полом. Колени не должны выходить за уровень носков, это очень важно.
+                                
+<span class="image main"><img src="images/приседание для женщин.jpg" alt="Приседания для женщин" loading="lazy" /></span>
+                                
+ Возвращаясь в исходное положение, не разгибайте до конца колени, мышцы ног на протяжении 20 секунд должны находиться в напряжении. Во время приседа руки можете вытягивать перед собой, что бы сохранить равновесие. Приседания можно усложнить выпрыгиванием в верх, с быстрым темпом будут получаться прыжки с глубоким приседом.</p>
+                                
+                                
+<h4>Отжимания от пола</h4>
+ <p>При выполнении этого упражнения вопросов возникнуть не должно, но если на первых этапах выполнять классические отжимания, ещё и в быстром темпе тяжело, отжимайтесь с упором на колени.
+                                
+<span class="image main"><img src="images/Отжимания для женщин.jpg" alt="Отжимания для женщин" loading="lazy" /></span>
+
+И наоборот, если хотите усложнить, то отжимания можно делать с упором на возвышенность, например на диван или фитбол.</p>
+                                
+                                
+<h4>Комплекс упражнений на пресс</h4> 
+<b>Классическое скручивание</b><br>
+Положение лежа на полу, ноги согнуты в коленях, руки за голову. Верхнюю часть туловища приподнимаем на 20-30 сантиметров от пола. Для большей нагрузки можно использовать мяч.
+
+<span class="image main"><img src="images/Классическое скручивание.gif" alt="Классическое скручивание" loading="lazy" /></span>         
+ 
+<b>Подъем ног в положении лежа</b><br>
+Выполняется лежа на спине с прямыми вытянутыми ногами. Ноги медленно поднимаются вверх, становясь перпендикулярными поверхности пола.
+
+<span class="image main"><img src="images/Подъем ног в положении лежа.gif" alt="Подъем ног в положении лежа" loading="lazy" /></span>                  
+<b>Гармошка</b><br>
+Упражнение выполняется сидя, ноги выпрямлены вперед. Медленно приподнимаем их от пола на 20-30 см, фиксируем на несколько секунд, затем подтягивайте колени к груди. 
+
+<span class="image main"><img src="images/Гармошка.gif" alt="Гармошка. Упражнение на пресс для женщин" loading="lazy" /></span> 
+    
+<b>Шаги на весу</b><br>
+Положение лежа, ноги вытянуты, руки за голову. Приподнимайте ноги на 45 градусов от пола и быстро делаем «шагательные» движения. 
+
+<span class="image main"><img src="images/Шаги на весу.gif" alt="Шаги на весу. Упражнение на пресс для женщин" loading="lazy" /></span> 
+                                
+<b>Подъем ног и таза из положения лежа</b><br>
+Лежа на полу, ноги согнуты в коленях. Силой мышц пресса приподнимаем таз и выпрямляйте ноги над головой.
+
+<span class="image main"><img src="images/Подъем ног и таза из положения лежа.gif" alt="Подъем ног и таза из положения лежа" loading="lazy" /></span> 
+    
+<b>Ножницы</b><br>
+Лёжа на боку, ноги вытянуты и подняты на 30 см от пола. Прямыми ногами выполняем маховые перекрещивающиеся движения.
+
+<span class="image main"><img src="images/Ножницы.gif" alt="Ножницы-упражнение на пресс для женщин" loading="lazy" /></span> 
+                                  
+
+
+                                
+							</article>
+
+						<!-- Для Мужчин -->
+							<article id="men">
+                                <center><h2 class="major">ТАБАТА Для МУЖЧИН</h2></center>
+                                
+<span class="image main"><img src="images/табата-для-мужчин.jpg" alt="Табата тренировка для мужчин" loading="lazy" /></span>
+
+								<div class="unsplash-slider-block" id="men-motivation">
+									<div class="unsplash-slider-head">
+										<div class="unsplash-slider-title">МОТИВАЦИЯ</div>
+										<div class="unsplash-slider-actions">
+											<button class="unsplash-slider-btn" type="button" data-action="prev" aria-label="Предыдущее фото">‹</button>
+											<button class="unsplash-slider-btn" type="button" data-action="next" aria-label="Следующее фото">›</button>
+										</div>
+									</div>
+									<div class="unsplash-slider" data-local-dir="images/Fitness | Man" data-local-manifest="manifest.json" data-unsplash-query="fitness man" data-unsplash-orientation="landscape" data-unsplash-per-page="200">
+										<div class="unsplash-slider-viewport">
+											<img class="unsplash-slider-image" src="images/табата-для-мужчин.jpg" alt="МОТИВАЦИЯ: фитнес" loading="lazy" />
+										</div>
+										<div class="unsplash-slider-foot">
+											<div class="unsplash-slider-counter" aria-live="polite"></div>
+											<div class="unsplash-slider-attrib"></div>
+										</div>
+									</div>
+								</div>
+     <strong>Тренировка по системе Табата</strong> — отличный выбор для тех, у кого катастрофически мало времени, а тело просит физической нагрузки.<br>
+Как правило, для табаты подбираются движения, которые задействуют одновременно несколько мышечных групп и суставов.
+                                
+
+					
+<p><center><h3>Тренировка # 1</h3>
+Такие тренировки развивают общую выносливость организма, мышечный аппарат, ускоряют метаболизм, укрепляют сердечно-сосудистую систему. <br><br>
+</center>
+			<div class="youtubeContainer">
+				<iframe id="youtubeMenTren1" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+			</div>				   
+		</p>					
+					
+                                                              
+<center><h3>Упражнения для Табата</h3></center>
+ <li>Приседания (с отягощениями и без)</li>
+ <li>Отжимания (постановка рук узкая/широкая)</li>
+ <li>Подтягивания (прямым, обратным, узким, широким хватом)</li>
+ <li>Пресс (скручивание лёжа, поднимание ног лёжа/в висе)</li>
+ <li>Прыжки на ящик (разной высоты)</li>
+ <li>Прыжки на скакалке</li>
+ <li>Бурпи</li><br>
+                                
+  <b>О Бурпи стоит сказать отдельно</b><br>
+Бурпи - многосуставное упражнение, которое вовлекает в работу сразу несколько мышечных групп. Наиболее загруженными мышцами являются ноги (бицепс бедра, ягодичные и икры), также нагрузка ложится на грудные, трицепс и плечи. Практически нет таких мышц, которые бы не затрагивало бурпи.
+<p>
+<blockquote>Именно <b>Бурпи</b> в 1940 годах использовали военные Америки в качестве фитнес-тестов мужчин для службы в армии. Если новобранцу удавалось за 1 минуту выполнить около 40 бурпи (упрощенный вариант без прыжка вверх), то считалось, что он находится в отличной форме.</blockquote>
+                                
+<center><h4>ТЕХНИКА ВЫПОЛНЕНИЯ БУРПИ</h4></center>
+<ol>
+<li>Разведите ноги на ширину бедер. </li>
+<li>Присядьте достаточно низко, чтобы упереться руками в пол, не сгибаясь при этом в пояснице и не отрывая пятки от пола. </li>
+<li>Перенесите ноги в упор лежа для отжимания (спина ровная), а потом снова вернитесь в позу приседа. </li>
+<li>Встаньте и повторяйте.</li>
+</ol>
+
+                                
+<span class="image main"><img src="images/Бурпи.jpg" alt="" loading="lazy" /></span>
+                                
+Это одно повторение бурпи. Можно также добавить отжимание с полной амплитудой, когда вы переходите в упор лежа, и прыжок, когда поднимаетесь из глубокого приседа. <br>
+                                
+Прежде чем вы увлечетесь этим упражнением и будете выполнять его в быстром темпе, начинайте делать его медленно, контролируя каждое движение.
+
+							</article>
+
+<!-- TRX TABATA -->
+<article id="trxtabata">
+	<center><h2 class="major">Тренировка c TRX <br>по системе Tabata</h2></center>
+	<span class="image main" style="margin-bottom:1rem"><img src="images/TRX-Tabata.jpg" alt="" loading="lazy" /></span>
+	<center><h3> Один из самых эффективных методов для проработки мышц всего тела</h3> </center>
+	<div class="descriptionjustify"><p>Упражнения с тренажёром TRX позволят по-новому взглянуть на возможности своего организма и изменят Ваш взгляд на привычные тренировки.</p> </div>
+	<div class="descriptionjustify"><blockquote style="margin:0">
+	<p>Сегодня петли TRX востребованы во всём мире. У тренажёра TRX огромное комьюнити. Люди, от мала до велика, объединились в сообщества функциональных тренировок с TRX.
+	</p>
+	</div>
+	</blockquote>
+	
+	<span class="image main" style="margin:1rem 0;"><img src="images/trx-training.jpg" alt="Сообщество функционального тренинга TRX" loading="lazy" /></span>
+    <div class="descriptionjustify">
+	<p>Тренажёры TRX используются командами NHL, NFL, NBA и во многих других видах спорта, а также лежат в рюкзаке каждого четвертого бойца спецназа во время выполнения операций.<br>
+	Многие звезды кино и шоу-бизнеса считают петли TRX незаменимым оборудованием для своих регулярных тренировок.
+	</p>
+	</div>
+	
+
+	
+	<center><h3>Тренируйся где угодно</h3></center>
+	<div class="everybody-grid shine">
+      <div class="everybody-grid-item" id="evitem1" data-bg-image="images/forall1.jpg">
+        <h4>Дома</h4>
+      </div>
+	  <div class="everybody-grid-item" id="evitem2" data-bg-image="images/forall2.jpg">
+        <h4>На природе</h4>
+      </div>
+	  <div class="everybody-grid-item" id="evitem3" data-bg-image="images/forall3.jpg">
+        <h4>В спортзале</h4>
+      </div>
+	  <div class="everybody-grid-item" id="evitem4" data-bg-image="images/forall4.jpg">
+        <h4>В отеле</h4>
+      </div>
+    </div>
+	
+		<div class="descriptionjustify everybodydesc">
+		 <center>
+		   <h4>Используй вес своего тела</h4>
+		   Закрепи TRX за любую дверь с помощью специального крепления.
+		 </center>
+		</div>
+		<div class="descriptionjustify everybodydesc">
+		 <center>
+		   <h4>Тренируйся на свежем воздухе</h4>
+		   Закрепи TRX на ветке дерева или за любой столб.
+		 </center>
+		</div>
+		<div class="descriptionjustify everybodydesc">
+		 <center>
+		   <h4>TRX всегда готов к твоей тренировке</h4>
+		   Закрепи TRX на турнике или крюке для боксерского мешка.
+		 </center>
+		</div>
+		<div class="descriptionjustify everybodydesc">
+		 <center>
+		   <h4>TRX с тобой во время командировки или отпуска</h4> 
+		   Помещается в ручную кладь. В номере отеля также используй дверное крепление TRX.
+		 </center>
+		</div>
+	
+	<center><h3>Открой новые возможности своего тела</h3></center>
+	<div class="descriptionjustify">
+		<p>В любом упражнении с TRX тренируются мышцы-стабилизаторы и задействовано все тело. Тренинг становятся по-настоящему функциональными.</p>
+		<p><b>TRX дарит свободу движений.</b> Используй любые направления – без ограничений стандартных силовых тренировок.</p>
+	</div>
+	
+		<div class="youtubeContainer">
+		<iframe id="youtubeTrxMain" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+		</div>
+	<div class="descriptionjustify">	
+		 <p><b>Тренинг с TRX развивает все мышцы</b>, объединяя в единое целое стабильность, подвижность, силу и гибкость – то, что нужно в повседневной жизни.</p>
+	</div>
+
+	<center><h3>Базовые упражнения с TRX</h3></center>
+	<div id="itssimpleslider">
+		<figure>
+			<img src="images/itssimple/1_all.jpg" alt loading="lazy">
+		</figure>
+	</div>
+	<div class="descriptionjustify">
+		<p><b>Основа тренинга с TRX</b> – упор на гармоничное и эффективное развитие мышц-стабилизаторов (кор, core).
+		<br>Тренируясь с собственным весом Вы исключите осевую нагрузку на позвоночник. Петли TRX станут незаменимым тренажёром и для подростков. Сформируют и поддержат осанку, позволят стать силнее.</p>
+	</div>
+	
+	<div id="choosetrx">
+		<center><h2 class="major">Выбери свой TRX</h2></center>
+		<div class="goodsrow">
+			<div class="goodscol">
+				<a href="#trxtactical" class="goodsreadmore"><center><h3>Тренажер<br>TRX Tactical</h3></center>
+				<figure><img src="images/goods/03_1.jpg" alt="Купить Тренажер TRX Tactical" loading="lazy"></figure>
+				<div class="goodsprice">6990 ₽</div>
+				<button class="goodsbutton"><nav>Подробнее</nav></button></a>
+			</div>	
+			<div class="goodscol goodscolpaddingmiddle">
+				<a href="#trxsuspesion" class="goodsreadmore"><center><h3>Тренажер<br>TRX Suspension Training</h3></center>
+				<figure><img src="images/goods/02_1.jpg" alt="Купить Тренажер TRX Suspension Training" loading="lazy"></figure>
+				<div class="goodsprice">4800 ₽</div>
+				<button class="goodsbutton"><nav>Подробнее</nav></button></a>
+			</div>
+			<div class="goodscol">
+				<a href="#trxxmount" class="goodsreadmore"><center><h3>Крепление<br>TRX Хmount</h3></center>
+				<figure><img src="images/goods/01_1.jpg" alt="Купить Крепление TRX Хmount" loading="lazy"></figure>
+				<div class="goodsprice">1590 ₽</div>
+				<button class="goodsbutton"><nav>Подробнее</nav></button></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="whiteline"></div>
+	
+	<div id="pay2" class="paymentmethods">
+		<h3><center>Способы оплаты</center></h3>
+		<img src="images/pay.png" class="payicon" loading="lazy">
+		Оплата картой | Комиссия 0%. <br>
+		<img src="images/delivery.png" class="deliveryicon" loading="lazy"><br>
+		Доставка по Москве - курьером 300₽. В регионы - СДЭК.
+	</div>
+	<div><center>ООО "КРАФТ", ИНН 9731006452</center></div>
+	
+</article>
+
+
+<article id="trxtactical">
+	<div class="backtotrx"><button>Назад</button></div>
+	<center><h2 class="major">Тренажер<br>TRX Tactical</h2></center>
+	<div class="goodsrow">
+		<div class="goodscol goodscol2">
+			<div id="goodsslider">
+				<figure>
+					<img src="images/goods/03_all.jpg" alt loading="lazy">
+				</figure>
+			</div>
+		</div>
+		<div class="goodscol goodscol2 goodsdescription paddingrightnone">
+			Мощные петли для сильных ребят! TRX TACTICAL - самая крепкая модель, позволяющая тренироваться в экстремальных условиях.
+			<h3><div class="goodsprice shine marginLittle">6990 ₽</div></h3>
+			<button class="goodsbutton buybutton" onclick="yaCounter42580049.reachGoal('trxtacticalorder'); return true;">Заказать</button>
+			<p class="buyonlinetext shine"><a href="#pay3">Оплата онлайн, быстрая доставка</a></p>
+		</div>
+		<div class="goodscol goodscol2 buyform" style="display:none">
+			<button class="goodsbutton descriptionback">Назад</button>
+			<div class="alert alert-success contact__msg shine" style="display: none" role="alert">
+					<!--<strong>Заявка отправлена. Скоро мы с вами свяжемся!</strong>
+					<strong>Заказы обрабатываются пн-пт с 10 до 18ч</strong>-->
+			</div>			
+			<form class="contact__form" method="post" action="mailer2.php?p=<?=$vremya?>" onsubmit="yaCounter42580049.reachGoal('trxtacticalsend'); return true;">
+				<input type="text" name="name" value="" style="position: absolute; left: -9999px; display: none;">
+				<input type="hidden" name="zf" value="<?=$zaschita?>">
+				<input name="myrealname" type="text" class="form-control" placeholder="Ваше имя">
+				<input name="email" type="email" class="form-control" placeholder="Email">
+				<input name="phone" type="text" class="form-control" placeholder="Телефон" required>
+				<input type="hidden" name="goods" value="Тренажер TRX Tactical" />
+				<button name="submit" type="submit"class="btn btn-success shine goodsbutton">Отправить</button>
+			</form>
+		</div>
+	</div>
+	<div class="goodscol3">
+		<div class="youtubeContainer">
+			<iframe id="youtubeTrxTact" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+		</div>
+		<center><h3>Подробное описание</h3></center>
+		<div class="descriptionjustify">
+			<p>Прочный и легким карабин, надёжные ручки.<br>
+			    Тренажёр снабжен эквалайзером и фиксатором, чтобы удерживать стропы на одной длине.<br>
+                Увеличенные лямки для ног позволяют тренироваться даже в больших ботинках.<br>
+                Карабин выдерживает самые тяжелые нагрузки.<br>
+                Немаркий цвет хаки.</p>
+			<p>TRX Tactical занимает мало места, упаковывается в специальный мешок, очень легко монтируется/демонтируется.</p>
+		</div>
+		<div id="pay3" class="paymentmethods">
+			<h3><center>Способы оплаты</center></h3>
+			<img src="images/pay.png" class="payicon" loading="lazy">
+			Оплата картой | Комиссия 0%. <br>
+			<img src="images/delivery.png" class="deliveryicon" loading="lazy"><br>
+			Доставка по Москве - курьером 300₽. В регионы - СДЭК.
+		</div>
+		<div><center>ООО "КРАФТ", ИНН 9731006452</center></div>
+	</div>
+</article>
+
+<article id="trxsuspesion">
+	<div class="backtotrx"><button>Назад</button></div>
+	<center><h2 class="major">Тренажер<br>TRX Suspension Training</h2></center>
+	<div class="goodsrow">
+		<div class="goodscol goodscol2">
+			<div id="goodsslider">
+				<figure>
+					<img src="images/goods/02_all.jpg" alt loading="lazy">
+				</figure>
+			</div>
+		</div>
+		<div class="goodscol goodscol2 goodsdescription paddingrightnone">
+			Занятия на тренажере TRX подходят для людей с любым уровнем физической подготовки и эффективно способствуют развитию силы, выносливости, гибкости и равновесия.
+			<h3><div class="goodsprice shine marginLittle">4800 ₽</div></h3>
+			<button class="goodsbutton buybutton" onclick="yaCounter42580049.reachGoal('trxsuspesionorder'); return true;">Заказать</button>
+			<p class="buyonlinetext shine"><a href="#pay2">Оплата онлайн, быстрая доставка</a></p>
+		</div>
+		<div class="goodscol goodscol2 buyform" style="display:none">
+			<button class="goodsbutton descriptionback">Назад</button>
+			<div class="alert alert-success contact__msg shine" style="display: none" role="alert">
+					<strong>Заявка отправлена. Скоро мы с вами свяжемся!</strong>
+			</div>			
+			<form class="contact__form" method="post" action="mailer2.php?p=<?=$vremya?>" onsubmit="yaCounter42580049.reachGoal('trxsuspesionsend'); return true;">
+				<input type="text" name="name" value="" style="position: absolute; left: -9999px; display: none;">
+				<input type="hidden" name="zf" value="<?=$zaschita?>">
+				<input name="myrealname" type="text" class="form-control" placeholder="Ваше имя">
+				<input name="email" type="email" class="form-control" placeholder="Email">
+				<input name="phone" type="text" class="form-control" placeholder="Телефон" required>
+				<input type="hidden" name="goods" value="Тренажер TRX Suspension Training" />
+				<button name="submit" type="submit"class="btn btn-success shine goodsbutton ">Отправить</button>
+			</form>
+		</div>
+	</div>
+	<div class="goodscol3">
+		<div class="youtubeContainer">
+			<iframe id="youtubeTrxSus" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+		</div>	
+		
+		<center><h3>Подробное описание</h3></center>
+		
+			<div class="descriptionjustify">
+			<p>Тренажер TRX Suspension Professional Trainer состоит из нейлоновых ремней, создающих сопротивление с помощью двух источников: веса вашего тела и силы гравитации.</p>
+			<p>Правильная регулировка ремней (инструкции к применению в комплекте) позволит вам заниматься с нужным уровнем нагрузки (от 5 до 100% своего веса), которая корректируется разным коэффициентом стабилизации и позволяет получать любую желаемую интенсивность тренировки, подходящую как новичкам, так и людям в идеальной спортивной форме.</p>	   
+			</div>
+		
+			<div id="pay2" class="paymentmethods">
+			<h3><center>Способы оплаты</center></h3>
+			<img src="images/pay.png" class="payicon" loading="lazy">
+			Оплата картой | Комиссия 0%. <br>
+			<img src="images/delivery.png" class="deliveryicon" loading="lazy"><br>
+				Доставка по Москве - курьером 300₽. В регионы - СДЭК.
+			</div>
+			<div><center>ООО "КРАФТ", ИНН 9731006452</center></div>
+	</div>
+</article>
+
+<article id="trxxmount">
+	<div class="backtotrx"><button>Назад</button></div>
+	<center><h2 class="major">Крепление<br>TRX Хmount</h2></center>
+	<div class="goodsrow">
+		<div class="goodscol goodscol2">
+			<div id="goodsslider">
+				<figure>
+					<img src="images/goods/01_all.jpg" alt loading="lazy">
+				</figure>
+			</div>
+		</div>
+		<div class="goodscol goodscol2 goodsdescription paddingrightnone">
+			Независимое универсальное крепление TRX – идеальное оборудование для тех, кто желает создать выделенное пространство для функциональных тренировок.
+			<h3><div class="goodsprice shine marginLittle">1590 ₽</div></h3>
+			<button class="goodsbutton buybutton" onclick="yaCounter42580049.reachGoal('trxmountorder'); return true;">Заказать</button>
+			<p class="buyonlinetext shine"><a href="#pay1">Оплата онлайн, быстрая доставка</a></p>
+		</div>
+		<div class="goodscol goodscol2 buyform" style="display:none">
+			<button class="goodsbutton descriptionback">Назад</button>
+			<div class="alert alert-success contact__msg shine" style="display: none" role="alert">
+					<strong>Заявка отправлена. Скоро мы с вами свяжемся!</strong>
+			</div>			
+			<form class="contact__form" method="post" action="mailer2.php?p=<?=$vremya?>" onsubmit="yaCounter42580049.reachGoal('trxmountsend'); return true;">
+				<input type="text" name="name" value="" style="position: absolute; left: -9999px; display: none;">
+				<input type="hidden" name="zf" value="<?=$zaschita?>">
+				<input name="myrealname" type="text" class="form-control" placeholder="Ваше имя">
+				<input name="email" type="email" class="form-control" placeholder="Email">
+				<input name="phone" type="text" class="form-control" placeholder="Телефон" required>
+				<input type="hidden" name="goods" value="Крепление TRX Хmount" />
+				<button name="submit" type="submit"class="btn btn-success shine goodsbutton ">Отправить</button>
+			</form>
+		</div>
+	</div>
+	<div class="goodscol3">
+		<!--<div class="youtubeContainer">
+			<iframe src="https://www.youtube-nocookie.com/embed/oxc_Ni7Hdn8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtubeVideo"></iframe>
+		</div>	-->
+		<center><h3>Подробное описание</h3></center>
+		<div class="descriptionjustify">
+			<p>Независимая пластина из высококачественной стали диаметром 4,5' легко крепится на любой стене, вертикальном косяке или надежном потолочном креплении.</p>
+			<p>В комплект входят: металлическое крепление TRX Xmount, анкерные болты и инструкция.</p>		   
+		</div>
+		<div id="pay1" class="paymentmethods">
+			<h3><center>Способы оплаты</center></h3>
+			<img src="images/pay.png" class="payicon" loading="lazy">
+			Оплата картой | Комиссия 0%. <br>
+			<img src="images/delivery.png" class="deliveryicon" loading="lazy"><br>
+				Доставка по Москве - курьером 300₽. В регионы - СДЭК.
+		</div>
+		
+		<div><center>ООО "КРАФТ", ИНН 9731006452</center></div>
+	</div>
+</article>
+
+
+
+
+						<!-- COOPER TEST -->
+							<!--<article id="coopertest">
+								<center><h2 class="major">ТЕСТ КУПЕРА</h2></center>
+								<center><h3> На что ты способен? </h3>
+								<br><h3>1 простое упражнение за <span class=digit>12</span> минут.</h3></center>
+								<p align=justify><span class="photo_doc"><img src="images/dr1.jpg" alt="" loading="lazy" />
+								</span>
+								Тест Купера — это проверка твоих физических возможностей. 
+<br>Кеннет Купер - <strong>всемирно известный американский врач-практик</strong>, отставной полковник ВВС США, создавший более 30 тестов, оценивающих физическую подготовку человека.<p> Еще в 1968 им был предложен 12-минутный беговой тест, в котором пройденная дистанция - есть уровень подготовки человека.<br> 
+<center><h3> В чем секрет популярности? </h3></center>
+<p align=justify>Тест Купера широко используется как в армейской подготовке и профессиональном спорте, так и в повседневной жизни. Причина популярности теста - <span class=em><em>использование крайне простого упражнения - бега, как основного.</em></span> Кстати, бег можно заменить на другие упражнения (конечно же с адаптированной таблицей измерений), например, на: <p>
+								<ol>
+									<li>Плавание </li>
+									<li>Езду на велосипеде </li>
+								</ol>
+								
+								<span class="photo_ex"><img src="images/ride1.jpg" width="275" height="230" title="Тест Купера может быть использован при проверке физической подготовки спортсменов" alt="Тест Купера может быть использован при проверке физической подготовки спортсменов" loading="lazy"></img>
+								<img src="images/swim1.jpg" width="275" height="230" title="Тест Купера может быть использован при проверке физической подготовки спортсменов" alt="Тест Купера может быть использован при проверке физической подготовки спортсменов" loading="lazy"></img>
+								</span>
+								
+								<p align=justify>Каждый, независимо от пола и уровня подготовки, сможет подобрать упражнение для себя и посмотреть, на что он способен.
+								
+								<center><h3>Почему <span class=digit>12</span> минут? </h3></center>
+								<p align=justify>Купер экспериментально доказал, что за это время организм испытает достаточное кислородное голодание, но организм вреда не получает.
+								<p><blockquote>Особенность теста заключается в том, что он построен вокруг <strong>аэробных нагрузок </strong>, т.е. клеткам нужно максимально использовать имеющийся кислород. Эффективно нагружаются более 2/3 части мышц, дыхательная и сердечно-сосудистая системы</blockquote>
+								
+								<center><h3>От теории к практике </h3></center>
+								<p><center><h4><u> Этапы теста</u></h4></center><p>
+								<ol>
+									<li><p align=justify><b>Разминка.</b> Для разогрева мышц отлично подойдут бег трусцой и общая растяжка.</li>
+								</ol></p>
+									<blockquote>Не переусердствуйте с разминкой<span class=exclamation>!</span> Лишняя усталость нам ни к чему.</blockquote> Вот пример правильной комплексной разминки.<p>
+									<div class=video>
+									<p><center><iframe id="ytplayer" type="text/html" height="100%" src="https://www.youtube-nocookie.com/embed/Nh98By0Lb_Q?start=1" frameborder="0" allow="accelerometer; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div>
+									<p><ol start="2">
+										<li><p align=justify>Засекаем 12 минут и стартуем бегом наматывать километры! Параллельно, Вы можете слушать любимую музыку с помощью нашего <a href=#radio>онлайн радио плеера</a></ol>
+									<p><blockquote> Если ощущаете усталость, то сбавьте темп, однако <b>секундомер продолжает работу!</b></blockquote>
+									
+								<ol start="3">
+									<li><p align=justify><b>Не забываем про заминку.</b> После <span class="digit">12</span>-минут выполнения упражнения, восстанавливаем дыхание, проходим быстрым шагом еще метров 200-300, затем измеряем преодоленное расстояние и сравниваем результат с таблицей.</li>
+								</ol>
+								Как видите, <u>тест крайне простой и не требует специальной подготовки</u>. Однако, если у вас остались вопросы, то это видео с примером выполнения теста на них ответит.<p>
+								<div class=video>
+								<p><center><iframe width="auto" id="ytplayer" type="text/html" height="100%" src="https://www.youtube-nocookie.com/embed/KoY4k1Yi-dM?start=1" frameborder="0" allow="accelerometer; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+								</div>
+								
+								
+								<p><center><h3>Оценка результата</h3></center>
+								<p align=justify>Теперь самая интересная часть - сравнение результата с таблицей. Ниже приведены 3 таблицы - для бега, плавания и велосипеда. Вам остается лишь найти нужную колонку и сравнить свой результат.<br>
+								
+								<center><h4>Бег</h4></center>
+								
+								<span class="image main"><img src="images/run.png" alt="" loading="lazy" /></span>
+								
+								<center><h4>Плавание</h4></center>
+								
+								<span class="image main"><img src="images/swim.png" alt="" loading="lazy" /></span>
+								
+								<blockquote>Лучше всего проводить тест в бассейне, т.к. будет проще измерить результат. Плыть можно любым стилем, главное - быстро.</blockquote>
+								
+								
+								<center><h4>Велосипед</h4></center>
+								
+								<span class="image main"><img src="images/riding.png" alt="" loading="lazy" /></span>
+								
+								<blockquote>Те же самые правила. Крутим педали так быстро, как только можем. Однако, трасса должна быть <span class=notification><b>без спусков и подъемов</b></span></blockquote>
+								
+								
+						<!--<center><a class=button style="margin-top:5%;","margin-bottom:5%;"  href="#try">ПРОЙТИ ТЕСТ КУПЕРА</a></center><br>--><!--
+						Не расстраивайтесь, если нашли свой результат в графе "плохо" или "очень плохо". Ведь в этом тесте важны не сами цифры, а <u>динамика их изменения.</u>
+						
+						<p><center><h3>Противопоказания</center></h3>
+						<p align=justify>Тест Купера связан с большой физической нагрузкой, поэтому его не стоит проводить людям:
+						<ul>
+							<li>старше 35 лет, не имеющим физической подготовки,</li>
+							<li>с заболеваниями дыхательной системы,</li>
+							<li>с заболеваниями сердечно-сосудистой системы,</li>
+						</ul>
+						Все остальные с легкостью могут провести тест Купера самостоятельно
+						
+</div>-->
+
+
+
+
+
+<!--
+<form action="send.php" method="post">
+
+Ваше имя <input type="text" name="first_name"><br>
+Email: <input type="text" name="email" required placeholder="Обязательное поле"><br>
+Сообщение:<br><textarea rows="5" name="message" cols="30"></textarea><br>
+<input type="submit" name="submit" value="Отправить заказ">
+</form>
+-->
+							
+								<!--
+								
+								<p><b>2. Потребляйте меньше калорий.</b></p>
+								
+								Замените обычную еду полезной:
+								<ul><li><b>Завтрак</b> - гречка, овсянка, бурый рис</li>
+								<li><b>Обед</b> - филе курицы, отварная телятина, мясо кролика овощи</li>
+								<li><b>Полдник</b> - несколько куриных яиц без желтков</li>
+								<li><b>Ужин</b> - обезжиренный творог или кефир</li>
+								</ul>
+								
+								
+								<b>И поймите,  добиться максимального результата можно только с помощью комплексного подхода:</b>
+								<ul>
+								<li>Физическая активность</li>
+								<li>Правильное питание</li>
+								<li>Полезные природные вещества для нормализации метаболизма</li>
+								<li>Cовременный подход к снижению веса без вреда для здоровья</li>
+								</ul>
+                                   	
+                                   	
+                                   	<center><H3>Абсолютно натуральное питание</H3> 
+                                   	<p>Первый коктейль без искусственных компонентов</p>
+                                    
+                                    <a href="https://ru.siberianhealth.com/ru/shop/catalog/product/500269/?ref=2003744117" target="_blank"><img alt="Питательный коктейль. 100% натуральный заменитель питания - Body Compliment" height="267" src="images/Body-Compliment.png" width="200" loading="lazy"></a> </center>
+							        <center> 
+									<ul class="actions">
+									<b>Питательный коктейль.<br>100% натуральный. </b></center>
+									 <blockquote>Не ждите привычного приторного вкуса и искуссвенного резкого аромата! </blockquote>
+									
+									<b>В каждой порции:</b>
+									<ul><li>200 ккал</li>
+									<li>0 г сахара</li>
+									<li>22,5 г белка</li>
+									</ul>
+									
+									<p>
+									<h3><center>ВНИМАНИЕ!</center></h3>
+									</p>
+									<b>Абсолютно натуральный коктейль не содержит:</b>
+									<ul><li>сахара и мальтодекстрина</li>
+									<li>синтетических витаминов и минеральных веществ</li>
+									<li>ароматизаторов и красителей</li>
+									<li>консревантов</li>
+									<li>пальмового масла и его аналогов</li>
+									<li>белков сои и гороха</li>
+									<li>синтетических пищевых волокон (ксантана)</li>
+									</ul>
+
+								
+									<b>Документы и презентация</b>
+									<ul>
+									<li><a href="https://drive.google.com/file/d/1Zm_GHanGh_KvfovFJbaX4JVillIblQ64/view?usp=sharing" target="_blank">Декларация соответствия</a> JPG</li>
+									<li><a href="https://drive.google.com/file/d/1Zm_GHanGh_KvfovFJbaX4JVillIblQ64/view?usp=sharing" target="_blank">Сертификат соответствия</a> JPG</li>
+									</ul>
+                                    
+                                    <center>Подробно о Body Compliment</center>
+									<iframe src="https://drive.google.com/file/d/16yBs8pD--RJo-FR9gIFYO766vy2xUIzy/preview" width="100%" height="330">
+									
+									</iframe>
+									
+									<center>
+									<strong>Цена 1550 р. (350 г / 14 порций)</strong>
+									<p>
+									<a href="https://ru.siberianhealth.com/ru/shop/catalog/category/230/?ref=2003744117" class="button special">Купить Body Compliment </a>
+									</br>
+									<a href="https://ru.siberianhealth.com/ru/shop/page/delivery-and-payment/?ref=2003744117" target="_blank">Доставка и оплата</a> (бесплатно от 3000 р.)
+									</p>
+									</ul></center>
+									
+									
+								    <hr>
+								
+								
+							        <center><p><H3>Натуральный сибирский спортпит</H3>
+							        По настоящему качественный, мультикомпонентный протеин премиум-класса </p>
+							        
+							        <a href="https://ru.siberianhealth.com/ru/shop/catalog/product/500270/?ref=2003744117" target="_blank"><img alt="Мультикомпонентный протеин премиум-класса - Siberian Super Natural Sport" height="341" src="images/Siberian-protein.png" width="200" loading="lazy"></a> </center>
+							        <center><b>Siberian Super Natural Sport</b>
+									</center>
+									
+							        <p><center><iframe src="https://player.vimeo.com/video/238964429" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <p>Тело под контролем. Роман Грищенко.</center>
+                                    <p align="justify"><font size="2"><b>Роман Грищенко</b> - атлет, совладелец клуба CrossFit BERLOGA, победитель и призер российских и международных соревнований, вице-чемпион Большого Кубка на звание самого физически подготовленного человека России (2013), участник Crossfit Games Pacific Regionals Australia в составе команды (2015, 2016), бронзовый призер Большого Кубка на звание самого физически подготовленного атлета СНГ &ndash; 2017 (в команде), ПЕРВЫЙ Посол бренда Siberian Super Natural Sport.</font></p>
+
+
+
+							    
+							    
+							    
+							        <b>Документы и презентация</b>
+									<ul><li><a href="https://drive.google.com/file/d/1HdioDavQmzGgDFCJd54Lb-2RVnoh2JfA/view?usp=sharing" target="_blank">Сертификат соответствия</a> JPG</li>
+									    <li><a href="https://drive.google.com/file/d/1O77tJDAYMmtulVRx8MZ9BxmV0s4SmfYC/view?usp=sharing" target="_blank">Антидопинговый сертификат</a> JPG</li>
+									    <li><a href="https://drive.google.com/file/d/1in7xReVnNMnzIS7v-wPGE2DvjnTZsp7e/view?usp=sharing" target="_blank">Свидетельство о государственной регистрации</a> JPG</li>
+									</p>
+									</ul>
+                                    
+                                    <!--<center>Подробно о Body Compliment</center>
+									<iframe src="https://drive.google.com/file/d/16yBs8pD--RJo-FR9gIFYO766vy2xUIzy/preview" width="100%" height="330">
+									
+									
+									</iframe>
+							        <center> 
+							        <strong>Цена 950 р. (500 г)</strong>
+									<p>
+									<a href="https://ru.siberianhealth.com/ru/shop/catalog/category/252/?ref=2003744117" class="button ">Купить Premium спортпит</a><br>
+									<a href="https://ru.siberianhealth.com/ru/shop/page/delivery-and-payment/?ref=2003744117" target="_blank">Доставка и оплата</a> (бесплатно от 3000 р.)
+									</p>
+									</ul></center>
+									</p>
+									
+									<hr>	
+	                            
+	                            
+	                            <center><img alt="Siberian Wellness" height="57" src="images/Logo-Siberian-Wellness.png" width="150" loading="lazy"></a> </center>
+	                            <center><H4>Российская компания ©"<a href="https://ru.siberianhealth.com/ru/?ref=2003744117" target="_blank">Сибирское Здоровье</a>"</H4></center>
+	                             Основана в 1996 году. 
+	                             На сегодняшний день это Корпорация оъбединяющая группу современных предприятий, имеет свой Научно-инновационный центр и множество запатентованных продуктов на основе дикорастущих лекарственных растений. 
+	                            <br> Компания имеет Представительства более чем в 20 странах мира.
+	                            
+	                            <br> «Сибирское здоровье» набирает обороты своевремнно обновляя рецептуры существующих с учетом последних научных достижений и инноваций.
+								   
+								<p><center><h3>Становитесь Привилегированным клиентом</h3></center></p> 
+								
+								<left><li>Кешбэк до 25%</li>
+								<li>Возможность участия в <a href="https://ru.siberianhealth.com/ru/shop/page/business-client/?ref=2003744117" target="_blank">Клубе постоянства</a></li>
+								<li>Покупка из приложения Buy Siberian (<a href="https://play.google.com/store/apps/details?id=com.BuySiberian.sample&amp;hl=ru" target="_blank">Google Play</a> и <a href="https://itunes.apple.com/ru/app/buy-siberian/id1095272878?mt=8" target="_blank">App Store</a></a>
+)</li>
+								</left>
+                                <p><center><a href="https://ru.siberianhealth.com/ru/shop/user/registration/PRIVILEGED_CLIENT/?ref=2003744117" class="button special">Зарегестрироваться</a></center>
+                                </p>
+                                        
+                                       
+										
+										
+
+
+                                        <p>
+                                        <center>
+                                        <a href="https://www.youtube-nocookie.com/c/siberianhealth" class="icon fa-youtube"><span class="label">Youtube</span></a>
+										<a href="https://vk.com/siberianwellness_official" class="icon fa-vk"><span class="label">Vkontakte</span></a>
+										<a href="https://www.facebook.com/siberianwellness/" class="icon fa-facebook"><span class="label">Facebook</span></a>
+										<a href="https://www.instagram.com/siberianwellness/" class="icon fa-instagram"><span class="label">Instagram</span></a>
+										</center>
+								        </p>
+			-->
+								
+							
+<!--	
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button special">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions vertical">
+										<li><a href="#" class="button special">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button special">Special</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button special icon fa-download">Icon</a></li>
+										<li><a href="#" class="button icon fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button special disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="field half first">
+											<label for="demo-name">Name</label>
+											<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+										</div>
+										<div class="field half">
+											<label for="demo-email">Email</label>
+											<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+										</div>
+										<div class="field">
+											<label for="demo-category">Category</label>
+											<div class="select-wrapper">
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+										</div>
+										<div class="field half first">
+											<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+											<label for="demo-priority-low">Low</label>
+										</div>
+										<div class="field half">
+											<input type="radio" id="demo-priority-high" name="demo-priority">
+											<label for="demo-priority-high">High</label>
+										</div>
+										<div class="field half first">
+											<input type="checkbox" id="demo-copy" name="demo-copy">
+											<label for="demo-copy">Email me a copy</label>
+										</div>
+										<div class="field half">
+											<input type="checkbox" id="demo-human" name="demo-human" checked>
+											<label for="demo-human">Not a robot</label>
+										</div>
+										<div class="field">
+											<label for="demo-message">Message</label>
+											<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="special" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+-->
+					</div>
+				
+
+				<!-- Footer -->
+					<footer id="footer">
+                        <p>По вопросам сотрудничества <br> <a href="mailto:admin@tabatatimer.ru">admin@tabatatimer.ru</a></p>
+						<p class="copyright">&copy; Design: LOBANOFF PRO</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js" defer></script>
+			<script src="assets/js/util.js" defer></script>
+			<script src="assets/js/main.js" defer></script>
+			<script src="assets/js/jquery.textfill.min.js" defer></script>
+	<script type="text/javascript">
+	// Ожидаем загрузки DOM и jQuery плагина textfill
+	document.addEventListener('DOMContentLoaded', function() {
+		// Проверяем, что jQuery и плагин textfill загружены
+		if (typeof jQuery !== 'undefined' && typeof jQuery.fn.textfill !== 'undefined') {
+			jQuery('#currenttime').textfill({
+		minFontPixels: 12,
+		maxFontPixels: 260
+	});
+			jQuery('#tt_clock_label').textfill({
+		minFontPixels: 12,
+		maxFontPixels: 50
+			});
+		} else {
+			// Если плагин еще не загружен, ждем немного и пробуем снова
+			setTimeout(function() {
+				if (typeof jQuery !== 'undefined' && typeof jQuery.fn.textfill !== 'undefined') {
+					jQuery('#currenttime').textfill({
+						minFontPixels: 12,
+						maxFontPixels: 260
+					});
+					jQuery('#tt_clock_label').textfill({
+						minFontPixels: 12,
+						maxFontPixels: 50
+					});
+				}
+			}, 100);
+		}
+	});
+	// Удаляем предварительную загрузку всех звуков
+	// Звуки будут загружаться только при необходимости
+	</script>
+    
+    
+    <!-- Удалено: Google Analytics (теперь в конце страницы) -->
+    
+ 
+<script>
+jQuery(document).ready(function($) {
+	
+	var hash = $(location).attr('hash');
+	var ygirls = Boolean(true);
+	var ymen = Boolean(true);
+	var ytrx = Boolean(true);
+	
+	if(hash=='#girls') {
+		$('#youtubeJenTren1').attr('src', 'https://www.youtube-nocookie.com/embed/J_uXGa2xrjg?rel=0');
+		$('#youtubeJenTren2').attr('src', 'https://www.youtube-nocookie.com/embed/X98O5ino_kA?rel=0');
+		ygirls = false;
+	};
+	if(hash=='#men') {
+		$('#youtubeMenTren1').attr('src', 'https://www.youtube-nocookie.com/embed/eIxMhu0IDp4?rel=0');
+		ymen = false;
+	};
+	if(hash=='#trxtabata' || hash=='#trxsuspesion' || hash=='#trxtactical' || hash=='#trxxmount') {
+		$('#youtubeTrxMain').attr('src', 'https://www.youtube.com/embed/videoseries?list=PLgTB0t4o7Srl5Jcg1kbrnj2v1UuEg8LYr');
+		$('#youtubeTrxSus').attr('src', 'https://www.youtube-nocookie.com/embed/oxc_Ni7Hdn8?rel=0');
+		$('#youtubeTrxTact').attr('src', 'https://www.youtube-nocookie.com/embed/Qsv02gHvx10?rel=0');
+		ytrx = false;
+	};
+	
+	if(ygirls){
+		$("#header a[href$='girls']").one('click', function() {
+			$('#youtubeJenTren1').attr('src', 'https://www.youtube-nocookie.com/embed/J_uXGa2xrjg?rel=0');
+			$('#youtubeJenTren2').attr('src', 'https://www.youtube-nocookie.com/embed/X98O5ino_kA?rel=0');
+			ygirls = false;
+		});
+	};
+	if(ymen){
+		$("#header a[href$='men']").one('click', function() {
+			$('#youtubeMenTren1').attr('src', 'https://www.youtube-nocookie.com/embed/eIxMhu0IDp4?rel=0');
+			ymen = false;
+		});
+	};
+	if(ytrx){
+		$("#header a[href$='trxtabata']").add('#moreTRXfromTimer').one('click', function() {
+			$('#youtubeTrxMain').attr('src', 'https://www.youtube.com/embed/videoseries?list=PLgTB0t4o7Srl5Jcg1kbrnj2v1UuEg8LYr');
+			$('#youtubeTrxSus').attr('src', 'https://www.youtube-nocookie.com/embed/oxc_Ni7Hdn8?rel=0');
+			$('#youtubeTrxTact').attr('src', 'https://www.youtube-nocookie.com/embed/Qsv02gHvx10?rel=0');
+			ytrx = false;
+		});
+	};
+	 
+	 var $main_articles = $('#main').children('article');
+	 var $currentArticle = $main_articles.filter('.active');
+	 
+	$('.backtotrx').click(function() {
+		$currentArticle.removeClass('active');
+		setTimeout(function() {
+			$currentArticle.hide();
+			$('#trxtabata').show();
+			setTimeout(function() {
+				$('#trxtabata').addClass('active');
+				document.location.href="#choosetrx";
+			}, 25);
+		}, 500);	
+		location.hash = '#trxtabata';
+	});
+	
+	$('#moreTRXfromTimer').click(function() {
+		$currentArticle.removeClass('active');
+		setTimeout(function() {
+			$currentArticle.hide();
+			$('#trxtabata').show();
+			setTimeout(function() {
+				$('#trxtabata').addClass('active');
+			}, 25);
+		}, 500);	
+		location.hash = '#trxtabata';
+	});
+	
+	
+
+	$('.buybutton').click(function() {
+	$('.goodsdescription').hide();
+	$('.contact__msg').hide();	
+	$('.contact__form').show();
+    $('.buyform').toggle();
+	});
+	
+	$('.descriptionback').click(function() {
+	$('.goodsdescription').toggle();	
+    $('.buyform').hide();
+	});
+	
+	$('.goodsreadmore').click(function() {
+	$('.goodsdescription').show();	
+	$('.backtotrx').show();	
+    $('.buyform').hide();
+	});
+	
+	
+	$('.everybody-grid').on('click', 'div:not(.active)', function() {
+	$('.everybody-grid').removeClass('shine');
+	$('.everybody-grid-item').addClass('inactive');
+    $(this)
+      .addClass('active').siblings().removeClass('active')
+      .closest('#trxtabata').find('.everybodydesc').removeClass('active').eq($(this).index()).addClass('active');
+	});
+	
+	
+	'use strict';
+    var form = $('.contact__form'),
+        message = $('.contact__msg'),
+        form_data;
+    function done_func(response) {
+        message.fadeIn().removeClass('alert-danger').addClass('alert-success');
+        message.text(response);
+        form.find('input:not([type="submit"]):not([name="goods"]):not([name="zf"]), textarea').val('');
+		form.hide();
+    }
+    function fail_func(data) {
+        message.fadeIn().removeClass('alert-success').addClass('alert-success');
+        message.text(data.responseText);
+        setTimeout(function () {
+            message.fadeOut();
+        }, 2000);
+    }
+    form.submit(function (e) {
+        e.preventDefault();
+        form_data = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: form.attr('action'),
+            data: form_data
+        })
+        .done(done_func)
+        .fail(fail_func);
+    });
+	
+});
+</script> 
+    
+    <!-- Lazy loading для фоновых изображений -->
+    <script>
+      (function() {
+        // Проверяем поддержку Intersection Observer
+        if ('IntersectionObserver' in window) {
+          var imageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                var element = entry.target;
+                var bgImage = element.getAttribute('data-bg-image');
+                if (bgImage) {
+                  // Загружаем изображение
+                  var img = new Image();
+                  img.onload = function() {
+                    element.style.backgroundImage = 'url(' + bgImage + ')';
+                    element.classList.add('bg-loaded');
+                  };
+                  img.src = bgImage;
+                  observer.unobserve(element);
+                }
+              }
+            });
+          }, {
+            rootMargin: '50px' // Начинаем загрузку за 50px до появления в viewport
+          });
+
+          // Наблюдаем за всеми элементами с data-bg-image
+          var lazyBgElements = document.querySelectorAll('[data-bg-image]');
+          lazyBgElements.forEach(function(element) {
+            imageObserver.observe(element);
+          });
+        } else {
+          // Fallback для старых браузеров - загружаем все сразу
+          var lazyBgElements = document.querySelectorAll('[data-bg-image]');
+          lazyBgElements.forEach(function(element) {
+            var bgImage = element.getAttribute('data-bg-image');
+            if (bgImage) {
+              var img = new Image();
+              img.onload = function() {
+                element.style.backgroundImage = 'url(' + bgImage + ')';
+                element.classList.add('bg-loaded');
+              };
+              img.src = bgImage;
+            }
+          });
+        }
+      })();
+</script> 
+    
+    <!-- Аналитика загружается асинхронно в конце документа -->
+    <script type="text/javascript" async>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-91397447-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+</body>
+</html>

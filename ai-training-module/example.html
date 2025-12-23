@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример интеграции AI-тренинга</title>
+    
+    <!-- Подключение CSS модуля AI-тренинга -->
+    <link rel="stylesheet" href="css/mediapipe-pose.css">
+    
+    <!-- Подключение TensorFlow.js и pose-detection (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@4.11.0/dist/tf-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter@4.11.0/dist/tf-converter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.11.0/dist/tf-backend-webgl.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@2.1.0/dist/pose-detection.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Пример интеграции AI-тренинга</h1>
+        
+        <!-- HTML структура модуля AI-тренинга -->
+        <div class="mediapipe-ui-card">
+            <div class="mediapipe-ui-meta">
+                <div class="mediapipe-ui-title">Включи AI-тренинг</div>
+                <div class="mediapipe-ui-tags">
+                    <span class="mediapipe-chip" data-exercise="squat" style="cursor: pointer;">Приседания</span>
+                    <span class="mediapipe-chip" data-exercise="pushup" style="cursor: pointer;">Отжимания</span>
+                    <span class="mediapipe-chip" data-exercise="plank" style="cursor: pointer;">Планка</span>
+                    <span class="mediapipe-chip" data-exercise="wallsit" style="cursor: pointer;">Стульчик</span>
+                </div>
+            </div>
+            <p class="mediapipe-ui-description">AI-тренер анализирует твою технику в реальном времени и считает правильные повторения. Выбери упражнение и начни тренировку!</p>
+            
+            <div class="mediapipe-ui-actions">
+                <button id="mediapipe-toggle-btn" class="mediapipe-toggle-btn">Включи AI-тренинг</button>
+                
+                <div class="select-wrapper">
+                    <select name="mediapipe-exercise" id="mediapipe-exercise-select">
+                        <option value="squat" selected>Приседания</option>
+                        <option value="pushup">Отжимания</option>
+                        <option value="plank">Планка</option>
+                        <option value="wallsit">Стульчик</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- ПАНЕЛЬ КАЛИБРОВКИ (опционально, для разработчиков) -->
+            <div id="calibration-panel" class="calibration-panel" style="display: none;">
+                <div class="calibration-header">
+                    <h3>🔧 Панель калибровки параметров</h3>
+                    <button id="calibration-toggle-btn" class="calibration-toggle-btn">Скрыть</button>
+                </div>
+                <div class="calibration-body">
+                    <!-- Содержимое панели калибровки (см. index.php для полной структуры) -->
+                </div>
+            </div>
+            
+            <div id="mediapipe-container" class="mediapipe-container">
+                <video id="mediapipe-video" class="mediapipe-video" autoplay playsinline></video>
+                <canvas id="mediapipe-canvas" class="mediapipe-canvas"></canvas>
+                
+                <div class="mediapipe-stats">
+                    <div class="mediapipe-current-score" id="mediapipe-current-score">0</div>
+                    <div class="mediapipe-score-label" id="mediapipe-score-label">Приседание</div>
+                    
+                    <div class="mediapipe-reps">
+                        <span class="mediapipe-reps-label">Повторов:</span>
+                        <span class="mediapipe-reps-value" id="mediapipe-reps-value">0</span>
+                    </div>
+                    
+                    <div class="mediapipe-average">
+                        <span class="mediapipe-average-label">Средний балл:</span>
+                        <span class="mediapipe-average-value" id="mediapipe-average-value">0</span>
+                    </div>
+                </div>
+                
+                <div id="mediapipe-rep-notification" class="mediapipe-rep-notification"></div>
+                
+                <!-- Подсказки по позиционированию перед камерой -->
+                <div id="mediapipe-position-hint" class="mediapipe-position-hint">
+                    <div class="position-hint-icon"></div>
+                    <div class="position-hint-message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Инициализация глобального объекта sounds (для звука pay.mp3) -->
+    <script>
+        window.sounds = {
+            pay: "audio/pay.mp3"
+        };
+    </script>
+    
+    <!-- Подключение JavaScript модулей AI-тренинга -->
+    <!-- ВАЖНО: Порядок подключения имеет значение! -->
+    <script src="js/movenet-pose.js"></script>
+    <script src="js/mediapipe-pose.js"></script>
+    <script src="js/calibration-panel.js"></script>
+    <script src="js/mediapipe-integration.js"></script>
+    
+    <script>
+        // Проверка загрузки TensorFlow.js и pose-detection
+        (function() {
+            function checkTensorFlow() {
+                if (window.tf && window.poseDetection) {
+                    console.log('✓ TensorFlow.js и pose-detection загружены');
+                    return true;
+                }
+                return false;
+            }
+            
+            // Проверяем сразу
+            if (!checkTensorFlow()) {
+                // Если не готов, проверяем периодически
+                let attempts = 0;
+                const maxAttempts = 200; // 20 секунд
+                const checkInterval = setInterval(function() {
+                    attempts++;
+                    if (checkTensorFlow() || attempts >= maxAttempts) {
+                        clearInterval(checkInterval);
+                    }
+                }, 100);
+            }
+        })();
+    </script>
+</body>
+</html>
+

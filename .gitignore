@@ -1,0 +1,55 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# PHP (не нужны для GitHub Pages, но оставляем на случай)
+composer.lock
+vendor/
+
+# Node modules (если будут)
+node_modules/
+package-lock.json
+
+# Build files
+dist/
+build/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Sensitive data (уже удалены из mailer2.php, но на всякий случай)
+*password*
+*secret*
+*key*
+

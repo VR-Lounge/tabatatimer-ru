@@ -1,0 +1,5294 @@
+/*
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Reset */
+
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		/*vertical-align: baseline;*/
+		-webkit-touch-callout: none; 
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+	}
+
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+
+	body {
+		line-height: 1;
+	}
+
+	ol, ul {
+		list-style: none;
+	}
+
+	blockquote, q {
+		quotes: none;
+	}
+
+	blockquote:before, blockquote:after, q:before, q:after {
+		content: '';
+		content: none;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	body {
+		-webkit-text-size-adjust: none;
+	}
+
+/* Box Model */
+
+	*, *:before, *:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+/* Basic */
+
+	@-ms-viewport {
+		width: device-width;
+	}
+
+	@media screen and (max-width: 480px) {
+
+		html, body {
+			min-width: 320px;
+		}
+
+	}
+
+	body {
+		background: #1b1f22;
+	}
+
+		body.is-loading *, body.is-loading *:before, body.is-loading *:after, body.is-switching *, body.is-switching *:before, body.is-switching *:after {
+			-moz-animation: none !important;
+			-webkit-animation: none !important;
+			-ms-animation: none !important;
+			animation: none !important;
+			-moz-transition: none !important;
+			-webkit-transition: none !important;
+			-ms-transition: none !important;
+			transition: none !important;
+			-moz-transition-delay: none !important;
+			-webkit-transition-delay: none !important;
+			-ms-transition-delay: none !important;
+			transition-delay: none !important;
+		}
+
+/* Type */
+
+	html {
+		font-size: 16pt;
+	}
+
+		@media screen and (max-width: 1680px) {
+
+			html {
+				font-size: 12pt;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			html {
+				font-size: 11pt;
+			}
+
+		}
+
+		@media screen and (max-width: 360px) {
+
+			html {
+				font-size: 10pt;
+			}
+
+		}
+
+	body, input, select, textarea {
+		color: #ffffff;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+		font-weight: 300;
+		font-size: 1rem;
+		line-height: 1.65;
+	}
+
+	a {
+		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+		text-decoration: none;
+		color: inherit;
+	}
+
+		a:hover {
+			border-bottom-color: transparent;
+		}
+
+	strong, b {
+		color: #ffffff;
+		font-weight: 600;
+	}
+
+	em, i {
+		font-style: italic;
+	}
+
+	p {
+		margin: 0 0 2rem 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: #ffffff;
+		font-weight: 600;
+		line-height: 1.5;
+		margin: 0 0 1rem 0;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+	}
+
+		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+			border-bottom: solid 1px #ffffff;
+			width: -moz-max-content;
+			width: -webkit-max-content;
+			width: -ms-max-content;
+			width: max-content;
+			padding-bottom: 0.5rem;
+			margin: 0 0 2rem 0;
+		}
+
+	h1 {
+		font-size: 2.25rem;
+		line-height: 1.3;
+		letter-spacing: 0.5rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		line-height: 1.4;
+		letter-spacing: 0.5rem;
+	}
+
+	h3 {
+		font-size: 1rem;
+	}
+
+	h4 {
+		font-size: 0.8rem;
+	}
+
+	h5 {
+		font-size: 0.7rem;
+	}
+
+	h6 {
+		font-size: 0.6rem;
+	}
+
+	@media screen and (max-width: 736px) {
+
+		h1 {
+			font-size: 1.75rem;
+			line-height: 1.4;
+		}
+
+		h2 {
+			font-size: 1.25em;
+			line-height: 1.5;
+		}
+
+	}
+
+	sub {
+		font-size: 0.8rem;
+		position: relative;
+		top: 0.5rem;
+	}
+
+	sup {
+		font-size: 0.8rem;
+		position: relative;
+		top: -0.5rem;
+	}
+
+	blockquote {
+		border-left: solid 4px #ffffff;
+		font-style: italic;
+		margin: 0 0 2rem 0;
+		padding: 0.5rem 0 0.5rem 2rem;
+	}
+
+	code {
+		background: rgba(255, 255, 255, 0.075);
+		border-radius: 4px;
+		font-family: "Courier New", monospace;
+		font-size: 0.9rem;
+		margin: 0 0.25rem;
+		padding: 0.25rem 0.65rem;
+	}
+
+	pre {
+		-webkit-overflow-scrolling: touch;
+		font-family: "Courier New", monospace;
+		font-size: 0.9rem;
+		margin: 0 0 2rem 0;
+	}
+
+		pre code {
+			display: block;
+			line-height: 1.75;
+			padding: 1rem 1.5rem;
+			overflow-x: auto;
+		}
+
+	hr {
+		border: 0;
+		border-bottom: solid 1px #ffffff;
+		margin: 2.75rem 0;
+	}
+
+	.align-left {
+		text-align: left;
+	}
+
+	.align-center {
+		text-align: center;
+	}
+
+	.align-right {
+		text-align: right;
+	}
+
+/* Form */
+
+	form {
+		margin: 0 0 2.5rem 0;
+	}
+
+		form .field {
+			margin: 0 0 1.5rem 0;
+		}
+
+			form .field.half {
+				width: 50%;
+				float: left;
+				padding: 0 0 0 0.75rem;
+				margin-bottom: 1rem;
+			}
+
+				form .field.half.first {
+					padding: 0 0.75rem 0 0;
+				}
+
+		form > .actions {
+			margin: 1.875rem 0 0 0 !important;
+		}
+
+		@media screen and (max-width: 736px) {
+
+			form .field {
+				margin: 0 0 1.125rem 0;
+			}
+
+				form .field.half {
+					padding: 0 0 0 0.5625rem;
+				}
+
+					form .field.half.first {
+						padding: 0 0.5625rem 0 0;
+					}
+
+			form > .actions {
+				margin: 1.5rem 0 0 0 !important;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			form .field.half {
+				width: 100%;
+				float: none;
+				padding: 0;
+			}
+
+				form .field.half.first {
+					padding: 0;
+				}
+
+		}
+
+	label {
+		color: #ffffff;
+		display: block;
+		font-size: 0.8rem;
+		font-weight: 300;
+		letter-spacing: 0.2rem;
+		line-height: 1.5;
+		margin: 0 0 1rem 0;
+		text-transform: uppercase;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="tel"],
+	select,
+	textarea {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-webkit-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-ms-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		background: transparent;
+		border-radius: 4px;
+		border: solid 1px #ffffff;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1rem;
+		text-decoration: none;
+		width: 100%;
+	}
+
+		input[type="text"]:invalid,
+		input[type="password"]:invalid,
+		input[type="email"]:invalid,
+		input[type="tel"]:invalid,
+		select:invalid,
+		textarea:invalid {
+			box-shadow: none;
+		}
+
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="email"]:focus,
+		input[type="tel"]:focus,
+		select:focus,
+		textarea:focus {
+			background: rgba(255, 255, 255, 0.075);
+			border-color: #ffffff;
+			box-shadow: 0 0 0 1px #ffffff;
+		}
+
+	select option {
+		background: #1b1f22;
+		color: #ffffff;
+	}
+
+	.select-wrapper {
+		text-decoration: none;
+		display: block;
+		position: relative;
+	}
+
+		.select-wrapper:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			font-family: FontAwesome;
+			font-style: normal;
+			font-weight: normal;
+			text-transform: none !important;
+		}
+
+		.select-wrapper:before {
+			color: #ffffff;
+			content: '\f107';
+			display: block;
+			height: 2.75rem;
+			line-height: calc(2.75rem + 0em);
+			pointer-events: none;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			top: 0;
+			width: 2.75rem;
+		}
+
+		.select-wrapper select::-ms-expand {
+			display: none;
+		}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select {
+		height: 2.75rem;
+	}
+
+	textarea {
+		padding: 0.75rem 1rem;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		display: block;
+		float: left;
+		margin-right: -2rem;
+		opacity: 0;
+		width: 1rem;
+		z-index: -1;
+	}
+
+		input[type="checkbox"] + label,
+		input[type="radio"] + label {
+			text-decoration: none;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			color: #ffffff;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 0.8rem;
+			font-weight: 300;
+			margin: 0 0 0.5rem 0;
+			padding-left: 2.65rem;
+			padding-right: 0.75rem;
+			position: relative;
+		}
+
+			input[type="checkbox"] + label:before,
+			input[type="radio"] + label:before {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				font-family: FontAwesome;
+				font-style: normal;
+				font-weight: normal;
+				text-transform: none !important;
+			}
+
+			input[type="checkbox"] + label:before,
+			input[type="radio"] + label:before {
+				-moz-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				-webkit-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				-ms-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				border-radius: 4px;
+				border: solid 1px #ffffff;
+				content: '';
+				display: inline-block;
+				height: 1.65rem;
+				left: 0;
+				line-height: calc(1.58125rem + 0em);
+				position: absolute;
+				text-align: center;
+				top: -0.125rem;
+				width: 1.65rem;
+			}
+
+		input[type="checkbox"]:checked + label:before,
+		input[type="radio"]:checked + label:before {
+			background: #ffffff !important;
+			border-color: #ffffff !important;
+			color: #1b1f22;
+			content: '\f00c';
+		}
+
+		input[type="checkbox"]:focus + label:before,
+		input[type="radio"]:focus + label:before {
+			background: rgba(255, 255, 255, 0.075);
+			border-color: #ffffff;
+			box-shadow: 0 0 0 1px #ffffff;
+		}
+
+	input[type="checkbox"] + label:before {
+		border-radius: 4px;
+	}
+
+	input[type="radio"] + label:before {
+		border-radius: 100%;
+	}
+
+	::-webkit-input-placeholder {
+		color: rgba(255, 255, 255, 0.5) !important;
+		opacity: 1.0;
+	}
+
+	:-moz-placeholder {
+		color: rgba(255, 255, 255, 0.5) !important;
+		opacity: 1.0;
+	}
+
+	::-moz-placeholder {
+		color: rgba(255, 255, 255, 0.5) !important;
+		opacity: 1.0;
+	}
+
+	:-ms-input-placeholder {
+		color: rgba(255, 255, 255, 0.5) !important;
+		opacity: 1.0;
+	}
+
+	.formerize-placeholder {
+		color: rgba(255, 255, 255, 0.5) !important;
+		opacity: 1.0;
+	}
+
+/* Box */
+
+	.box {
+		border-radius: 4px;
+		border: solid 1px #ffffff;
+		margin-bottom: 2rem;
+		padding: 1.5em;
+	}
+
+		.box > :last-child,
+		.box > :last-child > :last-child,
+		.box > :last-child > :last-child > :last-child {
+			margin-bottom: 0;
+		}
+
+		.box.alt {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+		}
+
+/* Icon */
+
+	.icon {
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+	}
+
+		.icon:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			font-family: FontAwesome;
+			font-style: normal;
+			font-weight: normal;
+			text-transform: none !important;
+		}
+
+		.icon > .label {
+			display: none;
+		}
+
+/* Image */
+
+	.image {
+		border-radius: 4px;
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
+
+		.image:before {
+			-moz-pointer-events: none;
+			-webkit-pointer-events: none;
+			-ms-pointer-events: none;
+			pointer-events: none;
+			background-image: url("../../images/overlay.png");
+			background-color: rgba(19, 21, 25, 0.5);
+			border-radius: 4px;
+			content: '';
+			display: block;
+			height: 100%;
+			left: 0;
+			opacity: 0.5;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.image img {
+			border-radius: 4px;
+			display: block;
+		}
+
+		.image.left, .image.right {
+			max-width: 40%;
+		}
+
+			.image.left img, .image.right img {
+				width: 100%;
+			}
+
+		.image.left {
+			float: left;
+			padding: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+		.image.right {
+			float: right;
+			padding: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+
+		.image.fit {
+			display: block;
+			margin: 0 0 2rem 0;
+			width: 100%;
+		}
+
+			.image.fit img {
+				width: 100%;
+			}
+
+		.image.main {
+			display: block;
+			margin: 2.5rem 0;
+			width: 100%;
+		}
+
+			.image.main img {
+				width: 100%;
+			}
+
+		@media screen and (max-width: 736px) {
+
+			.image.main {
+				margin: 2rem 0;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.image.main {
+				margin: 1.5rem 0;
+			}
+
+		}
+
+/* List */
+
+	ol {
+		list-style: decimal;
+		margin: 0 0 2rem 0;
+		padding-left: 1.25em;
+	}
+
+		ol li {
+			padding-left: 0.25em;
+		}
+
+	ul {
+		list-style: disc;
+		margin: 0 0 2rem 0;
+		padding-left: 1em;
+	}
+
+		ul li {
+			padding-left: 0.5em;
+		}
+
+		ul.alt {
+			list-style: none;
+			padding-left: 0;
+		}
+
+			ul.alt li {
+				border-top: solid 1px #ffffff;
+				padding: 0.5em 0;
+			}
+
+				ul.alt li:first-child {
+					border-top: 0;
+					padding-top: 0;
+				}
+
+		ul.icons {
+			cursor: default;
+			list-style: none;
+			padding-left: 0;
+		}
+
+			ul.icons li {
+				display: inline-block;
+				padding: 0 0.75em 0 0;
+			}
+
+				ul.icons li:last-child {
+					padding-right: 0;
+				}
+
+				ul.icons li a {
+					border-radius: 100%;
+					box-shadow: inset 0 0 0 1px #ffffff;
+					display: inline-block;
+					height: 2.25rem;
+					line-height: 2.25rem;
+					text-align: center;
+					width: 2.25rem;
+				}
+
+					ul.icons li a:hover {
+						background-color: rgba(255, 255, 255, 0.075);
+					}
+
+					ul.icons li a:active {
+						background-color: rgba(255, 255, 255, 0.175);
+					}
+
+		ul.actions {
+			cursor: default;
+			list-style: none;
+			padding-left: 0;
+		}
+
+			ul.actions li {
+				display: inline-block;
+				padding: 0 1rem 0 0;
+				vertical-align: middle;
+			}
+
+				ul.actions li:last-child {
+					padding-right: 0;
+				}
+
+			ul.actions.small li {
+				padding: 0 0.5rem 0 0;
+			}
+
+			ul.actions.vertical li {
+				display: block;
+				padding: 1rem 0 0 0;
+			}
+
+				ul.actions.vertical li:first-child {
+					padding-top: 0;
+				}
+
+				ul.actions.vertical li > * {
+					margin-bottom: 0;
+				}
+
+			ul.actions.vertical.small li {
+				padding: 0.5rem 0 0 0;
+			}
+
+				ul.actions.vertical.small li:first-child {
+					padding-top: 0;
+				}
+
+			ul.actions.fit {
+				display: table;
+				margin-left: -1rem;
+				padding: 0;
+				table-layout: fixed;
+				width: calc(100% + 1rem);
+			}
+
+				ul.actions.fit li {
+					display: table-cell;
+					padding: 0 0 0 1rem;
+				}
+
+					ul.actions.fit li > * {
+						margin-bottom: 0;
+					}
+
+				ul.actions.fit.small {
+					margin-left: -0.5rem;
+					width: calc(100% + 0.5rem);
+				}
+
+					ul.actions.fit.small li {
+						padding: 0 0 0 0.5rem;
+					}
+
+			@media screen and (max-width: 480px) {
+
+				ul.actions {
+					margin: 0 0 2rem 0;
+				}
+
+					ul.actions li {
+						padding: 1rem 0 0 0;
+						display: block;
+						text-align: center;
+						width: 100%;
+					}
+
+						ul.actions li:first-child {
+							padding-top: 0;
+						}
+
+						ul.actions li > * {
+							width: 100%;
+							margin: 0 !important;
+						}
+
+							ul.actions li > *.icon:before {
+								margin-left: -2em;
+							}
+
+					ul.actions.small li {
+						padding: 0.5rem 0 0 0;
+					}
+
+						ul.actions.small li:first-child {
+							padding-top: 0;
+						}
+
+			}
+
+	dl {
+		margin: 0 0 2rem 0;
+	}
+
+		dl dt {
+			display: block;
+			font-weight: 600;
+			margin: 0 0 1rem 0;
+		}
+
+		dl dd {
+			margin-left: 2rem;
+		}
+
+/* Table */
+
+	.table-wrapper {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+	}
+
+	table {
+		margin: 0 0 2rem -1.3rem;
+		width: 100%;
+		border:1px solid #fff;
+	}
+
+		table tbody tr {
+			border: solid 1px #fff;
+			border-left: 0;
+			border-right: 0;
+		}
+
+			table tbody tr:nth-child(2n + 1) {
+				background-color: rgba(255, 255, 255, 0.075);
+			}
+
+		table td {
+			padding: 0.75em 0.75em;
+			border: 1px solid #fff;
+			width:90px;
+		}
+
+		table th {
+			color: #ffffff;
+			font-size: 0.9em;
+			font-weight: 600;
+			padding: 0 0.75em 0.75em 0.75em;
+			text-align: left;
+		}
+
+		table thead {
+			border-bottom: solid 2px #ffffff;
+		}
+
+		table tfoot {
+			border-top: solid 2px #ffffff;
+		}
+
+		table.alt {
+			border-collapse: separate;
+		}
+
+			table.alt tbody tr td {
+				border: solid 1px #ffffff;
+				border-left-width: 0;
+				border-top-width: 0;
+			}
+
+				table.alt tbody tr td:first-child {
+					border-left-width: 1px;
+				}
+
+			table.alt tbody tr:first-child td {
+				border-top-width: 1px;
+			}
+
+			table.alt thead {
+				border-bottom: 0;
+			}
+
+			table.alt tfoot {
+				border-top: 0;
+			}
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: transparent;
+		border-radius: 14px;
+		border: 0;
+		box-shadow: inset 0 0 0 1px #ffffff;
+		color: #ffffff !important;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 300;
+		height: 2.75rem;
+		letter-spacing: 0.2rem;
+		line-height: 2.75rem;
+		outline: 0;
+		padding: 0 1.25rem 0 1.35rem;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		button:hover,
+		.button:hover {
+			background-color: rgba(255, 255, 255, 0.075);
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		button:active,
+		.button:active {
+			background-color: rgba(255, 255, 255, 0.175);
+		}
+
+		input[type="submit"].icon:before,
+		input[type="reset"].icon:before,
+		input[type="button"].icon:before,
+		button.icon:before,
+		.button.icon:before {
+			margin-right: 0.5em;
+		}
+
+		input[type="submit"].fit,
+		input[type="reset"].fit,
+		input[type="button"].fit,
+		button.fit,
+		.button.fit {
+			display: block;
+			margin: 0 0 1rem 0;
+			width: 100%;
+		}
+
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			background-color: #ffffff;
+			color: #1b1f22 !important;
+			font-weight: 600;
+		}
+
+		input[type="submit"].disabled, input[type="submit"]:disabled,
+		input[type="reset"].disabled,
+		input[type="reset"]:disabled,
+		input[type="button"].disabled,
+		input[type="button"]:disabled,
+		button.disabled,
+		button:disabled,
+		.button.disabled,
+		.button:disabled {
+			-moz-pointer-events: none;
+			-webkit-pointer-events: none;
+			-ms-pointer-events: none;
+			pointer-events: none;
+			cursor: default;
+			opacity: 0.25;
+		}
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button {
+		line-height: calc(2.75rem - 2px);
+	}
+
+/* BG */
+
+	#bg {
+		-moz-transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+		-ms-transform: scale(1.0);
+		transform: scale(1.0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: 1;
+	}
+
+		#bg:before, #bg:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		#bg:before {
+			-moz-transition: background-color 2.5s ease-in-out;
+			-webkit-transition: background-color 2.5s ease-in-out;
+			-ms-transition: background-color 2.5s ease-in-out;
+			transition: background-color 2.5s ease-in-out;
+			-moz-transition-delay: 0.75s;
+			-webkit-transition-delay: 0.75s;
+			-ms-transition-delay: 0.75s;
+			transition-delay: 0.75s;
+			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
+			background-size: auto, 256px 256px;
+			background-position: center, center;
+			background-repeat: no-repeat, repeat;
+			z-index: 2;
+		}
+
+		#bg:after {
+			-moz-transform: scale(1.125);
+			-webkit-transform: scale(1.125);
+			-ms-transform: scale(1.125);
+			transform: scale(1.125);
+			-moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out;
+			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
+			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
+			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
+			background-image: url("../../images/bg.jpg");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			z-index: 1;
+		}
+
+		body.is-article-visible #bg:after {
+			-moz-transform: scale(1.0825);
+			-webkit-transform: scale(1.0825);
+			-ms-transform: scale(1.0825);
+			transform: scale(1.0825);
+			-moz-filter: blur(0.2rem);
+			-webkit-filter: blur(0.2rem);
+			-ms-filter: blur(0.2rem);
+			filter: blur(0.2rem);
+		}
+
+		body.is-loading #bg:before {
+			background-color: #000000;
+		}
+
+/* Wrapper */
+
+	#wrapper {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		-moz-justify-content: space-between;
+		-webkit-justify-content: space-between;
+		-ms-justify-content: space-between;
+		justify-content: space-between;
+		position: relative;
+		min-height: 100vh;
+		width: 100%;
+		padding: 4rem 2rem;
+		z-index: 3;
+	}
+
+		#wrapper:before {
+			content: '';
+			display: block;
+		}
+
+		@media screen and (max-width: 1680px) {
+
+			#wrapper {
+				padding: 3rem 2rem;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#wrapper {
+				padding: 2rem 1rem;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#wrapper {
+				padding: 1rem;
+			}
+
+		}
+
+/* Header */
+
+	#header {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		-moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		background-image: -moz-radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
+		background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
+		background-image: -ms-radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
+		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
+		max-width: 100%;
+		text-align: center;
+	}
+
+		#header > * {
+			-moz-transition: opacity 0.325s ease-in-out;
+			-webkit-transition: opacity 0.325s ease-in-out;
+			-ms-transition: opacity 0.325s ease-in-out;
+			transition: opacity 0.325s ease-in-out;
+			position: relative;
+			margin-top: 3.5rem;
+		}
+
+			#header > *:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: calc(-3.5rem - 1px);
+				left: calc(50% - 1px);
+				width: 1px;
+				height: calc(3.5rem + 1px);
+				background: #ffffff;
+			}
+
+		#header > :first-child {
+			margin-top: 0;
+		}
+
+			#header > :first-child:before {
+				display: none;
+			}
+
+		#header .logo {
+			width: 5.5rem;
+			height: 5.5rem;
+			line-height: 5.5rem;
+			border: solid 1px #ffffff;
+			border-radius: 100%;
+		}
+
+			#header .logo .icon:before {
+				font-size: 2rem;
+			}
+
+		#header .content {
+			border-style: solid;
+			border-color: #ffffff;
+			border-top-width: 1px;
+			border-bottom-width: 1px;
+			max-width: 100%;
+		}
+
+			#header .content .inner {
+				-moz-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+				-webkit-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+				-ms-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+				transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+				-moz-transition-delay: 0.25s;
+				-webkit-transition-delay: 0.25s;
+				-ms-transition-delay: 0.25s;
+				transition-delay: 0.25s;
+				padding: 3rem 2rem;
+				max-height: 40rem;
+				overflow: hidden;
+			}
+
+				#header .content .inner > :last-child {
+					margin-bottom: 0;
+				}
+
+			#header .content p {
+				text-transform: uppercase;
+				letter-spacing: 0.2rem;
+				font-size: 0.8rem;
+				line-height: 2;
+			}
+
+		#header nav ul {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			margin-bottom: 0;
+			list-style: none;
+			padding-left: 0;
+			border: solid 1px #ffffff;
+			border-radius: 4px;
+		}
+
+			#header nav ul li {
+				padding-left: 0;
+				border-left: solid 1px #ffffff;
+			}
+
+				#header nav ul li:first-child {
+					border-left: 0;
+				}
+
+				#header nav ul li a {
+					display: block;
+					min-width: 7.5rem;
+					height: 2.75rem;
+					line-height: 2.75rem;
+					padding: 0 1.25rem 0 1.45rem;
+					text-transform: uppercase;
+					letter-spacing: 0.2rem;
+					font-size: 0.8rem;
+					border-bottom: 0;
+				}
+
+					#header nav ul li a:hover {
+						background-color: rgba(255, 255, 255, 0.075);
+					}
+
+					#header nav ul li a:active {
+						background-color: rgba(255, 255, 255, 0.175);
+					}
+
+		#header nav.use-middle:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: calc(50% - 1px);
+			width: 1px;
+			height: 100%;
+			background: #ffffff;
+		}
+
+		#header nav.use-middle ul li.is-middle {
+			border-left: 0;
+		}
+
+		body.is-article-visible #header {
+			-moz-transform: scale(0.95);
+			-webkit-transform: scale(0.95);
+			-ms-transform: scale(0.95);
+			transform: scale(0.95);
+			-moz-filter: blur(0.1rem);
+			-webkit-filter: blur(0.1rem);
+			-ms-filter: blur(0.1rem);
+			filter: blur(0.1rem);
+			opacity: 0;
+		}
+
+		body.is-loading #header {
+			-moz-filter: blur(0.125rem);
+			-webkit-filter: blur(0.125rem);
+			-ms-filter: blur(0.125rem);
+			filter: blur(0.125rem);
+		}
+
+			body.is-loading #header > * {
+				opacity: 0;
+			}
+
+			body.is-loading #header .content .inner {
+				max-height: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+				opacity: 0;
+			}
+
+		@media screen and (max-width: 980px) {
+
+			#header .content p br {
+				display: none;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#header > * {
+				margin-top: 2rem;
+			}
+
+				#header > *:before {
+					top: calc(-2rem - 1px);
+					height: calc(2rem + 1px);
+				}
+
+			#header .logo {
+				width: 4.75rem;
+				height: 4.75rem;
+				line-height: 4.75rem;
+			}
+
+				#header .logo .icon:before {
+					font-size: 1.75rem;
+				}
+
+			#header .content .inner {
+				padding: 2.5rem 1rem;
+			}
+
+			#header .content p {
+				line-height: 1.875;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#header {
+				padding: 1.5rem 0;
+			}
+
+				#header .content .inner {
+					padding: 2.5rem 0;
+				}
+
+				#header nav ul {
+					-moz-flex-direction: column;
+					-webkit-flex-direction: column;
+					-ms-flex-direction: column;
+					flex-direction: column;
+					min-width: 10rem;
+					max-width: 100%;
+				}
+
+					#header nav ul li {
+						border-left: 0;
+						border-top: solid 1px #ffffff;
+					}
+
+						#header nav ul li:first-child {
+							border-top: 0;
+						}
+
+						#header nav ul li a {
+							height: 3rem;
+							line-height: 3rem;
+							min-width: 0;
+							width: 100%;
+						}
+
+				#header nav.use-middle:after {
+					display: none;
+				}
+
+		}
+
+/* Main */
+
+	#main {
+		-moz-flex-grow: 1;
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+		-moz-flex-shrink: 1;
+		-webkit-flex-shrink: 1;
+		-ms-flex-shrink: 1;
+		flex-shrink: 1;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		position: relative;
+		max-width: 100%;
+		z-index: 3;
+	}
+
+		#main article {
+			-moz-transform: translateY(0.25rem);
+			-webkit-transform: translateY(0.25rem);
+			-ms-transform: translateY(0.25rem);
+			transform: translateY(0.25rem);
+			-moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
+			-webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
+			-ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
+			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
+			padding: 4.5rem 2.5rem 1.5rem 2.5rem ;
+			position: relative;
+			width: 40rem;
+			max-width: 100%;
+			background-color: rgba(27, 31, 34, 0.85);
+			backdrop-filter: blur(5px);
+			border-radius: 30px;
+			opacity: 0;
+		}
+
+			#main article.active {
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+				-ms-transform: translateY(0);
+				transform: translateY(0);
+				opacity: 1;
+			}
+
+			#main article .close {
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 4rem;
+				height: 4rem;
+				cursor: pointer;
+				text-indent: 4rem;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+				#main article .close:before {
+					-moz-transition: background-color 0.2s ease-in-out;
+					-webkit-transition: background-color 0.2s ease-in-out;
+					-ms-transition: background-color 0.2s ease-in-out;
+					transition: background-color 0.2s ease-in-out;
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0.75rem;
+					left: 0.75rem;
+					width: 2.5rem;
+					height: 2.5rem;
+					border-radius: 100%;
+					background-position: center;
+					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+					background-size: 20px 20px;
+					background-repeat: no-repeat;
+				}
+
+				#main article .close:hover:before {
+					background-color: rgba(255, 255, 255, 0.075);
+				}
+
+				#main article .close:active:before {
+					background-color: rgba(255, 255, 255, 0.175);
+				}
+
+			#main article .fullscreen-toggle {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 4rem;
+				height: 4rem;
+				cursor: pointer;
+				text-indent: 4rem;
+				overflow: hidden;
+				white-space: nowrap;
+				z-index: 1000;
+			}
+
+				#main article .fullscreen-toggle:before {
+					-moz-transition: background-color 0.2s ease-in-out;
+					-webkit-transition: background-color 0.2s ease-in-out;
+					-ms-transition: background-color 0.2s ease-in-out;
+					transition: background-color 0.2s ease-in-out;
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0.75rem;
+					left: 0.75rem;
+					width: 2.5rem;
+					height: 2.5rem;
+					border-radius: 100%;
+					background-position: center;
+					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='4' y1='4' x2='8' y2='4' /%3E%3Cline x1='4' y1='4' x2='4' y2='8' /%3E%3Cline x1='16' y1='4' x2='12' y2='4' /%3E%3Cline x1='16' y1='4' x2='16' y2='8' /%3E%3Cline x1='4' y1='16' x2='8' y2='16' /%3E%3Cline x1='4' y1='16' x2='4' y2='12' /%3E%3Cline x1='16' y1='16' x2='12' y2='16' /%3E%3Cline x1='16' y1='16' x2='16' y2='12' /%3E%3C/svg%3E");
+					background-size: 20px 20px;
+					background-repeat: no-repeat;
+				}
+
+				#main article .fullscreen-toggle:hover:before {
+					background-color: rgba(255, 255, 255, 0.075);
+				}
+
+				#main article .fullscreen-toggle:active:before {
+					background-color: rgba(255, 255, 255, 0.175);
+				}
+
+				#main article .fullscreen-toggle.exit-fullscreen:before {
+					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='8' y1='4' x2='12' y2='4' /%3E%3Cline x1='8' y1='4' x2='8' y2='8' /%3E%3Cline x1='12' y1='4' x2='12' y2='8' /%3E%3Cline x1='8' y1='16' x2='12' y2='16' /%3E%3Cline x1='8' y1='16' x2='8' y2='12' /%3E%3Cline x1='12' y1='16' x2='12' y2='12' /%3E%3Cline x1='4' y1='8' x2='8' y2='8' /%3E%3Cline x1='4' y1='12' x2='8' y2='12' /%3E%3Cline x1='12' y1='8' x2='16' y2='8' /%3E%3Cline x1='12' y1='12' x2='16' y2='12' /%3E%3C/svg%3E");
+				}
+
+		@media screen and (max-width: 736px) {
+
+			#main article {
+				padding: 3.5rem 2rem 0.5rem 2rem ;
+			}
+
+				#main article .close:before {
+					top: 0.875rem;
+					left: 0.875rem;
+					width: 2.25rem;
+					height: 2.25rem;
+					background-size: 14px 14px;
+				}
+
+				#main article .fullscreen-toggle:before {
+					top: 0.875rem;
+					left: 0.875rem;
+					width: 2.25rem;
+					height: 2.25rem;
+					background-size: 14px 14px;
+				}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#main article {
+				padding: 3rem 1.5rem 0.5rem 1.5rem ;
+			}
+
+		}
+
+/* Footer */
+
+	#footer {
+		-moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		width: 100%;
+		max-width: 100%;
+		margin-top: 2rem;
+		text-align: center;
+	}
+
+		#footer .copyright {
+			letter-spacing: 0.2rem;
+			font-size: 0.6rem;
+			opacity: 0.75;
+			margin-bottom: 0;
+			text-transform: uppercase;
+		}
+
+		body.is-article-visible #footer {
+			-moz-transform: scale(0.95);
+			-webkit-transform: scale(0.95);
+			-ms-transform: scale(0.95);
+			transform: scale(0.95);
+			-moz-filter: blur(0.1rem);
+			-webkit-filter: blur(0.1rem);
+			-ms-filter: blur(0.1rem);
+			filter: blur(0.1rem);
+			opacity: 0;
+		}
+
+		body.is-loading #footer {
+			opacity: 0;
+		}
+		
+.digit{
+	font-size:115%;
+}
+
+.notification{
+	font-size:95%;
+}
+
+.photo_doc img{
+	display:block;
+	width:25%;
+	margin-right:18px;
+	float:left;
+	border-radius:4px;
+	margin-top:5px;
+	margin-bottom:0px;
+}
+
+.em{
+	font-size:90%;
+}
+
+.photo_ex{
+		text-align:center;
+		width:100%;
+		max-width:640px;
+		margin:0 auto;
+}
+
+.photo_ex img{
+	display:inline-block;
+	width:48%;
+}
+
+.photo_ex img:first-child{
+	margin-right:15px;
+}
+
+.exclamation{
+	font-weight:bold;
+}
+
+#radio{
+	margin-top:1em;
+	position:relative;
+	
+}
+
+.video{
+		position: relative;
+	    padding-bottom: 56.25%;
+	    padding-top: 30px;
+	    height: 0;
+	    overflow: hidden;
+}
+
+.video iframe, 
+.video object, 
+.video embed {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+
+@media (max-width:360px) {
+	.photo_ex img{
+	width:100%;
+	display:inline-block;
+	}
+	
+}
+
+@media (max-width:480px) {
+	.photo_ex img{
+	width:100%;
+	display:inline-block;
+	}
+}
+
+
+.goodsrow {
+	display: table;
+	width:100%;
+	padding-bottom: 2rem;
+	}
+	
+.goodsrow form{
+	margin:0;
+}
+
+.goodsrow form input{
+	margin:7px 0;
+	height: 2.75rem
+}
+
+.goodscol {
+	display: table-cell; /* Required */
+	vertical-align:bottom;
+	width: 33.33%;
+	padding: 0 0.7rem;
+	}
+	
+.goodscol2 {
+	width: 50%;
+	vertical-align: middle;
+	text-align: justify;
+	line-height: 1.3;
+	}
+	
+.goodscol2:first-child, .goodscol:first-child {padding-left: 0;}
+.goodscol2:last-child, .goodscol:last-child {padding-right: 0;}
+.paddingrightnone {padding-right: 0;}
+.goodscolpaddingmiddle {padding: 0 0.35rem;}
+	
+.goodscol3 {
+	width: 100%;
+	text-align: justify;
+	line-height: 1.3;
+	}	
+
+.goodscol img {
+	width: 100%;
+	display: block;
+	border-radius: 4px;
+	}
+	
+.goodscol2 img {
+	border-radius: 0;
+	}
+
+.goodscol figure img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	}
+.goodscol figure:hover img {
+	opacity: .5;
+	}
+	
+.goodscol2 figure:hover img {
+	opacity: 1;
+	}
+
+.goodsprice {
+	text-align: center;
+	font-size: 2em;
+	}
+
+.goodsbutton {
+	width:100%;
+	}
+	
+.goodsrow a{
+	border:0;
+	}	
+	
+
+@keyframes slidy {
+0% { left: 0; }
+18% { left: 0; }
+20% { left: -100%; }
+38% { left: -100%; }
+40% { left: -200%; }
+58% { left: -200%; }
+60% { left: -300%; }
+78% { left: -300%; }
+80% { left: -400%; }
+98% { left: -400%; }
+100% { left: 0; }
+}
+
+
+div#goodsslider { overflow: hidden; border-radius: 4px;}
+div#goodsslider figure img { width: 100%; float: left; }
+div#goodsslider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 15s slidy infinite; 
+}
+
+.shine {
+  color: #fff;
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+.marginLittle {  margin: -5px 0 -10px 0;}
+
+@keyframes shine {
+  from { -webkit-mask-position: 150%;mask-position: 150%; }
+  to { -webkit-mask-position: -50%;mask-position: -50%; }
+}
+
+.youtubeContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+	border-radius: 4px;
+    overflow: hidden;
+	margin-bottom: 2rem;
+}
+.youtubeVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.contact__msg {
+	text-align:center;
+	padding-top:20px;
+}
+
+h2.major {
+	width: auto;
+    width: auto;
+    width: auto;
+    width: auto;
+}
+
+.buyonlinetext {
+	text-align: center;
+    margin: 0;
+    font-size: .9rem;
+	cursor:pointer;
+}
+
+.paymentmethods {
+	padding-bottom: 1.5rem;
+	text-align:center;
+}
+
+.descriptionback {opacity: .5;}
+
+.paymentmethods img {
+    opacity: .5;
+	transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.paymentmethods img:hover {
+    opacity: 1;
+}
+
+.payicon {	width: 100%;}
+.deliveryicon { 
+	padding-top: 1.5rem;
+    height: 3.5rem;
+}
+
+.everybody-grid {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+	margin-bottom: 1.5rem;
+}
+
+.everybody-grid-item {
+    width: 23%;
+    height: 0;
+    margin-right: 2.66%;
+	margin-bottom: 2.66%;
+    padding-bottom: 23%;
+    border-radius: 4px;
+	align-items: center;
+	background-repeat: no-repeat;
+    background-size: cover;
+	cursor:pointer;
+}
+.everybody-grid-item:nth-child(4n) {margin-right: 0;}
+
+.everybody-grid-item h4 {
+    background-color: rgba(0, 0, 0, 0.6);
+	-webkit-backdrop-filter: blur(5px);
+	-moz-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.72);
+    margin-top: 3.3rem;
+    padding: 5px 0;
+	letter-spacing: 0.1rem;
+	text-align: center;
+}
+
+@keyframes itssimpleslider1 {
+0% { left: 0; }
+12.3% { left: 0; }
+14.3% { left: -100%; }
+26.6% { left: -100%; }
+28.6% { left: -200%; }
+40.9% { left: -200%; }
+42.9% { left: -300%; }
+55.1% { left: -300%; }
+57.1% { left: -400%; }
+69.4% { left: -400%; }
+71.4% { left: -500%; }
+83.7% { left: -500%; }
+85.7% { left: -600%; }
+98% { left: -600%; }
+100% { left: 0; }
+}
+
+
+div#itssimpleslider { overflow: hidden; border-radius: 4px;margin-bottom: 1rem;}
+div#itssimpleslider figure img { width: 100%; float: left; }
+div#itssimpleslider figure { 
+  position: relative;
+  width: 700%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 20s itssimpleslider1 infinite; 
+}
+
+.descriptionjustify {
+	padding-bottom:1rem;
+	text-align:justify
+}
+
+.descriptionjustify {
+	padding-bottom:1rem;
+}
+.margin25 {margin-bottom: 2.5rem;}
+
+.descriptionjustify p { margin: 0 0 0.5rem 0;}
+
+.everybodydesc {
+  display: none;
+  margin-bottom: 1rem;
+    margin-top: -2rem;
+}
+.everybodydesc.active {
+  display: block;
+}
+
+.everybody-grid-item.inactive {
+	opacity:.4;
+	transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.everybody-grid-item.active {
+	opacity:1;
+}
+
+#rad_block_logo {display:none}
+
+/* Стиль для плеера радио - соответствие элементам #controls */
+#rad_player {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: rgba(255, 255, 255);
+    border: solid 1px rgba(255, 255, 255);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    height: 2.75em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Контейнер для плеера - соответствует ширине #controls */
+#radio {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Убираем ненужные отступы */
+#radiobells_container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Убираем левый padding у #controls для радиоплеера */
+#controls {
+    padding-left: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+/* На десктопе убираем все padding у #controls для правильного выравнивания */
+@media (min-width: 1024px) {
+    #controls {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Размещаем радио внутри #controls */
+#controls #radio {
+    width: 100%;
+    margin: 10px !important;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* На мобильной версии убираем горизонтальные margin у радио для выравнивания */
+@media screen and (max-width: 736px) {
+    #controls #radio {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Выравниваем радио плеер с элементами .field.half */
+    #controls #radio .radio-select-wrapper {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    /* Убеждаемся, что контейнер #controls не имеет лишних отступов */
+    #controls {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Убираем лишний padding слева у элементов с классом field full внутри #controls */
+#controls li.field.full,
+#controls #hiit-selects-wrapper,
+#controls #controls-card-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Стиль для текста выбранной радиостанции */
+#rad_select_main_text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0rem;
+    
+
+    
+    text-transform: uppercase !important;
+
+
+
+    
+
+    padding: 0;
+    margin: 0;
+
+
+}
+
+/* Стиль для элементов списка радиостанций */
+#rad_list .rad_selection {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    padding: 0.4rem 0.5rem;
+}
+
+/* При наведении на элемент списка */
+#rad_list .rad_selection:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+#rad_list {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -415px !important;
+    border-radius: 4px;
+    background-color: rgba(19, 21, 25, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: solid 1px rgb(255, 255, 255);
+    max-height: 400px !important;
+    overflow-y: auto;
+    width: 80%;
+    max-width: 800px;
+    min-width: 350px;
+    z-index: 1000;
+}
+
+#rad_block_volume,
+#rad_block_play {
+    width: 15px !important;
+    min-width: 15px !important;
+    padding: 0 20px !important;
+    margin: 0 -10px !important;
+}
+
+#tt_number_ui, #tt_number_ui2 {
+	position:relative;
+	display:none;
+}
+.tt_small_number_all {
+	font-size: 2rem;
+    position: relative;
+    top: auto;
+    left: auto;
+    padding-left: 0;
+    transform: none;
+	white-space: nowrap;
+	opacity: .7;
+	word-spacing: -5px;
+}
+
+@media screen and (max-width: 736px) {
+	.goodscol {
+		width: 100%;
+		padding: 0 0 2rem 0;
+		float: left;
+	}
+	.goodsrow:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.goodsrow {
+		padding-bottom: 0;
+	}
+	.youtubeContainer {
+		margin-top: 2rem;
+	}
+		
+	#trxtabata .youtubeContainer {
+    margin-top: 0;
+	}
+	.everybody-grid-item {
+		width: 48.5%;
+		margin-right: 3%;
+		padding-bottom: 48.5%;
+		margin-bottom: 3%;
+	}
+	.everybody-grid-item:nth-child(2n) {margin-right: 0;}
+	.everybody-grid-item h4 {
+        margin-top: 4.1rem;
+	}
+	.everybodydesc {
+    margin-top: -1rem;
+	}
+	.backtotrx, .backtotimer {
+    left:1rem;
+	}
+	.whiteline {
+		border:0;
+	}
+
+	.backtotrx button, .backtotimer button {
+		letter-spacing: 0;
+		box-shadow: none;
+	}
+	
+	.tt_small_number_all {
+    padding-left: 130px;
+	font-size: 1.7rem;
+}
+	
+}
+@media screen and (min-width: 1681px) {
+	#rad_block_volume, #rad_block_play {
+		padding: 3px 10px!important;
+	}
+	#rad_volume {
+	margin-top: -170px !important;
+	}
+}
+
+/* Стилизация элементов списка радиостанций */
+#rad_list .rad_selection {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: transparent !important;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    padding: 0.6rem 1rem;
+    text-transform: uppercase !important;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+    min-height: 3rem;
+    box-sizing: border-box;
+}
+
+/* Стили для изображений станций */
+#rad_list .rad_select_small_image {
+    margin-right: 1.2rem;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Контейнер для текста */
+#rad_list .rad_selection span {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.1rem 0;
+}
+
+/* При наведении */
+#rad_list .rad_selection:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-weight: 400;
+}
+
+/* Стилизация скроллбара */
+#rad_list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#rad_list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#rad_list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+#rad_list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Стиль для выбранной радиостанции */
+#rad_current {
+    background-color: rgba(255, 255, 255, 0.075);
+    border: solid 1px rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1;
+    padding: 0.5rem 0.3rem;
+    text-transform: uppercase !important;
+    min-height: 2.5rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    justify-content: space-between;
+}
+
+/* Стиль для контейнера с названием станции */
+#rad_stationname {
+    flex: 1 1 90%;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 5px;
+    margin: -10px 50px;
+}
+
+/* Стиль для кнопки выбора станции */
+#rad_block_select {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    text-align: center;
+}
+
+/* Стиль для иконки выбранной радиостанции */
+#rad_current img {
+    margin-right: 0.3rem;
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* Стиль для элементов управления */
+.rad_controls_container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    margin: 0 0 0 2px;
+}
+
+.backtotrx, .backtotimer {
+    position: absolute;
+    top: 1rem;
+    right: 4rem;
+    display: none;
+}
+
+.backtotrx button, .backtotimer button {
+    height: 2rem;
+    line-height: normal;
+    padding: 0 .55rem 0 .7rem;
+}
+
+.whiteline {
+    width: 100%;
+    border-bottom: solid 1px #ffffff;
+    margin: 0.5rem 0 2.5rem 0;
+}
+
+#choosetrx {
+    padding-top: 1rem;
+}
+
+.tt_big_button_back {
+    width: 100%;
+    opacity: .5;
+}
+
+.tt_cycles_hide {
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.centeredP {
+    margin: -1rem 0 1.5rem 0;
+    text-align: center;
+}
+
+#rad_dropdown {
+    position: absolute;
+    right: 20px;
+}
+
+/* Новый минималистичный плеер */
+.radio-select-wrapper {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.radio-select-wrapper:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+    color: #ffffff;
+    content: '\f107';
+    display: block;
+    height: 3rem;
+    line-height: calc(3rem + 0em);
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 2.75rem;
+}
+
+.radio-player {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: transparent;
+    border-radius: 14px;
+    border: solid 1px #ffffff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    outline: 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.radio-player:focus {
+    background: rgba(255, 255, 255, 0.075);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 1px #ffffff;
+}
+
+.radio-player-play {
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+.radio-player-play::before {
+    content: '\f04b';
+    font-family: FontAwesome;
+    font-size: 0.9rem;
+}
+
+.radio-player-play.playing::before {
+    content: '\f04c';
+}
+
+.radio-player-name {
+    flex-grow: 1;
+    padding: 0 2.75rem 0 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+}
+
+/* Увеличиваем размер шрифта для названия станции */
+.radio-player-name {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 736px) {
+    .radio-player-name {
+        font-size: 0.8rem;
+        letter-spacing: 0.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .radio-player-name {
+        font-size: 0.8rem;
+        letter-spacing: 0.2rem;
+    }
+}
+
+/* Стилизация выпадающего списка для радио (добавим позже) */
+.radio-stations-list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #1b1f22;
+    border: solid 1px #ffffff;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+    z-index: 100;
+}
+
+.radio-stations-list.active {
+    display: block;
+}
+
+.radio-station-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.radio-station-item:hover {
+    background: rgba(255, 255, 255, 0.075);
+}
+
+@media screen and (max-width: 736px) {
+    .radio-player-name {
+        font-size: 0.7rem;
+        letter-spacing: 0.15rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .radio-player-name {
+        font-size: 0.6rem;
+        letter-spacing: 0.1rem;
+    }
+}
+
+/* Скрываем стандартный select */
+.radio-stations-select {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* При фокусе на select подсвечиваем наш плеер */
+.radio-stations-select:focus + .radio-player,
+.radio-player:hover {
+    background: rgba(255, 255, 255, 0.075);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 1px #ffffff;
+}
+
+/* Стили для контейнера ползунка громкости */
+.radio-volume-container {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 10px;
+    animation: fadeIn 0.3s ease-in;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.radio-volume-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto !important;
+}
+
+.radio-volume-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    min-width: 24px;
+    text-align: center;
+}
+
+.radio-volume-slider {
+    flex-grow: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto !important;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.radio-volume-slider:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Стили для ползунка WebKit (Chrome, Safari, Edge) */
+.radio-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.radio-volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Стили для ползунка Firefox */
+.radio-volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.radio-volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Стили для трека ползунка Firefox */
+.radio-volume-slider::-moz-range-track {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.radio-volume-slider::-moz-range-progress {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.radio-volume-value {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    min-width: 40px;
+    text-align: right;
+    flex-shrink: 0;
+    letter-spacing: 0.1rem;
+}
+
+/* Стили для выравнивания "Циклы" и "Раунды" по одной линии */
+.row {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+.row .field.half {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+}
+
+.row .field.half.first {
+    align-items: center;
+}
+
+.row .field.half #tt_number_ui,
+.row .field.half #tt_number_ui2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.row .field.half .tt_small_timer_label,
+.row .field.half #tt_cycles_label,
+.row .field.half #tt_tabatas_label {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.row .field.half .tt_small_number_label {
+    text-align: center;
+}
+
+/* Стили для полной ширины progress-bar и radio-volume-container-timer внутри tt_timer_wrap */
+#tt_timer_wrap #progress-bar-container {
+    width: 100% !important;
+    height: 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    clear: both;
+}
+
+#tt_timer_wrap #radio-volume-container-timer {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 15px !important;
+    box-sizing: border-box;
+    clear: both;
+}
+
+/* Стили для ползунка громкости во время тренировки (компактный вариант) */
+#radio-volume-container-timer {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+}
+
+#radio-volume-container-timer .radio-volume-wrapper {
+    gap: 8px;
+}
+
+#radio-volume-container-timer .radio-volume-icon {
+    font-size: 0.85rem;
+    min-width: 20px;
+}
+
+#radio-volume-container-timer .radio-volume-slider {
+    height: 5px;
+}
+
+#radio-volume-container-timer .radio-volume-slider::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+}
+
+#radio-volume-container-timer .radio-volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+}
+
+#radio-volume-container-timer .radio-volume-value {
+    font-size: 0.65rem;
+    min-width: 35px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 736px) {
+    .radio-volume-container {
+        padding: 0 8px;
+    }
+    
+    .radio-volume-icon {
+        font-size: 0.9rem;
+        min-width: 20px;
+    }
+    
+    .radio-volume-value {
+        font-size: 0.65rem;
+        min-width: 35px;
+    }
+    
+    #radio-volume-container-timer {
+        padding: 0 10px;
+    }
+    
+    #radio-volume-container-timer .radio-volume-icon {
+        font-size: 0.8rem;
+        min-width: 18px;
+    }
+    
+    #radio-volume-container-timer .radio-volume-value {
+        font-size: 0.6rem;
+        min-width: 30px;
+    }
+    
+    /* Адаптивность для row на мобильных устройствах */
+    .row {
+        flex-wrap: wrap;
+    }
+    
+    .row .field.half {
+        width: 50%;
+        min-width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .radio-volume-container {
+        padding: 0 5px;
+    }
+    
+    .radio-volume-wrapper {
+        gap: 8px;
+    }
+    
+    .radio-volume-icon {
+        font-size: 0.85rem;
+        min-width: 18px;
+    }
+    
+    .radio-volume-value {
+        font-size: 0.6rem;
+        min-width: 30px;
+    }
+    
+    #radio-volume-container-timer {
+        padding: 0 8px;
+    }
+    
+    #radio-volume-container-timer .radio-volume-wrapper {
+        gap: 6px;
+    }
+    
+    #radio-volume-container-timer .radio-volume-icon {
+        font-size: 0.75rem;
+        min-width: 16px;
+    }
+    
+    #radio-volume-container-timer .radio-volume-value {
+        font-size: 0.55rem;
+        min-width: 28px;
+    }
+    
+    /* Адаптивность для row на очень маленьких экранах */
+    .row {
+        flex-direction: row;
+    }
+    
+    .row .field.half {
+        width: 50%;
+        min-width: 50%;
+    }
+}
+
+/* Стилизация нативного select для корректного отображения опций */
+.radio-stations-select {
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menulist-button;
+    appearance: menulist-button;
+}
+
+.radio-stations-select option {
+    background: #1b1f22;
+    color: #ffffff;
+    padding: 8px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Анимация пульсации для кнопки play при воспроизведении */
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.radio-player-play.playing {
+    animation: pulse 2s infinite;
+}
+
+/* Стиль для кнопки воспроизведения */
+.radio-player-play {
+    z-index: 2; /* Повышаем z-index чтобы кнопка была поверх селекта */
+    position: relative;
+}
+
+#radio {
+    opacity: 0.98;
+    padding-bottom: 0.5rem;
+    margin-top: 40px !important;
+}
+
+/* Стили для селектора режимов - всегда 2 колонки */
+#modeSelector {
+    display: flex !important;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    justify-content: center;
+    padding: 20px 20px 1px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+#modeSelector .field.half {
+    width: 50%;
+    float: none;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    flex: 0 0 50%;
+}
+
+/* Первый и третий элементы (нечетные) - левая колонка */
+#modeSelector .field.half.first {
+    padding: 0 0.375rem 0 0.75rem;
+}
+
+/* Второй и четвертый элементы (четные) - правая колонка */
+#modeSelector .field.half:not(.first) {
+    padding: 0 0.75rem 0 0.375rem;
+}
+
+/* Адаптивность для селектора режимов */
+@media (min-width: 1024px) {
+    #modeSelector {
+        max-width: 600px;
+        padding: 20px 24px 1px 24px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #modeSelector {
+        max-width: 520px;
+        padding: 20px 20px 1px 20px;
+        border-radius: 18px;
+    }
+}
+
+/* На мобильных устройствах также сохраняем 2 колонки */
+@media screen and (max-width: 767px) {
+    #modeSelector {
+        max-width: 100%;
+        padding: 20px 16px 1px 16px;
+        border-radius: 16px;
+    }
+    
+    #modeSelector .field.half {
+        width: 50%;
+        flex: 0 0 50%;
+        float: none;
+    }
+    
+    #modeSelector .field.half.first {
+        padding: 0 0.375rem 0 0.75rem;
+    }
+    
+    #modeSelector .field.half:not(.first) {
+        padding: 0 0.75rem 0 0.375rem;
+    }
+}
+
+/* Анимации для Табата таймера */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes breathe {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.03); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+
+@keyframes scale-in {
+    0% { transform: scale(1.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Анимация для плавного мигания цифр при обратном отсчете 3-2-1 */
+@keyframes countdown-blink {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    50% { opacity: 0.1; filter: brightness(3); }
+}
+
+@keyframes pulse-bg {
+    0% { background-color: rgba(255, 50, 50, 0.1); }
+    50% { background-color: rgba(255, 50, 50, 0.3); }
+    100% { background-color: rgba(255, 50, 50, 0.1); }
+}
+
+/* Анимация для стадии "Работаем" */
+.tt_clock_work {
+    border-radius: 5px;
+    padding: 0; /* Убираем padding, который может создавать разницу */
+}
+
+.tt_clock_work span {
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Анимация для стадии "Отдыхаем" */
+.tt_clock_rest {
+    padding: 0; /* Убеждаемся, что для обоих режимов одинаковые отступы */
+}
+
+.tt_clock_rest span {
+    animation: breathe 3s infinite;
+}
+
+/* Анимация для стадии "Готовимся" */
+.tt_clock_prepare {
+    padding: 0; /* Убеждаемся, что для всех режимов одинаковые отступы */
+}
+
+/* Анимация для обратного отсчета (3-2-1) */
+.countdown-animation {
+    animation: countdown-blink 0.5s ease-in-out !important;
+}
+
+/* Переопределяем анимацию breathe для стадии "Отдыхаем" когда применяется countdown-animation */
+.tt_clock_rest span.countdown-animation {
+    animation: countdown-blink 0.5s ease-in-out !important;
+}
+
+/* Переопределяем анимацию heartbeat для стадии "Работаем" когда применяется countdown-animation */
+.tt_clock_work span.countdown-animation {
+    animation: countdown-blink 0.5s ease-in-out !important;
+}
+
+/* Переопределяем анимацию для стадии "Готовимся" когда применяется countdown-animation */
+.tt_clock_prepare span.countdown-animation {
+    animation: countdown-blink 0.5s ease-in-out !important;
+}
+
+/* Добавляем анимацию пульсации яркости */
+@keyframes pulse-brightness {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+    100% { filter: brightness(1); }
+}
+
+/* Линейный индикатор прогресса */
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: transparent; /* Меняем на прозрачный фон */
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 0 4px 4px 0; /* Добавляем скругление для правого края */
+    /* Создаем небольшой эффект свечения на правом конце */
+    box-shadow: 1px 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Добавляем стиль для полного заполнения прогресс-бара */
+.progress-bar.completed {
+    width: 100% !important;
+    animation: pulse-brightness 0.7s infinite;
+    transition: width 0.3s ease-in;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Усиливаем свечение при 100% заполнении */
+}
+
+.tt_clock_work .progress-bar {
+    background-color: #ff3232;
+    box-shadow: 1px 0 3px rgba(255, 50, 50, 0.5);
+}
+
+.tt_clock_rest .progress-bar {
+    background-color: rgb(122, 245, 255);
+    box-shadow: 1px 0 3px rgba(122, 245, 255, 0.5);
+}
+
+.tt_clock_prepare .progress-bar {
+    background-color: #ffcc32;
+    box-shadow: 1px 0 3px rgba(255, 204, 50, 0.5);
+}
+
+.tt_clock_work .progress-bar.completed {
+    box-shadow: 0 0 8px 1px rgba(255, 50, 50, 0.7);
+}
+
+.tt_clock_rest .progress-bar.completed {
+    box-shadow: 0 0 8px 1px rgba(122, 245, 255, 0.7);
+}
+
+/* Добавляем отступ для блока с раундами */
+#tt_cycles_label {
+    margin-top: 0px;
+    display: block;
+}
+
+/* Стили для блока раундов в стиле AMRAP */
+#tt_cycles_wrap {
+    border-radius: 20px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    box-sizing: border-box;
+    min-height: 100%;
+    height: 100%;
+}
+
+/* Стили для метки раундов в стиле AMRAP */
+#tt_cycles_label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 4px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Стили для цифр раундов в стиле AMRAP */
+#tt_number_ui,
+#tt_number_ui2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tt_small_number_label,
+#currentcycle_i,
+#currenttabata_i {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.tt_small_number_all {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#currenttime {
+    padding-top: 0;
+    margin-top: 10px;
+}
+
+#currenttime span {
+    font-size: 1.2em;
+}
+
+/* Обертка для таймера Табата и счетчиков в один ряд (как EMOM) */
+#tabata-timer-row-wrapper {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    align-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для tabata-countdown-card */
+#tabata-countdown-card-wrapper {
+    flex: 1;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#tabata-rounds-widget-top {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabata-countdown-card {
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(150deg, rgba(123, 245, 255, 0.12), rgba(27, 25, 43, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    gap: 0;
+}
+
+/* Выравнивание элементов в карточке таймера */
+#tt_clock_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+}
+
+.tabata-rounds-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/* Выравнивание цифр в карточке раундов - как в карточке таймера */
+#tabata-rounds-total-info-tabata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#tabata-rounds-total-info-tabata .tabata-label {
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+#tabata-rounds-total-info-tabata .tabata-rounds-total-count {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Выравнивание элементов в карточке таймера */
+.tabata-countdown-card #tt_clock_label {
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.tabata-countdown-card #currenttime.apple-timer {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.tabata-rounds-info,
+.tabata-cycles-info,
+.tabata-rounds-done,
+.tabata-rounds-total-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Скрываем "СДЕЛАНО 0" перед стартом в режиме Табата */
+#tabata-rounds-done-tabata {
+    display: none !important;
+}
+
+#tabata-cycles-info-hiit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.tabata-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 4px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Стили для "ВСЕГО РАУНДОВ" - как у "ТРЕНИРОВКА" */
+#tabata-rounds-total-info-tabata .tabata-label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.tabata-rounds-count,
+.tabata-cycles-count,
+.tabata-rounds-total-count,
+#tabata-cycles-count-hiit {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: #ffffff;
+}
+
+/* Стили для цифры "8" в "ВСЕГО РАУНДОВ" - как у "04:00" */
+#tabata-rounds-total-info-tabata .tabata-rounds-total-count {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 75px;
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Стили для формата "X из Y" в режиме HIIT */
+#tabata-rounds-done-count-hiit,
+#tabata-cycles-count-hiit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+}
+
+#tabata-rounds-done-count-hiit span,
+#tabata-cycles-count-hiit span {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+}
+
+/* Стили для второстепенной информации "из X" - меньший размер и серый цвет */
+.tabata-secondary-count {
+    font-size: 32px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+}
+
+.tabata-secondary-text {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 32px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+}
+
+.tabata-rounds-total,
+.tabata-cycles-total {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.tabata-rounds-total-display,
+.tabata-cycles-total-display {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: #ffffff;
+}
+
+#tabata-timer-row-wrapper #tt_number_ui,
+#tabata-timer-row-wrapper #tt_number_ui2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Стили в стиле Apple Design для таймера */
+#tt_clock_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 0;
+    text-align: center;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+    gap: 0;
+}
+
+#tt_clock_label {
+    order: 1;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+#currenttime.apple-timer {
+    order: 2;
+    padding-top: 0;
+    margin-top: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+#currenttime.apple-timer span {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 75px; /* Базовый размер для мобильных */
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+    margin: 0;
+    width: 100%;
+}
+
+/* Десктоп: размер шрифта таймера */
+@media (min-width: 1024px) {
+    #currenttime.apple-timer span {
+        font-size: 105px;
+    }
+    
+    /* Размер цифры "8" в "ВСЕГО РАУНДОВ" на десктопе */
+    #tabata-rounds-total-info-tabata .tabata-rounds-total-count {
+        font-size: 105px;
+    }
+    
+    /* Размер текста для .emom-label и .tabata-label равен размеру "ТРЕНИРОВКА" на десктопе */
+    .emom-label,
+    .tabata-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Планшет: размер шрифта таймера */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #currenttime.apple-timer span {
+        font-size: 75px;
+    }
+    
+    /* Размер цифры "8" в "ВСЕГО РАУНДОВ" на планшете */
+    #tabata-rounds-total-info-tabata .tabata-rounds-total-count {
+        font-size: 75px;
+    }
+    
+    /* Размер текста для .emom-label и .tabata-label равен размеру "ТРЕНИРОВКА" на планшете */
+    .emom-label,
+    .tabata-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Мобильный: размер шрифта таймера */
+@media screen and (max-width: 767px) {
+    #currenttime.apple-timer span {
+        font-size: 75px;
+    }
+    
+    /* Размер цифры "8" в "ВСЕГО РАУНДОВ" на мобильных */
+    #tabata-rounds-total-info-tabata .tabata-rounds-total-count {
+        font-size: 75px;
+    }
+    
+    #tt_clock_wrap {
+        padding: 16px;
+        border-radius: 16px;
+        margin-bottom: 16px;
+    }
+    
+    #tabata-timer-row-wrapper {
+        max-width: 100%;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .tabata-countdown-card {
+        padding: 16px;
+        border-radius: 20px;
+        min-height: 100%;
+        height: 100%;
+        flex: 1;
+    }
+    
+    /* Фиксированная высота для карточки таймера в режиме HIIT на мобильной версии */
+    body:has(#extendedMode:checked) .tabata-countdown-card {
+        height: auto;
+        min-height: 138px;
+    }
+    
+    .tabata-rounds-widget {
+        padding: 16px;
+        gap: 12px;
+        height: 100%;
+        min-height: 100%;
+        flex: 1;
+    }
+    
+    /* Одинаковая высота карточек на мобильных в режиме Табата */
+    body:has(#tabataMode:checked) .tabata-countdown-card,
+    body:has(#tabataMode:checked) .tabata-rounds-widget {
+        height: auto;
+        min-height: 100%;
+    }
+    
+    .tt_small_number_label,
+    #currentcycle_i,
+    #currenttabata_i,
+    .tabata-rounds-count,
+    .tabata-cycles-count,
+    .tabata-rounds-total-display,
+    .tabata-rounds-total-count,
+    #tabata-cycles-count-hiit,
+    #tabata-rounds-done-count-hiit,
+    #tabata-rounds-done-count-hiit span,
+    #tabata-cycles-count-hiit span {
+        font-size: 40px;
+    }
+    
+    .tabata-secondary-count,
+    .tabata-secondary-text {
+        font-size: 28px !important;
+    }
+    
+    .tt_small_number_all,
+    .tabata-rounds-total,
+    .tabata-cycles-total {
+        font-size: 40px;
+    }
+    
+    #tt_cycles_wrap {
+        padding: 14px;
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    
+    #tt_clock_wrap {
+        padding: 12px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+    
+    #tabata-timer-row-wrapper {
+        max-width: 100%;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .tabata-countdown-card {
+        border-radius: 20px;
+        min-height: 100%;
+        height: 100%;
+        flex: 1;
+    }
+    
+    /* Фиксированная высота для карточки таймера в режиме HIIT на маленьких экранах */
+    body:has(#extendedMode:checked) .tabata-countdown-card {
+        height: 146px;
+        min-height: 138px;
+    }
+    
+    .tabata-rounds-widget {
+        gap: 10px;
+        height: 100%;
+        min-height: 100%;
+        flex: 1;
+    }
+    
+    #tabata-rounds-widget-top {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    
+    /* Одинаковая высота карточек на маленьких экранах в режиме Табата */
+    body:has(#tabataMode:checked) .tabata-countdown-card,
+    body:has(#tabataMode:checked) .tabata-rounds-widget {
+        height: auto;
+        min-height: 100%;
+    }
+    
+    .tt_small_number_label,
+    #currentcycle_i,
+    #currenttabata_i,
+    .tabata-rounds-count,
+    .tabata-cycles-count,
+    .tabata-rounds-total-display,
+    .tabata-rounds-total-count,
+    #tabata-cycles-count-hiit,
+    #tabata-rounds-done-count-hiit,
+    #tabata-rounds-done-count-hiit span,
+    #tabata-cycles-count-hiit span {
+        font-size: 36px;
+    }
+    
+    .tabata-secondary-count,
+    .tabata-secondary-text {
+        font-size: 24px !important;
+    }
+    
+    .tt_small_number_all,
+    .tabata-rounds-total,
+    .tabata-cycles-total {
+        font-size: 36px;
+    }
+    
+    #tt_cycles_wrap {
+        padding: 12px;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #tabata-timer-row-wrapper {
+        max-width: 600px;
+    }
+    
+    /* Устанавливаем одинаковую высоту карточек на десктопе */
+    .tabata-countdown-card,
+    .tabata-rounds-widget {
+        min-height: 210px;
+        height: 210px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #tabata-timer-row-wrapper {
+        max-width: 520px;
+    }
+    
+    /* Устанавливаем одинаковую высоту карточек на планшете */
+    .tabata-countdown-card,
+    .tabata-rounds-widget {
+        min-height: 210px;
+        height: 210px;
+    }
+}
+
+/* Увеличение межбуквенного интервала для подсказок */
+.tt_timer_label, .tt_small_timer_label, #tt_cycles_label, #tt_tabatas_label {
+    letter-spacing: 0.15rem !important;
+    color: rgba(255, 255, 255, 0.7) !important; /* Светло-серый цвет */
+}
+
+/* Стили для #tt_clock_label переопределены выше в стилях Apple Design */
+
+.setfield_label {
+    letter-spacing: 0.12rem !important;
+    color: rgba(255, 255, 255, 0.7) !important; /* Светло-серый цвет */
+}
+
+/* Стили для полей ввода и кнопок в режиме HIIT */
+.setfield {
+    border-radius: 14px !important;
+}
+
+.tt_small_button {
+    border-radius: 14px !important;
+}
+
+/* Стили для объединённой кнопки +/- в режиме HIIT */
+.tt_plusminus_container {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: transparent;
+    border-radius: 14px;
+    border: solid 1px #ffffff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 2.75rem;
+    outline: 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.tt_plusminus_container:focus {
+    background: rgba(255, 255, 255, 0.075);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 1px #ffffff;
+}
+
+.tt_plusminus_button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.2rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: none;
+    background: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: 0;
+}
+
+.tt_plusminus_button:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+.tt_plusminus_button:active {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease-in-out;
+}
+
+.tt_plusminus_divider {
+    width: 1px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+/* Адаптивные стили */
+@media (min-width: 1024px) {
+    #tt_plusminus {
+        width: 100% !important;
+        float: none !important;
+        padding: 0 !important;
+        margin-bottom: 1rem !important;
+        clear: both;
+    }
+    
+    #tt_plusminus.field.half {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    /* Растягиваем радио плеер на всю ширину на десктопе */
+    #controls #radio {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        padding: 0 !important;
+        clear: both;
+    }
+    
+    #controls #radio .radio-select-wrapper {
+        width: 100%;
+        margin: 0;
+    }
+    
+    #controls #radio .radio-player {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .tt_plusminus_container {
+        height: 2.75rem;
+    }
+    
+    .tt_plusminus_button {
+        font-size: 1.1rem;
+    }
+}
+
+.tt_big_button {
+    border-radius: 14px !important;
+}
+
+#startbutton {
+    border-radius: 14px !important;
+}
+
+/* Стили для кнопок управления в режимах Табата и HIIT (похожие на EMOM, но с другими цветами) */
+#startbutton,
+#resetbutton,
+#pausebutton {
+    border-radius: 14px;
+    padding: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Кнопка СТАРТ - зеленый градиент */
+#startbutton {
+    background: linear-gradient(120deg, rgba(86, 129, 86, 1) 0%, rgba(76, 175, 80, 1) 100%) !important;
+    color: #ffffff !important;
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    line-height: 1;
+    box-shadow: none !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Верхний отступ и градиент для кнопки СТАРТ в режиме HIIT */
+/* Применяется когда выбран режим HIIT (extendedMode) */
+body:has(#extendedMode:checked) #startbutton {
+    margin-top: 20px !important;
+    background: linear-gradient(120deg, #26254c, #d60808) !important;
+}
+
+/* Альтернативный способ для браузеров без поддержки :has() */
+/* Применяется когда есть элементы HIIT в DOM */
+#hiit-exercise-selector ~ * #startbutton,
+#hiit-workouts-selector ~ * #startbutton,
+#controls:has(#hiit-exercise-selector) ~ div #startbutton,
+#controls:has(#hiit-workouts-selector) ~ div #startbutton {
+    margin-top: 20px !important;
+}
+
+/* Отступ сверху для кнопки "ВЫБЕРИ ТРЕНИРОВКУ" в режиме HIIT - убран, так как кнопки теперь в одной обертке */
+
+#startbutton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Hover эффект для кнопки СТАРТ в режиме HIIT */
+body:has(#extendedMode:checked) #startbutton:hover:not(:disabled) {
+    box-shadow: 0 8px 20px rgba(214, 8, 8, 0.4);
+}
+
+/* Кнопка СТОП - темный красноватый градиент */
+#resetbutton {
+    background: linear-gradient(120deg, #370101, #a90404) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    line-height: 1;
+    box-shadow: none !important;
+}
+
+#resetbutton:hover:not(:disabled) {
+    background: linear-gradient(120deg, #4a0101, #c00505) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(169, 4, 4, 0.4);
+}
+
+/* Кнопка ПАУЗА/ПРОДОЛЖИТЬ - оранжевый градиент */
+#pausebutton {
+    background: linear-gradient(120deg, #573e02, #c97905) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 152, 0, 0.3) !important;
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    line-height: 1;
+    box-shadow: none !important;
+}
+
+#pausebutton:hover:not(:disabled) {
+    background: linear-gradient(120deg, #6b4d03, #e08906) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 121, 5, 0.4);
+}
+
+/* Адаптивность для десктопа */
+@media (min-width: 1024px) {
+    #startbutton,
+    #resetbutton,
+    #pausebutton {
+        padding: 20px 16px;
+        min-height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #startbutton,
+    #resetbutton,
+    #pausebutton {
+        font-size: 22px;
+        letter-spacing: 0.5em;
+    }
+}
+
+/* Адаптивность для планшета */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 767px) {
+    #startbutton,
+    #resetbutton,
+    #pausebutton {
+        font-size: 20px;
+        letter-spacing: 0.4em;
+        line-height: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    #startbutton,
+    #resetbutton,
+    #pausebutton {
+        font-size: 20px;
+        line-height: normal;
+    }
+}
+
+#playlist {
+    border-radius: 14px !important;
+}
+
+/* Отступ сверху для контейнера кнопок в режимах ТАБАТА и HIIT, когда тренировка запущена */
+/* Применяется когда modeSelector скрыт и кнопки СТОП/ПАУЗА видны */
+body.workout-running #workout-buttons-container {
+    margin-top: 30px;
+}
+
+/* Выравнивание высоты кнопок выбора упражнений и тренировок с select элементами */
+.exercise-selector-button,
+#tabata-exercise-selector,
+#emom-workouts-selector {
+    height: 2.75rem !important;
+    line-height: 2.75rem !important;
+    padding: 0 1rem !important; /* Такой же padding как у select */
+    box-sizing: border-box !important;
+    display: block !important;
+    border: solid 1px #ffffff !important; /* Такой же border как у select */
+    min-height: 2.75rem !important;
+    max-height: 2.75rem !important;
+}
+
+/* Переопределяем стили .button для кнопок выбора упражнений */
+.exercise-selector-button.button,
+#tabata-exercise-selector.button,
+#emom-workouts-selector.button {
+    padding: 0 1rem !important; /* Переопределяем padding от .button */
+    border: solid 1px #ffffff !important; /* Переопределяем border от .button */
+    box-shadow: none !important; /* Убираем box-shadow от .button */
+}
+
+/* Отключаем border для кнопок HIIT, так как они используют .hiit-link-btn */
+#hiit-exercise-selector,
+#hiit-workouts-selector {
+    border: none !important;
+}
+
+/* Стили для кнопок HIIT в стиле AMRAP */
+.hiit-buttons-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hiit-link-btn {
+    color: rgba(122, 245, 255, 0.6);
+    background: transparent;
+    border-radius: 14px;
+    padding: 0 18px;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.hiit-link-btn:hover,
+.hiit-link-btn:active {
+    color: #7af5ff;
+    background: rgba(122, 245, 255, 0.15);
+}
+
+.hiit-select-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    flex: 0 0 auto;
+}
+
+/* Адаптивные стили для кнопок HIIT */
+@media (min-width: 1024px) {
+    .hiit-buttons-row {
+        margin: 0;
+        justify-content: center;
+        gap: 0;
+        flex-wrap: nowrap;
+    }
+    
+    .hiit-link-btn {
+        height: 52px;
+        line-height: 52px;
+        padding: 0 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hiit-buttons-row {
+        gap: 8px;
+        margin: 0;
+    }
+    
+    .hiit-buttons-row .hiit-select-divider {
+        font-size: 16px;
+        padding: 0 8px;
+    }
+    
+    .hiit-link-btn {
+        height: 44px;
+        line-height: 44px;
+        padding: 0 16px;
+    }
+}
+
+#radio center, #tt_controls_wrap center {
+    letter-spacing: 0.1rem;
+    color: rgba(255, 255, 255, 0.7) !important; /* Светло-серый цвет */
+}
+
+#radio-station-name {
+    letter-spacing: 0.2rem !important;
+}
+
+/* Стили для иконки информации о режимах */
+.info-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.info-icon:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Модальное окно с информацией о режимах */
+.mode-info-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.mode-info-modal-content {
+    position: relative;
+    background-color: rgba(27, 31, 34, 0.97);
+    margin: 30px auto;
+    padding: 20px;
+    border: none;
+    width: 93%;
+    max-width: 1200px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.0);
+    animation: slideIn 0.3s ease-out;
+    color: white;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.mode-info-modal-header {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mode-info-modal-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-right: 50px; /* Отступ справа, чтобы не перекрывать крестик */
+    flex: 1;
+    min-width: 0;
+}
+
+.mode-info-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-weight: normal;
+    z-index: 10; /* Повышаем z-index, чтобы крестик был поверх заголовка */
+}
+
+.mode-info-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.mode-info-modal-body {
+    padding: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.mode-info-modal-body p {
+    margin: 15px 0;
+}
+
+.mode-info-modal-body ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.mode-info-modal-body li {
+    margin: 10px 0;
+    list-style-type: disc;
+}
+
+.mode-info-modal-body strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.mode-info-modal-footer {
+    padding: 0;
+    margin-top: 30px;
+    background-color: transparent;
+    border-top: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.mode-info-modal-footer .button {
+    min-width: 120px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode-info-modal-footer .button:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .mode-info-modal-content {
+        width: 93%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+    
+    .mode-info-modal-header h3 {
+        font-size: 1.2em;
+    }
+    
+    .mode-info-modal-body {
+        font-size: 0.9em;
+    }
+}
+
+/* Модальное окно выбора тренировок HIIT */
+#hiit-workouts-select-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#hiit-workouts-select-modal.is-open {
+    display: block;
+}
+
+.hiit-workouts-select-dialog {
+    position: relative;
+    background-color: rgba(27, 31, 34, 0.85);
+    margin: 30px auto;
+    padding: 20px;
+    border: none;
+    width: 93%;
+    max-width: 1200px;
+    max-height: calc(100vh - 60px);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.0);
+    animation: slideIn 0.3s ease-out;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.hiit-workouts-select-head {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hiit-workouts-select-head h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-right: 50px;
+    flex: 1;
+    min-width: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hiit-workouts-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-weight: normal;
+    z-index: 10;
+}
+
+.hiit-workouts-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.hiit-workouts-subtitle {
+    padding: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+.hiit-workouts-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    min-height: 0;
+}
+
+.hiit-workout-card {
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hiit-workout-card:hover {
+    background: rgba(122, 245, 255, 0.1);
+    border-color: rgba(122, 245, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.hiit-workout-card.active {
+    background: rgba(122, 245, 255, 0.15);
+    border-color: rgba(122, 245, 255, 0.6);
+}
+
+.hiit-workout-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #7af5ff;
+}
+
+.hiit-workout-card-time {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+}
+
+.hiit-workout-card-exercises {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+body.hiit-modal-open {
+    overflow: hidden;
+}
+
+/* Стили для описания тренировки HIIT */
+#hiit-workout-description {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+}
+
+.hiit-workout-description-wrapper {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    position: relative;
+}
+
+.hiit-workout-description-wrapper strong {
+    color: #7af5ff;
+    font-weight: 600;
+}
+
+/* Крестик для закрытия описания тренировки */
+.hiit-workout-description-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hiit-workout-description-wrapper:hover .hiit-workout-description-close {
+    opacity: 1;
+}
+
+.hiit-workout-description-close:hover {
+    color: rgba(122, 245, 255, 1);
+}
+
+.hiit-workout-description-close:active {
+    color: rgba(122, 245, 255, 0.8);
+}
+
+/* Адаптивные стили для описания тренировки HIIT */
+@media (min-width: 1024px) {
+    #hiit-workout-description {
+        max-width: 600px;
+    }
+    
+    .hiit-workout-description-wrapper {
+        margin-top: 16px;
+        padding: 14px;
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #hiit-workout-description {
+        max-width: 520px;
+    }
+    
+    .hiit-workout-description-wrapper {
+        margin-top: 14px;
+        padding: 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #hiit-workout-description {
+        max-width: 100%;
+    }
+    
+    .hiit-workout-description-wrapper {
+        margin-top: 12px;
+        padding: 10px;
+    }
+}
+
+/* Адаптивные стили для модального окна тренировок HIIT */
+@media screen and (max-width: 768px) {
+    .hiit-workouts-select-dialog {
+        width: 93%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+    
+    .hiit-workouts-select-head h4 {
+        font-size: 1.2em;
+    }
+    
+    .hiit-workouts-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .hiit-workout-card {
+        padding: 16px;
+    }
+    
+}
+
+/* Стили для аккордеона в модальном окне */
+.mode-info-accordion {
+    margin: 15px 0;
+}
+
+.mode-info-accordion-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+}
+
+.mode-info-accordion-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.mode-info-accordion-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mode-info-accordion-header:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.mode-info-accordion-header::after {
+    content: '+';
+    font-size: 1.5em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, color 0.3s ease;
+    line-height: 1;
+    margin-left: 15px;
+}
+
+.mode-info-accordion-item.active .mode-info-accordion-header::after {
+    content: '−';
+    transform: rotate(0deg);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.mode-info-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 20px;
+}
+
+.mode-info-accordion-item.active .mode-info-accordion-content {
+    max-height: 2000px;
+    padding: 15px 20px 20px 20px;
+}
+
+.mode-info-accordion-content p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.mode-info-accordion-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.mode-info-accordion-content li {
+    margin: 8px 0;
+    list-style-type: disc;
+}
+
+.mode-info-accordion-content strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Сдвигаем вправо на 10px label для HIIT и AMRAP */
+label[for="extendedMode"],
+label[for="amrapMode"] {
+    margin-left: 10px;
+}
+
+/* Сдвигаем вправо label "ВЫБЕРИ ТАБАТА ТРЕК" */
+label[for="demo-category"] {
+    margin-left: 10px;
+}
+
+/* Модальное окно выбора тренировок EMOM */
+#emom-workouts-select-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#emom-workouts-select-modal.is-open {
+    display: block;
+}
+
+.emom-workouts-select-dialog {
+    position: relative;
+    background-color: rgba(27, 31, 34, 0.85);
+    margin: 30px auto;
+    padding: 20px;
+    border: none;
+    width: 93%;
+    max-width: 1200px;
+    max-height: calc(100vh - 60px);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.0);
+    animation: slideIn 0.3s ease-out;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.emom-workouts-select-head {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.emom-workouts-select-head h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-right: 50px;
+    flex: 1;
+    min-width: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.emom-workouts-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-weight: normal;
+    z-index: 10;
+}
+
+.emom-workouts-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.emom-workouts-subtitle {
+    padding: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+.emom-workouts-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    min-height: 0;
+}
+
+.emom-workout-card {
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.emom-workout-card:hover {
+    background: rgba(122, 245, 255, 0.1);
+    border-color: rgba(122, 245, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.emom-workout-card.active {
+    background: rgba(122, 245, 255, 0.15);
+    border-color: rgba(122, 245, 255, 0.6);
+}
+
+.emom-workout-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #7af5ff;
+}
+
+.emom-workout-card-time {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+}
+
+.emom-workout-card-exercises {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+body.emom-modal-open {
+    overflow: hidden;
+}
+
+/* Стили для описания тренировки EMOM */
+#emom-workout-description {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+}
+
+.emom-workout-description-wrapper {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    position: relative;
+}
+
+.emom-workout-description-wrapper strong {
+    color: #7af5ff;
+    font-weight: 600;
+}
+
+/* Крестик для закрытия описания тренировки EMOM */
+.emom-workout-description-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emom-workout-description-wrapper:hover .emom-workout-description-close {
+    opacity: 1;
+}
+
+.emom-workout-description-close:hover {
+    color: rgba(122, 245, 255, 1);
+}
+
+.emom-workout-description-close:active {
+    color: rgba(122, 245, 255, 0.8);
+}
+
+/* Адаптивные стили для описания тренировки EMOM */
+@media (min-width: 1024px) {
+    #emom-workout-description {
+        max-width: 600px;
+    }
+    
+    .emom-workout-description-wrapper {
+        margin-top: 16px;
+        padding: 14px;
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #emom-workout-description {
+        max-width: 520px;
+    }
+    
+    .emom-workout-description-wrapper {
+        margin-top: 14px;
+        padding: 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #emom-workout-description {
+        max-width: 100%;
+    }
+    
+    .emom-workout-description-wrapper {
+        margin-top: 12px;
+        padding: 10px;
+    }
+}
+
+/* Адаптивные стили для модального окна тренировок EMOM */
+@media screen and (max-width: 768px) {
+    .emom-workouts-select-dialog {
+        width: 93%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+    
+    .emom-workouts-select-head h4 {
+        font-size: 1.2em;
+    }
+    
+    .emom-workouts-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* HIIT селекторы (карусель) - стили аналогичны AMRAP */
+.hiit-selects-container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hiit-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.hiit-column-left {
+    padding-right: 8px;
+}
+
+.hiit-column-right {
+    padding-left: 8px;
+}
+
+.hiit-select-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hiit-select {
+    flex: 0 0 auto;
+    min-width: 0;
+    width: 100%;
+    max-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hiit-select label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 6px;
+    margin-bottom: 0;
+    text-align: center;
+    order: 2;
+}
+
+.hiit-preset-select,
+.hiit-number-select {
+    order: 1;
+}
+
+.hiit-preset-select,
+.hiit-number-select {
+    width: 100%;
+    min-width: 100px;
+    max-width: 100px;
+    padding: 0;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    text-align: center;
+    text-align-last: center;
+    line-height: 48px;
+    height: 50px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    direction: ltr;
+    vertical-align: middle;
+    padding-left: 20px;
+    padding-right: 14px;
+    cursor: pointer;
+}
+
+/* Дополнительный padding-left для #hiit-prepare-select */
+#hiit-prepare-select {
+    padding-left: 20px;
+}
+
+/* Убираем padding для #hiit-cyclerest-select */
+#hiit-cyclerest-select {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.hiit-preset-select option,
+.hiit-number-select option {
+    text-align: center;
+    text-align-last: center;
+    padding: 8px;
+    direction: ltr;
+}
+
+.hiit-preset-select:disabled,
+.hiit-number-select:disabled {
+    opacity: 0.35;
+}
+
+/* Скрываем старые настройки и кнопки +/- в режиме HIIT */
+body:has(#extendedMode:checked) #tt_setpreparetime,
+body:has(#extendedMode:checked) #tt_setworktime,
+body:has(#extendedMode:checked) #tt_setresttime,
+body:has(#extendedMode:checked) #tt_setcycles,
+body:has(#extendedMode:checked) #tt_settabatas,
+body:has(#extendedMode:checked) #tt_setcycleresttime,
+body:has(#extendedMode:checked) #tt_plusminus {
+    display: none !important;
+}
+
+/* Показываем HIIT селекторы только в режиме HIIT */
+body:has(#extendedMode:checked) #hiit-selects-wrapper {
+    display: block !important;
+}
+
+/* Скрываем HIIT селекторы в режиме Tabata */
+body:has(#tabataMode:checked) #hiit-selects-wrapper {
+    display: none !important;
+}
+
+/* Скрываем HIIT селекторы в режиме EMOM */
+body:has(#emomMode:checked) #hiit-selects-wrapper {
+    display: none !important;
+}
+
+/* Скрываем HIIT селекторы в режиме AMRAP */
+body:has(#amrapMode:checked) #hiit-selects-wrapper {
+    display: none !important;
+}
+
+/* Карточка для радио и кнопок управления */
+.controls-card-container {
+    margin-top: 15px;
+    padding: 10px 20px 20px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#controls-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: -8px;
+}
+
+#controls-buttons-container .hiit-selector-container,
+#controls-buttons-container .emom-selector-container,
+#controls-buttons-container .tabata-selector-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Адаптивность для карточки управления */
+@media (min-width: 1024px) {
+    .controls-card-container {
+        max-width: 600px;
+        padding: 10px 24px 24px 24px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .controls-card-container {
+        max-width: 520px;
+        padding: 10px 20px 20px 20px;
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 736px) {
+    .controls-card-container {
+        border-radius: 16px;
+        gap: 12px;
+        max-width: 100%;
+    }
+}
+
+/* Адаптивность для HIIT селекторов */
+@media (min-width: 1024px) {
+    .hiit-selects-container {
+        max-width: 600px;
+        padding: 24px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hiit-selects-container {
+        max-width: 520px;
+        padding: 20px;
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 736px) {
+    .hiit-selects-container {
+        border-radius: 16px;
+        max-width: 100%;
+        gap: 12px;
+    }
+    
+    .hiit-column {
+        gap: 10px;
+    }
+    
+    .hiit-column-left {
+        padding-right: 6px;
+    }
+    
+    .hiit-column-right {
+        padding-left: 6px;
+    }
+    
+    .hiit-select-row {
+        gap: 8px;
+    }
+    
+    .hiit-select {
+        max-width: 100px;
+    }
+    
+    .hiit-preset-select,
+    .hiit-number-select {
+        min-width: 100px;
+        max-width: 100px;
+        font-size: 30px;
+        height: 50px;
+        line-height: 50px;
+    }
+    
+    .hiit-select label {
+        font-size: 11px;
+    }
+}
+
+/* Карточка для playlistField (режим Tabata) */
+.tabata-playlist-card-container {
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tabata-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Адаптивность для карточки playlistField */
+@media (min-width: 1024px) {
+    .tabata-playlist-card-container {
+        padding: 24px;
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .tabata-playlist-card-container {
+        padding: 20px;
+        border-radius: 18px;
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 736px) {
+    .tabata-playlist-card-container {
+        border-radius: 16px;
+        gap: 0px;
+        max-width: 100%;
+    }
+}

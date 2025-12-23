@@ -1,0 +1,679 @@
+/* EMOM таймер – компактный интерфейс под смартфоны */
+
+#emom-timer-container {
+    display: none;
+    width: 100%;
+    max-width: 420px;
+    margin: 25px auto 0;
+    padding: 0px;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+}
+
+body.emom-active #emom-timer-container {
+    display: block;
+}
+
+body.emom-active #tt_timer_wrap,
+body.emom-active #tt_main_end_wrap,
+body.emom-active #controls > li:not(.emom-selector-container):not(#controls-card-wrapper),
+body.emom-active #controls > center,
+body.emom-active #playlistField,
+body.emom-active #resetbutton,
+body.emom-active #pausebutton,
+body.emom-active #startbutton {
+    display: none !important;
+}
+
+/* Показываем карточку управления в режиме EMOM */
+body.emom-active #controls-card-wrapper {
+    display: block !important;
+}
+
+/* Показываем радио в карточке в режиме EMOM */
+body.emom-active #controls-card-wrapper #radio {
+    display: block !important;
+}
+
+/* Показываем кнопки в карточке в режиме EMOM */
+body.emom-active #controls-buttons-container {
+    display: flex !important;
+}
+
+/* Показываем кнопку EMOM внутри карточки */
+body.emom-active #controls-card-wrapper .emom-selector-container,
+body.emom-active #controls-buttons-container .emom-selector-container {
+    display: block !important;
+}
+
+body.emom-active #controls-card-wrapper #emom-workouts-selector,
+body.emom-active #controls-buttons-container #emom-workouts-selector {
+    display: block !important;
+}
+
+/* Скрываем кнопки HIIT в режиме EMOM */
+body.emom-active #hiit-workouts-selector,
+body.emom-active #hiit-exercise-selector,
+body.emom-active .hiit-selector-container,
+body.emom-active #controls-card-wrapper #hiit-workouts-selector,
+body.emom-active #controls-card-wrapper #hiit-exercise-selector,
+body.emom-active #controls-buttons-container #hiit-workouts-selector,
+body.emom-active #controls-buttons-container #hiit-exercise-selector {
+    display: none !important;
+}
+
+/* Устанавливаем верхний и нижний margin у #radio в режиме EMOM */
+body.emom-active #radio {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Скрываем кнопку "ВЫБЕРИ ТРЕНИРОВКУ" для EMOM в режиме HIIT (но показываем в EMOM) */
+body:has(#extendedMode:checked):not(.emom-active) .emom-selector-container,
+body:has(#extendedMode:checked):not(.emom-active) #emom-workouts-selector {
+    display: none !important;
+}
+
+/* Скрываем кнопку "ВЫБЕРИ ТРЕНИРОВКУ" для EMOM в режиме Tabata (но показываем в EMOM) */
+body:has(#tabataMode:checked):not(.emom-active) .emom-selector-container,
+body:has(#tabataMode:checked):not(.emom-active) #emom-workouts-selector {
+    display: none !important;
+}
+
+/* Скрываем кнопку "ВЫБЕРИ ТРЕНИРОВКУ" для EMOM в режиме AMRAP (но показываем в EMOM) */
+body:has(#amrapMode:checked):not(.emom-active) .emom-selector-container,
+body:has(#amrapMode:checked):not(.emom-active) #emom-workouts-selector {
+    display: none !important;
+}
+
+/* Показываем кнопку "ВЫБЕРИ ТРЕНИРОВКУ" для EMOM только в режиме EMOM */
+body.emom-active .emom-selector-container,
+body.emom-active #controls-card-wrapper .emom-selector-container,
+body.emom-active #controls-buttons-container .emom-selector-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* Выравниваем кнопку "ВЫБЕРИ ТРЕНИРОВКУ" по ширине с кнопкой СТАРТ */
+body.emom-active #emom-workouts-selector,
+body.emom-active #controls-card-wrapper #emom-workouts-selector,
+body.emom-active #controls-buttons-container #emom-workouts-selector {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Обертка для таймера и счётчика минут в один ряд */
+#emom-timer-row-wrapper {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+/* Стили для emom-countdown-card в tt_controls_wrap */
+#emom-countdown-card-wrapper {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#emom-minute-widget-top {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.emom-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 4px;
+    text-align: center;
+    line-height: 1;
+}
+
+.emom-countdown-card {
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(150deg, rgba(123, 245, 255, 0.12), rgba(27, 25, 43, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.emom-timer-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.emom-phase-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: none;
+}
+
+.emom-countdown {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 120px;
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.1;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emom-minute-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.emom-minute-info,
+.emom-total-minutes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.emom-minute-count,
+.emom-total-count {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: #ffffff;
+}
+
+/* Стили для селектов и кнопок */
+.emom-selects-wrapper {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emom-select-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.emom-select {
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.emom-select label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.emom-select select {
+    width: 100%;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 0;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+    text-align-last: center;
+    line-height: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    direction: ltr;
+    vertical-align: middle;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#emom-minute-select {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-align-last: center;
+    vertical-align: middle;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.emom-select select option {
+    text-align: center;
+    text-align-last: center;
+    padding: 8px;
+    direction: ltr;
+}
+
+.emom-buttons-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0 0 0;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.emom-link-btn {
+    border: 1px solid rgba(122, 245, 255, 0.4);
+    color: rgba(122, 245, 255, 0.6);
+    background: transparent;
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.emom-link-btn:hover {
+    background: rgba(122, 245, 255, 0.1);
+    border-color: rgba(122, 245, 255, 0.6);
+    color: rgba(122, 245, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.emom-select-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+/* Кнопки управления */
+.emom-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto 0;
+    box-sizing: border-box;
+}
+
+.emom-controls .emom-button {
+    border-radius: 14px;
+    padding: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px; /* Добавляем минимальную высоту */
+    box-shadow: none !important; /* Убираем белую окантовку */
+}
+
+/* Кнопка СТАРТ в режиме EMOM должна иметь такую же ширину как селект радиостанций */
+#emom-start-btn {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Контейнер кнопок EMOM должен иметь такую же ширину как #radio */
+body.emom-active .emom-controls {
+    width: 100%;
+    max-width: 100%;
+}
+
+.emom-button.primary,
+.emom-button.secondary,
+.emom-button.dark {
+    font-size: 20px;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.emom-button.primary {
+    background: linear-gradient(120deg, #2a2a29, #00a8d6);
+    color: #0b111b;
+    /* Эффект переливания (shine) */
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    mask-size: 200%;
+    animation: emom-shine 2s linear infinite;
+}
+
+.emom-button.primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 168, 214, 0.4);
+}
+
+.emom-button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.emom-button.secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.emom-button.dark {
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.emom-button.dark:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.emom-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Адаптивность */
+@media (min-width: 1024px) {
+    #emom-timer-container {
+        max-width: 600px;
+    }
+    
+    #emom-timer-row-wrapper {
+        max-width: 600px;
+    }
+    
+    /* Размер текста для .emom-label равен размеру "ТРЕНИРОВКА" (.emom-timer-label) на десктопе */
+    .emom-label {
+        font-size: 14px;
+    }
+    
+    .emom-controls {
+        max-width: 100%;
+    }
+    
+    .emom-selects-wrapper {
+        max-width: 600px;
+    }
+    
+    .emom-countdown {
+        font-size: 120px;
+    }
+    
+    .emom-controls .emom-button {
+        padding: 20px 16px; /* Увеличиваем вертикальный padding для десктопа */
+        min-height: 70px; /* Увеличиваем минимальную высоту для десктопа */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .emom-button.primary, .emom-button.secondary, .emom-button.dark {
+        font-size: 22px;
+        letter-spacing: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Устанавливаем одинаковую высоту карточек на десктопе */
+    .emom-countdown-card,
+    .emom-minute-widget {
+        min-height: 210px;
+        height: 210px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #emom-timer-container {
+        max-width: 520px;
+    }
+    
+    #emom-timer-row-wrapper {
+        max-width: 520px;
+    }
+    
+    /* Размер текста для .emom-label равен размеру "ТРЕНИРОВКА" (.emom-timer-label) на планшете */
+    .emom-label {
+        font-size: 14px;
+    }
+    
+    .emom-controls {
+        max-width: 100%;
+    }
+    
+    .emom-selects-wrapper {
+        max-width: 520px;
+    }
+    
+    .emom-countdown {
+        font-size: 80px;
+    }
+    
+    .emom-minute-count,
+    .emom-total-count {
+        font-size: 40px;
+    }
+    
+    /* Устанавливаем одинаковую высоту карточек на планшете */
+    .emom-countdown-card,
+    .emom-minute-widget {
+        min-height: 210px;
+        height: 210px;
+    }
+}
+
+@media (max-width: 767px) {
+    #emom-timer-row-wrapper {
+        max-width: 100%;
+        gap: 12px;
+    }
+    
+    .emom-controls {
+        max-width: 100%;
+    }
+    
+    .emom-countdown-card {
+        padding: 16px;
+        border-radius: 16px;
+        min-height: 100%;
+    }
+    
+    .emom-countdown {
+        font-size: 80px;
+    }
+    
+    .emom-minute-widget {
+        padding: 16px;
+        gap: 12px;
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    .emom-button.primary, .emom-button.secondary, .emom-button.dark {
+        font-size: 20px;
+        letter-spacing: 0.4em;
+    }
+    
+    .emom-minute-count,
+    .emom-total-count {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    #emom-timer-row-wrapper {
+        max-width: 100%;
+        gap: 10px;
+    }
+    
+    .emom-countdown-card {
+        padding: 12px;
+        border-radius: 20px;
+        min-height: 100%;
+    }
+    
+    .emom-countdown {
+        font-size: 60px;
+    }
+    
+    .emom-minute-widget {
+        padding: 12px;
+        gap: 10px;
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    .emom-minute-count,
+    .emom-total-count {
+        font-size: 32px;
+    }
+    
+    .emom-select select {
+        min-width: 100px;
+        max-width: 140px;
+        font-size: 20px;
+        height: 44px;
+        line-height: 44px;
+    }
+}
+
+/* Стили для прогресс-бара в режиме EMOM */
+body.emom-active #progress-bar-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto 15px;
+}
+
+@media (min-width: 1024px) {
+    body.emom-active #progress-bar-container {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    body.emom-active #progress-bar-container {
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 767px) {
+    body.emom-active #progress-bar-container {
+        max-width: 100%;
+    }
+}
+
+/* Анимация переливания для кнопки EMOM */
+@keyframes emom-shine {
+    from { 
+        -webkit-mask-position: 150%;
+        mask-position: 150%; 
+    }
+    to { 
+        -webkit-mask-position: -50%;
+        mask-position: -50%; 
+    }
+}
+
