@@ -984,7 +984,7 @@
                             </div>
                             <div class="blog-post-preview">${escapeHtml(previewText)}</div>
                             <div class="blog-post-footer">
-                                ${cleanedText.length > 200 ? `<a href="${postUrl}" class="blog-post-read-more" onclick="event.stopPropagation();">Читать полностью →</a>` : '<div></div>'}
+                                ${cleanedText.length > 200 ? `<a href="${postUrl}" class="blog-post-read-more" onclick="event.stopPropagation(); if(typeof ym !== 'undefined'){ym(42580049, 'reachGoal', 'blogReadMore');}">Читать полностью →</a>` : '<div></div>'}
                                 <div class="blog-post-date">${formattedDate}</div>
                             </div>
                         </div>
@@ -1257,8 +1257,8 @@
                     line = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
                     line = line.replace(/\*([^*]+)\*/g, '$1');
                     
-                    // Заменяем ссылки на tabatatimer.ru
-                    line = line.replace(/tabatatimer\.ru/g, '<a href="https://tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer">tabatatimer.ru</a>');
+                    // Заменяем ссылки на tabatatimer.ru с отслеживанием клика
+                    line = line.replace(/tabatatimer\.ru/g, '<a href="https://tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" class="blog-timer-link" onclick="if(typeof ym !== \'undefined\'){ym(42580049, \'reachGoal\', \'blogToTimer\');}">tabatatimer.ru</a>');
                     
                     // Экранируем HTML, но сохраняем уже добавленные теги
                     // Разделяем на части с тегами и без
@@ -1355,7 +1355,7 @@
                         </div>
                         <div class="blog-modal-text">${formatText(post.text)}</div>
                         <div class="blog-modal-footer">
-                            <a href="${getPostUrl(post)}" class="blog-modal-read-full" target="_blank" rel="noopener noreferrer">Читать на отдельной странице →</a>
+                            <a href="${getPostUrl(post)}" class="blog-modal-read-full" target="_blank" rel="noopener noreferrer" onclick="if(typeof ym !== 'undefined'){ym(42580049, 'reachGoal', 'blogReadMore');}">Читать на отдельной странице →</a>
                             <div class="blog-modal-date">${formattedDate}</div>
                         </div>
                     </div>
@@ -1363,6 +1363,11 @@
                 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Отправка события в Яндекс.Метрику: открытие модального окна
+                if (typeof ym !== 'undefined') {
+                    ym(42580049, 'reachGoal', 'blogModalOpen');
+                }
                 
                 // Обработчик закрытия
                 const closeBtn = modal.querySelector('.blog-modal-close');
@@ -1416,6 +1421,12 @@
                     filterButtons.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentFilter = this.dataset.filter;
+                    
+                    // Отправка события в Яндекс.Метрику: фильтрация по тегам
+                    if (typeof ym !== 'undefined') {
+                        ym(42580049, 'reachGoal', 'blogFilterTag', { filter: currentFilter });
+                    }
+                    
                     // Обновляем URL без перезагрузки страницы
                     const url = new URL(window.location);
                     if (currentFilter === 'all') {
