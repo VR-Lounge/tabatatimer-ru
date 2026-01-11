@@ -31,13 +31,10 @@
     
     <title>Блог о фитнесе, тренировках и питании | TABATATIMER.RU</title>
     
-    <meta name="description" content="Блог о фитнесе, интервальных тренировках TABATA, HIIT, AMRAP, EMOM, питании и диетах. Полезные статьи, программы тренировок, рецепты и мотивация для мужчин и женщин.">
-    <meta name="keywords" content="фитнес блог, тренировки, табата, hiit, amrap, emom, питание, диеты, мотивация, фитнес для мужчин, фитнес для женщин">
+    <meta name="description" content="Блог о фитнесе, интервальных тренировках TABATA, HIIT, AMRAP, EMOM, питании и диетах. Полезные статьи и программы тренировок.">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="author" content="TABATATIMER.RU">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="Russian">
-    <meta name="revisit-after" content="7 days">
     <meta http-equiv="X-Robots-Tag" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://www.tabatatimer.ru/blog.html">
     <link rel="alternate" hreflang="ru" href="https://www.tabatatimer.ru/blog.html">
@@ -1191,6 +1188,16 @@
                 // Обрабатываем кавычки в тексте: 'текст' -> «текст»
                 text = text.replace(/'([^']+)'/g, '«$1»');
                 
+                // Убираем Markdown-символы из превью (для карточек)
+                // Убираем горизонтальные линии
+                text = text.replace(/^---+$/gm, '');
+                // Убираем заголовки Markdown (оставляем только текст)
+                text = text.replace(/^#+\s+/gm, '');
+                // Убираем маркеры списков в начале строки
+                text = text.replace(/^[\*\-]\s+/gm, '');
+                // Убираем нумерацию списков
+                text = text.replace(/^\d+\.\s+/gm, '');
+                
                 return text;
             }
             
@@ -1204,12 +1211,19 @@
                 // Сначала заменяем кавычки
                 text = cleanText(text);
                 
+                // КРИТИЧЕСКИ ВАЖНО: Удаляем Markdown-символы перед парсингом
+                // Убираем горизонтальные линии
+                text = text.replace(/^---+$/gm, '');
+                // Убираем одиночный # в начале строки (обычно это лишний заголовок)
+                text = text.replace(/^#\s+(.+)$/gm, '$1');
+                
                 // Разбиваем текст на строки
                 const lines = text.split('\n');
                 const blocks = [];
                 let currentParagraph = [];
                 let currentList = [];
                 let inList = false;
+                let listIsOrdered = false;
                 
                 // Список названий упражнений для распознавания
                 const exerciseNames = [
@@ -1293,14 +1307,86 @@
                             currentParagraph = [];
                         }
                         if (currentList.length > 0) {
-                            blocks.push({ type: 'list', content: currentList, ordered: true });
+                            blocks.push({ type: 'list', content: currentList, ordered: listIsOrdered });
                             currentList = [];
                             inList = false;
+                            listIsOrdered = false;
                         }
                         continue;
                     }
                     
-                    // Заголовок h3 или h4
+                    // Markdown заголовки: ##, ###
+                    if (line.startsWith('##')) {
+                        // Закрываем текущие блоки
+                        if (currentParagraph.length > 0) {
+                            blocks.push({ type: 'paragraph', content: currentParagraph.join(' ') });
+                            currentParagraph = [];
+                        }
+                        if (currentList.length > 0) {
+                            blocks.push({ type: 'list', content: currentList, ordered: listIsOrdered });
+                            currentList = [];
+                            inList = false;
+                            listIsOrdered = false;
+                        }
+                        
+                        // Убираем # и пробелы в начале, убираем эмодзи
+                        let headingText = line.replace(/^#+\s*/, '').trim();
+                        headingText = headingText.replace(/^[🔥💪🧠⏰💥🚫]*\s*/, '').trim();
+                        
+                        // Определяем уровень заголовка
+                        if (line.startsWith('###')) {
+                            blocks.push({ type: 'h3', content: headingText });
+                        } else if (line.startsWith('##')) {
+                            blocks.push({ type: 'h2', content: headingText });
+                        }
+                        continue;
+                    }
+                    
+                    // Маркированный список: * пункт или - пункт
+                    if (/^[\*\-]\s+/.test(line)) {
+                        if (currentParagraph.length > 0) {
+                            blocks.push({ type: 'paragraph', content: currentParagraph.join(' ') });
+                            currentParagraph = [];
+                        }
+                        if (inList && currentList.length > 0 && listIsOrdered) {
+                            // Если был нумерованный список, закрываем его
+                            blocks.push({ type: 'list', content: currentList, ordered: true });
+                            currentList = [];
+                        }
+                        inList = true;
+                        listIsOrdered = false;
+                        // Убираем маркер и форматируем
+                        let item = line.replace(/^[\*\-]\s+/, '');
+                        // Обрабатываем жирный текст **текст**
+                        item = item.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                        // Обрабатываем курсив *текст* (но не маркеры списка)
+                        item = item.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
+                        currentList.push(item);
+                        continue;
+                    }
+                    
+                    // Нумерованный список: 1. пункт
+                    if (/^\d+\.\s+/.test(line)) {
+                        if (currentParagraph.length > 0) {
+                            blocks.push({ type: 'paragraph', content: currentParagraph.join(' ') });
+                            currentParagraph = [];
+                        }
+                        if (inList && currentList.length > 0 && !listIsOrdered) {
+                            // Если был маркированный список, закрываем его
+                            blocks.push({ type: 'list', content: currentList, ordered: false });
+                            currentList = [];
+                        }
+                        inList = true;
+                        listIsOrdered = true;
+                        // Убираем номер и форматируем
+                        let item = line.replace(/^\d+\.\s+/, '');
+                        // Обрабатываем жирный текст
+                        item = item.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                        currentList.push(item);
+                        continue;
+                    }
+                    
+                    // Заголовок h3 или h4 (старый формат с **)
                     if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
                         // Закрываем текущие блоки
                         if (currentParagraph.length > 0) {
@@ -1308,9 +1394,10 @@
                             currentParagraph = [];
                         }
                         if (currentList.length > 0) {
-                            blocks.push({ type: 'list', content: currentList, ordered: true });
+                            blocks.push({ type: 'list', content: currentList, ordered: listIsOrdered });
                             currentList = [];
                             inList = false;
+                            listIsOrdered = false;
                         }
                         
                         const headingText = line.replace(/^\*\*|\*\*$/g, '');
@@ -1329,15 +1416,17 @@
                             currentParagraph = [];
                         }
                         inList = true;
+                        listIsOrdered = true; // Упражнения обычно в нумерованном списке
                         currentList.push(formatExerciseLine(line));
                         continue;
                     }
                     
-                    // Обычный текст
+                    // Обычный текст - закрываем список если был
                     if (inList) {
-                        blocks.push({ type: 'list', content: currentList, ordered: true });
+                        blocks.push({ type: 'list', content: currentList, ordered: listIsOrdered });
                         currentList = [];
                         inList = false;
+                        listIsOrdered = false;
                     }
                     
                     // Убираем markdown и форматируем
@@ -1366,21 +1455,23 @@
                     blocks.push({ type: 'paragraph', content: currentParagraph.join(' ') });
                 }
                 if (currentList.length > 0) {
-                    blocks.push({ type: 'list', content: currentList, ordered: true });
+                    blocks.push({ type: 'list', content: currentList, ordered: listIsOrdered });
                 }
                 
                 // Формируем HTML
                 const result = [];
                 for (let i = 0; i < blocks.length; i++) {
                     const block = blocks[i];
-                    if (block.type === 'h3') {
+                    if (block.type === 'h2') {
+                        result.push(`<h2>${escapeHtml(block.content)}</h2>`);
+                    } else if (block.type === 'h3') {
                         result.push(`<h3>${escapeHtml(block.content)}</h3>`);
                     } else if (block.type === 'h4') {
                         result.push(`<h4>${escapeHtml(block.content)}</h4>`);
                     } else if (block.type === 'list') {
                         const listTag = block.ordered ? 'ol' : 'ul';
                         const items = block.content.map(item => {
-                            // item уже содержит HTML (strong теги), не экранируем повторно
+                            // item уже содержит HTML (strong, em теги), не экранируем повторно
                             return `<li>${item}</li>`;
                         }).join('');
                         result.push(`<${listTag}>${items}</${listTag}>`);
