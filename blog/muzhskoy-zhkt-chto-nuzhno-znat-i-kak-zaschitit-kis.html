@@ -376,6 +376,99 @@
             text-decoration: underline;
         }
         
+        /* Блок подписки на Telegram канал */
+        .blog-subscribe-footer {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(122, 245, 255, 0.08) 0%, rgba(122, 245, 255, 0.03) 100%);
+            border-top: 1px solid rgba(122, 245, 255, 0.15);
+        }
+        
+        .blog-subscribe-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-subscribe-content {
+            text-align: center;
+        }
+        
+        .blog-subscribe-title {
+            font-size: 1.5rem;
+            color: #7af5ff;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .blog-subscribe-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+        }
+        
+        .blog-subscribe-description strong {
+            color: #7af5ff;
+        }
+        
+        .blog-subscribe-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0 30px 0;
+        }
+        
+        .blog-subscribe-feature {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+            padding: 10px;
+            background: rgba(122, 245, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(122, 245, 255, 0.1);
+        }
+        
+        .blog-subscribe-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .blog-subscribe-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .blog-subscribe-button-primary {
+            background: #7af5ff;
+            color: #1a1a2e;
+            border-color: #7af5ff;
+        }
+        
+        .blog-subscribe-button-primary:hover {
+            background: #5dd5e5;
+            border-color: #5dd5e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(122, 245, 255, 0.3);
+        }
+        
+        .blog-subscribe-button-secondary {
+            background: transparent;
+            color: #7af5ff;
+            border-color: #7af5ff;
+        }
+        
+        .blog-subscribe-button-secondary:hover {
+            background: rgba(122, 245, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
         @media (max-width: 768px) {
             .blog-post-title {
                 font-size: 1.8rem;
@@ -383,6 +476,29 @@
             
             .blog-post-page {
                 padding: 20px 15px;
+            }
+            
+            .blog-subscribe-footer {
+                padding: 30px 15px;
+                margin-top: 40px;
+            }
+            
+            .blog-subscribe-title {
+                font-size: 1.3rem;
+            }
+            
+            .blog-subscribe-features {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .blog-subscribe-buttons {
+                flex-direction: column;
+            }
+            
+            .blog-subscribe-button {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -407,14 +523,14 @@
     <div class="blog-timer-block">
         <h3>Как использовать интервальный таймер для этой программы</h3>
         <p>Режим HIIT (высокоинтенсивная интервальная тренировка) отлично подходит для кардио-нагрузок и сжигания жира. Настройте интервалы работы и отдыха под свои возможности.</p>
-        <p>Для этой программы тренировок используйте режим <strong>HIIT</strong> на <a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мужчинам, Питание | ID: 8901">tabatatimer.ru</a>. Это поможет вам:</p>
+        <p>Для этой программы тренировок используйте режим <strong>HIIT</strong> на <a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мужчинам, Питание | ID: 4980">tabatatimer.ru</a>. Это поможет вам:</p>
         <ul>
             <li>Строго соблюдать интервалы работы и отдыха</li>
             <li>Максимально эффективно использовать время тренировки</li>
             <li>Отслеживать прогресс и улучшать результаты</li>
             <li>Поддерживать высокую интенсивность на протяжении всей тренировки</li>
         </ul>
-        <p><a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мужчинам, Питание | ID: 8901">Открой таймер TABATATIMER.RU</a> прямо сейчас и начните тренироваться эффективнее!</p>
+        <p><a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мужчинам, Питание | ID: 4980">Открой таймер TABATATIMER.RU</a> прямо сейчас и начните тренироваться эффективнее!</p>
     </div>
     
             
@@ -425,6 +541,30 @@
         <div class="blog-post-tags">
             <a href="../blog.html?filter=%D0%9C%D1%83%D0%B6%D1%87%D0%B8%D0%BD%D0%B0%D0%BC" class="blog-post-tag">Мужчинам</a><a href="../blog.html?filter=%D0%9F%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D0%B5" class="blog-post-tag">Питание</a><a href="../blog.html?filter=%D0%A2%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0" class="blog-post-tag">Тренировка</a>
         </div>
+        
+        <!-- Блок подписки на Telegram канал -->
+        <footer class="blog-subscribe-footer">
+            <div class="blog-subscribe-container">
+                <div class="blog-subscribe-content">
+                    <h3 class="blog-subscribe-title">💪 Больше тренировок и мотивации</h3>
+                    <p class="blog-subscribe-description">Подписывайся на наш Telegram-канал <strong>TABATA TIMER</strong> и получай ежедневные программы тренировок, таймеры и советы по фитнесу</p>
+                    <div class="blog-subscribe-features">
+                        <div class="blog-subscribe-feature">⚡ Ежедневные табата-программы</div>
+                        <div class="blog-subscribe-feature">⏱️ Таймеры и схемы упражнений</div>
+                        <div class="blog-subscribe-feature">🥗 Советы по питанию и восстановлению</div>
+                        <div class="blog-subscribe-feature">🔥 Мотивация и научные факты</div>
+                    </div>
+                    <div class="blog-subscribe-buttons">
+                        <a href="https://t.me/fitnesstimer" target="_blank" rel="noopener noreferrer" class="blog-subscribe-button blog-subscribe-button-primary" onclick="if(typeof ym !== 'undefined'){ym(42580049, 'reachGoal', 'blogSubscribeTelegram');}">
+                            📱 Подписаться на канал
+                        </a>
+                        <a href="https://tabatatimer.ru/#timer" class="blog-subscribe-button blog-subscribe-button-secondary" onclick="if(typeof ym !== 'undefined'){ym(42580049, 'reachGoal', 'blogToTimer');}">
+                            ⏱️ Открыть таймер
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
     
     <!-- Burger Menu Script -->
