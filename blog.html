@@ -145,9 +145,11 @@
             line-height: 1.2;
             margin: 0 0 5px 0;
             text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            font-size: 1.5rem;
+            letter-spacing: 0.05rem;
+            font-size: 1.8rem;
             text-align: left;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .blog-site-header p {
@@ -155,6 +157,8 @@
             font-size: 0.9rem;
             margin: 0;
             text-align: left;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .blog-container {
@@ -561,11 +565,27 @@
             text-decoration: underline;
         }
         
+        .blog-modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+        }
+        
+        .blog-modal-read-full {
+            color: #7af5ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .blog-modal-read-full:hover {
+            color: #5ae0f0;
+            text-decoration: underline;
+        }
+        
         .blog-modal-date {
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
-            margin-top: 24px;
-            text-align: right;
         }
         
         @media screen and (max-width: 736px) {
@@ -599,7 +619,8 @@
             }
             
             .blog-site-header h1 {
-                font-size: 1.2rem;
+                font-size: 1.7rem;
+                letter-spacing: 0.03rem;
             }
             
             .blog-site-header p {
@@ -621,7 +642,7 @@
 </head>
 <body>
     <div class="blog-site-header">
-        <h1>Блог о фитнесе</h1>
+        <h1>Фитнес и ЗОЖ</h1>
         <p>тренировки · питание · мотивация</p>
     </div>
     
@@ -719,71 +740,108 @@
             // Основные теги для фильтрации (дополнительные теги не используются для фильтрации)
             const mainFilterTags = ['Мужчинам', 'Девушкам', 'Питание', 'Диеты', 'Мотивация'];
             
-            // Генерация мотивирующего заголовка на основе контента
+                // Генерация мотивирующего заголовка на основе контента статьи (до 4 слов, отражает суть)
             function generateMotivationalHeading(post) {
+                const text = (post.text || '').toLowerCase();
+                const title = (post.title || '').toLowerCase();
+                const fullText = text + ' ' + title;
                 const tags = post.tags || detectTags(post.text, post.title || '');
                 
-                // Заголовки для мужских тренировок
+                // Приоритетная проверка по ID для точного соответствия
+                const postId = post.id || '';
+                if (postId.includes('nutrition_1') || (tags.includes('Питание') && tags.includes('Тренировка') && fullText.includes('до'))) {
+                    return 'Питание до после';
+                }
+                if (postId.includes('supercars') || postId.includes('strength') || (tags.includes('Питание') && tags.includes('Мотивация') && fullText.includes('философия'))) {
+                    return 'Сила в простоте';
+                }
+                if (postId.includes('men_s_gi') || postId.includes('gi_health') || (tags.includes('Питание') && (fullText.includes('кишечник') || fullText.includes('жкт') || fullText.includes('железный')))) {
+                    return 'Железный живот';
+                }
+                if (postId.includes('diet_1') || (tags.includes('Диеты') && fullText.includes('средиземноморская'))) {
+                    return 'Научно доказано';
+                }
+                
+                // Генерация заголовка на основе анализа текста статьи
                 if (tags.includes('Мужчинам') && tags.includes('Тренировка')) {
-                    const options = [
-                        'Масса за 4 недели',
-                        'Сила за месяц',
-                        'Рельеф за 30 дней',
-                        'Мощь за 4 недели',
-                        'Объём за месяц'
-                    ];
-                    return options[Math.floor(Math.random() * options.length)];
+                    if (fullText.includes('масса') || fullText.includes('набор') || fullText.includes('набираем')) {
+                        return 'Набор массы месяц';
+                    } else if (fullText.includes('сила') || fullText.includes('силовой')) {
+                        return 'Сила за месяц';
+                    } else if (fullText.includes('рельеф')) {
+                        return 'Рельеф за месяц';
+                    } else if (fullText.includes('объём')) {
+                        return 'Объём за месяц';
+                    }
+                    return 'Масса за 4 недели';
                 }
                 
-                // Заголовки для женских тренировок
                 if (tags.includes('Девушкам') && tags.includes('Тренировка')) {
-                    const options = [
-                        'Стройность за 30 дней',
-                        'Тонус за месяц',
-                        'Форма за 4 недели',
-                        'Грация за 30 дней',
-                        'Лёгкость за месяц'
-                    ];
-                    return options[Math.floor(Math.random() * options.length)];
+                    if (fullText.includes('стройное') || fullText.includes('похудеть') || fullText.includes('30 дней')) {
+                        return 'Стройность за 30 дней';
+                    } else if (fullText.includes('тонус') || fullText.includes('подтянут')) {
+                        return 'Тонус за месяц';
+                    }
+                    return 'Стройность за 30 дней';
                 }
                 
-                // Заголовки для питания
                 if (tags.includes('Питание')) {
-                    const options = [
-                        'Энергия в еде',
-                        'Топливо для тела',
-                        'Питание = результат',
-                        'Еда как топливо',
-                        'Правило 70%'
-                    ];
-                    return options[Math.floor(Math.random() * options.length)];
+                    // Сначала проверяем более специфичные случаи
+                    if (fullText.includes('гибридн') || fullText.includes('hybrid') || (fullText.includes('сила') && fullText.includes('выносливость'))) {
+                        return 'Сила + выносливость';
+                    } else if (fullText.includes('философия') || fullText.includes('брэндон') || fullText.includes('сила в простоте')) {
+                        return 'Сила в простоте';
+                    } else if (fullText.includes('кишечник') || fullText.includes('жкт') || fullText.includes('железный живот') || fullText.includes('второй мозг')) {
+                        return 'Железный живот';
+                    } else if (fullText.includes('до и после') || fullText.includes('до тренировки') || fullText.includes('после тренировки') || (fullText.includes('питание') && fullText.includes('тренировк'))) {
+                        return 'Питание до после';
+                    } else if (fullText.includes('70%') && fullText.includes('успех')) {
+                        return '70% успеха питание';
+                    } else if (fullText.includes('топливо')) {
+                        return 'Топливо для тела';
+                    } else if (fullText.includes('энергия') && !fullText.includes('гибридн')) {
+                        return 'Энергия в еде';
+                    }
+                    // Если статья о диете с тегом Питание
+                    if (tags.includes('Диеты')) {
+                        return 'Здоровье в тарелке';
+                    }
+                    return 'Питание результат';
                 }
                 
-                // Заголовки для диет
                 if (tags.includes('Диеты')) {
-                    const options = [
-                        'Научно доказано',
-                        'Диета долголетия',
-                        'Здоровье в тарелке',
-                        'Проверено наукой',
-                        'Путь к здоровью'
-                    ];
-                    return options[Math.floor(Math.random() * options.length)];
+                    if (fullText.includes('средиземноморская') || (fullText.includes('научно') && fullText.includes('доказан'))) {
+                        return 'Научно доказано';
+                    } else if (fullText.includes('долголетие') || fullText.includes('долголетия')) {
+                        return 'Диета долголетия';
+                    } else if (fullText.includes('здоровье') || fullText.includes('путь к здоровью')) {
+                        return 'Путь к здоровью';
+                    }
+                    return 'Здоровье в тарелке';
                 }
                 
-                // Заголовки для мотивации
                 if (tags.includes('Мотивация')) {
-                    const options = [
-                        'Начни сегодня',
-                        'Первый шаг',
-                        'Время действовать',
-                        'Сейчас или никогда',
-                        'Твой момент'
-                    ];
-                    return options[Math.floor(Math.random() * options.length)];
+                    if (fullText.includes('начни') || fullText.includes('сегодня') || fullText.includes('не стоит откладывать') || fullText.includes('откладывать тренировки')) {
+                        return 'Начни сегодня';
+                    } else if ((fullText.includes('система') || fullText.includes('системность') || fullText.includes('система >')) && !fullText.includes('брэндон')) {
+                        return 'Система важнее мотивации';
+                    } else if (fullText.includes('первый шаг') || fullText.includes('один шаг')) {
+                        return 'Первый шаг';
+                    }
+                    return 'Твой момент';
                 }
                 
-                // Универсальные заголовки
+                // Универсальный заголовок на основе анализа текста
+                if (fullText.includes('система') || fullText.includes('системность')) {
+                    return 'Система важнее мотивации';
+                } else if (fullText.includes('начни') || fullText.includes('сегодня')) {
+                    return 'Начни сегодня';
+                } else if (fullText.includes('философия') || fullText.includes('брэндон')) {
+                    return 'Сила в простоте';
+                } else if (fullText.includes('кишечник') || fullText.includes('жкт')) {
+                    return 'Железный живот';
+                }
+                
                 return 'Твой результат';
             }
             
@@ -980,7 +1038,7 @@
                         ` : ''}
                         <div class="blog-post-content">
                             <div class="blog-post-tags">
-                                ${tags.map(tag => `<span class="blog-post-tag">${tag}</span>`).join('')}
+                                ${tags.map(tag => `<span class="blog-post-tag" onclick="if(typeof ym !== 'undefined'){ym(42580049, 'reachGoal', 'blogArticleTag', { tag: '${tag}' });}">${tag}</span>`).join('')}
                             </div>
                             <div class="blog-post-preview">${escapeHtml(previewText)}</div>
                             <div class="blog-post-footer">
@@ -1100,8 +1158,34 @@
             }
             
             // Очистка текста от markdown и замена кавычек
+            // Функция для добавления пояснений к именам и персоналиям
+            function addPersonNameExplanations(text) {
+                if (!text) return text;
+                
+                // Словарь имён и их пояснений (проверяем, что пояснение ещё не добавлено)
+                const namePatterns = [
+                    {
+                        pattern: /\bБрэндон\b(?!\s*\([^)]+\))/gi,
+                        replacement: 'Брэндон (американский фитнес-тренер)'
+                    },
+                    {
+                        pattern: /\bBrandon\b(?!\s*\([^)]+\))/gi,
+                        replacement: 'Brandon (американский фитнес-тренер)'
+                    }
+                ];
+                
+                for (const { pattern, replacement } of namePatterns) {
+                    text = text.replace(pattern, replacement);
+                }
+                
+                return text;
+            }
+            
             function cleanText(text) {
                 if (!text) return '';
+                
+                // Добавляем пояснения для имён перед обработкой
+                text = addPersonNameExplanations(text);
                 
                 // Заменяем одинарные кавычки на русские кавычки-ёлочки
                 // Обрабатываем кавычки в тексте: 'текст' -> «текст»
@@ -1113,6 +1197,9 @@
             // Форматирование текста с преобразованием в правильную HTML структуру
             function formatText(text) {
                 if (!text) return '';
+                
+                // Добавляем пояснения для имён перед форматированием
+                text = addPersonNameExplanations(text);
                 
                 // Сначала заменяем кавычки
                 text = cleanText(text);
@@ -1351,7 +1438,7 @@
                     ` : ''}
                     <div class="blog-modal-body">
                         <div class="blog-modal-tags">
-                            ${tags.map(tag => `<span class="blog-post-tag">${tag}</span>`).join('')}
+                            ${tags.map(tag => `<span class="blog-post-tag" onclick="if(typeof ym !== 'undefined'){ym(42580049, 'reachGoal', 'blogArticleTag', { tag: '${tag}' });}">${tag}</span>`).join('')}
                         </div>
                         <div class="blog-modal-text">${formatText(post.text)}</div>
                         <div class="blog-modal-footer">
