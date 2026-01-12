@@ -742,16 +742,76 @@
             const mainFilterTags = ['Мужчинам', 'Девушкам', 'Питание', 'Диеты', 'Мотивация'];
             
                 // Генерация мотивирующего заголовка на основе контента статьи (до 4 слов, отражает суть)
+            // ВАЖНО: Заголовки должны быть уникальными для каждой статьи
             function generateMotivationalHeading(post) {
                 const text = (post.text || '').toLowerCase();
                 const title = (post.title || '').toLowerCase();
                 const fullText = text + ' ' + title;
                 const tags = post.tags || detectTags(post.text, post.title || '');
-                
-                // Приоритетная проверка по ID для точного соответствия
                 const postId = post.id || '';
-                if (postId.includes('nutrition_1') || (tags.includes('Питание') && tags.includes('Тренировка') && fullText.includes('до'))) {
-                    return 'Питание до после';
+                
+                // КРИТИЧЕСКИ ВАЖНО: Сначала проверяем уникальные ID для точного соответствия
+                // Это гарантирует уникальность заголовков для конкретных статей
+                if (postId.includes('nutrition_1') || postId.includes('pravilnoe-pitanie')) {
+                    return 'Топливо для мышц';
+                }
+                if (postId.includes('menshealth_1768207422') || postId.includes('meditsinbol')) {
+                    return 'Масса за 4 недели';
+                }
+                if (postId.includes('menshealth_1768204039') || postId.includes('gibridnyy-atlet')) {
+                    return 'Сила за месяц';
+                }
+                if (postId.includes('men_s_gi') || postId.includes('muzhskoy-zhkt')) {
+                    return 'Железный живот';
+                }
+                if (postId.includes('supercars') || postId.includes('sistema-vazhnee')) {
+                    return 'Сила в простоте';
+                }
+                if (postId.includes('diet_1') || postId.includes('sredizemnomorskaya')) {
+                    return 'Научно доказано';
+                }
+                if (postId.includes('motivation_1') || postId.includes('nachni-segodnya')) {
+                    return 'Начни сегодня';
+                }
+                if (postId.includes('womens_workout_1') || postId.includes('trenirovka-dlya-devushek')) {
+                    return 'Стройность за 30 дней';
+                }
+                if (postId.includes('mens_workout_1') || postId.includes('silovaya-trenirovka')) {
+                    return 'Набор массы месяц';
+                }
+                
+                // Генерация уникального заголовка на основе уникальных характеристик статьи
+                // Используем комбинацию тегов + уникальные ключевые слова из текста
+                
+                // Для статей про питание и тренировки - более специфичные проверки
+                if (tags.includes('Питание') && tags.includes('Тренировка')) {
+                    // Проверяем уникальные фразы, которые отличают одну статью от другой
+                    if (fullText.includes('топливо') && fullText.includes('мышц')) {
+                        return 'Топливо для мышц';
+                    } else if (fullText.includes('до') && fullText.includes('после') && fullText.includes('тренировк')) {
+                        // Дополнительная проверка на уникальность через ID или специфичные слова
+                        if (fullText.includes('белк') || fullText.includes('углевод')) {
+                            return 'Питание до после';
+                        } else if (fullText.includes('энерги') || fullText.includes('восстановлен')) {
+                            return 'Энергия и восстановление';
+                        } else {
+                            // Используем уникальный суффикс на основе ID для различия
+                            const uniqueHash = postId.length % 3;
+                            if (uniqueHash === 0) return 'Питание до после';
+                            if (uniqueHash === 1) return 'Топливо для тренировок';
+                            return 'Питание результат';
+                        }
+                    } else if (fullText.includes('белк') || fullText.includes('протеин')) {
+                        return 'Белки для роста';
+                    } else if (fullText.includes('углевод') && fullText.includes('энерги')) {
+                        return 'Энергия в еде';
+                    } else if (fullText.includes('70%') || fullText.includes('семьдесят процентов')) {
+                        return '70% успеха питание';
+                    }
+                    // Если ничего не подошло, используем уникальный вариант на основе ID
+                    const uniqueHash = postId.length % 4;
+                    const variants = ['Топливо для мышц', 'Питание результат', 'Энергия в еде', 'Питание до после'];
+                    return variants[uniqueHash];
                 }
                 if (postId.includes('supercars') || postId.includes('strength') || (tags.includes('Питание') && tags.includes('Мотивация') && fullText.includes('философия'))) {
                     return 'Сила в простоте';
