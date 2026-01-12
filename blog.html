@@ -846,30 +846,6 @@
                     return 'Стройность за 30 дней';
                 }
                 
-                if (tags.includes('Питание')) {
-                    // Сначала проверяем более специфичные случаи
-                    if (fullText.includes('гибридн') || fullText.includes('hybrid') || (fullText.includes('сила') && fullText.includes('выносливость'))) {
-                        return 'Сила + выносливость';
-                    } else if (fullText.includes('философия') || fullText.includes('брэндон') || fullText.includes('сила в простоте')) {
-                        return 'Сила в простоте';
-                    } else if (fullText.includes('кишечник') || fullText.includes('жкт') || fullText.includes('железный живот') || fullText.includes('второй мозг')) {
-                        return 'Железный живот';
-                    } else if (fullText.includes('до и после') || fullText.includes('до тренировки') || fullText.includes('после тренировки') || (fullText.includes('питание') && fullText.includes('тренировк'))) {
-                        return 'Питание до после';
-                    } else if (fullText.includes('70%') && fullText.includes('успех')) {
-                        return '70% успеха питание';
-                    } else if (fullText.includes('топливо')) {
-                        return 'Топливо для тела';
-                    } else if (fullText.includes('энергия') && !fullText.includes('гибридн')) {
-                        return 'Энергия в еде';
-                    }
-                    // Если статья о диете с тегом Питание
-                    if (tags.includes('Диеты')) {
-                        return 'Здоровье в тарелке';
-                    }
-                    return 'Питание результат';
-                }
-                
                 if (tags.includes('Диеты')) {
                     if (fullText.includes('средиземноморская') || (fullText.includes('научно') && fullText.includes('доказан'))) {
                         return 'Научно доказано';
@@ -878,7 +854,9 @@
                     } else if (fullText.includes('здоровье') || fullText.includes('путь к здоровью')) {
                         return 'Путь к здоровью';
                     }
-                    return 'Здоровье в тарелке';
+                    // Уникальный вариант на основе ID
+                    const uniqueHash = postId.length % 2;
+                    return uniqueHash === 0 ? 'Здоровье в тарелке' : 'Диета результат';
                 }
                 
                 if (tags.includes('Мотивация')) {
@@ -889,10 +867,12 @@
                     } else if (fullText.includes('первый шаг') || fullText.includes('один шаг')) {
                         return 'Первый шаг';
                     }
-                    return 'Твой момент';
+                    // Уникальный вариант на основе ID
+                    const uniqueHash = postId.length % 2;
+                    return uniqueHash === 0 ? 'Твой момент' : 'Вдохновение';
                 }
                 
-                // Универсальный заголовок на основе анализа текста
+                // Универсальный заголовок на основе анализа текста с учётом уникальности
                 if (fullText.includes('система') || fullText.includes('системность')) {
                     return 'Система важнее мотивации';
                 } else if (fullText.includes('начни') || fullText.includes('сегодня')) {
@@ -903,7 +883,10 @@
                     return 'Железный живот';
                 }
                 
-                return 'Твой результат';
+                // Финальный fallback с уникальностью на основе ID
+                const uniqueHash = postId.length % 4;
+                const fallbackVariants = ['Твой результат', 'Твой прогресс', 'Твой успех', 'Твой путь'];
+                return fallbackVariants[uniqueHash];
             }
             
             // Генерация уникального alt и title для изображения
