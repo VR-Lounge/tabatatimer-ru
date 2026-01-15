@@ -762,9 +762,9 @@
                         const index = titleText.indexOf(sep);
                         if (index > 0) {
                             const beforeSep = titleText.substring(0, index).trim();
-                            // Проверяем, что это не слишком длинная фраза (максимум 3 слова)
+                            // Проверяем, что это не слишком длинная фраза (максимум 4 слова для более описательных заголовков)
                             const words = beforeSep.split(/\s+/).filter(w => w.length > 0);
-                            if (words.length >= 1 && words.length <= 3) {
+                            if (words.length >= 1 && words.length <= 4) {
                                 return beforeSep;
                             }
                         }
@@ -824,17 +824,6 @@
                     return null;
                 }
                 
-                // ПРИОРИТЕТ 0: Проверяем специфичный контент статьи ПЕРЕД извлечением фразы из заголовка
-                // Это важно, чтобы различать статьи с похожими заголовками, но разным контентом
-                if (fullText.includes('сила') && fullText.includes('меняет') && (fullText.includes('девушк') || fullText.includes('женщин') || fullText.includes('весом'))) {
-                    // Статья про силовые тренировки для девушек
-                    return 'Сила для девушек';
-                }
-                if (fullText.includes('летний челлендж') || (fullText.includes('план питания') && fullText.includes('энерги'))) {
-                    // Статья про питание (летний челлендж)
-                    return 'Питание для тренировок';
-                }
-                
                 // ПРИОРИТЕТ 1: Извлекаем ключевую фразу из заголовка (до двоеточия)
                 const titleKeyPhrase = extractKeyPhraseFromTitle(titleOriginal);
                 if (titleKeyPhrase) {
@@ -846,22 +835,65 @@
                     }
                     const uniqueHash = Math.abs(hash);
                     
+                    // Проверяем, используется ли эта фраза другими постами
+                    // Если да, добавляем уникальный суффикс на основе postId
+                    const allHeadings = new Set();
+                    // Собираем все существующие заголовки для проверки дубликатов
+                    if (typeof allPosts !== 'undefined') {
+                        allPosts.forEach(p => {
+                            if (p.id !== postId) {
+                                const h = generateMotivationalHeading(p);
+                                if (typeof h === 'string') {
+                                    allHeadings.add(h);
+                                }
+                            }
+                        });
+                    }
+                    
                     const baseHeading = titleKeyPhrase.toUpperCase();
-                    
-                    // Проверяем контент для различия похожих заголовков
-                    // Если контент про силовые тренировки для девушек
-                    if (fullText.includes('сила') && fullText.includes('меняет') && (fullText.includes('девушк') || fullText.includes('женщин') || fullText.includes('весом'))) {
-                        return 'Сила для девушек';
+                    if (allHeadings.has(baseHeading)) {
+                        // Если заголовок уже используется, добавляем уникальный суффикс
+                        const variants = ['', ' •', ' →', ' ⚡'];
+                        const variant = variants[uniqueHash % variants.length];
+                        return baseHeading + variant;
                     }
-                    // Если контент про питание (летний челлендж)
-                    if (fullText.includes('летний челлендж') || (fullText.includes('план питания') && fullText.includes('энерги'))) {
-                        return 'Питание для тренировок';
+                    return baseHeading;
+                }
+                
+                // ПРИОРИТЕТ 1.5: Если не нашли короткую фразу, пробуем извлечь более длинную (до 5 слов)
+                // Это для случаев типа "Сила, которая меняет всё: ..."
+                if (titleOriginal && titleOriginal.includes(':')) {
+                    const longPhrase = titleOriginal.split(':')[0].trim();
+                    const words = longPhrase.split(/\s+/).filter(w => w.length > 0);
+                    if (words.length >= 1 && words.length <= 5) {
+                        // Проверяем уникальность
+                        let hash = 0;
+                        for (let i = 0; i < postId.length; i++) {
+                            hash = ((hash << 5) - hash) + postId.charCodeAt(i);
+                            hash = hash & hash;
+                        }
+                        const uniqueHash = Math.abs(hash);
+                        
+                        const allHeadings = new Set();
+                        if (typeof allPosts !== 'undefined') {
+                            allPosts.forEach(p => {
+                                if (p.id !== postId) {
+                                    const h = generateMotivationalHeading(p);
+                                    if (typeof h === 'string') {
+                                        allHeadings.add(h);
+                                    }
+                                }
+                            });
+                        }
+                        
+                        const baseHeading = longPhrase.toUpperCase();
+                        if (allHeadings.has(baseHeading)) {
+                            const variants = ['', ' •', ' →', ' ⚡'];
+                            const variant = variants[uniqueHash % variants.length];
+                            return baseHeading + variant;
+                        }
+                        return baseHeading;
                     }
-                    
-                    // Если заголовок все еще может дублироваться, добавляем уникальный суффикс
-                    const variants = ['', ' •', ' →', ' ⚡'];
-                    const variant = variants[uniqueHash % variants.length];
-                    return baseHeading + variant;
                 }
                 
                 // ПРИОРИТЕТ 2: Извлекаем ключевую фразу из начала текста
@@ -913,12 +945,6 @@
                         return 'Топливо для мышц';
                     } else if (fullText.includes('кишечник') && (fullText.includes('второй мозг') || fullText.includes('второй мозг'))) {
                         return 'Кишечник-второй мозг';
-                    } else if (fullText.includes('сила') && fullText.includes('меняет') && (fullText.includes('девушк') || fullText.includes('женщин'))) {
-                        // Статья про силовые тренировки для девушек
-                        return 'Сила для девушек';
-                    } else if (fullText.includes('летний челлендж') || fullText.includes('план питания')) {
-                        // Статья про питание
-                        return 'Питание для тренировок';
                     } else if (fullText.includes('до') && fullText.includes('после') && fullText.includes('тренировк')) {
                         // Используем уникальный хеш для различия похожих статей
                         let hash = 0;
