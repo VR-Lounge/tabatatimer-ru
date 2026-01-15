@@ -909,6 +909,12 @@
                         return 'Топливо для мышц';
                     } else if (fullText.includes('кишечник') && (fullText.includes('второй мозг') || fullText.includes('второй мозг'))) {
                         return 'Кишечник-второй мозг';
+                    } else if (fullText.includes('сила') && fullText.includes('меняет') && (fullText.includes('девушк') || fullText.includes('женщин'))) {
+                        // Статья про силовые тренировки для девушек
+                        return 'Сила для девушек';
+                    } else if (fullText.includes('летний челлендж') || fullText.includes('план питания')) {
+                        // Статья про питание
+                        return 'Питание для тренировок';
                     } else if (fullText.includes('до') && fullText.includes('после') && fullText.includes('тренировк')) {
                         // Используем уникальный хеш для различия похожих статей
                         let hash = 0;
