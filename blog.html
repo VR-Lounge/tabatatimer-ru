@@ -827,10 +827,37 @@
                 // ПРИОРИТЕТ 1: Извлекаем ключевую фразу из заголовка (до двоеточия)
                 const titleKeyPhrase = extractKeyPhraseFromTitle(titleOriginal);
                 if (titleKeyPhrase) {
-                    // Проверяем уникальность через хеш postId
-                    const hash = postId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-                    // Если фраза уже используется другим постом, добавляем уникальный суффикс
-                    return titleKeyPhrase.toUpperCase();
+                    // Генерируем уникальный хеш для этого поста
+                    let hash = 0;
+                    for (let i = 0; i < postId.length; i++) {
+                        hash = ((hash << 5) - hash) + postId.charCodeAt(i);
+                        hash = hash & hash;
+                    }
+                    const uniqueHash = Math.abs(hash);
+                    
+                    // Проверяем, используется ли эта фраза другими постами
+                    // Если да, добавляем уникальный суффикс на основе postId
+                    const allHeadings = new Set();
+                    // Собираем все существующие заголовки для проверки дубликатов
+                    if (typeof allPosts !== 'undefined') {
+                        allPosts.forEach(p => {
+                            if (p.id !== postId) {
+                                const h = generateMotivationalHeading(p);
+                                if (typeof h === 'string') {
+                                    allHeadings.add(h);
+                                }
+                            }
+                        });
+                    }
+                    
+                    const baseHeading = titleKeyPhrase.toUpperCase();
+                    if (allHeadings.has(baseHeading)) {
+                        // Если заголовок уже используется, добавляем уникальный суффикс
+                        const variants = ['', ' •', ' →', ' ⚡'];
+                        const variant = variants[uniqueHash % variants.length];
+                        return baseHeading + variant;
+                    }
+                    return baseHeading;
                 }
                 
                 // ПРИОРИТЕТ 2: Извлекаем ключевую фразу из начала текста
@@ -1100,6 +1127,36 @@
                 }
                 
                 result = result.replace(/[-\s]+/g, '-').replace(/^-|-$/g, '').substring(0, 50);
+                
+                // КРИТИЧНО: Гарантируем уникальность slug через добавление postId
+                // Проверяем, не используется ли этот slug другими постами
+                if (typeof allPosts !== 'undefined') {
+                    const existingSlugs = new Set();
+                    allPosts.forEach(p => {
+                        if (p.id !== postId) {
+                            const existingSlug = createSlug(p.title || '', p.id);
+                            existingSlugs.add(existingSlug);
+                        }
+                    });
+                    
+                    // Если slug уже используется, добавляем уникальный суффикс из postId
+                    if (existingSlugs.has(result)) {
+                        // Берем последние 8 символов postId для уникальности
+                        const uniqueSuffix = postId.slice(-8).replace(/[^a-z0-9]/gi, '').toLowerCase();
+                        if (uniqueSuffix) {
+                            result = result.substring(0, 42) + '-' + uniqueSuffix;
+                        } else {
+                            // Если postId не содержит букв/цифр, используем хеш
+                            let hash = 0;
+                            for (let i = 0; i < postId.length; i++) {
+                                hash = ((hash << 5) - hash) + postId.charCodeAt(i);
+                                hash = hash & hash;
+                            }
+                            result = result.substring(0, 42) + '-' + Math.abs(hash).toString(36).substring(0, 6);
+                        }
+                    }
+                }
+                
                 return result || postId;
             }
             
