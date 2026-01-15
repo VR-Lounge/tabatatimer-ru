@@ -1683,12 +1683,16 @@
                     line = line.replace(/\*([^*]+)\*/g, '$1');
                     
                     // Заменяем ссылки на tabatatimer.ru с отслеживанием клика
-                    line = line.replace(/tabatatimer\.ru/g, '<a href="https://tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" class="blog-timer-link" onclick="if(typeof ym !== \'undefined\'){ym(42580049, \'reachGoal\', \'blogToTimer\');}">tabatatimer.ru</a>');
+                    // Но только если это не уже обработанная HTML-ссылка
+                    if (!line.includes('<a href=')) {
+                        line = line.replace(/tabatatimer\.ru/g, '<a href="https://tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" class="blog-timer-link" onclick="if(typeof ym !== \'undefined\'){ym(42580049, \'reachGoal\', \'blogToTimer\');}">tabatatimer.ru</a>');
+                    }
                     
-                    // Экранируем HTML, но сохраняем уже добавленные теги
-                    // Разделяем на части с тегами и без
+                    // Экранируем HTML, но сохраняем уже добавленные теги (включая ссылки)
+                    // Разделяем на части с тегами и без, используя более точный regex для HTML тегов
                     const parts = line.split(/(<[^>]+>)/);
                     const escapedParts = parts.map(part => {
+                        // Проверяем, является ли часть HTML тегом (включая атрибуты)
                         if (part.startsWith('<') && part.endsWith('>')) {
                             return part; // Уже HTML тег, не экранируем
                         }
