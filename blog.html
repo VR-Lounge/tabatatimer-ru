@@ -1248,7 +1248,13 @@
                 const imageMeta = generateImageAltTitle(post);
                 
                 // Очищаем текст от markdown и заменяем кавычки
-                const cleanedText = cleanText(post.text);
+                let cleanedText = cleanText(post.text);
+                
+                // Обрабатываем markdown ссылки [текст](url) в превью
+                cleanedText = cleanedText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match, текст, url) {
+                    // В превью показываем только текст ссылки, без URL
+                    return текст;
+                });
                 
                 // Обрезаем текст для превью (первые 200 символов)
                 const previewText = cleanedText.length > 200 
