@@ -836,22 +836,20 @@
                     const uniqueHash = Math.abs(hash);
                     
                     // Проверяем, используется ли эта фраза другими постами
-                    // Если да, добавляем уникальный суффикс на основе postId
-                    const allHeadings = new Set();
-                    // Собираем все существующие заголовки для проверки дубликатов
-                    if (typeof allPosts !== 'undefined') {
-                        allPosts.forEach(p => {
-                            if (p.id !== postId) {
-                                const h = generateMotivationalHeading(p);
-                                if (typeof h === 'string') {
-                                    allHeadings.add(h);
-                                }
-                            }
-                        });
+                    // ВАЖНО: Не вызываем generateMotivationalHeading рекурсивно!
+                    // Вместо этого используем простую проверку на основе postId
+                    const baseHeading = titleKeyPhrase.toUpperCase();
+                    
+                    // Проверяем дубликаты только по простым признакам (без рекурсии)
+                    let isDuplicate = false;
+                    if (typeof allPosts !== 'undefined' && typeof generatedHeadings !== 'undefined') {
+                        // Используем глобальный кеш заголовков, чтобы избежать рекурсии
+                        if (generatedHeadings.has(baseHeading)) {
+                            isDuplicate = true;
+                        }
                     }
                     
-                    const baseHeading = titleKeyPhrase.toUpperCase();
-                    if (allHeadings.has(baseHeading)) {
+                    if (isDuplicate) {
                         // Если заголовок уже используется, добавляем уникальный суффикс
                         const variants = ['', ' •', ' →', ' ⚡'];
                         const variant = variants[uniqueHash % variants.length];
@@ -874,20 +872,18 @@
                         }
                         const uniqueHash = Math.abs(hash);
                         
-                        const allHeadings = new Set();
-                        if (typeof allPosts !== 'undefined') {
-                            allPosts.forEach(p => {
-                                if (p.id !== postId) {
-                                    const h = generateMotivationalHeading(p);
-                                    if (typeof h === 'string') {
-                                        allHeadings.add(h);
-                                    }
-                                }
-                            });
+                        // ВАЖНО: Не вызываем generateMotivationalHeading рекурсивно!
+                        const baseHeading = longPhrase.toUpperCase();
+                        
+                        // Проверяем дубликаты только по простым признакам (без рекурсии)
+                        let isDuplicate = false;
+                        if (typeof generatedHeadings !== 'undefined') {
+                            if (generatedHeadings.has(baseHeading)) {
+                                isDuplicate = true;
+                            }
                         }
                         
-                        const baseHeading = longPhrase.toUpperCase();
-                        if (allHeadings.has(baseHeading)) {
+                        if (isDuplicate) {
                             const variants = ['', ' •', ' →', ' ⚡'];
                             const variant = variants[uniqueHash % variants.length];
                             return baseHeading + variant;
@@ -1106,13 +1102,21 @@
                     };
                 }
                 
-                // Универсальные варианты
-                const baseAlt = post.title || 'Статья о фитнесе и здоровом образе жизни';
-                const baseTitle = post.title || 'Полезная статья о тренировках';
-                return {
-                    alt: baseAlt + uniqueSuffix,
-                    title: baseTitle + uniqueSuffix
-                };
+                // Универсальные варианты (fallback)
+                let hash = 0;
+                for (let i = 0; i < postId.length; i++) {
+                    hash = ((hash << 5) - hash) + postId.charCodeAt(i);
+                    hash = hash & hash;
+                }
+                const uniqueHash = Math.abs(hash);
+                const fallbackVariants = ['Твой результат', 'Твой прогресс', 'Твой успех', 'Твой путь', 'Твоя сила', 'Твоя мотивация'];
+                const result = fallbackVariants[uniqueHash % fallbackVariants.length];
+                
+                // Сохраняем в кеш
+                if (generatedHeadings) {
+                    generatedHeadings.set(postId, result);
+                }
+                return result;
             }
             
             // Фильтрация и сортировка постов
@@ -1136,9 +1140,17 @@
                 return filtered;
             }
             
+            // Кеш для slug (чтобы избежать рекурсии)
+            const slugCache = new Map();
+            
             // Создание slug для URL (та же логика, что в generate_blog_post_page.py)
             function createSlug(text, postId) {
                 if (!text) return postId;
+                
+                // Проверяем кеш
+                if (slugCache.has(postId)) {
+                    return slugCache.get(postId);
+                }
                 
                 // Маппинг известных постов для правильных URL
                 const knownSlugs = {
@@ -1151,6 +1163,7 @@
                 
                 // Если есть известный slug для этого поста, используем его
                 if (knownSlugs[postId]) {
+                    slugCache.set(postId, knownSlugs[postId]);
                     return knownSlugs[postId];
                 }
                 
@@ -1177,13 +1190,13 @@
                 result = result.replace(/[-\s]+/g, '-').replace(/^-|-$/g, '').substring(0, 50);
                 
                 // КРИТИЧНО: Гарантируем уникальность slug через добавление postId
-                // Проверяем, не используется ли этот slug другими постами
+                // ВАЖНО: Не вызываем createSlug рекурсивно! Используем простую проверку
                 if (typeof allPosts !== 'undefined') {
                     const existingSlugs = new Set();
+                    // Собираем slug только из уже обработанных постов (без рекурсии)
                     allPosts.forEach(p => {
-                        if (p.id !== postId) {
-                            const existingSlug = createSlug(p.title || '', p.id);
-                            existingSlugs.add(existingSlug);
+                        if (p.id !== postId && slugCache.has(p.id)) {
+                            existingSlugs.add(slugCache.get(p.id));
                         }
                     });
                     
@@ -1205,6 +1218,8 @@
                     }
                 }
                 
+                // Сохраняем в кеш
+                slugCache.set(postId, result || postId);
                 return result || postId;
             }
             
