@@ -824,6 +824,17 @@
                     return null;
                 }
                 
+                // ПРИОРИТЕТ 0: Проверяем специфичный контент статьи ПЕРЕД извлечением фразы из заголовка
+                // Это важно, чтобы различать статьи с похожими заголовками, но разным контентом
+                if (fullText.includes('сила') && fullText.includes('меняет') && (fullText.includes('девушк') || fullText.includes('женщин') || fullText.includes('весом'))) {
+                    // Статья про силовые тренировки для девушек
+                    return 'Сила для девушек';
+                }
+                if (fullText.includes('летний челлендж') || (fullText.includes('план питания') && fullText.includes('энерги'))) {
+                    // Статья про питание (летний челлендж)
+                    return 'Питание для тренировок';
+                }
+                
                 // ПРИОРИТЕТ 1: Извлекаем ключевую фразу из заголовка (до двоеточия)
                 const titleKeyPhrase = extractKeyPhraseFromTitle(titleOriginal);
                 if (titleKeyPhrase) {
@@ -852,7 +863,16 @@
                     
                     const baseHeading = titleKeyPhrase.toUpperCase();
                     if (allHeadings.has(baseHeading)) {
-                        // Если заголовок уже используется, добавляем уникальный суффикс
+                        // Если заголовок уже используется, проверяем контент для различия
+                        // Если контент про силовые тренировки для девушек
+                        if (fullText.includes('сила') && (fullText.includes('девушк') || fullText.includes('женщин'))) {
+                            return 'Сила для девушек';
+                        }
+                        // Если контент про питание
+                        if (fullText.includes('питани') && (fullText.includes('челлендж') || fullText.includes('план'))) {
+                            return 'Питание для тренировок';
+                        }
+                        // Иначе добавляем уникальный суффикс
                         const variants = ['', ' •', ' →', ' ⚡'];
                         const variant = variants[uniqueHash % variants.length];
                         return baseHeading + variant;
