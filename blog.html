@@ -1447,6 +1447,16 @@
                 // Добавляем пояснения для имён перед форматированием
                 text = addPersonNameExplanations(text);
                 
+                // КРИТИЧЕСКИ ВАЖНО: Обрабатываем markdown-ссылки [текст](url) ПЕРЕД другими преобразованиями
+                // Это нужно сделать до cleanText, чтобы ссылки не потерялись
+                text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match, linkText, linkUrl) {
+                    // Проверяем, является ли это валидным URL
+                    if (linkUrl.match(/^(https?:\/\/|\/)/)) {
+                        return `<a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener noreferrer" style="color: #7af5ff; text-decoration: underline;">${escapeHtml(linkText)}</a>`;
+                    }
+                    return match; // Если не похоже на URL, оставляем как есть
+                });
+                
                 // Сначала заменяем кавычки
                 text = cleanText(text);
                 
