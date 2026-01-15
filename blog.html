@@ -846,38 +846,22 @@
                     }
                     const uniqueHash = Math.abs(hash);
                     
-                    // Проверяем, используется ли эта фраза другими постами
-                    // Если да, добавляем уникальный суффикс на основе postId
-                    const allHeadings = new Set();
-                    // Собираем все существующие заголовки для проверки дубликатов
-                    if (typeof allPosts !== 'undefined') {
-                        allPosts.forEach(p => {
-                            if (p.id !== postId) {
-                                const h = generateMotivationalHeading(p);
-                                if (typeof h === 'string') {
-                                    allHeadings.add(h);
-                                }
-                            }
-                        });
+                    const baseHeading = titleKeyPhrase.toUpperCase();
+                    
+                    // Проверяем контент для различия похожих заголовков
+                    // Если контент про силовые тренировки для девушек
+                    if (fullText.includes('сила') && fullText.includes('меняет') && (fullText.includes('девушк') || fullText.includes('женщин') || fullText.includes('весом'))) {
+                        return 'Сила для девушек';
+                    }
+                    // Если контент про питание (летний челлендж)
+                    if (fullText.includes('летний челлендж') || (fullText.includes('план питания') && fullText.includes('энерги'))) {
+                        return 'Питание для тренировок';
                     }
                     
-                    const baseHeading = titleKeyPhrase.toUpperCase();
-                    if (allHeadings.has(baseHeading)) {
-                        // Если заголовок уже используется, проверяем контент для различия
-                        // Если контент про силовые тренировки для девушек
-                        if (fullText.includes('сила') && (fullText.includes('девушк') || fullText.includes('женщин'))) {
-                            return 'Сила для девушек';
-                        }
-                        // Если контент про питание
-                        if (fullText.includes('питани') && (fullText.includes('челлендж') || fullText.includes('план'))) {
-                            return 'Питание для тренировок';
-                        }
-                        // Иначе добавляем уникальный суффикс
-                        const variants = ['', ' •', ' →', ' ⚡'];
-                        const variant = variants[uniqueHash % variants.length];
-                        return baseHeading + variant;
-                    }
-                    return baseHeading;
+                    // Если заголовок все еще может дублироваться, добавляем уникальный суффикс
+                    const variants = ['', ' •', ' →', ' ⚡'];
+                    const variant = variants[uniqueHash % variants.length];
+                    return baseHeading + variant;
                 }
                 
                 // ПРИОРИТЕТ 2: Извлекаем ключевую фразу из начала текста
