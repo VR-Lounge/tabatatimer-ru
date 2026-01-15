@@ -938,6 +938,18 @@
                 // ПРИОРИТЕТ 4: Анализ по тегам и ключевым словам (только если не нашли ключевую фразу)
                 // Для статей про питание и тренировки
                 if (tags.includes('Питание') && tags.includes('Тренировка')) {
+                    // Сначала проверяем специфичные фразы про силовые тренировки для девушек
+                    if (fullText.includes('сила') && (fullText.includes('меняет') || fullText.includes('девушк'))) {
+                        // Используем уникальный хеш для различия
+                        let hash = 0;
+                        for (let i = 0; i < postId.length; i++) {
+                            hash = ((hash << 5) - hash) + postId.charCodeAt(i);
+                            hash = hash & hash;
+                        }
+                        const uniqueHash = Math.abs(hash) % 3;
+                        const variants = ['Сила меняет всё', 'Сила для девушек', 'Силовые тренировки'];
+                        return variants[uniqueHash];
+                    }
                     // Ищем специфичные фразы в тексте
                     if (fullText.includes('сезоны в зале') || fullText.includes('сезоны')) {
                         return 'Сезоны в зале';
