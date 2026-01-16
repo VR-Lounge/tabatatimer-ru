@@ -15,6 +15,11 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/poleznaya-statya-o-fitnese-i-zdorove.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/pitanie-do-i-posle-trenirovki-chto-est-dlya-luchsh.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
