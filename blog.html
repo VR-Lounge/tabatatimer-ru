@@ -1225,6 +1225,20 @@
             
             // Получение URL для отдельной страницы поста
             function getPostUrl(post) {
+                const rawUrl = post.url || '';
+                if (rawUrl) {
+                    // Поддержка абсолютных URL из blog-posts.json
+                    if (rawUrl.startsWith('http')) {
+                        try {
+                            const u = new URL(rawUrl);
+                            return u.pathname;
+                        } catch (e) {
+                            // fallback ниже
+                        }
+                    } else if (rawUrl.startsWith('/blog/')) {
+                        return rawUrl;
+                    }
+                }
                 const title = post.title || '';
                 const postId = post.id || `post_${Date.now()}`;
                 const slug = createSlug(title, postId);
