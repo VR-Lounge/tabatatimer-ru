@@ -1,0 +1,36 @@
+{
+  "generatedAt": 1767813000,
+  "count": 3,
+  "items": [
+    {
+      "file": "full-length-shot-of-a-handsome-young-man-doing-royalty-free-image.jpeg",
+      "id": "circuit-training",
+      "alt": "Круговые интервальные тренировки - упражнения по кругу с минимальным отдыхом",
+      "title": "Круговые интервальные тренировки - эффективный способ проработать всё тело",
+      "authorName": "Автор",
+      "authorUrl": "https://unsplash.com/",
+      "unsplashUrl": "https://unsplash.com/",
+      "photoUrl": "https://unsplash.com/"
+    },
+    {
+      "file": "exercising-in-the-summer-in-malaysia-royalty-free-image.jpeg",
+      "id": "running-intervals",
+      "alt": "Интервальные тренировки для бега - чередование спринта и восстановления",
+      "title": "Интервальные тренировки для бега - улучшение скорости и выносливости",
+      "authorName": "Автор",
+      "authorUrl": "https://unsplash.com/",
+      "unsplashUrl": "https://unsplash.com/",
+      "photoUrl": "https://unsplash.com/"
+    },
+    {
+      "file": "young-athlete-exercising-box-jumps-at-gym-royalty-free-image.jpeg",
+      "id": "repetition-intervals",
+      "alt": "Повторные интервальные тренировки - выполнение одного упражнения с периодами отдыха",
+      "title": "Повторные интервальные тренировки - развитие силы и выносливости",
+      "authorName": "Автор",
+      "authorUrl": "https://unsplash.com/",
+      "unsplashUrl": "https://unsplash.com/",
+      "photoUrl": "https://unsplash.com/"
+    }
+  ]
+}

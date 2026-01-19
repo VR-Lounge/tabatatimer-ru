@@ -1,0 +1,332 @@
+/* Burger Menu для SEO-страниц */
+/* Тонкое меню в правом верхнем углу */
+
+.burger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Скрываем burger menu на страницах с якорями (/#tabata, /#girls, /#timer, /#men) */
+/* Показываем только на главной странице */
+body:has(#tabata.active) .burger-menu,
+body:has(#girls.active) .burger-menu,
+body:has(#timer.active) .burger-menu,
+body:has(#men.active) .burger-menu,
+body:has(article.active) .burger-menu {
+    display: none !important;
+}
+
+.burger-menu-button {
+    width: 30px;
+    height: 30px;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s ease-in-out;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.burger-menu-button:hover {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 0.7;
+    transform: none;
+}
+
+.burger-menu-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.burger-menu-button.active {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 0.7;
+}
+
+.burger-menu-button span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger-menu-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.burger-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.burger-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.burger-menu-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 85vw;
+    height: 100%;
+    background: rgba(27, 31, 34, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    z-index: 10001;
+    padding: 80px 0 40px 0;
+}
+
+/* Крестик для закрытия меню (только крестик, без кольца) */
+.burger-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none !important;
+    border-radius: 0 !important;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    z-index: 10002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.burger-menu-close:hover {
+    opacity: 1;
+}
+
+.burger-menu-close::before,
+.burger-menu-close::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease-in-out;
+}
+
+.burger-menu-close::before {
+    transform: rotate(45deg);
+}
+
+.burger-menu-close::after {
+    transform: rotate(-45deg);
+}
+
+.burger-menu-panel.active {
+    right: 0;
+}
+
+.burger-menu-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.burger-menu-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.burger-menu-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.burger-menu-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.burger-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.burger-menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.burger-menu-link {
+    display: block;
+    padding: 16px 24px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none !important;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.burger-menu-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    padding-left: 28px;
+    text-decoration: none !important;
+}
+
+.burger-menu-link.active {
+    color: #7af5ff;
+    background: rgba(122, 245, 255, 0.1);
+    text-decoration: none !important;
+}
+
+.burger-menu-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #7af5ff;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.burger-menu-link:hover::before,
+.burger-menu-link.active::before {
+    opacity: 1;
+}
+
+.burger-menu-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.burger-menu-item.has-submenu > .burger-menu-link::after {
+    content: '›';
+    float: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.burger-menu-item.has-submenu.open > .burger-menu-link::after {
+    transform: rotate(90deg);
+}
+
+.burger-menu-item.has-submenu.open > .burger-menu-submenu {
+    max-height: 1000px;
+}
+
+.burger-menu-submenu .burger-menu-link {
+    padding-left: 40px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none !important;
+}
+
+.burger-menu-submenu .burger-menu-link:hover {
+    padding-left: 44px;
+    text-decoration: none !important;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 736px) {
+    .burger-menu {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .burger-menu-button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .burger-menu-panel {
+        width: 280px;
+        max-width: 90vw;
+    }
+    
+    .burger-menu-link {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .burger-menu-submenu .burger-menu-link {
+        padding-left: 36px;
+    }
+}
+
+/* Анимация появления элементов меню */
+.burger-menu-item {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideInRight 0.3s ease-out forwards;
+}
+
+.burger-menu-item:nth-child(1) { animation-delay: 0.05s; }
+.burger-menu-item:nth-child(2) { animation-delay: 0.1s; }
+.burger-menu-item:nth-child(3) { animation-delay: 0.15s; }
+.burger-menu-item:nth-child(4) { animation-delay: 0.2s; }
+.burger-menu-item:nth-child(5) { animation-delay: 0.25s; }
+.burger-menu-item:nth-child(6) { animation-delay: 0.3s; }
+.burger-menu-item:nth-child(7) { animation-delay: 0.35s; }
+.burger-menu-item:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
