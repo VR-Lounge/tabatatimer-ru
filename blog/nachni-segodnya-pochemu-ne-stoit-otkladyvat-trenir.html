@@ -191,36 +191,140 @@
             color: #7af5ff;
         }
         
-        .blog-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        .blog-gallery-slider {
+            position: relative;
         }
         
-        .blog-gallery-item {
+        .blog-gallery-main {
+            position: relative;
+            margin-bottom: 20px;
             border-radius: 12px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.05);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .blog-gallery-image {
+        .blog-gallery-main-image {
             width: 100%;
             height: auto;
-            max-height: 400px;
-            object-fit: cover;
+            max-height: 600px;
+            object-fit: contain;
             display: block;
-            transition: transform 0.3s ease;
         }
         
-        .blog-gallery-image:hover {
-            transform: scale(1.02);
+        .blog-gallery-prev,
+        .blog-gallery-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(122, 245, 255, 0.8);
+            border: none;
+            color: #1a1a1a;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        
+        .blog-gallery-prev {
+            left: 15px;
+        }
+        
+        .blog-gallery-next {
+            right: 15px;
+        }
+        
+        .blog-gallery-prev:hover,
+        .blog-gallery-next:hover {
+            background: #7af5ff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .blog-gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(122, 245, 255, 0.3) transparent;
+        }
+        
+        .blog-gallery-thumbnails::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .blog-gallery-thumbnails::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .blog-gallery-thumbnails::-webkit-scrollbar-thumb {
+            background: rgba(122, 245, 255, 0.3);
+            border-radius: 4px;
+        }
+        
+        .blog-gallery-thumbnails::-webkit-scrollbar-thumb:hover {
+            background: rgba(122, 245, 255, 0.5);
+        }
+        
+        .blog-gallery-thumb {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-gallery-thumb:hover {
+            border-color: rgba(122, 245, 255, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .blog-gallery-thumb.active {
+            border-color: #7af5ff;
+            box-shadow: 0 0 15px rgba(122, 245, 255, 0.5);
+        }
+        
+        .blog-gallery-thumb-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         @media (max-width: 768px) {
-            .blog-gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
+            .blog-gallery-main {
+                min-height: 300px;
+            }
+            
+            .blog-gallery-main-image {
+                max-height: 400px;
+            }
+            
+            .blog-gallery-thumb {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .blog-gallery-prev,
+            .blog-gallery-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
             }
         }
         
@@ -229,11 +333,29 @@
             font-size: 1.1rem;
         }
         
+        .blog-post-content section {
+            margin: 40px 0;
+            padding: 0;
+        }
+        
+        .blog-post-content section:first-of-type {
+            margin-top: 0;
+        }
+        
+        .blog-post-content section:last-of-type {
+            margin-bottom: 0;
+        }
+        
         .blog-post-content h2 {
             font-size: 1.8rem;
-            margin: 30px 0 15px 0;
+            margin: 30px 0 20px 0;
             color: #7af5ff;
-            text-align: center;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .blog-post-content section > h2:first-child {
+            margin-top: 0;
         }
         
         .blog-post-content h3 {
@@ -272,23 +394,23 @@
         
         .blog-post-content ul,
         .blog-post-content ol {
-            margin: 15px 0 15px 25px;
-            padding-left: 20px;
-        }
-        
-        .blog-post-content li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-        
-        .blog-post-content ul,
-        .blog-post-content ol {
-            margin: 15px 0;
+            margin: 20px 0 25px 0;
             padding-left: 30px;
+            line-height: 1.7;
         }
         
         .blog-post-content li {
-            margin: 8px 0;
+            margin: 10px 0;
+            line-height: 1.7;
+            padding-left: 5px;
+        }
+        
+        .blog-post-content ul li {
+            list-style-type: disc;
+        }
+        
+        .blog-post-content ol li {
+            list-style-type: decimal;
         }
         
         .blog-post-content a {
@@ -503,18 +625,18 @@
         </article>
         
         <div class="blog-post-content">
-            <p>Знакомо? &#x27;Начну с понедельника&#x27;, &#x27;С понедельника начну новую жизнь&#x27;, &#x27;С нового года точно...&#x27; А понедельник превращается во вторник, вторник в среду, и так проходит месяц, год, а может и несколько лет.</p><h3>Почему мы откладываем?</h3><ol><li><strong>Страх неудачи</strong> - 'А вдруг не получится?'</li><li><strong>Перфекционизм</strong> - 'Нужно всё идеально подготовить'</li><li><strong>Лень</strong> - 'Сегодня не хочется, завтра точно'</li><li><strong>Отсутствие мотивации</strong> - 'Не вижу смысла'</li></ol><h3>Но вот в чём дело:</h3><p>Каждый день, который ты откладываешь, - это день, который ты теряешь. Каждая тренировка, которую ты пропускаешь, - это шаг назад от своей цели.</p><h3>Начни СЕГОДНЯ. Прямо сейчас.</h3><p>Не нужно:</p><ul><li>Дорогого абонемента в спортзал</li><li>Сложного оборудования</li><li>Часов тренировок</li><li>Идеальных условий</li></ul><h3>Нужно только:</h3><ul><li>4 минуты твоего времени</li><li>Твоё желание измениться</li></ul><h3>План на СЕГОДНЯ:</h3><ol><li>Выбери режим TABATA (20 секунд работы / 10 секунд отдых)</li><li>Сделай 8 раундов:</li></ol><ul><li>Приседания</li><li>Отжимания</li><li>Планка</li><li>Бёрпи</li></ul><p>Всё. 4 минуты. Сегодня. Прямо сейчас.</p><h3>Почему это работает:</h3><ul><li>Маленькие шаги ведут к большим результатам</li><li>Привычка формируется за 21 день</li><li>Каждая тренировка делает тебя сильнее</li><li>Ты становишься лучше с каждым днём</li></ul><h3>Мотивация:</h3><p>Ты не обязан быть идеальным с первого дня. Ты должен быть лучше, чем вчера. Каждый день. По чуть-чуть.</p><h3>Помни:</h3><ul><li>Лучшая тренировка - та, которую ты сделал</li><li>Лучшее время начать - прямо сейчас</li><li>Ты сильнее, чем думаешь</li><li>Ты можешь больше, чем представляешь</li></ul><h3>Действуй:</h3><p>Не жди понедельника. Не жди идеального момента. Не жди, когда появится мотивация.</p><p>Мотивация приходит во время действия, а не до него.</p><p>Начни сегодня. Сделай одну тренировку. Завтра сделай ещё одну. Послезавтра - ещё. И так каждый день.</p><p>Через месяц ты не узнаешь себя. Через три месяца другие не узнают тебя. Через год ты станешь тем, кем всегда хотел быть.</p><h3>Но всё начинается с одного шага. С одной тренировки. С сегодняшнего дня.</h3><p>Открой tabatatimer.ru. Начни прямо сейчас. Ты можешь это сделать. Ты это сделаешь.</p>
+            <p>Знакомо? &#x27;Начну с понедельника&#x27;, &#x27;С понедельника начну новую жизнь&#x27;, &#x27;С нового года точно...&#x27; А понедельник превращается во вторник, вторник в среду, и так проходит месяц, год, а может и несколько лет.</p><h3>Почему мы откладываем?</h3><ol><li>Страх неудачи - 'А вдруг не получится?'</li><li>Перфекционизм - 'Нужно всё идеально подготовить'</li><li>Лень - 'Сегодня не хочется, завтра точно'</li><li>Отсутствие мотивации - 'Не вижу смысла'</li></ol><h3>Но вот в чём дело:</h3><p>Каждый день, который ты откладываешь, - это день, который ты теряешь. Каждая тренировка, которую ты пропускаешь, - это шаг назад от своей цели.</p><h3>Начни СЕГОДНЯ. Прямо сейчас.</h3><ul><li>Не нужно:</li><li>Дорогого абонемента в спортзал</li><li>Сложного оборудования</li><li>Часов тренировок</li><li>Идеальных условий</li></ul><h3>Нужно только:</h3><ul><li>4 минуты твоего времени</li><li>Твоё желание измениться</li></ul><h3>План на СЕГОДНЯ:</h3><ol><li>Выбери режим <strong>Tabata</strong> (20 секунд работы / 10 секунд отдых)</li><li>Сделай 8 раундов:</li></ol><ul><li>Приседания</li><li>Отжимания</li><li>Планка</li><li>Бёрпи</li></ul><p>Всё. 4 минуты. Сегодня.</p><p>Прямо сейчас.</p><h3>Почему это работает:</h3><ul><li>Маленькие шаги ведут к большим результатам</li><li>Привычка формируется за 21 день</li><li>Каждая тренировка делает тебя сильнее</li><li>Ты становишься лучше с каждым днём</li></ul><h3>Мотивация:</h3><p>Ты не обязан быть идеальным с первого дня. Ты должен быть лучше, чем вчера. Каждый день.</p><p>По чуть-чуть.</p><h3>Помни:</h3><ul><li>Лучшая тренировка - та, которую ты сделал</li><li>Лучшее время начать - прямо сейчас</li><li>Ты сильнее, чем думаешь</li><li>Ты можешь больше, чем представляешь</li></ul><h3>Действуй:</h3><ul><li>Не жди понедельника. Не жди идеального момента. Не жди, когда появится мотивация.</li></ul><ul><li>Мотивация приходит во время действия, а не до него.</li></ul><p>Начни сегодня. Сделай одну тренировку. Завтра сделай ещё одну.</p><p>Послезавтра - ещё. И так каждый день.</p><p>Через месяц ты не узнаешь себя. Через три месяца другие не узнают тебя. Через год ты станешь тем, кем всегда хотел быть.</p><h3>Но всё начинается с одного шага. С одной тренировки. С сегодняшнего дня.</h3><p>Открой tabatatimer.ru. Начни прямо сейчас. Ты можешь это сделать.</p><p>Ты это сделаешь.</p>
     <div class="blog-timer-block">
         <h3>Как использовать интервальный таймер для этой программы</h3>
         <p>Режим TABATA идеально подходит для высокоинтенсивных интервальных тренировок: 20 секунд работы и 10 секунд отдыха. Этот режим поможет вам максимально эффективно сжигать калории и улучшать выносливость.</p>
-        <p>Для этой программы тренировок используйте режим <strong>TABATA</strong> на <a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мотивация, Тренировка | ID: 5152">tabatatimer.ru</a>. Это поможет вам:</p>
+        <p>Для этой программы тренировок используйте режим <strong>TABATA</strong> на <a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мотивация, Тренировка | ID: 2791">tabatatimer.ru</a>. Это поможет вам:</p>
         <ul>
             <li>Строго соблюдать интервалы работы и отдыха</li>
             <li>Максимально эффективно использовать время тренировки</li>
             <li>Отслеживать прогресс и улучшать результаты</li>
             <li>Поддерживать высокую интенсивность на протяжении всей тренировки</li>
         </ul>
-        <p><a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мотивация, Тренировка | ID: 5152">Открой таймер TABATATIMER.RU</a> прямо сейчас и начните тренироваться эффективнее!</p>
+        <p><a href="https://www.tabatatimer.ru/#timer" target="_blank" rel="noopener noreferrer" title="Онлайн секундомер для Мотивация, Тренировка | ID: 2791">Открой таймер TABATATIMER.RU</a> прямо сейчас и начните тренироваться эффективнее!</p>
     </div>
     
             
