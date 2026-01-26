@@ -690,11 +690,19 @@
                     }
                     const data = await response.json();
                     allPosts = data.posts || [];
+                    
+                    // ✅ Убираем сообщение "Загрузка постов..." перед рендерингом
+                    if (postsContainer) {
+                        postsContainer.innerHTML = '';
+                    }
+                    
                     renderPosts(true); // Начальная загрузка с сбросом
                     return Promise.resolve();
                 } catch (error) {
                     console.error('Ошибка загрузки постов:', error);
-                    postsContainer.innerHTML = '<div class="blog-empty">Посты временно недоступны. Попробуйте позже.</div>';
+                    if (postsContainer) {
+                        postsContainer.innerHTML = '<div class="blog-empty">Посты временно недоступны. Попробуйте позже.</div>';
+                    }
                     return Promise.reject(error);
                 }
             }
@@ -741,289 +749,88 @@
             // Основные теги для фильтрации (дополнительные теги не используются для фильтрации)
             const mainFilterTags = ['Мужчинам', 'Девушкам', 'Питание', 'Диеты', 'Мотивация'];
             
-                // Генерация мотивирующего заголовка на основе контента статьи (до 4 слов, отражает суть)
+                // ✅ ИСПРАВЛЕНИЕ: Используем полный заголовок из post.title
             // ВАЖНО: Заголовки должны быть уникальными для каждой статьи
             function generateMotivationalHeading(post) {
-                const text = (post.text || '').toLowerCase();
-                const title = (post.title || '').toLowerCase();
                 const titleOriginal = post.title || '';
-                const textOriginal = post.text || '';
-                const fullText = text + ' ' + title;
-                const tags = post.tags || detectTags(post.text, post.title || '');
-                const postId = post.id || '';
                 
-                // Функция для извлечения ключевой фразы из заголовка (до двоеточия)
-                function extractKeyPhraseFromTitle(titleText) {
-                    if (!titleText) return null;
+                // ✅ КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Используем полный заголовок из post.title
+                // Убираем только технические признаки (podcast #, episode)
+                if (titleOriginal) {
+                    let cleanTitle = titleOriginal
+                        .replace(/podcast\s*#?\s*\d+[,:]?\s*/gi, '')
+                        .replace(/episode\s*#?\s*\d+[,:]?\s*/gi, '')
+                        .replace(/#\s*\d+[,:]?\s*/g, '')
+                        .trim();
                     
-                    // Ищем двоеточие, тире, дефис как разделители
-                    const separators = [':', '—', '–', '-', '•'];
-                    for (const sep of separators) {
-                        const index = titleText.indexOf(sep);
-                        if (index > 0) {
-                            const beforeSep = titleText.substring(0, index).trim();
-                            // Проверяем, что это не слишком длинная фраза (максимум 4 слова для более описательных заголовков)
-                            const words = beforeSep.split(/\s+/).filter(w => w.length > 0);
-                            if (words.length >= 1 && words.length <= 4) {
-                                return beforeSep;
+                    // ✅ КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: НЕ обрезаем заголовки, которые начинаются с цифры
+                    // Если заголовок начинается с цифры (например, "30-дневный челлендж"), 
+                    // обрезаем только если он ОЧЕНЬ длинный (больше 100 символов)
+                    const startsWithNumber = /^\d+/.test(cleanTitle);
+                    const maxLength = startsWithNumber ? 100 : 80; // Для заголовков с цифрой - больше лимит
+                    
+                    if (cleanTitle.length > maxLength) {
+                        // Пробуем обрезать по последнему пробелу, но не короче 60 символов
+                        cleanTitle = cleanTitle.substring(0, maxLength).trim();
+                        const lastSpace = cleanTitle.lastIndexOf(' ');
+                        // Если последний пробел находится после 60 символов, обрезаем по нему
+                        if (lastSpace > 60) {
+                            cleanTitle = cleanTitle.substring(0, lastSpace);
+                        }
+                        // Добавляем многоточие только если заголовок действительно обрезан
+                        if (titleOriginal.length > maxLength) {
+                            cleanTitle += '...';
+                        }
+                    }
+                    
+                    // ✅ КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Проверяем, что заголовок не состоит из одной цифры
+                    // Если после обработки осталась только цифра, используем оригинальный заголовок
+                    const trimmedTitle = cleanTitle.trim();
+                    if (/^\d+$/.test(trimmedTitle) && titleOriginal.length > trimmedTitle.length) {
+                        // Если осталась только цифра, но оригинальный заголовок длиннее, используем оригинал
+                        // Но обрезаем его более аккуратно - берем минимум первые 2 слова
+                        const words = titleOriginal.split(/\s+/);
+                        if (words.length > 1) {
+                            // Берем первые слова до тех пор, пока не наберем минимум 20 символов или 3 слова
+                            let result = '';
+                            for (let i = 0; i < Math.min(4, words.length); i++) {
+                                if (result) result += ' ';
+                                result += words[i];
+                                if (result.length >= 20) break;
                             }
-                        }
-                    }
-                    return null;
-                }
-                
-                // Функция для извлечения ключевой фразы из начала текста
-                function extractKeyPhraseFromText(textContent) {
-                    if (!textContent) return null;
-                    
-                    // Берем первые 300 символов текста
-                    const firstPart = textContent.substring(0, 300).toLowerCase();
-                    
-                    // Ищем паттерны типа "X - это Y" или "X: это Y"
-                    const patterns = [
-                        /([а-яё\s]{1,30})\s*[—–-]\s*это\s+([а-яё\s]{1,20})/i,
-                        /([а-яё\s]{1,30})\s*:\s*это\s+([а-яё\s]{1,20})/i,
-                        /([а-яё\s]{1,30})\s*[—–-]\s*твой\s+([а-яё\s]{1,20})/i,
-                        /([а-яё\s]{1,30})\s*:\s*твой\s+([а-яё\s]{1,20})/i
-                    ];
-                    
-                    for (const pattern of patterns) {
-                        const match = firstPart.match(pattern);
-                        if (match) {
-                            // Берем первую часть (до "это" или "твой")
-                            const phrase = match[1].trim();
-                            const words = phrase.split(/\s+/).filter(w => w.length > 0);
-                            if (words.length >= 1 && words.length <= 3) {
-                                // Если есть вторая часть, можем объединить
-                                const secondPart = match[2] ? match[2].trim() : '';
-                                if (secondPart && secondPart.split(/\s+/).length <= 2) {
-                                    return phrase + ' ' + secondPart;
-                                }
-                                return phrase;
+                            cleanTitle = result;
+                            if (cleanTitle.length > 100) {
+                                cleanTitle = cleanTitle.substring(0, 100).trim() + '...';
                             }
+                        } else {
+                            // Если одно слово, используем как есть (но не обрезаем до одной цифры)
+                            cleanTitle = titleOriginal;
                         }
                     }
                     
-                    // Ищем ключевые слова в начале текста
-                    const keyWords = [
-                        'медицинбол', 'гибридный атлет', 'сезоны в зале', 'кишечник', 
-                        'второй мозг', 'система важнее', 'средиземноморская диета',
-                        'стройное тело', '30 дней', 'набор массы', 'силовая тренировка'
-                    ];
-                    
-                    for (const keyword of keyWords) {
-                        if (firstPart.includes(keyword.toLowerCase())) {
-                            // Проверяем, что это не слишком длинная фраза
-                            const words = keyword.split(/\s+/);
-                            if (words.length <= 3) {
-                                return keyword;
+                    // ✅ ДОПОЛНИТЕЛЬНАЯ ПРОВЕРКА: Если заголовок все еще состоит только из цифры, 
+                    // используем первые слова из текста поста
+                    if (/^\d+$/.test(cleanTitle.trim())) {
+                        const postText = post.text || '';
+                        if (postText) {
+                            const textWords = postText.split(/\s+/).slice(0, 5).join(' ');
+                            if (textWords.length > 10) {
+                                cleanTitle = textWords.substring(0, 80).trim() + '...';
+                            } else {
+                                cleanTitle = titleOriginal.substring(0, 80);
                             }
+                        } else {
+                            cleanTitle = titleOriginal.substring(0, 80);
                         }
                     }
                     
-                    return null;
-                }
-                
-                // ПРИОРИТЕТ 1: Извлекаем ключевую фразу из заголовка (до двоеточия)
-                const titleKeyPhrase = extractKeyPhraseFromTitle(titleOriginal);
-                if (titleKeyPhrase) {
-                    // Генерируем уникальный хеш для этого поста
-                    let hash = 0;
-                    for (let i = 0; i < postId.length; i++) {
-                        hash = ((hash << 5) - hash) + postId.charCodeAt(i);
-                        hash = hash & hash;
-                    }
-                    const uniqueHash = Math.abs(hash);
-                    
-                    // Проверяем, используется ли эта фраза другими постами
-                    // ВАЖНО: Не вызываем generateMotivationalHeading рекурсивно!
-                    // Вместо этого используем простую проверку на основе postId
-                    const baseHeading = titleKeyPhrase.toUpperCase();
-                    
-                    // Проверяем дубликаты только по простым признакам (без рекурсии)
-                    let isDuplicate = false;
-                    if (typeof allPosts !== 'undefined' && typeof generatedHeadings !== 'undefined') {
-                        // Используем глобальный кеш заголовков, чтобы избежать рекурсии
-                        if (generatedHeadings.has(baseHeading)) {
-                            isDuplicate = true;
-                        }
-                    }
-                    
-                    if (isDuplicate) {
-                        // Если заголовок уже используется, добавляем уникальный суффикс
-                        const variants = ['', ' •', ' →', ' ⚡'];
-                        const variant = variants[uniqueHash % variants.length];
-                        return baseHeading + variant;
-                    }
-                    return baseHeading;
-                }
-                
-                // ПРИОРИТЕТ 1.5: Если не нашли короткую фразу, пробуем извлечь более длинную (до 5 слов)
-                // Это для случаев типа "Сила, которая меняет всё: ..."
-                if (titleOriginal && titleOriginal.includes(':')) {
-                    const longPhrase = titleOriginal.split(':')[0].trim();
-                    const words = longPhrase.split(/\s+/).filter(w => w.length > 0);
-                    if (words.length >= 1 && words.length <= 5) {
-                        // Проверяем уникальность
-                        let hash = 0;
-                        for (let i = 0; i < postId.length; i++) {
-                            hash = ((hash << 5) - hash) + postId.charCodeAt(i);
-                            hash = hash & hash;
-                        }
-                        const uniqueHash = Math.abs(hash);
-                        
-                        // ВАЖНО: Не вызываем generateMotivationalHeading рекурсивно!
-                        const baseHeading = longPhrase.toUpperCase();
-                        
-                        // Проверяем дубликаты только по простым признакам (без рекурсии)
-                        let isDuplicate = false;
-                        if (typeof generatedHeadings !== 'undefined') {
-                            if (generatedHeadings.has(baseHeading)) {
-                                isDuplicate = true;
-                            }
-                        }
-                        
-                        if (isDuplicate) {
-                            const variants = ['', ' •', ' →', ' ⚡'];
-                            const variant = variants[uniqueHash % variants.length];
-                            return baseHeading + variant;
-                        }
-                        return baseHeading;
+                    if (cleanTitle) {
+                        return cleanTitle;
                     }
                 }
                 
-                // ПРИОРИТЕТ 2: Извлекаем ключевую фразу из начала текста
-                const textKeyPhrase = extractKeyPhraseFromText(textOriginal);
-                if (textKeyPhrase) {
-                    return textKeyPhrase.toUpperCase();
-                }
-                
-                // ПРИОРИТЕТ 3: Специфичные проверки для известных статей
-                if (postId.includes('nutrition_1') || postId.includes('pravilnoe-pitanie')) {
-                    return 'Топливо для мышц';
-                }
-                if (postId.includes('menshealth_1768207422') || postId.includes('meditsinbol')) {
-                    return 'Медицинбол';
-                }
-                if (postId.includes('menshealth_1768204039') || postId.includes('gibridnyy-atlet')) {
-                    return 'Гибридный атлет';
-                }
-                if (postId.includes('men_s_gi') || postId.includes('muzhskoy-zhkt')) {
-                    // Проверяем текст на наличие фразы про кишечник
-                    if (fullText.includes('кишечник') && (fullText.includes('второй мозг') || fullText.includes('второй мозг'))) {
-                        return 'Кишечник-второй мозг';
-                    }
-                    return 'Железный живот';
-                }
-                if (postId.includes('supercars') || postId.includes('sistema-vazhnee')) {
-                    return 'Сила в простоте';
-                }
-                if (postId.includes('diet_1') || postId.includes('sredizemnomorskaya')) {
-                    return 'Средиземноморская диета';
-                }
-                if (postId.includes('motivation_1') || postId.includes('nachni-segodnya')) {
-                    return 'Начни сегодня';
-                }
-                if (postId.includes('womens_workout_1') || postId.includes('trenirovka-dlya-devushek')) {
-                    return 'Стройность за 30 дней';
-                }
-                if (postId.includes('mens_workout_1') || postId.includes('silovaya-trenirovka')) {
-                    return 'Набор массы';
-                }
-                
-                // ПРИОРИТЕТ 4: Анализ по тегам и ключевым словам (только если не нашли ключевую фразу)
-                // Для статей про питание и тренировки
-                if (tags.includes('Питание') && tags.includes('Тренировка')) {
-                    // Сначала проверяем специфичные фразы про силовые тренировки для девушек
-                    if (fullText.includes('сила') && (fullText.includes('меняет') || fullText.includes('девушк'))) {
-                        // Используем уникальный хеш для различия
-                        let hash = 0;
-                        for (let i = 0; i < postId.length; i++) {
-                            hash = ((hash << 5) - hash) + postId.charCodeAt(i);
-                            hash = hash & hash;
-                        }
-                        const uniqueHash = Math.abs(hash) % 3;
-                        const variants = ['Сила меняет всё', 'Сила для девушек', 'Силовые тренировки'];
-                        return variants[uniqueHash];
-                    }
-                    // Ищем специфичные фразы в тексте
-                    if (fullText.includes('сезоны в зале') || fullText.includes('сезоны')) {
-                        return 'Сезоны в зале';
-                    } else if (fullText.includes('топливо') && fullText.includes('мышц')) {
-                        return 'Топливо для мышц';
-                    } else if (fullText.includes('кишечник') && (fullText.includes('второй мозг') || fullText.includes('второй мозг'))) {
-                        return 'Кишечник-второй мозг';
-                    } else if (fullText.includes('до') && fullText.includes('после') && fullText.includes('тренировк')) {
-                        // Используем уникальный хеш для различия похожих статей
-                        let hash = 0;
-                        for (let i = 0; i < postId.length; i++) {
-                            hash = ((hash << 5) - hash) + postId.charCodeAt(i);
-                            hash = hash & hash;
-                        }
-                        const uniqueHash = Math.abs(hash) % 3;
-                        const variants = ['Питание до после', 'Топливо для тренировок', 'Энергия в еде'];
-                        return variants[uniqueHash];
-                    }
-                }
-                
-                // Для статей про мужчин и тренировки
-                if (tags.includes('Мужчинам') && tags.includes('Тренировка')) {
-                    if (fullText.includes('медицинбол') || fullText.includes('medicine ball')) {
-                        return 'Медицинбол';
-                    } else if (fullText.includes('гибридный атлет') || fullText.includes('hybrid athlete')) {
-                        return 'Гибридный атлет';
-                    } else if (fullText.includes('масса') || fullText.includes('набор') || fullText.includes('набираем')) {
-                        return 'Набор массы';
-                    } else if (fullText.includes('сила') || fullText.includes('силовой')) {
-                        return 'Сила за месяц';
-                    }
-                }
-                
-                // Для статей про девушек и тренировки
-                if (tags.includes('Девушкам') && tags.includes('Тренировка')) {
-                    if (fullText.includes('стройное тело') || fullText.includes('30 дней')) {
-                        return 'Стройность за 30 дней';
-                    } else if (fullText.includes('тонус') || fullText.includes('подтянут')) {
-                        return 'Тонус за месяц';
-                    }
-                }
-                
-                // Для статей про диеты
-                if (tags.includes('Диеты')) {
-                    if (fullText.includes('средиземноморская') || fullText.includes('mediterranean')) {
-                        return 'Средиземноморская диета';
-                    } else if (fullText.includes('долголетие') || fullText.includes('долголетия')) {
-                        return 'Диета долголетия';
-                    }
-                }
-                
-                // Для статей про мотивацию
-                if (tags.includes('Мотивация')) {
-                    if (fullText.includes('начни') || fullText.includes('сегодня') || fullText.includes('не стоит откладывать')) {
-                        return 'Начни сегодня';
-                    } else if (fullText.includes('система') && !fullText.includes('брэндон')) {
-                        return 'Система важнее мотивации';
-                    }
-                }
-                
-                // Универсальные проверки
-                if (fullText.includes('кишечник') && (fullText.includes('второй мозг') || fullText.includes('второй мозг'))) {
-                    return 'Кишечник-второй мозг';
-                } else if (fullText.includes('система') || fullText.includes('системность')) {
-                    return 'Система важнее мотивации';
-                } else if (fullText.includes('начни') || fullText.includes('сегодня')) {
-                    return 'Начни сегодня';
-                }
-                
-                // Финальный fallback с уникальностью на основе ID
-                let hash = 0;
-                for (let i = 0; i < postId.length; i++) {
-                    hash = ((hash << 5) - hash) + postId.charCodeAt(i);
-                    hash = hash & hash;
-                }
-                const uniqueHash = Math.abs(hash) % 4;
-                const fallbackVariants = ['Твой результат', 'Твой прогресс', 'Твой успех', 'Твой путь'];
-                return fallbackVariants[uniqueHash];
+                // Fallback: если заголовка нет, используем дефолтный
+                return 'Статья о фитнесе';
             }
             
             // Генерация уникального alt и title для изображения
@@ -1103,20 +910,10 @@
                 }
                 
                 // Универсальные варианты (fallback)
-                let hash = 0;
-                for (let i = 0; i < postId.length; i++) {
-                    hash = ((hash << 5) - hash) + postId.charCodeAt(i);
-                    hash = hash & hash;
-                }
-                const uniqueHash = Math.abs(hash);
-                const fallbackVariants = ['Твой результат', 'Твой прогресс', 'Твой успех', 'Твой путь', 'Твоя сила', 'Твоя мотивация'];
-                const result = fallbackVariants[uniqueHash % fallbackVariants.length];
-                
-                // Сохраняем в кеш
-                if (generatedHeadings) {
-                    generatedHeadings.set(postId, result);
-                }
-                return result;
+                return {
+                    alt: `Полезная статья о фитнесе и здоровье${uniqueSuffix}`,
+                    title: `Статья о фитнесе и тренировках${uniqueSuffix}`
+                };
             }
             
             // Фильтрация и сортировка постов
