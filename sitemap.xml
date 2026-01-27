@@ -15,6 +15,21 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/10-minutnaya-trenirovka-ruk-s-girey-dlya-nachinayu.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/kak-ubrat-zhivot-novichkam-plan-trenirovok-dlya-de.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/30-dnevnyy-fitnes-marafon-dlya-nachinayuschih-devu.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/7-dnevnyy-fitnes-marafon-dlya-nachinayuschih-devus.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
