@@ -15,6 +15,21 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/smuzi-s-bananom-i-arahisovoy-pastoy-za-5-minut.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/retsept-proteinovyh-batonchikov-bez-vypechki-za-15.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/detoks-salat-dlya-tonusa-i-energii.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/hiit-trenirovka-dlya-zanyatyh-maksimum-effekta-za-.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
