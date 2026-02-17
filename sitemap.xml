@@ -15,6 +15,11 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/10-uprazhneniy-dlya-figury-pesochnye-chasy.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/chechevitsa-s-rozmarinom-i-ostrym-pertsem-za-30-mi.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
