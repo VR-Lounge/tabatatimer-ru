@@ -15,6 +15,11 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/dieticheskiy-lobster-roll-s-grecheskim-yogurtom.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/hiit-trenirovka-dlya-pressa-szhigaem-zhir-za-20-mi.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
