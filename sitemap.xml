@@ -15,6 +15,16 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/5-uprazhneniy-dlya-stroynyh-i-podtyanutyh-byoder.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/21-dnevnyy-plan-domashnih-trenirovok-dlya-lyubogo-.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/dip-iz-kopchenogo-lososya-s-grecheskim-yogurtom.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
