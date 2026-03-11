@@ -15,6 +15,11 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/nezhnyy-losos-pod-grilem-za-20-minut.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/5-uprazhneniy-dlya-stroynyh-i-podtyanutyh-byoder.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
