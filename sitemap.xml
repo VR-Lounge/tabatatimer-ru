@@ -15,6 +15,21 @@
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://www.tabatatimer.ru/blog/poleznaya-paelya-s-krevetkami-i-kinoa-za-30-minut.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/kurinyy-kordon-blyu-v-multivarke-retsept-supa-pyur.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.tabatatimer.ru/blog/koreyskiy-bbq-v-kapustnyh-chashechkah-dlya-keto-uz.html</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://www.tabatatimer.ru/blog/prostoy-retsept-kuritsy-s-laymom-i-kinzoy-na-skovo.html</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
