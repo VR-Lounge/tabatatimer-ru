@@ -674,7 +674,8 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             let allPosts = [];
             let currentFilter = 'all';
-            let currentPage = 0;
+            /** Смещение в filteredPosts: после первой порции (20) догружаем по 10 без дыр и без повторов */
+            let postsOffset = 0;
             let postsPerPage = 20;
             let loadMorePosts = 10;
             let isLoading = false;
@@ -689,7 +690,17 @@
                         throw new Error('Не удалось загрузить посты');
                     }
                     const data = await response.json();
-                    allPosts = data.posts || [];
+                    const raw = data.posts || [];
+                    const seen = new Set();
+                    allPosts = [];
+                    for (let i = 0; i < raw.length; i++) {
+                        const p = raw[i];
+                        const id = p && p.id != null ? String(p.id) : '';
+                        if (!id) continue;
+                        if (seen.has(id)) continue;
+                        seen.add(id);
+                        allPosts.push(p);
+                    }
                     
                     // ✅ Убираем сообщение "Загрузка постов..." перед рендерингом
                     if (postsContainer) {
@@ -833,10 +844,11 @@
                 return 'Статья о фитнесе';
             }
             
-            // Генерация уникального alt и title для изображения
+            // Генерация уникального alt и title для изображения (без упоминаний внутренних источников в id)
             function generateImageAltTitle(post) {
                 const tags = post.tags || detectTags(post.text, post.title || '');
-                const postId = post.id || `post_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                let postId = post.id || `post_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                postId = String(postId).replace(/skinnyms_recipes/gi, 'recipes').replace(/skinnyms_fitness/gi, 'fitness');
                 const uniqueSuffix = ` | ${postId}`;
                 
                 if (tags.includes('Мужчинам') && tags.includes('Тренировка')) {
@@ -1042,6 +1054,68 @@
                 return `/blog/${slug}.html`;
             }
             
+            /** Рецепты/питание: превью и модалка должны брать фото блюда из images[], а не сток Fitness | Woman из post.image */
+            function isRecipeLikePost(post) {
+                var pid = String(post.id || '');
+                if (pid.indexOf('recipes_') === 0 || pid.indexOf('skinnyms_recipes_') === 0) return true;
+                const s = String(post.source || '').toLowerCase();
+                if (s === 'recipes' || s.indexOf('skinnyms_recipes') >= 0) return true;
+                const tags = post.tags || detectTags(post.text, post.title || '');
+                return tags.some(function (t) {
+                    const x = String(t).toLowerCase();
+                    return x === 'рецепт' || x === 'рецепты';
+                });
+            }
+            /** Меньше = лучше (как _score_recipe_image_for_hero в generate_blog_post_page.py) */
+            function scoreRecipeHeroForImg(img) {
+                var u = (img && img.url) || '';
+                var alt = String((img && img.alt) || '').toLowerCase();
+                var ttl = String((img && img.title) || '').toLowerCase();
+                var meta = alt + ' ' + ttl;
+                if (meta.indexOf('спортивное питание') >= 0 && meta.indexOf('продукты для энергии') >= 0) return 920;
+                if (meta.indexOf('фото тренировки и фитнеса') >= 0 || meta.indexOf('профессиональное фото тренировки') >= 0) return 920;
+                if (meta.indexOf('питание до и после тренировки') >= 0 && meta.indexOf('оптимальный рацион') >= 0) return 920;
+                if (/\/images\/Fitness|Fitness%20\|%20(Woman|Man)/i.test(u)) return 3000;
+                if (u.indexOf('/images/blog/') < 0) return 2000;
+                var name = '';
+                try { name = decodeURIComponent(u.split('/').pop() || '').toLowerCase(); } catch (e) { name = (u.split('/').pop() || '').toLowerCase(); }
+                if (/skinnyms_recipes/.test(name) || /^recipes_\d+_/.test(name)) {
+                    var lastSeg = name.split('_').pop() || '';
+                    var stem = lastSeg.replace(/\.(jpe?g|png|webp)$/i, '');
+                    if (/^\d{1,4}$/.test(stem) && !/[a-zа-яё]{2,}/i.test(stem)) return 850;
+                }
+                var foodHints = /recipe|crock|slow-cooker|slow_cooker|dinner|meal|pasta|soup|salad|chicken|turkey|beef|fish|smoothie|bowl|cups|lasagna|penne|stew|casserole|oatmeal|chips|lettuce|low-carb|lowcarb|keto|bake|skillet|instant-pot|multicook|buffalo|taco|wrap|bbq|gumbo|roll|tea|sweet|quinoa|meatball|vegetarian|fajita|shrimp|dip|lobster|brownie|paella|cordon|apple|cinnamon|nut|broccoli|banana|meatballs|pesto|basil|breakfast/i;
+                if (foodHints.test(name)) return 0;
+                var workoutName = /gymshark|woman-holding|man-holding|woman-doing|man-doing|woman-exercising|man-exercising|dumbbell|in-gym|in-the-gym|workout-challenge|hiit-workout|jumping-rope|squat-challenge|fitness-levels|lunges-in|with-dumbbell|gym-floor|cardio-workout|pull-up|pullup/i;
+                if (workoutName.test(name)) return 420;
+                if (/_0_[a-f0-9]{6,}_/i.test(name)) return 1;
+                if (/_1_[a-f0-9]{6,}_/i.test(name)) return 2;
+                if (/_2_[a-f0-9]{6,}_/i.test(name)) return 3;
+                if (/^(?:skinnyms_recipes|recipes)_\d+_[a-f0-9]+_\d+\.jpe?g$/i.test(name)) return 500;
+                var text = ((img.alt || '') + ' ' + (img.title || '') + ' ' + u).toLowerCase();
+                var fk = ['тренировк','workout','exercise','yoga','gym','dumbbell','гантел','squat','cardio','кардио','woman exercising','man exercising','pull-up','pullup'];
+                for (var fi = 0; fi < fk.length; fi++) { if (text.indexOf(fk[fi]) >= 0) return 400; }
+                if (foodHints.test(u)) return 0;
+                return 100;
+            }
+            function pickHeroImageForPost(post) {
+                var stockRe = /\/images\/Fitness|Fitness%20\|%20(Woman|Man)/i;
+                var imgs = post.images;
+                if (isRecipeLikePost(post) && imgs && imgs.length > 0) {
+                    var bestScore = 1e9, bestU = '', i, sc;
+                    for (i = 0; i < imgs.length; i++) {
+                        sc = scoreRecipeHeroForImg(imgs[i]);
+                        if (sc < bestScore) { bestScore = sc; bestU = imgs[i].url || ''; }
+                    }
+                    if (bestU) return bestU;
+                    for (i = 0; i < imgs.length; i++) {
+                        var u2 = imgs[i].url || '';
+                        if (u2 && !stockRe.test(u2)) return u2;
+                    }
+                }
+                return post.image || '';
+            }
+
             // Рендеринг одного поста
             function renderPost(post, index) {
                 const tags = post.tags || detectTags(post.text, post.title || '');
@@ -1074,12 +1148,13 @@
                 
                 // Получаем URL для отдельной страницы
                 const postUrl = getPostUrl(post);
+                const heroUrl = pickHeroImageForPost(post);
                 
                 return `
                     <article class="blog-post" data-post-id="${post.id || index}">
-                        ${post.image ? `
+                        ${heroUrl ? `
                             <div class="blog-post-image-wrapper">
-                                <img src="${post.image}" alt="${imageMeta.alt}" title="${imageMeta.title}" class="blog-post-image" loading="lazy" decoding="async">
+                                <img src="${heroUrl}" alt="${imageMeta.alt}" title="${imageMeta.title}" class="blog-post-image" loading="lazy" decoding="async">
                                 <h2 class="blog-post-heading">${escapeHtml(heading)}</h2>
                             </div>
                         ` : ''}
@@ -1100,7 +1175,7 @@
             // Рендеринг постов с пагинацией
             function renderPosts(reset = false) {
                 if (reset) {
-                    currentPage = 0;
+                    postsOffset = 0;
                     hasMorePosts = true;
                     postsContainer.innerHTML = '';
                 }
@@ -1113,9 +1188,9 @@
                     return;
                 }
                 
-                // Вычисляем сколько постов показать
-                const startIndex = reset ? 0 : currentPage * postsPerPage;
-                const endIndex = reset ? postsPerPage : startIndex + loadMorePosts;
+                const startIndex = postsOffset;
+                const chunk = reset ? postsPerPage : loadMorePosts;
+                const endIndex = Math.min(startIndex + chunk, filteredPosts.length);
                 const postsToShow = filteredPosts.slice(startIndex, endIndex);
                 
                 if (postsToShow.length === 0) {
@@ -1149,8 +1224,9 @@
                     });
                 });
                 
+                postsOffset = endIndex;
                 // Проверяем, есть ли ещё посты
-                hasMorePosts = endIndex < filteredPosts.length;
+                hasMorePosts = postsOffset < filteredPosts.length;
                 
                 // Если есть ещё посты, создаём или обновляем индикатор загрузки
                 let loader = document.getElementById('blog-loader');
@@ -1170,9 +1246,6 @@
                     }
                 }
                 
-                if (!reset) {
-                    currentPage++;
-                }
             }
             
             // Загрузка дополнительных постов при прокрутке
@@ -1601,10 +1674,11 @@
                 const modalBody = document.getElementById('blog-modal-body');
                 const imageMeta = generateImageAltTitle(post);
                 const cleanedText = cleanText(post.text);
+                const modalHeroUrl = pickHeroImageForPost(post);
                 modalBody.innerHTML = `
-                    ${post.image ? `
+                    ${modalHeroUrl ? `
                         <div class="blog-modal-image-wrapper">
-                            <img src="${post.image}" alt="${imageMeta.alt}" title="${imageMeta.title}" class="blog-modal-image">
+                            <img src="${modalHeroUrl}" alt="${imageMeta.alt}" title="${imageMeta.title}" class="blog-modal-image">
                             <h1 class="blog-modal-heading">${escapeHtml(post.title)}</h1>
                         </div>
                     ` : ''}
