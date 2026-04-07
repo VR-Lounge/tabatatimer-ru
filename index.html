@@ -257,7 +257,7 @@
 		</script>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
+		<link rel="stylesheet" href="assets/css/burger-menu.css">
 		
 		
    
@@ -910,7 +910,7 @@
 								<li><a href="#timer">Timer</a></li>
 								<li><a href="#men">Man</a></li>
 								<!--<li><a href="#coopertest">COOPER TEST</a></li>-->
-								<li><a href="#trxtabata">TRX TABATA</a></li>
+								<li><a href="https://www.tabatatimer.ru/blog.html" target="_blank" rel="noopener noreferrer">ЗОЖ</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -2266,29 +2266,52 @@
 				<label for="demo-category">Выбери табата трек</label>
 					<div class="select-wrapper">
 						<select name="playlist" id="playlist" onchange="newtimer.setMusic();">
-					<?php
-						$musicFiles = glob('assets/music/*.mp3');
-						$defaultTrack = 'Tabata - Rocky.mp3';
-						$defaultPath = 'assets/music/' . $defaultTrack;
-
-						if (!empty($musicFiles)) {
-							sort($musicFiles, SORT_NATURAL | SORT_FLAG_CASE);
-
-							$defaultIndex = array_search($defaultPath, $musicFiles, true);
-							if ($defaultIndex !== false) {
-								$defaultFile = $musicFiles[$defaultIndex];
-								unset($musicFiles[$defaultIndex]);
-								array_unshift($musicFiles, $defaultFile);
-							}
-
-							foreach ($musicFiles as $filePath) {
-								$basename = basename($filePath);
-								$label = preg_replace('/\.mp3$/i', '', $basename);
-								$isDefault = ($basename === $defaultTrack);
-								echo '<option value="' . htmlspecialchars($basename, ENT_QUOTES, 'UTF-8') . '"' . ($isDefault ? ' selected' : '') . '>' . htmlspecialchars($label, ENT_QUOTES, 'UTF-8') . '</option>' . "\n";
-							}
-						}
-					?>
+							<option value="Tabata - Rocky.mp3" selected>Tabata - Rocky</option>
+							<option value="Tabata - A Brazil Batucada.mp3">Tabata - A Brazil Batucada</option>
+							<option value="Tabata - Africa Tabata.mp3">Tabata - Africa Tabata</option>
+							<option value="Tabata - Back in Black.mp3">Tabata - Back in Black</option>
+							<option value="Tabata - Bichota.mp3">Tabata - Bichota</option>
+							<option value="Tabata - Blinding Lights.mp3">Tabata - Blinding Lights</option>
+							<option value="Tabata - Blue Da Ba Dee.mp3">Tabata - Blue Da Ba Dee</option>
+							<option value="Tabata - Bring Sally Up.mp3">Tabata - Bring Sally Up</option>
+							<option value="Tabata - Circles.mp3">Tabata - Circles</option>
+							<option value="Tabata - Dance.mp3">Tabata - Dance</option>
+							<option value="Tabata - Danza Koduro.mp3">Tabata - Danza Koduro</option>
+							<option value="Tabata - Dark Symphony.mp3">Tabata - Dark Symphony</option>
+							<option value="Tabata - Despacito.mp3">Tabata - Despacito</option>
+							<option value="Tabata - Doin it Right.mp3">Tabata - Doin it Right</option>
+							<option value="Tabata - Don't Start Now.mp3">Tabata - Don't Start Now</option>
+							<option value="Tabata - Dr Dre.mp3">Tabata - Dr Dre</option>
+							<option value="Tabata - Enter Sandman.mp3">Tabata - Enter Sandman</option>
+							<option value="Tabata - Eye Of The Tiger.mp3">Tabata - Eye Of The Tiger</option>
+							<option value="Tabata - Final Countdown.mp3">Tabata - Final Countdown</option>
+							<option value="Tabata - Folking.mp3">Tabata - Folking</option>
+							<option value="Tabata - Hip-Hop.mp3">Tabata - Hip-Hop</option>
+							<option value="Tabata - House.mp3">Tabata - House</option>
+							<option value="Tabata - Hubiera Conocido.mp3">Tabata - Hubiera Conocido</option>
+							<option value="Tabata - Hymn for the Weekend.mp3">Tabata - Hymn for the Weekend</option>
+							<option value="Tabata - I Gotta Feeling.mp3">Tabata - I Gotta Feeling</option>
+							<option value="Tabata - I Wanna Dance with Somebody.mp3">Tabata - I Wanna Dance with Somebody</option>
+							<option value="Tabata - In Your Eyes.mp3">Tabata - In Your Eyes</option>
+							<option value="Tabata - Last Last.mp3">Tabata - Last Last</option>
+							<option value="Tabata - Lose Yourself.mp3">Tabata - Lose Yourself</option>
+							<option value="Tabata - Me Gusta.mp3">Tabata - Me Gusta</option>
+							<option value="Tabata - Memories.mp3">Tabata - Memories</option>
+							<option value="Tabata - Rhythm Is a Dancer.mp3">Tabata - Rhythm Is a Dancer</option>
+							<option value="Tabata - September.mp3">Tabata - September</option>
+							<option value="Tabata - Seven Nation Army.mp3">Tabata - Seven Nation Army</option>
+							<option value="Tabata - Shape of You.mp3">Tabata - Shape of You</option>
+							<option value="Tabata - Smells Like Teen Spirit.mp3">Tabata - Smells Like Teen Spirit</option>
+							<option value="Tabata -Smells Like Teen Spirit.mp3">Tabata -Smells Like Teen Spirit</option>
+							<option value="Tabata - Smooth Criminal.mp3">Tabata - Smooth Criminal</option>
+							<option value="Tabata - Songs Shake It Off.mp3">Tabata - Songs Shake It Off</option>
+							<option value="Tabata - Street Funk.mp3">Tabata - Street Funk</option>
+							<option value="Tabata - Sugar.mp3">Tabata - Sugar</option>
+							<option value="Tabata - Survior.mp3">Tabata - Survior</option>
+							<option value="Tabata - Take on Me.mp3">Tabata - Take on Me</option>
+							<option value="Tabata - Uptown Funk.mp3">Tabata - Uptown Funk</option>
+							<option value="Tabata - Water.mp3">Tabata - Water</option>
+							<option value="Tabata - WOD.mp3">Tabata - WOD</option>
 						</select>
 					</div>
 						<!-- Контейнер для кнопки выбора упражнений (добавляется через JS) -->
@@ -2406,7 +2429,8 @@
 </div>
 				<!--<center><h4>Сделай тренировки еще эффективнее с петлями TRX!</h4></center>
 				<p style="text-align:center">TRX - это целый спортзал. Лёгкий и по-настоящему эффективный тренажёр.</p>-->
-				<button id="moreTRXfromTimer" class="shine" style="width:100%">Подробнее</button>
+				<a id="moreTRXfromTimer" class="button shine" href="https://www.tabatatimer.ru/blog.html?utm_source=tabatatimer&amp;utm_medium=timer&amp;utm_campaign=workout_finish&amp;utm_content=fitness_zozh" target="_blank" rel="noopener noreferrer" style="width:100%; box-sizing:border-box; display:block; text-align:center; text-decoration:none;">ФИТНЕС И ЗОЖ</a>
+				<p class="timer-end-blog-caption" style="text-align:center; margin:0.65rem 0 0 0; font-size:0.82rem; line-height:1.35; letter-spacing:0.02em; color:rgba(255,255,255,0.78);">наш блог: тренировки · питание · мотивация</p>
 				<button id="backtotimer" class="button" style="width:100%; margin-top: 1.5rem; opacity: .9;">Назад к таймеру</button>
 				<!-- Контейнер для результатов AMRAP (показывается только в режиме AMRAP) -->
 				<div id="amrap-results-in-quotes" style="display: none; margin-top: 20px; padding: 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -3470,6 +3494,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js" defer></script>
 			<script src="assets/js/main.js" defer></script>
 			<script src="assets/js/jquery.textfill.min.js" defer></script>
+			<script src="assets/js/burger-menu.js" defer></script>
 	<script type="text/javascript">
 	// Ожидаем загрузки DOM и jQuery плагина textfill
 	document.addEventListener('DOMContentLoaded', function() {
@@ -3544,14 +3569,6 @@ jQuery(document).ready(function($) {
 			ymen = false;
 		});
 	};
-	if(ytrx){
-		$("#header a[href$='trxtabata']").add('#moreTRXfromTimer').one('click', function() {
-			$('#youtubeTrxMain').attr('src', 'https://www.youtube.com/embed/videoseries?list=PLgTB0t4o7Srl5Jcg1kbrnj2v1UuEg8LYr');
-			$('#youtubeTrxSus').attr('src', 'https://www.youtube-nocookie.com/embed/oxc_Ni7Hdn8?rel=0');
-			$('#youtubeTrxTact').attr('src', 'https://www.youtube-nocookie.com/embed/Qsv02gHvx10?rel=0');
-			ytrx = false;
-		});
-	};
 	 
 	 var $main_articles = $('#main').children('article');
 	 var $currentArticle = $main_articles.filter('.active');
@@ -3569,16 +3586,10 @@ jQuery(document).ready(function($) {
 		location.hash = '#trxtabata';
 	});
 	
-	$('#moreTRXfromTimer').click(function() {
-		$currentArticle.removeClass('active');
-		setTimeout(function() {
-			$currentArticle.hide();
-			$('#trxtabata').show();
-			setTimeout(function() {
-				$('#trxtabata').addClass('active');
-			}, 25);
-		}, 500);	
-		location.hash = '#trxtabata';
+	$('#moreTRXfromTimer').on('click', function() {
+		if (typeof yaCounter42580049 !== 'undefined') {
+			try { yaCounter42580049.reachGoal('timer_finish_blog_click'); } catch (e) {}
+		}
 	});
 	
 	
