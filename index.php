@@ -887,10 +887,10 @@ $vremya = md5(time());
 							<ul>
 								<li><a href="#tabata">Tabata</a></li>
 								<li><a href="#girls">Woman</a></li>
-								<li><a href="#timer">Timer</a></li>
+								<li><a href="https://www.tabatatimer.ru/blog.html" target="_blank" rel="noopener noreferrer">ЗОЖ</a></li>
 								<li><a href="#men">Man</a></li>
 								<!--<li><a href="#coopertest">COOPER TEST</a></li>-->
-								<li><a href="https://www.tabatatimer.ru/blog.html" target="_blank" rel="noopener noreferrer">ЗОЖ</a></li>
+								<li><a href="https://t.me/fitnesstimer" target="_blank" rel="noopener noreferrer">TELEGRAM</a></li>
 							</ul>
 						</nav>
 					</header>
