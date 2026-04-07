@@ -23,7 +23,7 @@
                 <button class="burger-menu-close" id="burger-menu-close" aria-label="Закрыть меню"></button>
                 <ul class="burger-menu-list">
                     <li class="burger-menu-item">
-                        <a href="/" class="burger-menu-link">Главная</a>
+                        <a href="https://www.tabatatimer.ru/#timer" class="burger-menu-link"><strong>ТАБАТА ТАЙМЕР</strong></a>
                     </li>
                     <li class="burger-menu-item has-submenu">
                         <a href="#" class="burger-menu-link">База знаний</a>
@@ -56,13 +56,16 @@
                         </ul>
                     </li>
                     <li class="burger-menu-item">
-                        <a href="/blog.html" class="burger-menu-link">Блог</a>
+                        <a href="/blog.html" class="burger-menu-link">НАШ БЛОГ - ФИТНЕС И ЗОЖ</a>
                     </li>
                     <li class="burger-menu-item">
                         <a href="/faq.html" class="burger-menu-link">FAQ</a>
                     </li>
                     <li class="burger-menu-item">
-                        <a href="https://t.me/fitnesstimer" target="_blank" class="burger-menu-link">Telegram канал</a>
+                        <a href="https://t.me/fitnesstimer" target="_blank" rel="noopener noreferrer" class="burger-menu-link">Telegram канал</a>
+                    </li>
+                    <li class="burger-menu-item">
+                        <a href="https://finance.ozon.ru/apps/sbp/ozonbankpay/019d6302-2ad5-7d68-9414-7264e6578bff" target="_blank" rel="noopener noreferrer" class="burger-menu-link">Благодарность (СБП)</a>
                     </li>
                 </ul>
             </div>
