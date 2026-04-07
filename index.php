@@ -262,6 +262,7 @@ $vremya = md5(time());
 		</script>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/burger-menu.css">
 		
 		
 		
@@ -889,7 +890,7 @@ $vremya = md5(time());
 								<li><a href="#timer">Timer</a></li>
 								<li><a href="#men">Man</a></li>
 								<!--<li><a href="#coopertest">COOPER TEST</a></li>-->
-								<li><a href="#trxtabata">TRX TABATA</a></li>
+								<li><a href="https://www.tabatatimer.ru/blog.html" target="_blank" rel="noopener noreferrer">ЗОЖ</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -2385,7 +2386,8 @@ $vremya = md5(time());
 </div>
 				<!--<center><h4>Сделай тренировки еще эффективнее с петлями TRX!</h4></center>
 				<p style="text-align:center">TRX - это целый спортзал. Лёгкий и по-настоящему эффективный тренажёр.</p>-->
-				<button id="moreTRXfromTimer" class="shine" style="width:100%">Подробнее</button>
+				<a id="moreTRXfromTimer" class="button shine" href="https://www.tabatatimer.ru/blog.html?utm_source=tabatatimer&amp;utm_medium=timer&amp;utm_campaign=workout_finish&amp;utm_content=fitness_zozh" target="_blank" rel="noopener noreferrer" style="width:100%; box-sizing:border-box; display:block; text-align:center; text-decoration:none;">ФИТНЕС И ЗОЖ</a>
+				<p class="timer-end-blog-caption" style="text-align:center; margin:0.65rem 0 0 0; font-size:0.82rem; line-height:1.35; letter-spacing:0.02em; color:rgba(255,255,255,0.78);">наш блог: тренировки · питание · мотивация</p>
 				<button id="backtotimer" class="button" style="width:100%; margin-top: 1.5rem; opacity: .9;">Назад к таймеру</button>
 				<!-- Контейнер для результатов AMRAP (показывается только в режиме AMRAP) -->
 				<div id="amrap-results-in-quotes" style="display: none; margin-top: 20px; padding: 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -3449,6 +3451,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js" defer></script>
 			<script src="assets/js/main.js" defer></script>
 			<script src="assets/js/jquery.textfill.min.js" defer></script>
+			<script src="assets/js/burger-menu.js" defer></script>
 	<script type="text/javascript">
 	// Ожидаем загрузки DOM и jQuery плагина textfill
 	document.addEventListener('DOMContentLoaded', function() {
@@ -3523,14 +3526,6 @@ jQuery(document).ready(function($) {
 			ymen = false;
 		});
 	};
-	if(ytrx){
-		$("#header a[href$='trxtabata']").add('#moreTRXfromTimer').one('click', function() {
-			$('#youtubeTrxMain').attr('src', 'https://www.youtube.com/embed/videoseries?list=PLgTB0t4o7Srl5Jcg1kbrnj2v1UuEg8LYr');
-			$('#youtubeTrxSus').attr('src', 'https://www.youtube-nocookie.com/embed/oxc_Ni7Hdn8?rel=0');
-			$('#youtubeTrxTact').attr('src', 'https://www.youtube-nocookie.com/embed/Qsv02gHvx10?rel=0');
-			ytrx = false;
-		});
-	};
 	 
 	 var $main_articles = $('#main').children('article');
 	 var $currentArticle = $main_articles.filter('.active');
@@ -3548,16 +3543,10 @@ jQuery(document).ready(function($) {
 		location.hash = '#trxtabata';
 	});
 	
-	$('#moreTRXfromTimer').click(function() {
-		$currentArticle.removeClass('active');
-		setTimeout(function() {
-			$currentArticle.hide();
-			$('#trxtabata').show();
-			setTimeout(function() {
-				$('#trxtabata').addClass('active');
-			}, 25);
-		}, 500);	
-		location.hash = '#trxtabata';
+	$('#moreTRXfromTimer').on('click', function() {
+		if (typeof yaCounter42580049 !== 'undefined') {
+			try { yaCounter42580049.reachGoal('timer_finish_blog_click'); } catch (e) {}
+		}
 	});
 	
 	
