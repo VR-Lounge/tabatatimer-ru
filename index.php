@@ -2387,6 +2387,7 @@ $vremya = md5(time());
 				<!--<center><h4>Сделай тренировки еще эффективнее с петлями TRX!</h4></center>
 				<p style="text-align:center">TRX - это целый спортзал. Лёгкий и по-настоящему эффективный тренажёр.</p>-->
 				<button id="backtotimer" class="button" style="width:100%; margin-top: 1.5rem; opacity: .9;">Назад к таймеру</button>
+				<a id="timerEndFitnessZozh" class="button shine" href="https://www.tabatatimer.ru/blog.html?utm_source=tabatatimer&amp;utm_medium=timer&amp;utm_campaign=workout_finish&amp;utm_content=fitness_zozh" target="_blank" rel="noopener noreferrer" style="width:100%; box-sizing:border-box; display:block; text-align:center; text-decoration:none; margin-top:1.5rem;">ФИТНЕС И ЗОЖ</a>
 				<a id="moreTRXfromTimer" class="button shine" href="https://finance.ozon.ru/apps/sbp/ozonbankpay/019d6302-2ad5-7d68-9414-7264e6578bff" target="_blank" rel="noopener noreferrer" style="width:100%; box-sizing:border-box; display:block; text-align:center; text-decoration:none; margin-top:1.5rem;">Благодарность</a>
 				<p class="timer-end-blog-caption" style="text-align:center; margin:0.65rem 0 0 0; font-size:0.82rem; line-height:1.35; letter-spacing:0.02em; color:rgba(255,255,255,0.78);">Проект живёт много лет и всегда будет бесплатным: таймеры и все материалы — без подписки и скрытых платежей. Автор поддерживает его за свой счёт. Но если хотите помочь дальнейшему развитию, можно перевести любую сумму добровольно — через СБП (сервис донатов OZON Банк), без комиссии с вашей стороны.</p>
 				<!-- Контейнер для результатов AMRAP (показывается только в режиме AMRAP) -->
@@ -3543,6 +3544,11 @@ jQuery(document).ready(function($) {
 		location.hash = '#trxtabata';
 	});
 	
+	$('#timerEndFitnessZozh').on('click', function() {
+		if (typeof yaCounter42580049 !== 'undefined') {
+			try { yaCounter42580049.reachGoal('timer_finish_blog_click'); } catch (e) {}
+		}
+	});
 	$('#moreTRXfromTimer').on('click', function() {
 		if (typeof yaCounter42580049 !== 'undefined') {
 			try { yaCounter42580049.reachGoal('timer_finish_donate_click'); } catch (e) {}
