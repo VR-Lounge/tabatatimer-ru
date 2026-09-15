@@ -1,3 +1,4 @@
 User-agent: *
 
-Host: https://tabatatimer.ru
+Host: https://www.tabatatimer.ru
+Sitemap: https://www.tabatatimer.ru/sitemap.xml
